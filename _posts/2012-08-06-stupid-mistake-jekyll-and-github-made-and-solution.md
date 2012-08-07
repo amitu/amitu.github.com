@@ -52,7 +52,7 @@ not a jekyll repo.
 This introduces complexities for developers. I have to now maintain two
 different repositories or branches, I have to write [scripts to sync
 them](http://charliepark.org/jekyll-with-plugins/) etc.  And it completely
-defeats the point of support jekyll at github level.
+defeats the point of supporting jekyll at github level.
 
 If we look at a normal software build, we have Makefile, we have src/\*.c etc,
 and compiled output is stored in some special folder named "build" etc. What we
