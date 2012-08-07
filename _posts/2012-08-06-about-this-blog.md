@@ -37,14 +37,14 @@ wayback machine.
 #### Latest Setup
 
 For the blog I still want to use git repository concept. Which lead me to
-[jekyll](http://jekyllrb.com/). There are a few alternatives, hyde being the
-most prominent one. Hyde is python based, and jekyll ruby. I generally have a
-python bias, but for this time I decided to stick with jekyll for its support
-by github.
+[jekyll](http://jekyllrb.com/). There are a few alternatives,
+[hyde](http://ringce.com/hyde)  being the most prominent one. Hyde is python
+based, and jekyll ruby. I generally have a python bias, but for this time I
+decided to stick with jekyll for its support by github.
 
 I used [jekyllbootstrap](http://jekyllbootstrap.com/) as my starting point as
 it comes with a theme I liked. A simple clone, and I could start after
-modifying _config file.
+modifying \_config file.
 
 Only time will tell till how long will I stick with it. I love the design and
 simplicity of the system so far. Though I am not yet sure what is the meaning
