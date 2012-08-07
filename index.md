@@ -11,7 +11,7 @@ I work with the wonderful folks at [BrowserStack](http://www.browserstack.com).
 On the side I am working on [bookwork](http://www.bookwork.in).
 
 A few of my open source babies [fhurl](http://packages.python.org/fhurl/),
-[importd](http://github.com/amitu/importd) and
+[importd](/importd/) and
 [dutils](http://packages.python.org/dutils/). Check the rest on [my github
 page](http://github.com/amitu).
 
