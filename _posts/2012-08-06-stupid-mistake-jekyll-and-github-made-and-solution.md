@@ -13,14 +13,15 @@ tags: []
 static websites from any git repository on github. This is great for projects
 to host a free project page. Github also allows and encourages github users to
 host their personal static sites on github pages. They go to the extent of
-allowing you to host your custom domains.
+allowing you to host your custom domains (making it almost completely
+alturistic exercise on their part).
 
 Managing static sites is a pain, and we meet
 [Jekyll](https://github.com/mojombo/jekyll/), a static site generator designed
 with blogs in mind. What jekyll does is it expects some special files and
 folders with names starting with an underscore, and uses them to convert all
-files in the current folder with .md extension into .html files. In folder
-named \_posts, specially named .md files are used to create blog, with
+files in the current folder with .md (etc) extension into .html files. In
+folder named \_posts, specially named .md files are used to create blog, with
 categories and tags. Post meta data is stored in the .md files themselves at
 the top. jekyll creates archive page, a list of all pages on the site, rss and
 sitemap file and all.
@@ -64,15 +65,15 @@ This design decision to incorporate jekyll is bad compromise. I posit that
 almost no jekyll based repository is maintained by someone without access to
 jekyll on their local system.
 
-So instead of github trying to take care of that use case (and the use case of
+Instead of github trying to take care of that use case (and the use case of
 cases where a repository can be modified from web), github takes care of a much
 better use case: site original files and built static sites being stored in the
 same repo, which is a real pain point [faced by
 people](http://stackoverflow.com/questions/6201339/a-clean-system-for-github-pages-with-local-plugins).
 
-Here is my proposed github contract for pages: if a github pages repository
+Here is my proposed github contract for pages: *if a github pages repository
 contains a folder named \_site, the http request to /any-url goes to file
-/_site/any-url instead of the file /any-url.
+/_site/any-url instead of the file /any-url*.
 
 If github does that then they can claim they have equal support for not just
 jekyll but any static site generation system. I can use jekyll with my custom
@@ -80,6 +81,15 @@ plugins as easily as without them, or as easily as
 [hyde](http://ringce.com/hyde) or even my own make files that takes index.md
 and compiles it into \_site/index.html.
 
-This simplifies github internal architecture, they do not have to worry about
-compiling jekyll sites, and makes life easier for nearly every github pages
-user, as we do not have to manage two repositories/branches.
+The solution is completely backward compatible. Github already supports a
+protocol to indicate that a given repository does not require jekyll
+processing. Any repository that requires \_site feature but still use jekyll
+can disable github jekyll, and still use local jekyll to create \_site folder.
+
+This drastically reduces github jekyll processing and makes life easier for
+nearly every github pages user, as we do not have to manage two
+repositories/branches.
+
+Anybody at Github listening? :-)
+
+
