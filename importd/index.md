@@ -39,10 +39,15 @@ Quit the server with CONTROL-C.
 
 #### Features
 
+importd takes a lot of inspiration from sinatra, no need of half a dozen file
+for a simple api server, and from jquery, a single namespace: d. importd does
+all this without losing django compatibility. Some of the notable features:
+
  * automatically configure django
  * explicitly configure django, eg d(DEBUG=True)
  * automatically include "templates" in TEMPLATE_DIRS setting, so start using
    templates without any boiler plate
+ * automatically configure django with sqlite3 if no DATABASES is defined
  * automatically configure django to serve files in "static" on "/static/"
  * a view can return a string, that will be assumed name of template, which
    will be rendered using render_to_response
@@ -50,17 +55,18 @@ Quit the server with CONTROL-C.
    treated as context when rendering template
  * if view returns anything not a string, tuple or HttpResponse, it will be
    rendered as a json
- * importd can automatically construct regular expressions for your urls, based
-   on preconfigure regular expression patterns
+ * smart urls: importd can automatically construct regular expressions for your
+   urls, based on preconfigure regular expression patterns
  * custom regular expression patterns can be defined
  * d acts like a wsgi application
- * works with gunicorn
- * manage.py commands are available
+ * works with gunicorn eg $ gunicorn hello:d
+ * manage.py commands are available eg $ python hello.py syncdb
  * automatically runs a debug server
- * works well with [fhurl](http://packages.python.org/fhurl/)
+ * works with [fhurl](http://packages.python.org/fhurl/)
  * auto configuration, and other magic features can be turned off
  * most commonly used classes and functions in django are available on d
    namespace, eg d.HttpResponse
+ * fully compatible with existing django apps and projects
 
 #### Examples
 
