@@ -19,9 +19,9 @@ click on next a few times.
 
 There are a lot of posts on hackernews about how the quality of hackernews is
 going down, because of the increasing difference between the votes on stories
-on the first page vs the ones that comes on subsequent pages. 
+on the first page vs the ones that comes on subsequent pages.
 
-My theory: it is because of this incredibly "cheap" caching policyToday second
-page has become very hard to access and subsequent pages are nearly impossible
-to visit.
+My theory: it is because of this incredibly "cheap" caching policy second page
+has become very hard to access and subsequent pages are nearly impossible to
+visit.
 
