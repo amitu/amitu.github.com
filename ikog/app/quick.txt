@@ -1,0 +1,20 @@
+Quick reference card:
+?                     ADD/A/+ text          FILTER/FI [filter]
+HELP/H                IMMEDIATE/I/++ text   TOP/T [N]
+COLOR/COLOUR/C [N]    KILL/K/X/- N          NEXT/N
+MONOCHROME/MONO       CLEAR                 PREV/P
+EXPORT                REP/R N [text]        GO/G N
+IMPORT file           MOD/M N [text]        LIST/L [filter]
+REVIEW/REV ON/OFF     EXTEND/E N [text]     LIST>/L> [filter]
+V0                    EDIT/ED [N]           @
+V1                    SUB/SU N /s1/s2/      :D
+WEB                   FIRST/F N             :P>
+SAVE/S                DOWN/D N              @>
+AUTOSAVE/AS ON|OFF    UP/U N                :D>
+VER/VERSION           NOTE/NOTES text       :P>
+CLEARSCREEN/CLS       O/OPEN file           SHOW N
+SYS ON|OFF            NEW file              SETEDxx editor
+!CMD command          2                     ABBREV/AB @x @full
+ABBREV/AB ?           PAB ?                 PAB :px :pfull
+SHORTCUT/SC N cmd     SHORTCUT/SC ?         =N
+ARCHIVE/DONE N [text]
