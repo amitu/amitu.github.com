@@ -63,7 +63,7 @@ widget/javascript. Ex:
             // it to our callback
             ["dojo/text!file.html"],
             function (filecontent) {
-                console.log("file.html: ", filecontent);
+                console.log(filecontent);
             }
         );
     </script>
