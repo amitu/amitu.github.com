@@ -54,11 +54,18 @@ widget/javascript. Ex:
 
 {% highlight html %}
 <html>
-    <script data-dojo-config="async: true" src="dojo.js"></script>
+    <script
+        data-dojo-config="async: true"
+        src="dojo.js"></script>
     <script>
-        require(["dojo/text!somefile.html"], function (somefile) {
-            console.log("somefile.html contains: ", somefile);
-        });
+        require(
+            // instruct dojo to load file.html and pass
+            // it to our callback
+            ["dojo/text!file.html"],
+            function (filecontent) {
+                console.log("file.html: ", filecontent);
+            }
+        );
     </script>
 </html>
 {% endhighlight %}
