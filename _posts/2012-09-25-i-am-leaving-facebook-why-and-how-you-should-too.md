@@ -79,7 +79,7 @@ polite, we will be more careful of our language, and we will interact with the
 world.
 
 More importantly we will be owners of our data, we will have years worth of
-public writing experience. Politics is a profession of using one's
+public writing experience. Politics is a profession of using one-s
 communication skills to gain power. So many of worlds problems are related to
 communication. We becoming good at communication, which we will by public
 writing, is only good for everyon.

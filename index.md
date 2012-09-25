@@ -7,14 +7,19 @@ tagline: Supporting tagline
 
 Hey!
 
-I work with the wonderful folks at [BrowserStack](http://www.browserstack.com).
-On the side I am working on [bookwork](http://www.bookwork.in).
+I work with the wonderful folks at [CrispyGames](http://crispygam.es).
 
 A few of my open source babies [smarturls](/smarturls/),
 [fhurl](http://packages.python.org/fhurl/), [importd](/importd/),
 [zutils](https://github.com/amitu/zutils/blob/master/amitu/zutils.py) and
 [dutils](http://packages.python.org/dutils/). Check the rest on [my github
 page](http://github.com/amitu).
+
+I have recently moved away from facebook to a blog+email list based setup, read
+about it in this [blog
+post](/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/) and please
+[subscribe to my mailing list](http://eepurl.com/pRhOD) to help me in this
+experiment.
 
 ## Blog
 
