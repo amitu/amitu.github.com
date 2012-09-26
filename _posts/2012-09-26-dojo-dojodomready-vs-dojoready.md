@@ -8,7 +8,7 @@ tags: []
 {% include JB/setup %}
 
 [Dojo](http://dojotoolkit.org/), my javascript library of interest these days,
-has one stumbling block, the distinction between
+has one stumbling block for beginners, the distinction between
 [dojo/domReady!](http://dojotoolkit.org/reference-guide/1.8/dojo/domReady.html)
 plugin and
 [dojo/ready](http://dojotoolkit.org/reference-guide/1.8/dojo/ready.html)
