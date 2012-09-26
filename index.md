@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Amit Upadhyay
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
@@ -20,6 +19,8 @@ about it in this [blog
 post](/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/) and please
 [subscribe to my mailing list](http://eepurl.com/pRhOD) to help me in this
 experiment.
+
+-- Amit Upadhyay
 
 ## Blog
 

@@ -97,10 +97,10 @@ that allow you to create a new post by sending a mail. Just send to your blog
 private URL along with your friends, and the post would be published and
 delivered to your friends.
 
-[If the geek in you is wondering how you can refernce the URL of the yet to be
+\[If the geek in you is wondering how you can refernce the URL of the yet to be
 genrated blog post be included in mail, well dont, just include the link to
 your blog, your post be there by the time your friends get there to comment
-publicly].
+publicly\].
 
 
 
