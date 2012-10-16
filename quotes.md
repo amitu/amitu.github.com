@@ -377,7 +377,7 @@ You break the image and you break the enemy.
  The world forgetting, by the world forgot.
  Eternal sunshine of the spotless mind!
  Each pray'r accepted, and each wish resign'd;
-				-- \("Eloisa to Abelard"\) Alexander Pope
+				-- ("Eloisa to Abelard") Alexander Pope
 </pre>
 
 ----
@@ -404,7 +404,7 @@ The moving finger write, and having writ,
 moves on; not all thy piety nor wit,
 shall lure it back to cancel half a line,
 nor all thy tears wash out a word of it.
-			\(The Rubaiyat of Omar Khayyam\)
+			(The Rubaiyat of Omar Khayyam)
 </pre>
 ----
 Sometime when you least expect it, Love will tap you on the shoulder... and 
@@ -809,7 +809,7 @@ A calm sea does not make a skilled sailor. --African proverb
 <pre class="light">
  "Contrariwise," continued Tweedledee, "If it was so, it might be; and if
   it were so, it would be; but as it isn't, it ain't. That's Logic "
-								  -- Lewis Carroll \(Alice In Wonderland\)
+								  -- Lewis Carroll (Alice In Wonderland)
 </pre>
 
 ----
