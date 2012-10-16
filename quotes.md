@@ -5,6 +5,12 @@ description: ""
 ---
 {% include JB/setup %}
 
+One thing I believe is pretty true is that you should never ask people about
+their opinions directly. You should observe them, figure out what's wrong and
+then slowly figure out where the true problem lies.
+    -- [Armin Ronacher](http://lucumr.pocoo.org/2012/8/11/codec-confusion/)
+
+----
 You only have to be brave for a few seconds.
 
 ----
