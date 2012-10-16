@@ -1,5 +1,6 @@
 ---
 layout: page
+title: "Welcome"
 tagline: Supporting tagline
 ---
 {% include JB/setup %}
@@ -22,7 +23,13 @@ experiment.
 
 -- Amit Upadhyay
 
-## Blog
+<header>
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <h1 class="h2 entry-title">Blog</h1>
+        </div><!-- unit-inner -->
+    </div><!-- unit-head -->
+</header>
 
 <ul class="posts">
   {% for post in site.posts %}
