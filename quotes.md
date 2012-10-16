@@ -18,7 +18,7 @@ No famine from the last 1,000 years can be attributed to natural causes.
 some people might attempt to try to figure out if someone that disagrees with
 them is a shill.. but rarely if ever will they question a shill they happen to
 agree with
--- hsmith711(reddit)
+-- hsmith711\(reddit\)
 
 ----
 मंजिल मिल ही जायेगी भटकते ही सही, गुमराह तो वो है जो घर से निकले ही नहीं
@@ -137,7 +137,7 @@ library."
 
 ----
 "Try to learn something about everything and everything about something." 
-		-- Thomas Henry Huxley (1825-1895)
+		-- Thomas Henry Huxley \(1825-1895\)
 
 ----
 “The greatest challenge to any thinker is stating the problem in a way that 
@@ -188,12 +188,12 @@ It is a nice visual image. Far better than tastebud."
 they call 'right' reasons. Only mercenaries make any sense. We do what we're 
 paid to do. That's it.  Perhaps that's why people look down on us so. We're 
 the only ones who don't pretend to higher motives.'
-		-- Denther ( Warbreaker )
+		-- Denther \( Warbreaker \)
 
 ----
 ... you don't understand a man until you understand what makes him do what 
 he does. 
-		-- Denth ( Warbreaker )
+		-- Denth \( Warbreaker \)
 
 ----
 Don't argue with Idiots. They will bring you down to their level and beat 
@@ -233,20 +233,20 @@ Is also great And would suffice.
 ----
 There is another thing they don't teach you in basics, that no matter how 
 bad things get, there is always time for another joint.
-		-- Outpost (2007)
+		-- Outpost \(2007\)
 
 ----
 That bright light, it ain't heaven son. Just the muzzle flair. 
-		-- Outpost (2007)	
+		-- Outpost \(2007\)	
 
 ----		
 "But they are fucking unstoppable."
 "So were we once."
-		-- Outpost (2007)
+		-- Outpost \(2007\)
 
 ----		
 Quitting while you are ahead is not the same as quitting.
-		-- American Gangster (Movie)
+		-- American Gangster \(Movie\)
 
 ----
 Robert Half - "When one teaches, two learn."
@@ -352,7 +352,7 @@ It's amazing how nice people are to you when they know you're going away.
 ----
 "You can only find truth with logic if you have already found truth without 
 it."
-			- Gilbert Keith Chesterton (1874-1936)
+			- Gilbert Keith Chesterton \(1874-1936\)
 
 ----
 <pre class="light">
@@ -377,7 +377,7 @@ You break the image and you break the enemy.
  The world forgetting, by the world forgot.
  Eternal sunshine of the spotless mind!
  Each pray'r accepted, and each wish resign'd;
-				-- ("Eloisa to Abelard") Alexander Pope
+				-- \("Eloisa to Abelard"\) Alexander Pope
 </pre>
 
 ----
@@ -404,7 +404,7 @@ The moving finger write, and having writ,
 moves on; not all thy piety nor wit,
 shall lure it back to cancel half a line,
 nor all thy tears wash out a word of it.
-			(The Rubaiyat of Omar Khayyam)
+			\(The Rubaiyat of Omar Khayyam\)
 </pre>
 ----
 Sometime when you least expect it, Love will tap you on the shoulder... and 
@@ -444,7 +444,7 @@ cryptic, powerful, unforgiving, dangerous.
 
 ----
 "The meaning of life is to become a legend."
-	- Kefrens, Desert Dream (1993)
+	- Kefrens, Desert Dream \(1993\)
 
 ----
 "Ultimate excellence lies not in winning every battle but in defeating the 
@@ -457,7 +457,7 @@ It's amazing what a man can accomplish when he's not worried about who will get 
 ----
 "Know what I pray for? The strength to change what I can, the inability to
 accept what I can't and the incapacity to tell the difference."
-			-Calvin (Calvin N Hobbes)
+			-Calvin \(Calvin N Hobbes\)
 
 ----
 You can't reason someone out of a position they didn't reason themselves 
@@ -477,7 +477,7 @@ Engineering is the art of making what you want from things you can get.
 ----
 What the caterpillar calls the end of the world, the master calls a
 butterfly.				
--- R. Bach (Illusions: Adventures of a Reluctant Messiah)
+-- R. Bach \(Illusions: Adventures of a Reluctant Messiah\)
 											   
 ----
 Pray to God, but keep rowing to shore. -- Russian Proverb
@@ -496,7 +496,7 @@ When you make your mark in the world, watch out for guys with erasers.
 
 ----
 When 900 years old you are, look as good you will not.
-				--- Yoda to Luke (Return of the Jedi)
+				--- Yoda to Luke \(Return of the Jedi\)
 
 ----
 I am Time: And I have destroyed countless beings, even the gods who 
@@ -507,7 +507,7 @@ relationship is not based on mutual likes or dislikes.
 ----
 If you think you can do it, you can, if you can't, you can't. Not because
 it can or can not be done, but because you have the power to get what you
-want. -- Amit Upadhyay (Henry Ford's version is better)
+want. -- Amit Upadhyay \(Henry Ford's version is better\)
 
 ----
 The race is not always to the swift but to those who keep on running.
@@ -738,7 +738,7 @@ Beat me, whip me, make me use Windows!
 "Its God's responsibility to forgive the terrorist organizations such as 
 Jaish, Lashkar etc. Its our responsibility to arrange the meeting between 
 them and god."
-			- Indian Armed Forces(??)
+			- Indian Armed Forces\(??\)
 
 ----
 "Be true to your work, your word, and your friend."
@@ -803,13 +803,13 @@ A conclusion is simply the place where you got tired of thinking.
 		-- unknown
 
 ----
-A calm sea does not make a skilled sailor. (African proverb) 
+A calm sea does not make a skilled sailor. --African proverb
 
 ----
 <pre class="light">
  "Contrariwise," continued Tweedledee, "If it was so, it might be; and if
   it were so, it would be; but as it isn't, it ain't. That's Logic "
-								  -- Lewis Carroll (Alice In Wonderland)
+								  -- Lewis Carroll \(Alice In Wonderland\)
 </pre>
 
 ----
@@ -849,7 +849,7 @@ A ship is perfectly safe in harbour, but it is not what it is made for.
 
 ----
 "Whatever you do will be insignificant, but it is very important that you
-do it."  -Mahatma Gandhi. (man 7 pgp-intro)
+do it."  -Mahatma Gandhi. \(man 7 pgp-intro\)
 
 ----
 The distance between insanity and genius is measured only by success.

@@ -68,9 +68,9 @@ audiance I have groups in my mailing list.
 But if I keep posting my blog links on my facebook I continue to SPAM my
 friends. I want to continue to use facebook to reach friends who are not yet in
 my mailing list, and yet not SPAM my friends who have already subscribed to my
-list and are receiving emails from me [these friends have advantage of picking
+list and are receiving emails from me \[these friends have advantage of picking
 the topics on which they want to receive emails, and thus do not have to get
-SPAM from me].
+SPAM from me\].
 
 So here is what I have decided: I have created a [friend
 list](https://www.facebook.com/help/friends/lists) where I manually add my
