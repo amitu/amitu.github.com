@@ -1482,3 +1482,12 @@ hr {
   *display: inline;
   float: right;
 }
+pre.light {
+  color: #2d2d2d;
+  background-color: #fafafa;
+  border: 0px none;
+  padding: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
