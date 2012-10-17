@@ -62,5 +62,7 @@ Point is there is no point in spending all time in reality, certain kind of
 picture can be painted by taking amitu's brush in hand, that diverges from
 reality, without taking too much away, but by giving a more awesome story.
 
+Here is [another example](http://www.reddit.com/r/FanTheories/comments/uv4xp/what_happened_in_prometheus/).
+
 At the end of the day only stories matter. The awesomer they are the better.
 
