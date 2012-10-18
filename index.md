@@ -12,8 +12,8 @@ I work with the wonderful folks at [CrispyGames](http://crispygam.es).
 A few of my open source babies [smarturls](/smarturls/),
 [fhurl](http://packages.python.org/fhurl/), [importd](/importd/),
 [zutils](https://github.com/amitu/zutils/blob/master/amitu/zutils.py) and
-[dutils](http://packages.python.org/dutils/). Check the rest on [my github
-page](http://github.com/amitu).
+[dutils](http://packages.python.org/dutils/). Check out my [open
+source](/open-source.html) page to see them in detail.
 
 I have recently moved away from facebook to a blog+email list based setup, read
 about it in this [blog

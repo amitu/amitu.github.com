@@ -1,0 +1,194 @@
+---
+layout: page
+title: "Open Source"
+description: ""
+---
+{% include JB/setup %}
+
+#### [Jappy Framework](https://github.com/jarsj/jappy-framework)
+
+This is a nascent framework that [Harsh Jain](http://www.linkedin.com/in/jarsj)
+has developed. Its a web framework for Java and it rocks.
+
+It is in its very early days, very alpha, but I am using it in a few production
+apps and this framework is the only reason I can tolerate java for web
+development.
+
+So far I have only filed bugs, but I am planning to do a lot of advocacy for
+it, and hopefully fix few of those bugs.
+
+----
+
+#### [fhurl](http://packages.python.org/fhurl/)
+
+I do not think I will write any django application without my
+[fhurl](http://packages.python.org/fhurl/). fhurl is a generic views that
+serves forms.
+
+Since I have designed it I have not found one use case that can not be handled
+by this generic utility, ajax form, as you type validation, pre conditions for
+forms, initializing forms with custom values, almost every thing is supported.
+Can handle multiple forms in the same page with equal ease.
+
+----
+
+#### [smarturls](/smarturls/)
+
+[smarturls](/smarturls/) is a django helper to easy creation of urls.py. Django
+routes incoming HTTP requests to specific views by doing regular expression
+matches. This is awesome as it gives us [clean
+URLs](http://www.w3.org/Provider/Style/URI.html). But it means we have to deal
+with "ugly" regular expressions.
+
+This library is kind of a regular expression generator library that integrates
+well with django. [More details](/smarturls/).
+
+----
+
+#### [importd](/importd/)
+
+
+[importd](/importd/) is my another favorite. A minimal django application is
+too large, it contains settings.py, urls.py, at least one views.py. If I want
+to quickly expose one small JSON api from my server, django appears to be an
+overkill. Flask and other micro frameworks are emerging to allow a single file
+web application. But django is awesome, and flask etc are a different beast to
+learn. One never knows when one api becomes 10 and when we start requiring more
+features. If I use flask I will have to either give up django, or rewrite
+everything again.
+
+Django rocks, and [importd](/importd/) makes it trivial to write single file
+django projects. It is still early in development, so please file bugs!
+
+----
+
+#### [zutils](https://github.com/amitu/zutils/blob/master/amitu/zutils.py)
+
+[ZeroMQ](http://www.zeromq.org/intro:read-the-manual) is an awesome library.
+Every developer should learn about it. It allows you to easily build network
+application with topologies other than peer-to-peer communication that bsd
+socket interface provides. ZeroMQ allows Pub-Sub, message queue, Request-Reply,
+Push-Pull topologies.
+
+ZeroMQ has good bindings for python, but they are a little too low level. My
+[zutils](https://github.com/amitu/zutils/blob/master/amitu/zutils.py) wraps zmq
+api and gives some high level classes to easily use zeromq.  Nearly every
+zeromq application I have written have used these classes.
+
+----
+
+#### [dutils](http://packages.python.org/dutils/)
+
+[dutils](http://packages.python.org/dutils/) is my collection of miscellaneous
+django related utility methods. dutils used to be my companion in all django
+projects till sometime back. dutils lacked any cohesive theme, and since then I
+have started splitting out functionalities out of it.
+
+It is one of my first open source libraries. It is still a good resource at
+times when I am doing django work.
+
+----
+
+#### [amitu-websocket-client](https://github.com/amitu/amitu-websocket-client)
+
+[amitu-websocket-client](https://github.com/amitu/amitu-websocket-client) is my
+most forked project on github. Its a python library that can be used to
+communicate with websocket servers. It also supports
+[socketio](http://socket.io).
+
+----
+
+#### [hydrazine](https://github.com/amitu/hydrazine)
+
+This is one awesome concept, basically what hydrazine does it takes your Ubuntu
+server or desktop, and it takes an Ubuntu ISO installation disk, and installs
+Ubuntu in a folder in the current directory. It then copies across a few
+script, in that folder, and those scripts are then used to configure this new
+Ubuntu in the folder inside chroot.
+
+This is an alternative to virtualization, running a completely isolated install
+of entire OS within chroot. This project makes it trivial to have many such
+installs, one for each project deployed. Each project gets its own version of
+mysql or apache, each running on a custom port.
+
+The motive of this project was that the entire system should be in version
+control, /etc/ conf files, list of packages installed via apt-get or via
+jumping over any combination of "configure; make; make install" hoops, users
+and groups and so on.
+
+I used it for a quite a detailed production setup and I would recommend people
+to play with it just to see the chroot world of linux deployments.
+
+[Gera](http://www.theoldmonk.net/) gets the credit for name and initial proof
+of concept for this one.
+
+----
+
+#### [Gitology](https://github.com/amitu/gitology)
+
+Gitology is a blog system, and the idea behind
+[gitology](https://github.com/amitu/gitology) was a blog that uses git instead
+of database to store blog posts. It is an example of over engineering, and it
+failed because of this, even though it got quite a lot of interest when I first
+released it.
+
+Gitology powered my blog for 2 year or so, but eventually I got tired of it.
+Today my blog runs on jekyll, another attempt to solve the same problem I tried
+to solve, but with a more modest ambition. My system tried to openid, web based
+comments, where comments themselves be stored in git, web based editing and so
+forth. Dont. Do. That. Do something small and make it work. Lesson learnt.
+
+----
+
+#### [dimagebundle](https://github.com/amitu/dimagebundle)
+
+[dimagebundle](https://github.com/amitu/dimagebundle) is a django app, that
+clubs multiple images into a single image file and updates the html template to
+automatically use CSS based technique to show correct portion of the clubbed
+big image into original images.
+
+It was a proof of concept, it worked well, I used it for
+[Vakow!](http://magazine.itmagz.com/index.php/component/content/549.html?task=view)
+in 2008-2009. It probably doesn't work with latest django, but it should be
+easy to fix it.
+
+----
+
+#### [jVectorMap-India](https://github.com/amitu/jVectorMap-India)
+
+[jVectorMap-India](https://github.com/amitu/jVectorMap-India) is plugin to
+[jvectormap](http://jvectormap.com/), which is a jquery plugin, which is a
+javascript library. Yo!
+
+Take a look at a working [demo](http://amitu.com/jVectorMap-India/).
+
+jvectormap has its own [map of
+India](http://jvectormap.com/maps/countries/india/), but then there are more
+than one maps of India, one for Indians and another, and the other based in
+facts.
+
+----
+
+#### Django
+
+I am proud to be listed in the
+[AUTHORS](https://github.com/django/django/blob/master/AUTHORS) file of django.
+I have helped improve django's session and session cookie management. My patch
+allowed "remember me" button on django based signup page to become feasible
+without too much hacks.
+
+----
+
+#### [KnowIt](http://knowit.sourceforge.net/)
+
+
+[KnowIt](http://knowit.sourceforge.net/) has to be the first open source
+project I contributed to. When I learnt what is a mailing list and how to
+create and apply patches. CVS and sourceforge.
+
+I participated in one minor release of this app, and it used to be one of my
+most used application when KDE was my default desktop environment. Good old
+days.
+
+
+
