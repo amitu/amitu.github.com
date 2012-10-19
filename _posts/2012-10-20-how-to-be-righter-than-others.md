@@ -2,7 +2,7 @@
 layout: post
 title: "How To Be Righter Than Others?"
 description: ""
-category: 
+category:  
 tags: []
 ---
 {% include JB/setup %}
