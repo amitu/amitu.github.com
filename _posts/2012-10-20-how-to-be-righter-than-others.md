@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How To Be Righter Than Others"
+title: "How To Be Righter Than Others?"
 description: ""
 category: 
 tags: []
