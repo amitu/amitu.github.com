@@ -18,14 +18,14 @@
                 }
 
                 $("#incr").click(function(){
-                    if (fsize == 15) return;
+                    if (fsize == 15) return false;
                     fsize += 1;
                     set_size();
                     return false;;
                 });
 
                 $("#decr").click(function(){
-                    if (fsize == 3) return;
+                    if (fsize == 3) return false;
                     fsize -= 1;
                     set_size();
                     return false;;
@@ -42,29 +42,60 @@
                 var current_word = 0;
 
                 var show_next_page = function() {
-                    current_line = 0;
-                    current_word = 0;
+                    if (current_line == lines.length) return false;
+                    if (current_line == lines.length - 1 && current_word == lines[current_line].length) return false;
 
                     $v.text("");
 
                     var current_text = "";
                     var candidate_text = "";
 
-                    while ($v.innerHeight() == $v0.scrollHeight) {
+                    while (true) {
                         current_text = candidate_text;
                         candidate_text += (" " + lines[current_line][current_word]);
+                        $v.text(candidate_text);
+                        if ($v.innerHeight() != $v0.scrollHeight) break;
                         current_word++;
                         if (current_word == lines[current_line].length) {
                             current_line++;
                             current_word = 0;
                             if (current_line == lines.length) break;
                         }
-                        $v.text("");
-                        $v.text(candidate_text);
                     }
 
                     $view.text(current_text);
+                    return false;
                 }
+
+                var show_prev_page = function() {
+                    $v.text("");
+
+                    var current_text = "";
+                    var candidate_text = "";
+
+                    while (true) {
+                        current_text = candidate_text;
+                        candidate_text = (
+                            lines[current_line][current_word] + " " + candidate_text
+                        );
+
+                        $v.text(candidate_text);
+                        if ($v.innerHeight() != $v0.scrollHeight) break;
+
+                        current_word--;
+                        if (current_word == -1) {
+                            current_line --;
+                            if (current_line == -1) break;
+                            current_word = lines[current_line].length;
+                        }
+                    }
+
+                    $view.text(current_text);
+                    return false;
+                }
+
+                $("#next").click(show_next_page);
+                $("#prev").click(show_prev_page);
 
                 set_size();
             });
