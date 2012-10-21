@@ -5,6 +5,10 @@ description: ""
 ---
 {% include JB/setup %}
 
+"There's no reason to sell an idea short, the only risk would be to not fulfill
+the dream" -- Ron Johnson
+
+----
 One thing I believe is pretty true is that you should never ask people about
 their opinions directly. You should observe them, figure out what's wrong and
 then slowly figure out where the true problem lies.
@@ -34,16 +38,23 @@ agree with
 [Paul Graham Quotes](http://paulgraham.com/quo.html)
 
 ----
-“…if we offer too much silent assent about mysticism and superstition – even when it seems to be doing a little good – we abet a general climate in which skepticism is considered impolite, science tiresome, and rigorous thinking somehow stuffy and inappropriate. Figuring out a prudent balance takes wisdom.” – Carl Sagan
+"...if we offer too much silent assent about mysticism and superstition – even
+when it seems to be doing a little good – we abet a general climate in which
+skepticism is considered impolite, science tiresome, and rigorous thinking
+somehow stuffy and inappropriate. Figuring out a prudent balance takes wisdom."
+– Carl Sagan
 
 ----
-"Not seeing it is not the issue — the issue is not being able to see it any other way."
+"Not seeing it is not the issue — the issue is not being able to see it any
+other way."
 
 -----
-"they've started treating the middle class like they've treated the poor for the past 50 years, so now we should do something about it."
+"they've started treating the middle class like they've treated the poor for
+the past 50 years, so now we should do something about it."
 
 ----
-"I'm sick and tired of hearing politicians say "We will fight for you" when they should be there, fighting WITH US."
+"I'm sick and tired of hearing politicians say "We will fight for you" when
+they should be there, fighting WITH US."
 
 ----
 "I can explain them to you, but I can't comprehend them for you."
@@ -52,14 +63,16 @@ agree with
 The purpose of argument should not be victory, but progress.
 
 ----
-Life is not about right. Life is also not about winning right. Life is about winning. For if you lose for right, right loses with you.
-	-- Amit Upadhyay
+Life is not about right. Life is also not about winning right. Life is about
+winning. For if you lose for right, right loses with you.  -- Amit Upadhyay
 
 ----
-"You are a result of billions of years of evolutionary success. Fucking act like it."
+"You are a result of billions of years of evolutionary success. Fucking act
+like it."
 
 ----
-"You're not going in because you're afraid you'll get hit, right? Well you're already getting hit, so you've got nothing to lose."
+"You're not going in because you're afraid you'll get hit, right? Well you're
+already getting hit, so you've got nothing to lose."
 
 ----
 People are bad to you because you let them. 
@@ -72,21 +85,24 @@ We are the Universe comprehending itself.
   -- Carl Sagan
 
 ----
-The only decisions you ll really regret are the ones you let others make them for you. 
+The only decisions you ll really regret are the ones you let others make them
+for you. 
 
 ----
-The only constant in all your failures is you. 
-	-- some boss, while firing someone
+The only constant in all your failures is you.  -- some boss, while firing
+someone
 
 ----
-Living in future is stress, living in past is guilt, living in the present is serenity. 
-	-- Buddhist Expression
+
+Living in future is stress, living in past is guilt, living in the present is
+serenity.  -- Buddhist Expression
 
 ----
 Never point out a problem without providing a few alternative solutions.
 
 ----
-“There is nothing more permanent than that which is temporary,” a reminder to do it right the first time.
+"There is nothing more permanent than that which is temporary," a reminder to
+do it right the first time.
 
 ----
 If it’s stupid but works, it isn’t stupid. 
@@ -206,7 +222,8 @@ Don't argue with Idiots. They will bring you down to their level and beat
 you with experience.
 
 ----
-A man with one watch knows what time it is. A man with two watches is never quite sure.
+A man with one watch knows what time it is. A man with two watches is never
+quite sure.
 
 ----
 "I swear, my dear. Sometimes our conversations remind me of a broken sword."
@@ -345,8 +362,9 @@ Be not afraid of going slowly; be only afraid of standing still.
 		-- Chinese Proverb
 
 ----
-There wouldn't be such a thing as counterfeit gold if there were no real gold somewhere.	
-		-- Sufi Proverb
+
+There wouldn't be such a thing as counterfeit gold if there were no real gold
+somewhere.	-- Sufi Proverb
 
 ----
 Why didn't Noah swat those two mosquitoes?
@@ -458,7 +476,8 @@ enemy without ever fighting."
 		-- Sun Tzu 
 
 ----
-It's amazing what a man can accomplish when he's not worried about who will get the credit.
+It's amazing what a man can accomplish when he's not worried about who will get
+the credit.
 
 ----
 "Know what I pray for? The strength to change what I can, the inability to
