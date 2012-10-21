@@ -163,7 +163,11 @@
                     current_line = iline;
                     current_word = iword;
 
-                    $view.text(current_text);
+                    if (current_line == 0 && current_word == 0)
+                        show_curr_page();
+                    else
+                        $view.text(current_text);
+
                     dump_state("show_prev_page.end");
                     return false;
                 }
