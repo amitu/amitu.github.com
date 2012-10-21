@@ -10,11 +10,17 @@
                 var $view0 = $view.get(0);
                 var $v = $("#v");
                 var $v0 = $v.get(0);
+                var lines = text.split("\n");
+
+                var current_line = 0;
+                var current_word = 0;
+                var next_line = 0;
+                var next_word = 0;
 
                 var set_size = function() {
                     $view.css("font-size", 2 * fsize + "px");
                     $v.css("font-size", 2 * fsize + "px");
-                    show_next_page();
+                    show_curr_page();
                 }
 
                 $("#incr").click(function(){
@@ -31,37 +37,75 @@
                     return false;;
                 });
 
-                var lines = text.split("\n");
-
                 for (i = 0; i < lines.length; i++)
                 {
                     lines[i] = lines[i].split(" ");
                 }
 
-                var current_line = 0;
-                var current_word = 0;
+                var show_curr_page = function() {
+                    $v.text("");
+
+                    var current_text = "";
+                    var candidate_text = "";
+
+                    var iline = current_line;
+                    var iword = current_word;
+
+                    while (true) {
+                        current_text = candidate_text;
+                        candidate_text += (" " + lines[iline][iword]);
+                        $v.text(candidate_text);
+                        if ($v.innerHeight() != $v0.scrollHeight) break;
+                        iword++;
+                        if (iword == lines[iline].length) {
+                            iline++;
+                            iword = 0;
+                            if (iword == lines.length) break;
+                        }
+                    }
+
+                    next_line = iline;
+                    next_word = iword;
+
+                    $view.text(current_text);
+                    return false;
+                }
 
                 var show_next_page = function() {
-                    if (current_line == lines.length) return false;
-                    if (current_line == lines.length - 1 && current_word == lines[current_line].length) return false;
+                    // if there is nothing left to show, return
+                    console.log("show_next_page");
+                    if (next_line == lines.length && next_word == lines[next_line].length) return false;
+                    console.log("_ show_next_page _");
+
+                    var iline = next_line;
+                    var iword = next_word;
 
                     $v.text("");
 
                     var current_text = "";
                     var candidate_text = "";
 
+                    current_line = next_line;
+                    current_word = next_word;
+
                     while (true) {
                         current_text = candidate_text;
-                        candidate_text += (" " + lines[current_line][current_word]);
+                        candidate_text += (" " + lines[iline][iword]);
                         $v.text(candidate_text);
                         if ($v.innerHeight() != $v0.scrollHeight) break;
-                        current_word++;
-                        if (current_word == lines[current_line].length) {
-                            current_line++;
-                            current_word = 0;
-                            if (current_line == lines.length) break;
+                        iword++;
+                        if (iword == lines[iline].length) {
+                            iline++;
+                            iword = 0;
+                            if (iline == lines.length) {
+                                console.log("end of text");
+                                break;
+                            }
                         }
                     }
+
+                    next_line = iline;
+                    next_word = iword;
 
                     $view.text(current_text);
                     return false;
