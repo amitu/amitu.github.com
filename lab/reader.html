@@ -17,6 +17,18 @@
                 var next_line = 0;
                 var next_word = 0;
 
+                var dump_state = function(caller) {
+                    return;
+                    console.log("caller", caller);
+                    console.log("current_word", current_word);
+                    console.log("current_line", current_line);
+                    console.log("next_word", next_word);
+                    console.log("next_line", next_line);
+                    console.log("lines.length", lines.length);
+                    console.log("lines[current_line].length", lines[current_line].length);
+                    console.log("lines[next_line].length", lines[next_line].length);
+                }
+
                 var set_size = function() {
                     $view.css("font-size", 2 * fsize + "px");
                     $v.css("font-size", 2 * fsize + "px");
@@ -43,6 +55,7 @@
                 }
 
                 var show_curr_page = function() {
+                    dump_state("show_curr_page");
                     $v.text("");
 
                     var current_text = "";
@@ -68,14 +81,14 @@
                     next_word = iword;
 
                     $view.text(current_text);
+                    dump_state("show_curr_page.end");
                     return false;
                 }
 
                 var show_next_page = function() {
+                    dump_state("show_next_page");
                     // if there is nothing left to show, return
-                    console.log("show_next_page");
-                    if (next_line == lines.length && next_word == lines[next_line].length) return false;
-                    console.log("_ show_next_page _");
+                    if (next_line == lines.length || (next_line == lines.length - 1  && next_word == lines[next_line].length)) return false;
 
                     var iline = next_line;
                     var iword = next_word;
@@ -98,7 +111,6 @@
                             iline++;
                             iword = 0;
                             if (iline == lines.length) {
-                                console.log("end of text");
                                 break;
                             }
                         }
@@ -108,33 +120,51 @@
                     next_word = iword;
 
                     $view.text(current_text);
+                    dump_state("show_next_page.end");
                     return false;
                 }
 
                 var show_prev_page = function() {
+                    dump_state("show_prev_page");
+                    // if there is nothing left to show, return
+                    if ((current_line <= 0 && current_word == 0) || current_word == -1) return false;
                     $v.text("");
 
                     var current_text = "";
                     var candidate_text = "";
 
+                    var iline = current_line;
+                    var iword = current_word;
+
+                    next_line = current_line;
+                    next_word = current_word;
+
                     while (true) {
                         current_text = candidate_text;
                         candidate_text = (
-                            lines[current_line][current_word] + " " + candidate_text
+                            lines[iline][iword] + " " + candidate_text
                         );
 
                         $v.text(candidate_text);
                         if ($v.innerHeight() != $v0.scrollHeight) break;
 
-                        current_word--;
-                        if (current_word == -1) {
-                            current_line --;
-                            if (current_line == -1) break;
-                            current_word = lines[current_line].length;
+                        iword--;
+                        if (iword == -1) {
+                            iline--;
+                            if (iline == -1) {
+                                iline = 0;
+                                iword = 0;
+                                break;
+                            }
+                            iword = lines[iline].length - 1;
                         }
                     }
 
+                    current_line = iline;
+                    current_word = iword;
+
                     $view.text(current_text);
+                    dump_state("show_prev_page.end");
                     return false;
                 }
 
