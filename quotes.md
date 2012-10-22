@@ -5,6 +5,9 @@ description: ""
 ---
 {% include JB/setup %}
 
+Call no man happy until he is dead. -- Greek aphorism
+
+----
 "There's no reason to sell an idea short, the only risk would be to not fulfill
 the dream" -- Ron Johnson
 
