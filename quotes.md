@@ -4,7 +4,17 @@ title: "Quotes"
 description: ""
 ---
 {% include JB/setup %}
+Anyone who says they are not interested in politics is like a drowning man who
+insists he is not interested in water. -- Anupam Kher
 
+----
+Success is not something you pursue. Success is something you attract by the
+person you become. -Jim Rohn
+
+----
+Remember that guy that gave up? Neither does no one else. - Unknown
+
+----
 Call no man happy until he is dead. -- Greek aphorism
 
 ----
@@ -1029,4 +1039,5 @@ turn it on yourself.
 ----
 A gentle stream can split a mountain, given enough time.
 
-
+<script src="/javascripts/jquery.min.js"> </script>
+<script src="/javascripts/quotes.js"> </script>
