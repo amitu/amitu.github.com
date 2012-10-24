@@ -4,6 +4,7 @@ title: "Quotes"
 description: ""
 ---
 {% include JB/setup %}
+
 Anyone who says they are not interested in politics is like a drowning man who
 insists he is not interested in water. -- Anupam Kher
 
@@ -1039,5 +1040,14 @@ turn it on yourself.
 ----
 A gentle stream can split a mountain, given enough time.
 
+<div ng-controller="QuotesList" id="QuotesList" style="display: none" style="position: relative">
+    <input type="text" ng-model="search" class="search-query" style="position: absolute; left: 600px; top: -64px" placeholder="Search" />
+    <span ng-repeat="quote in quotes | filter:search">
+        <span ng-bind-html-unsafe="quote"></span>
+        <hr>
+    </span>
+</div>
+
 <script src="/javascripts/jquery.min.js"> </script>
+<script src="/javascripts/angular.min.js"> </script>
 <script src="/javascripts/quotes.js"> </script>
