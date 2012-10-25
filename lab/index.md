@@ -29,4 +29,16 @@ makes sure I do not resize on web.
 
 My [reader](/lab/reader.html) tries to solve this for web.
 
-Status: Work in progress.
+Status: Core prototype done, font+/- and next/previous page work as expected.
+
+----
+
+#### [Quotes page search](/quotes.html)
+
+This is [live search](/quotes.html) powered by [angularjs](/angularjs/). The
+key problem was that I want to continue to maintain as simple text file, hosted
+on a static server.
+
+I did this to learn angularjs.
+
+Status: Working, slower than I would like tho. IE not yet supported.

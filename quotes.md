@@ -5,6 +5,24 @@ description: ""
 ---
 {% include JB/setup %}
 
+There is no light. So we stumble on stones. Then we strike the stones. --
+[@maneeshm](http://twitter.com/maneeshm)
+
+----
+I felt worthless and unworthy of love, so in return I placed little value on my
+life or on the life of anyone else ... Hurt people hurt people ...  Admitting
+to myself I was feeling scared, lonely, unworthy of love and respect can be
+harder than killing someone. -- [A
+Murderer](http://www.quora.com/Murder/What-does-it-feel-like-to-murder-someone),
+\(slightly paraphrased\)
+
+----
+Once after demonizing other people one can not really go back to square one and
+reexamine the evidence and find out whether what they have been advocating has
+been producing the results they want, and so they are locked in the decision.
+-- Thomas Sowell
+
+----
 Anyone who says they are not interested in politics is like a drowning man who
 insists he is not interested in water. -- Anupam Kher
 
@@ -1041,7 +1059,7 @@ turn it on yourself.
 A gentle stream can split a mountain, given enough time.
 
 <div ng-controller="QuotesList" id="QuotesList" style="display: none" style="position: relative">
-    <input type="text" ng-model="search" class="search-query" style="position: absolute; left: 600px; top: -64px" placeholder="Search" />
+    <input type="text" ng-model="search" class="search-query" style="position: absolute; left: 602px; top: -64px" placeholder="Search" />
     <span ng-repeat="quote in quotes | filter:search">
         <span ng-bind-html-unsafe="quote"></span>
         <hr>
