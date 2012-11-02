@@ -32,3 +32,6 @@ something on phone, or do a voice recording, or even think about any problem, I
 tend to stand up and walk.
 
 I am thinking of setting myself a standup work station. Lets see how it goes.
+
+Update: I just had my [first day of work on my fridge as standing
+desk](/2012/11/my-first-day-on-standing-desk/).
