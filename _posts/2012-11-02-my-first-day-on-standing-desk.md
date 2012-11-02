@@ -34,3 +34,5 @@ I worked about 4 hours today on it. My feet hurt. There is slight physical
 tiredness, but my neck and back feels great. I moved around a lot, walking away
 as soon as I start thinking, and coming back to laptop when I decide I have to
 read/write something.
+
+I am happy with it so far and am going to spend more days on this setup.
