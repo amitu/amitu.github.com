@@ -5,6 +5,10 @@ description: ""
 ---
 {% include JB/setup %}
 
+"He who seeks rest finds boredom. He who seeks work finds rest." -- Anupam
+Kher(?)
+
+----
 There is no light. So we stumble on stones. Then we strike the stones. --
 [@maneeshm](http://twitter.com/maneeshm)
 
