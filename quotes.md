@@ -5,6 +5,10 @@ description: ""
 ---
 {% include JB/setup %}
 
+"Democracy is a device that ensures we shall be governed no better than we
+deserve."
+
+----
 "He who seeks rest finds boredom. He who seeks work finds rest." -- Anupam
 Kher(?)
 
