@@ -5,6 +5,32 @@ description: ""
 ---
 {% include JB/setup %}
 
+When beetles battle beetles in a puddle paddle battle and the beetle battle
+puddle is a puddle in a bottle they call this a tweetle beetle bottle puddle
+paddle battle muddle. -- Dr. Seuss
+
+----
+Paths are made by walking. -- Franz Kafka
+
+----
+When the facts change, I change my mind. What do you do, sir? -- John Maynard
+Keynes
+
+----
+Realists do not fear the result of their study. -- Fyodor Dostoyevsky
+
+----
+Power is given only to those who dare to lower themselves and pick it up. Only
+one thing matters, one thing; to be able to dare! -- Fyodor Dostoevsky 
+
+----
+Men do not accept their prophets and slay them, but they love their martyrs and
+worship those whom they have tortured to death. -- Fyodor Dostoyevsky
+
+----
+But how could you live and have no story to tell? -- Fyodor Dostoyevsky
+
+----
 "Democracy is a device that ensures we shall be governed no better than we
 deserve."
 
