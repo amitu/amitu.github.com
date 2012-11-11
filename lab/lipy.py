@@ -64,14 +64,18 @@ def parse(s):
     return sexp.parseString(s, parseAll=False)
 
 def summer(*args): return sum(args)
+def minuser(first, *rest): return reduce(lambda x, y: x - y, rest, first)
 def prodder(*args): return reduce(lambda x, y: x * y, args, 1)
+def divider(first, *rest): return reduce(lambda x, y: x / y, rest, first)
 def prit(*args): print(*args, end="")
 
 CORE = {
     "print": print,
     "prit": prit,
     "+": summer,
+    "-": minuser,
     "*": prodder,
+    "/": divider,
 }
 
 STACK = [{}]
