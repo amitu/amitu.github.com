@@ -42,3 +42,17 @@ on a static server.
 I did this to learn angularjs.
 
 Status: Working, slower than I would like tho. IE not yet supported.
+
+----
+
+#### [lipy - Pythonic Lisp](/lab/lipy/)
+
+This is an experimental implementation of [lisp like language in
+python](/lab/lipy/). I want it to support at least lisp lambdas, macros and
+tail call optimization.
+
+[lipy.py](/lab/lipy/)
+
+I am doing this to learn clojure actually. Not meant for production.
+
+Status: Arithmatic and python world access working.

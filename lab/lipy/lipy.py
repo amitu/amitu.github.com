@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 from __future__ import print_function
 from pyparsing import *
 
@@ -70,7 +71,6 @@ def divider(first, *rest): return reduce(lambda x, y: x / y, rest, first)
 def prit(*args): print(*args, end="")
 
 CORE = {
-    "print": print,
     "prit": prit,
     "+": summer,
     "-": minuser,
@@ -98,7 +98,10 @@ def resolve(token, context=CORE):
         val = STACK[-1].get(token)
     if val == None:
         mod_name, func_name = get_mod_func(token)
-        val = getattr(__import__(mod_name, {}, {}, ['']), func_name)
+        try:
+            val = getattr(__import__(mod_name, {}, {}, ['']), func_name)
+        except ImportError:
+            val = getattr(__builtins__, token)
     return val
 
 def eval(expr_list, context=CORE):
@@ -116,4 +119,6 @@ def evals(s):
 
 if __name__ == "__main__":
     import sys
+    import fileinput
+    #evals("\n".join(line for line in fileinput.input()))
     evals(sys.argv[1])
