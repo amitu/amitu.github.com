@@ -36,7 +36,7 @@ HELLO WORLD
 HELLO WORLD
 >>> evals('(= x 10)')
 10
->>> evals('(+ x 12)')
+>>> evals('(do (= x 10) (+ x 12))')
 22
 
 """
@@ -70,17 +70,18 @@ class Vector(Token): pass
 class Map(Token): pass
 class Set(Token): pass
 class Literal(Token): pass
+class Tilda(Token): pass
+class DTilda(Token): pass
 
 def set_class(p, C):
     p.setParseAction(lambda t: C(t))
-    p.setName("foo")
     return p
 
-LPAR, RPAR, LBRK, RBRK, LBRC, RBRC, HASH, QUOTE, TICK, COLON = map(
-    Suppress, "()[]{}#'`:"
-)
+(
+    LPAR, RPAR, LBRK, RBRK, LBRC, RBRC, HASH, QUOTE, TICK, COLON, TILDA, STAR
+) = map(Suppress, "()[]{}#'`:~*")
 
-symbol = set_class(Word(alphanums + "-./_*+="), Symbol)
+symbol = set_class(Regex(r'[\w\d\-./_*+=]+'), Symbol)
 keyword = set_class(Group(COLON + symbol), Keyword)
 
 decimal = set_class(Regex(r'-?0|[1-9]\d*'), Decimal)
@@ -96,6 +97,8 @@ sexpVector = set_class(Group(LBRK + ZeroOrMore(sexp) + RBRK), Vector)
 sexpMap = set_class(Group(LBRC + ZeroOrMore(sexp) + RBRC), Map)
 sexpSet = set_class(Group(HASH + LBRC + ZeroOrMore(sexp) + RBRC), Set)
 sexpLiteral = set_class(Group(QUOTE + sexp), Literal)
+sexpTilda = set_class(Group(TILDA + sexp), Tilda)
+sexpDTilda = set_class(Group(TILDA + TILDA + sexp), DTilda)
 sexpTicked = set_class(Group(TICK + sexp), Tick)
 sexp << (
     scalars |
@@ -104,7 +107,9 @@ sexp << (
     sexpMap |
     sexpSet |
     sexpLiteral |
-    sexpTicked
+    sexpTicked |
+    sexpDTilda |
+    sexpTilda 
 )
 
 def clean_up(tree):
@@ -120,6 +125,10 @@ def clean_up(tree):
         return tree
     elif tree_type == Tick:
         return Tick([clean_up(tree.val())])
+    elif tree_type == Tilda:
+        return Tilda([tree.val()[0].val()])
+    elif tree_type == DTilda:
+        return DTilda([tree.val()[0].val()])
     elif tree_type == Keyword:
         return Keyword([tree.val()[0].val()])
     elif tree_type == Map:
@@ -139,12 +148,14 @@ def clean_up(tree):
         return set([clean_up(i) for i in val])
     else:
         print(tree_type)
-        raise SyntaxError("Bad tree type %s" % tree_type)
+        raise SyntaxError("Bad tree type %s: %s" % (tree_type, tree))
 
 def parse(s):
     return clean_up(sexp.parseString(s, parseAll=False)[0])
 
-STACK = [{}]
+STACK = []
+GLOBALS = {}
+MACROS = {}
 
 def summer(*args): return sum(args)
 def minuser(first, *rest): return reduce(lambda x, y: x - y, rest, first)
@@ -158,8 +169,20 @@ def setter(name, value):
     STACK[-1][name.val()] = value
     return value
 
+def msetter(name, value):
+    if name in MACROS: raise SyntaxError("Value already set")
+    assert type(name) == Symbol
+    MACROS[name.val()] = value
+    return value
+
+def gsetter(name, value):
+    if name in GLOBALS: raise SyntaxError("Value already set")
+    assert type(name) == Symbol
+    MACROS[name.val()] = value
+    return value
+
 def defmacro(name, body):
-    return setter(name, Macro(name, body))
+    return gsetter(name, Macro(name, body))
 
 CORE = {
     "prit": prit,
@@ -197,17 +220,41 @@ class Macro(object):
     def __init__(self, name, body):
         self.name = name
         self.body = body
+        assert(isinstance(self.body[0], list))
 
     def __repr__(self):
         return "<%s:%s [%s]>" % (
             self.__class__.__name__, self.name.val(), self.body
         )
+
     def __str__(self): return repr(self)
+    def __call__(self, *args):
+        stack_incr()
+        try:
+            print(self.name, self.body, args)
+            for var in self.body[0]:
+                print("var", var)
+                assert(isinstance(var, Symbol))
+                if var.val().startswith("*"):
+                    setter(Symbol([var.val()[1:]]), args[:])
+                    args = []
+                    break
+                else:
+                    setter(var, args[0])
+                    args = args[1:]
+            if args:
+                raise SyntaxError("arguments do not match")
+            print(STACK, self.body[1:])
+        finally:
+            stack_decr()
 
 class Lambda(Macro): pass
 
-def do_macro(macro, params):
-    print(macro, params)
+def stack_incr():
+    STACK.append({})
+
+def stack_decr():
+    STACK.pop()
 
 def eval_symbol(symbol0):
     symbol = symbol0.val()
@@ -226,6 +273,8 @@ def eval_symbol(symbol0):
         return val
     if symbol in STACK[-1]:
         return STACK[-1][symbol]
+    if symbol in MACROS:
+        return MACROS[symbol]
     return symbol0
 
 def resolve(head, leading, rest):
@@ -244,8 +293,9 @@ def resolve(head, leading, rest):
         return defmacro, (leading, rest)
     elif isinstance(head, Symbol):
         head = eval_symbol(head)
-        # if head.is_macro, do not eval rest
-        return head, merge_leading_and_rest(leading, rest)
+        return head, merge_leading_and_rest(
+            leading, rest, not isinstance(head, Macro)
+        )
     elif (
         leading
         and isinstance(leading, Symbol)
@@ -260,7 +310,8 @@ def resolve(head, leading, rest):
             "head must be either a list of a symbol, found %s" % head
         )
 
-def eval_list(expr_list, context=CORE):
+def eval_list(expr_list, new_stack=True):
+    if new_stack: stack_incr()
     if not isinstance(expr_list, list):
         raise SyntaxError("Only lists can be evaled")
     head = expr_list[0]
@@ -269,13 +320,19 @@ def eval_list(expr_list, context=CORE):
     if len(expr_list) >= 2:
         leading, rest = expr_list[1], expr_list[2:]
     callback, rest = resolve(head, leading, rest)
-    return callback(*rest)
+    print(callback, rest)
+    val = callback(*rest)
+    if new_stack: stack_decr()
+    return val
 
 def evals(s, dump_tree=False):
     tree = parse(s)
     if dump_tree:
         pprint(tree)
     return eval_list(tree)
+
+evals("(defmacro do [x *args] (~~ args2))")
+print(MACROS, GLOBALS)
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
 # http://docs.python.org/2/library/cmd.html
