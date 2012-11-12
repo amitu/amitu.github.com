@@ -151,11 +151,15 @@ def minuser(first, *rest): return reduce(lambda x, y: x - y, rest, first)
 def prodder(*args): return reduce(lambda x, y: x * y, args, 1)
 def divider(first, *rest): return reduce(lambda x, y: x / y, rest, first)
 def prit(*args): print(*args, end="")
+
 def setter(name, value):
     if name in STACK[-1]: raise SyntaxError("Value already set")
     assert type(name) == Symbol
     STACK[-1][name.val()] = value
     return value
+
+def defmacro(name, body):
+    return setter(name, Macro(name, body))
 
 CORE = {
     "prit": prit,
@@ -175,9 +179,10 @@ def get_mod_func(callback):
         return callback, ''
     return callback[:dot], callback[dot+1:]
 
-def merge_leading_and_rest(leading, rest):
+def merge_leading_and_rest(leading, rest, and_resolve=True):
     if leading:
         rest.insert(0, leading)
+    if not and_resolve: return rest
     rest2 = []
     for item in rest:
         if isinstance(item, list):
@@ -187,6 +192,22 @@ def merge_leading_and_rest(leading, rest):
         else:
             rest2.append(item)
     return rest2
+
+class Macro(object):
+    def __init__(self, name, body):
+        self.name = name
+        self.body = body
+
+    def __repr__(self):
+        return "<%s:%s [%s]>" % (
+            self.__class__.__name__, self.name.val(), self.body
+        )
+    def __str__(self): return repr(self)
+
+class Lambda(Macro): pass
+
+def do_macro(macro, params):
+    print(macro, params)
 
 def eval_symbol(symbol0):
     symbol = symbol0.val()
@@ -219,6 +240,8 @@ def resolve(head, leading, rest):
     #   else it is syntax error
     if isinstance(head, list):
         return eval_list(head), merge_leading_and_rest(leading, rest)
+    elif isinstance(head, Symbol) and head.val() == "defmacro":
+        return defmacro, (leading, rest)
     elif isinstance(head, Symbol):
         head = eval_symbol(head)
         # if head.is_macro, do not eval rest
