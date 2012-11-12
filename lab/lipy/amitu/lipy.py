@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 """
 lipy - Pythonic Lisp
 ====================
@@ -30,6 +29,8 @@ HELLO WORLD
 6
 8
 [None, None, None, None]
+>>> evals("(eval 'print(1 + len([1, 2, 3]))')")
+4
 >>>
 
 """
@@ -154,18 +155,23 @@ def evals(s):
 # https://github.com/iridium172/PyTerm/blob/master/pyterm.py
 # http://openbookproject.net/py4fun/userInput/userInput.html
 
+def test():
+    import doctest
+    doctest.testmod(optionflags=doctest.ELLIPSIS)
+
 def main():
     import argparse
     parser = argparse.ArgumentParser(
         prog="lipy", description='lipy - a pythonic lisp'
     )
-    parser.add_argument("--test", action="store_true")
+    parser.add_argument("--test", "-t", action="store_true")
     parser.add_argument("--eval", "-e")
     parser.add_argument("file", nargs="?")
+
     args = parser.parse_args()
+
     if args.test:
-         import doctest
-         doctest.testmod(optionflags=doctest.ELLIPSIS)
+        test()
     elif args.eval:
         evals(args.eval)
     elif args.file:

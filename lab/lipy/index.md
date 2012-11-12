@@ -46,6 +46,9 @@ $ lipy -e "(map print (range 2 9 2))"
 $ lipy -e "(print sys.argv)"
 ['/usr/local/bin/lipy', '-e', '(print sys.argv)']
 
+$ lipy -e "(eval 'print(1 + len([1, 2, 3]))')"
+4
+
 {% endhighlight %}
 
 #### Major ToDos
