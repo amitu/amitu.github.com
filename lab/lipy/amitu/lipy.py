@@ -34,6 +34,10 @@ HELLO WORLD
 4
 >>> evals('(print ("hello world" upper))')
 HELLO WORLD
+>>> evals('(= x 10)')
+10
+>>> evals('(+ x 12)')
+22
 
 """
 from __future__ import print_function
@@ -140,11 +144,18 @@ def clean_up(tree):
 def parse(s):
     return clean_up(sexp.parseString(s, parseAll=False)[0])
 
+STACK = [{}]
+
 def summer(*args): return sum(args)
 def minuser(first, *rest): return reduce(lambda x, y: x - y, rest, first)
 def prodder(*args): return reduce(lambda x, y: x * y, args, 1)
 def divider(first, *rest): return reduce(lambda x, y: x / y, rest, first)
 def prit(*args): print(*args, end="")
+def setter(name, value):
+    if name in STACK[-1]: raise SyntaxError("Value already set")
+    assert type(name) == Symbol
+    STACK[-1][name.val()] = value
+    return value
 
 CORE = {
     "prit": prit,
@@ -152,9 +163,8 @@ CORE = {
     "-": minuser,
     "*": prodder,
     "/": divider,
+    "=": setter,
 }
-
-STACK = [{}]
 
 def get_mod_func(callback):
     # Converts 'django.views.news.stories.story_detail' to
@@ -178,8 +188,8 @@ def merge_leading_and_rest(leading, rest):
             rest2.append(item)
     return rest2
 
-def eval_symbol(symbol):
-    symbol = symbol.val()
+def eval_symbol(symbol0):
+    symbol = symbol0.val()
     val = CORE.get(symbol)
     if val:
         return val
@@ -187,8 +197,15 @@ def eval_symbol(symbol):
     try:
         val = getattr(__import__(mod_name, {}, {}, ['']), func_name)
     except ImportError:
-        val = getattr(__builtin__, symbol)
-    return val
+        try:
+            val = getattr(__builtin__, symbol)
+        except AttributeError:
+            pass
+    if val:
+        return val
+    if symbol in STACK[-1]:
+        return STACK[-1][symbol]
+    return symbol0
 
 def resolve(head, leading, rest):
     # head can be:
@@ -203,7 +220,9 @@ def resolve(head, leading, rest):
     if isinstance(head, list):
         return eval_list(head), merge_leading_and_rest(leading, rest)
     elif isinstance(head, Symbol):
-        return eval_symbol(head), merge_leading_and_rest(leading, rest)
+        head = eval_symbol(head)
+        # if head.is_macro, do not eval rest
+        return head, merge_leading_and_rest(leading, rest)
     elif (
         leading
         and isinstance(leading, Symbol)
