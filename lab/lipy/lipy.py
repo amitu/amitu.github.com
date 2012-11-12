@@ -1,5 +1,40 @@
 #!/usr/bin/env python
+
+"""
+lipy - Pythonic Lisp
+====================
+
+"In order to be fluent you must lisp first."
+
+An experimental implementation of clojure/lisp in python. One that gels well
+with python.
+
+Test
+====
+>>> evals("(+ 1 2)")
+3
+>>> evals("1 2")
+Traceback (most recent call last):
+...
+TypeError: argument 2 to map() must support iteration
+>>>
+>>> evals("(print (string.upper 'hello world'))")
+HELLO WORLD
+>>> evals("(print (+ 1 2 (* 23 45 2)))")
+2073
+>>> evals("(print (len (range 100)))")
+100
+>>> evals("(map print (range 2 9 2))")
+2
+4
+6
+8
+[None, None, None, None]
+>>>
+
+"""
 from __future__ import print_function
+import sys
 from pyparsing import *
 
 class Token(object):
@@ -120,7 +155,7 @@ def evals(s):
 # http://openbookproject.net/py4fun/userInput/userInput.html
 
 def main():
-    import sys, argparse
+    import argparse
     parser = argparse.ArgumentParser(
         prog="lipy", description='lipy - a pythonic lisp'
     )
@@ -129,14 +164,18 @@ def main():
     parser.add_argument("file", nargs="?")
     args = parser.parse_args()
     if args.test:
-        print("testing...")
+         import doctest
+         doctest.testmod(optionflags=doctest.ELLIPSIS)
     elif args.eval:
-        print(evals(args.eval))
+        evals(args.eval)
     elif args.file:
-        evals(file(args.file).read())
+        print(args.file)
+        if args.file == "-":
+            evals(sys.stdin.read())
+        else:
+            evals(file(args.file).read())
     else:
         parser.print_help()
 
 if __name__ == "__main__":
     main()
-    # evals(sys.argv[1])
