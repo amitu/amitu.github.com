@@ -16,7 +16,7 @@ Tests
 >>> evals("1 2")
 Traceback (most recent call last):
 ...
-TypeError: argument 2 to map() must support iteration
+SyntaxError: Only lists can be evaled
 >>>
 >>> evals('(print (string.upper "hello world"))')
 HELLO WORLD
@@ -32,7 +32,8 @@ HELLO WORLD
 [None, None, None, None]
 >>> evals('(eval "print(1 + len([1, 2, 3]))")')
 4
->>>
+>>> evals('(print ("hello world" upper))')
+HELLO WORLD
 
 """
 from __future__ import print_function
@@ -164,10 +165,59 @@ def get_mod_func(callback):
         return callback, ''
     return callback[:dot], callback[dot+1:]
 
-def resolve(token, context=CORE):
-    if (type(token) == list): return eval(token, context)
-    if (type(token) != Symbol): return token
-    token = token.val()
+def merge_leading_and_rest(leading, rest):
+    if leading:
+        rest.insert(0, leading)
+    rest2 = []
+    for item in rest:
+        if isinstance(item, list):
+            rest2.append(eval_list(item))
+        elif isinstance(item, Symbol):
+            rest2.append(eval_symbol(item))
+        else:
+            rest2.append(item)
+    return rest2
+
+def eval_symbol(symbol):
+    symbol = symbol.val()
+    val = CORE.get(symbol)
+    if val:
+        return val
+    mod_name, func_name = get_mod_func(symbol)
+    try:
+        val = getattr(__import__(mod_name, {}, {}, ['']), func_name)
+    except ImportError:
+        val = getattr(__builtin__, symbol)
+    return val
+
+def resolve(head, leading, rest):
+    # head can be:
+    #   a callable
+    #       see if it has leading named attribute on it
+    #   a list
+    #       call eval_list on it
+    #   a symbol
+    #       already defined lambda or macro
+    #       a "local"/"global" variable
+    #   else it is syntax error
+    if isinstance(head, list):
+        return eval_list(head), merge_leading_and_rest(leading, rest)
+    elif isinstance(head, Symbol):
+        return eval_symbol(head), merge_leading_and_rest(leading, rest)
+    elif (
+        leading
+        and isinstance(leading, Symbol)
+        and hasattr(head, leading.val())
+        and callable(getattr(head, leading.val()))
+    ):
+        return getattr(head, leading.val()), rest
+    elif callable(head):
+        return head, merge_leading_and_rest(leading, rest)
+    else:
+        raise SyntaxError(
+            "head must be either a list of a symbol, found %s" % head
+        )
+    """
     val = CORE.get(token)
     if val == None:
         val = STACK[-1].get(token)
@@ -178,16 +228,24 @@ def resolve(token, context=CORE):
         except ImportError:
             val = getattr(__builtin__, token)
     return val
+    """
 
-def eval(expr_list, context=CORE):
-    expr_list = map(lambda x: resolve(x, context), expr_list)
-    return expr_list[0](*expr_list[1:])
+def eval_list(expr_list, context=CORE):
+    if not isinstance(expr_list, list):
+        raise SyntaxError("Only lists can be evaled")
+    head = expr_list[0]
+    leading = None
+    rest = []
+    if len(expr_list) >= 2:
+        leading, rest = expr_list[1], expr_list[2:]
+    callback, rest = resolve(head, leading, rest)
+    return callback(*rest)
 
 def evals(s, dump_tree=False):
     tree = parse(s)
     if dump_tree:
         pprint(tree)
-    return eval(tree)
+    return eval_list(tree)
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
 # http://docs.python.org/2/library/cmd.html
