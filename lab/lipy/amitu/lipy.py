@@ -217,18 +217,6 @@ def resolve(head, leading, rest):
         raise SyntaxError(
             "head must be either a list of a symbol, found %s" % head
         )
-    """
-    val = CORE.get(token)
-    if val == None:
-        val = STACK[-1].get(token)
-    if val == None:
-        mod_name, func_name = get_mod_func(token)
-        try:
-            val = getattr(__import__(mod_name, {}, {}, ['']), func_name)
-        except ImportError:
-            val = getattr(__builtin__, token)
-    return val
-    """
 
 def eval_list(expr_list, context=CORE):
     if not isinstance(expr_list, list):
