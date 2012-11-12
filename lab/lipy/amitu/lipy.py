@@ -34,7 +34,7 @@ HELLO WORLD
 
 """
 from __future__ import print_function
-import sys
+import sys, __builtin__
 from pyparsing import *
 
 class Token(object):
@@ -136,7 +136,7 @@ def resolve(token, context=CORE):
         try:
             val = getattr(__import__(mod_name, {}, {}, ['']), func_name)
         except ImportError:
-            val = getattr(__builtins__, token)
+            val = getattr(__builtin__, token)
     return val
 
 def eval(expr_list, context=CORE):
