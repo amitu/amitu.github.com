@@ -109,7 +109,9 @@ def eval(expr_list, context=CORE):
     return expr_list[0](*expr_list[1:])
 
 def evals(s):
-    for expr in parse(s): eval(expr)
+    last = None
+    for expr in parse(s): last = eval(expr)
+    return last
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
 # http://docs.python.org/2/library/cmd.html
@@ -117,8 +119,24 @@ def evals(s):
 # https://github.com/iridium172/PyTerm/blob/master/pyterm.py
 # http://openbookproject.net/py4fun/userInput/userInput.html
 
+def main():
+    import sys, argparse
+    parser = argparse.ArgumentParser(
+        prog="lipy", description='lipy - a pythonic lisp'
+    )
+    parser.add_argument("--test", action="store_true")
+    parser.add_argument("--eval", "-e")
+    parser.add_argument("file", nargs="?")
+    args = parser.parse_args()
+    if args.test:
+        print("testing...")
+    elif args.eval:
+        print(evals(args.eval))
+    elif args.file:
+        evals(file(args.file).read())
+    else:
+        parser.print_help()
+
 if __name__ == "__main__":
-    import sys
-    import fileinput
-    #evals("\n".join(line for line in fileinput.input()))
-    evals(sys.argv[1])
+    main()
+    # evals(sys.argv[1])
