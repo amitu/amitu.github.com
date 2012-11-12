@@ -8,8 +8,9 @@ lipy - Pythonic Lisp
 An experimental implementation of clojure/lisp in python. One that gels well
 with python.
 
-Test
-====
+Tests
+=====
+
 >>> evals("(+ 1 2)")
 3
 >>> evals("1 2")
@@ -17,7 +18,7 @@ Traceback (most recent call last):
 ...
 TypeError: argument 2 to map() must support iteration
 >>>
->>> evals("(print (string.upper 'hello world'))")
+>>> evals('(print (string.upper "hello world"))')
 HELLO WORLD
 >>> evals("(print (+ 1 2 (* 23 45 2)))")
 2073
@@ -29,20 +30,25 @@ HELLO WORLD
 6
 8
 [None, None, None, None]
->>> evals("(eval 'print(1 + len([1, 2, 3]))')")
+>>> evals('(eval "print(1 + len([1, 2, 3]))")')
 4
 >>>
 
 """
 from __future__ import print_function
-import sys, __builtin__
+import sys
+from pprint import pprint
+try:
+    import __builtin__
+except ImportError:
+    import builtins as __builtin__
 from pyparsing import *
 
 class Token(object):
     def __init__(self, t):
         self.t = t
     def __str__(self): return repr(self)
-    def __repr__(self): return "<%s %r>" % (self.__class__.__name__, self.t)
+    def __repr__(self): return "<%s %r>" % (self.__class__.__name__, self.t[0])
     def val(self): return self.t[0]
 
 class Tick(Token): pass
@@ -58,14 +64,14 @@ class List(Token): pass
 class Vector(Token): pass
 class Map(Token): pass
 class Set(Token): pass
-class LiteralList(Token): pass
+class Literal(Token): pass
 
 def set_class(p, C):
     p.setParseAction(lambda t: C(t))
     p.setName("foo")
     return p
 
-LPAR, RPAR, LBRK, RBRK, LBRC, RBRC, HASH, QUOTE, TICK, COLON= map(
+LPAR, RPAR, LBRK, RBRK, LBRC, RBRC, HASH, QUOTE, TICK, COLON = map(
     Suppress, "()[]{}#'`:"
 )
 
@@ -76,16 +82,15 @@ decimal = set_class(Regex(r'-?0|[1-9]\d*'), Decimal)
 real = set_class(Regex(r"[+-]?\d+\.\d*([eE][+-]?\d+)?"), Real)
 
 dblQuotedString = set_class(dblQuotedString, String)
-quotedString = set_class(quotedString, String)
 
-scalars = real | decimal | symbol | keyword | dblQuotedString | quotedString
+scalars = real | decimal | symbol | keyword | dblQuotedString
 
 sexp = Forward()
 sexpList = set_class(Group(LPAR + ZeroOrMore(sexp) + RPAR), List)
 sexpVector = set_class(Group(LBRK + ZeroOrMore(sexp) + RBRK), Vector)
 sexpMap = set_class(Group(LBRC + ZeroOrMore(sexp) + RBRC), Map)
 sexpSet = set_class(Group(HASH + LBRC + ZeroOrMore(sexp) + RBRC), Set)
-sexpLiteral = set_class(Group(QUOTE + sexp), LiteralList)
+sexpLiteral = set_class(Group(QUOTE + sexp), Literal)
 sexpTicked = set_class(Group(TICK + sexp), Tick)
 sexp << (
     scalars |
@@ -97,8 +102,42 @@ sexp << (
     sexpTicked
 )
 
+def clean_up(tree):
+    tree_type = type(tree)
+    # currently we do not distinguish between List and Vector, both become
+    # python list. List should become a linked list, and Vector remain list.
+    if tree_type in (List, Vector):
+        val = tree.val()
+        return [clean_up(i) for i in val]
+    elif tree_type in (String, Decimal, Real):
+        return tree.val()
+    elif tree_type == Symbol:
+        return tree
+    elif tree_type == Tick:
+        return Tick([clean_up(tree.val())])
+    elif tree_type == Keyword:
+        return Keyword([tree.val()[0].val()])
+    elif tree_type == Map:
+        val = tree.val()
+        assert len(val) % 2 == 0, "wrong number of items passed to Hash"
+        return dict(
+            [
+                (clean_up(val[2 * i]), clean_up(val[2 * i + 1])) 
+                for i in range(len(val)/2)
+            ]
+        )
+    elif tree_type == Literal:
+        val = tree.val()
+        return Literal([[clean_up(i) for i in val]])
+    elif tree_type == Set:
+        val = tree.val()
+        return set([clean_up(i) for i in val])
+    else:
+        print(tree_type)
+        raise SyntaxError("Bad tree type %s" % tree_type)
+
 def parse(s):
-    return sexp.parseString(s, parseAll=False)
+    return clean_up(sexp.parseString(s, parseAll=False)[0])
 
 def summer(*args): return sum(args)
 def minuser(first, *rest): return reduce(lambda x, y: x - y, rest, first)
@@ -126,8 +165,8 @@ def get_mod_func(callback):
     return callback[:dot], callback[dot+1:]
 
 def resolve(token, context=CORE):
-    if (type(token) == List): return eval(token, context)
-    if (type(token) != Symbol): return token.val()
+    if (type(token) == list): return eval(token, context)
+    if (type(token) != Symbol): return token
     token = token.val()
     val = CORE.get(token)
     if val == None:
@@ -141,13 +180,14 @@ def resolve(token, context=CORE):
     return val
 
 def eval(expr_list, context=CORE):
-    expr_list = map(lambda x: resolve(x, context), expr_list.val())
+    expr_list = map(lambda x: resolve(x, context), expr_list)
     return expr_list[0](*expr_list[1:])
 
-def evals(s):
-    last = None
-    for expr in parse(s): last = eval(expr)
-    return last
+def evals(s, dump_tree=False):
+    tree = parse(s)
+    if dump_tree:
+        pprint(tree)
+    return eval(tree)
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
 # http://docs.python.org/2/library/cmd.html
@@ -166,6 +206,7 @@ def main():
     )
     parser.add_argument("--test", "-t", action="store_true")
     parser.add_argument("--eval", "-e")
+    parser.add_argument("--tree", action="store_true")
     parser.add_argument("file", nargs="?")
 
     args = parser.parse_args()
@@ -173,13 +214,13 @@ def main():
     if args.test:
         test()
     elif args.eval:
-        evals(args.eval)
+        evals(args.eval, args.tree)
     elif args.file:
         print(args.file)
         if args.file == "-":
-            evals(sys.stdin.read())
+            evals(sys.stdin.read(), args.tree)
         else:
-            evals(file(args.file).read())
+            evals(file(args.file).read(), args.tree)
     else:
         parser.print_help()
 
