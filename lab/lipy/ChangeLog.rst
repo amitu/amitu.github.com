@@ -1,3 +1,8 @@
+0.0.1a3
+=======
+
+ * Rudimentary support for macros.
+
 0.0.1a2
 =======
 
