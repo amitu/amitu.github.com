@@ -13,11 +13,13 @@ Tests
 
 >>> evals("(+ 1 2)")
 3
->>> evals("1 2")
+
+#>>> evals("1 2") # how to handle this?, clojure treats as two statements
 Traceback (most recent call last):
 ...
 SyntaxError: Only lists can be evaled
->>>
+#>>>
+
 >>> evals('(print (string.upper "hello world"))')
 HELLO WORLD
 >>> evals("(print (+ 1 2 (* 23 45 2)))")
@@ -36,9 +38,18 @@ HELLO WORLD
 HELLO WORLD
 >>> evals('(= x 10)')
 10
->>> evals('(do (= x 10) (+ x 12))')
-22
-
+>>> evals('(do (print 1) (print 10))')
+1
+10
+>>> evals('(do (= y 12) (print y))')
+12
+>>> evals('(defmacro test1 [x] (print (~ x)))')
+<Macro:test1 ...>
+>>> evals('(test1 1)')
+1
+>>> evals('(test1 (string.upper "hello"))')
+HELLO
+>>>
 """
 from __future__ import print_function
 import sys
@@ -178,7 +189,7 @@ def eval_llist(expr_llist, new_stack=False):
     #print ("eval_llist", expr_llist, new_stack)
     last = None
     for expr_list in expr_llist:
-        last = eval_list(expr_list, new_stack)
+        last = eval_list(expr_list, new_stack=new_stack)
     #print("eval_list done", expr_llist, new_stack, last)
     return last
 
@@ -235,7 +246,7 @@ class Macro(object):
                 raise SyntaxError("arguments do not match")
             #print("STACK", STACK, 'body', self.body[1:])
             for body in self.body[1:]:
-                eval_list(body, True)
+                eval_list(body, new_stack=True)
             #return eval_list([Symbol(["print"]), "hello"])
         finally:
             stack_decr()
@@ -305,7 +316,9 @@ def resolve(head, leading, rest):
             "head must be either a list of a symbol, found %s" % head
         )
 
-def eval_list(expr_list, new_stack=True):
+def eval_list(expr_list, **kw):
+    new_stack = kw.get("new_stack", True)
+    if type(expr_list) != list: return expr_list
     #print("eval_list", expr_list, new_stack)
     if new_stack: stack_incr()
     if not isinstance(expr_list, list):
@@ -329,6 +342,7 @@ CORE = {
     "*": prodder,
     "/": divider,
     "=": setter,
+    "~": eval_list,
     "~~": eval_llist,
 }
 
@@ -339,6 +353,8 @@ def evals(s, dump_tree=False):
     return eval_list(tree)
 
 evals("(defmacro do [*args] (~~ args))")
+evals('(defmacro hello [name] (do (print "hello" (~ name)) (print "bye")))')
+evals("(defmacro if [cond then else] (~ else))")
 #print("MACROS:", MACROS, "GLOBALS:", GLOBALS)
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
@@ -378,3 +394,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# whats remaining:
+#   * eval_list becomes eval_form, processes every form, recirsively if
+#     its a collection
+#   * (defmacro fn), it takes all arguments and wraps them around (~)
+#   * stack
+#   * can we convert eval_list from recursive to iterative form? required for
+#     tail call optimization/stacklessness
+#   * booleans and conditions, how to handle them
+#   * modules and import
