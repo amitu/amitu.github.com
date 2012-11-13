@@ -73,9 +73,11 @@ bye
 
  * proper lambda, macros are too high painful as a substiture for fn
  * proper stack management, currently everything is global
+ * modules and imports
  * booleans and conditions
  * looping?
  * tail call optimization
+ * python import hook to load lipy from python?
 
 #### Bugs/Feature Requests/Ideas
 
