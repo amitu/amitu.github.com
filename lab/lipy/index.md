@@ -49,6 +49,9 @@ $ lipy -e "(print sys.argv)"
 $ lipy -e "(eval 'print(1 + len([1, 2, 3]))')" # calling python's eval
 4
 
+$ lipy -e '(do (= name "amitu") (print "hello" name))'
+hello amitu
+
 $ lipy -e '(do (print "hello") (print "world"))'
 hello
 world

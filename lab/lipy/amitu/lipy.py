@@ -404,3 +404,8 @@ if __name__ == "__main__":
 #     tail call optimization/stacklessness
 #   * booleans and conditions, how to handle them
 #   * modules and import
+
+# https://bitbucket.org/pypy/pypy/src/default/pypy/interpreter/mixedmodule.py
+# http://mail.python.org/pipermail/pypy-dev/2006-April/002985.html
+# http://doc.pypy.org/en/latest/coding-guide.html#implementing-a-mixed-interpreter-application-level-module
+# http://stackoverflow.com/questions/10470800/compile-pypy-to-exe
