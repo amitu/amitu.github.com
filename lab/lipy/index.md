@@ -25,8 +25,11 @@ updates without any fanfare, so please use -U every so often.
 #### What Works So Far
 
 {% highlight bash %}
-$ lipy "(print (string.upper 'hello world'))"
+$ lipy -e '(print (string.upper "hello world"))'
 HELLO WORLD
+
+$ lipy -e '(print ("hello world" __len__))'
+11
 
 $ lipy -e "(print (+ 1 2 (* 23 45 2)))"
 2073
@@ -61,17 +64,22 @@ $ lipy -e '
     (defmacro hello [name] (do (print "hello" (~ name)) (print "bye")))
     (hello "amitu")
     (hello (+ 1 2))
+    (map hello (range 2))
 )'
 hello amitu
 bye
 hello 3
+bye
+hello 0
+bye
+hello 1
 bye
 
 {% endhighlight %}
 
 #### Major ToDos
 
- * proper lambda, macros are too high painful as a substiture for fn
+ * proper lambda, macros are too high painful as a substitute for fn
  * proper stack management, currently everything is global
  * modules and imports
  * booleans and conditions
