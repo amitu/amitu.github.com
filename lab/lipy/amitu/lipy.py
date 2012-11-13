@@ -70,18 +70,16 @@ class Vector(Token): pass
 class Map(Token): pass
 class Set(Token): pass
 class Literal(Token): pass
-class Tilda(Token): pass
-class DTilda(Token): pass
 
 def set_class(p, C):
     p.setParseAction(lambda t: C(t))
     return p
 
 (
-    LPAR, RPAR, LBRK, RBRK, LBRC, RBRC, HASH, QUOTE, TICK, COLON, TILDA, STAR
-) = map(Suppress, "()[]{}#'`:~*")
+    LPAR, RPAR, LBRK, RBRK, LBRC, RBRC, HASH, QUOTE, TICK, COLON, STAR
+) = map(Suppress, "()[]{}#'`:*")
 
-symbol = set_class(Regex(r'[\w\d\-./_*+=]+'), Symbol)
+symbol = set_class(Regex(r'[\w\d\-./~_*+=]+'), Symbol)
 keyword = set_class(Group(COLON + symbol), Keyword)
 
 decimal = set_class(Regex(r'-?0|[1-9]\d*'), Decimal)
@@ -97,8 +95,6 @@ sexpVector = set_class(Group(LBRK + ZeroOrMore(sexp) + RBRK), Vector)
 sexpMap = set_class(Group(LBRC + ZeroOrMore(sexp) + RBRC), Map)
 sexpSet = set_class(Group(HASH + LBRC + ZeroOrMore(sexp) + RBRC), Set)
 sexpLiteral = set_class(Group(QUOTE + sexp), Literal)
-sexpTilda = set_class(Group(TILDA + sexp), Tilda)
-sexpDTilda = set_class(Group(TILDA + TILDA + sexp), DTilda)
 sexpTicked = set_class(Group(TICK + sexp), Tick)
 sexp << (
     scalars |
@@ -107,9 +103,7 @@ sexp << (
     sexpMap |
     sexpSet |
     sexpLiteral |
-    sexpTicked |
-    sexpDTilda |
-    sexpTilda 
+    sexpTicked
 )
 
 def clean_up(tree):
@@ -125,10 +119,6 @@ def clean_up(tree):
         return tree
     elif tree_type == Tick:
         return Tick([clean_up(tree.val())])
-    elif tree_type == Tilda:
-        return Tilda([tree.val()[0].val()])
-    elif tree_type == DTilda:
-        return DTilda([tree.val()[0].val()])
     elif tree_type == Keyword:
         return Keyword([tree.val()[0].val()])
     elif tree_type == Map:
@@ -153,7 +143,7 @@ def clean_up(tree):
 def parse(s):
     return clean_up(sexp.parseString(s, parseAll=False)[0])
 
-STACK = []
+STACK = [{}]
 GLOBALS = {}
 MACROS = {}
 
@@ -184,14 +174,13 @@ def gsetter(name, value):
 def defmacro(name, body):
     return gsetter(name, Macro(name, body))
 
-CORE = {
-    "prit": prit,
-    "+": summer,
-    "-": minuser,
-    "*": prodder,
-    "/": divider,
-    "=": setter,
-}
+def eval_llist(expr_llist, new_stack=False):
+    #print ("eval_llist", expr_llist, new_stack)
+    last = None
+    for expr_list in expr_llist:
+        last = eval_list(expr_list, new_stack)
+    #print("eval_list done", expr_llist, new_stack, last)
+    return last
 
 def get_mod_func(callback):
     # Converts 'django.views.news.stories.story_detail' to
@@ -231,9 +220,9 @@ class Macro(object):
     def __call__(self, *args):
         stack_incr()
         try:
-            print(self.name, self.body, args)
+            #print("__call__", self.name, self.body, args)
             for var in self.body[0]:
-                print("var", var)
+                #print("var", var)
                 assert(isinstance(var, Symbol))
                 if var.val().startswith("*"):
                     setter(Symbol([var.val()[1:]]), args[:])
@@ -244,16 +233,21 @@ class Macro(object):
                     args = args[1:]
             if args:
                 raise SyntaxError("arguments do not match")
-            print(STACK, self.body[1:])
+            #print("STACK", STACK, 'body', self.body[1:])
+            for body in self.body[1:]:
+                eval_list(body, True)
+            #return eval_list([Symbol(["print"]), "hello"])
         finally:
             stack_decr()
 
 class Lambda(Macro): pass
 
 def stack_incr():
+    return
     STACK.append({})
 
 def stack_decr():
+    return
     STACK.pop()
 
 def eval_symbol(symbol0):
@@ -287,6 +281,7 @@ def resolve(head, leading, rest):
     #       already defined lambda or macro
     #       a "local"/"global" variable
     #   else it is syntax error
+    #print("resolve", head, leading, rest)
     if isinstance(head, list):
         return eval_list(head), merge_leading_and_rest(leading, rest)
     elif isinstance(head, Symbol) and head.val() == "defmacro":
@@ -311,6 +306,7 @@ def resolve(head, leading, rest):
         )
 
 def eval_list(expr_list, new_stack=True):
+    #print("eval_list", expr_list, new_stack)
     if new_stack: stack_incr()
     if not isinstance(expr_list, list):
         raise SyntaxError("Only lists can be evaled")
@@ -320,10 +316,21 @@ def eval_list(expr_list, new_stack=True):
     if len(expr_list) >= 2:
         leading, rest = expr_list[1], expr_list[2:]
     callback, rest = resolve(head, leading, rest)
-    print(callback, rest)
+    #print("eval_list before", callback, rest)
     val = callback(*rest)
+    #print("eval_list after", callback, rest, val, "END")
     if new_stack: stack_decr()
     return val
+
+CORE = {
+    "prit": prit,
+    "+": summer,
+    "-": minuser,
+    "*": prodder,
+    "/": divider,
+    "=": setter,
+    "~~": eval_llist,
+}
 
 def evals(s, dump_tree=False):
     tree = parse(s)
@@ -331,8 +338,8 @@ def evals(s, dump_tree=False):
         pprint(tree)
     return eval_list(tree)
 
-evals("(defmacro do [x *args] (~~ args2))")
-print(MACROS, GLOBALS)
+evals("(defmacro do [*args] (~~ args))")
+#print("MACROS:", MACROS, "GLOBALS:", GLOBALS)
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
 # http://docs.python.org/2/library/cmd.html
