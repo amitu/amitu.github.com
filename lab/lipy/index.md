@@ -71,10 +71,10 @@ bye
 
 #### Major ToDos
 
- * "variables"
- * lambda
- * macros
- * hash/set etc data types
+ * proper lambda, macros are too high painful as a substiture for fn
+ * proper stack management, currently everything is global
+ * booleans and conditions
+ * looping?
  * tail call optimization
 
 #### Bugs/Feature Requests/Ideas
