@@ -46,8 +46,20 @@ $ lipy -e "(map print (range 2 9 2))"
 $ lipy -e "(print sys.argv)"
 ['/usr/local/bin/lipy', '-e', '(print sys.argv)']
 
-$ lipy -e "(eval 'print(1 + len([1, 2, 3]))')"
+$ lipy -e "(eval 'print(1 + len([1, 2, 3]))')" # calling python's eval
 4
+
+$ lipy -e '(do (print "hello") (print "world"))'
+hello
+world
+
+$ lipy -e '
+(do
+    (defmacro hello [name] (do (print "hello" (~ name)) (print "bye")))
+    (hello "amitu")
+)'
+hello amitu
+bye
 
 {% endhighlight %}
 
