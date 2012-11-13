@@ -57,8 +57,11 @@ $ lipy -e '
 (do
     (defmacro hello [name] (do (print "hello" (~ name)) (print "bye")))
     (hello "amitu")
+    (hello (+ 1 2))
 )'
 hello amitu
+bye
+hello 3
 bye
 
 {% endhighlight %}
