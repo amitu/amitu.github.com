@@ -52,7 +52,7 @@ HELLO
 >>>
 """
 from __future__ import print_function
-import sys
+import sys, inspect
 from pprint import pprint
 try:
     import __builtin__
@@ -185,6 +185,8 @@ def gsetter(name, value):
 def defmacro(name, body):
     if (name.val() == "if"):
         return gsetter(name, IF(name, body))
+    elif (name.val() == "fn"):
+        return gsetter(name, Lambda(name, body))
     else:
         return gsetter(name, Macro(name, body))
 
@@ -253,7 +255,6 @@ class Macro(object):
             last = None
             for body in self.body[1:]:
                 last = eval_list(body, new_stack=True)
-            print("%s: %s -> %s" % (self, args, last))
             return last
         finally:
             stack_decr()
@@ -273,7 +274,21 @@ class IF(Macro):
         finally:
             stack_decr()
 
-class Lambda(Macro): pass
+class Lambda(Macro):
+    def __call__(self, *args):
+        stack_incr()
+        try:
+            self.eval_vars(args)
+            def fn(*fn_args):
+                for arg in eval_symbol(s("args")):
+                    setter(arg, fn_args[0])
+                    fn_args = fn_args[1:]
+                if fn_args:
+                    raise SyntaxError("bad number of params")
+                return eval_llist(eval_symbol(s("body")))
+            return fn
+        finally:
+            stack_decr()
 
 def stack_incr():
     return
@@ -342,10 +357,13 @@ def resolve(head, leading, rest):
             "head must be either a list of a symbol, found %s" % head
         )
 
+def check_stack_depth():
+    assert len(inspect.stack()) < 40, "stack over flow"
+
 def eval_list(expr_list, **kw):
+    check_stack_depth()
     new_stack = kw.get("new_stack", True)
     if type(expr_list) != list: return expr_list
-    #print("eval_list", expr_list, new_stack)
     if new_stack: stack_incr()
     if not isinstance(expr_list, list):
         raise SyntaxError("Only lists can be evaled")
@@ -381,9 +399,9 @@ def evals(s, dump_tree=False):
     return eval_list(tree)
 
 evals("(defmacro do [*args] (~~ args))")
-evals('(defmacro hello [name] (do (print "hello" (~ name)) (print "bye")))')
 evals("(defmacro if [cond then else] (...))")
-#print("MACROS:", MACROS, "GLOBALS:", GLOBALS)
+evals("(defmacro fn [args *body] (~~ body))")
+evals("(defmacro defn [name args *body] (= name (fn args (~~ body))))")
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
 # http://docs.python.org/2/library/cmd.html
