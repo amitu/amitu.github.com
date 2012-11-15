@@ -5,6 +5,10 @@ description: ""
 ---
 {% include JB/setup %}
 
+"Anyone can build a bridge that stands, it takes an engineer to build a bridge
+that barely stands."
+
+----
 When beetles battle beetles in a puddle paddle battle and the beetle battle
 puddle is a puddle in a bottle they call this a tweetle beetle bottle puddle
 paddle battle muddle. -- Dr. Seuss

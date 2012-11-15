@@ -90,7 +90,7 @@ def set_class(p, C):
     LPAR, RPAR, LBRK, RBRK, LBRC, RBRC, HASH, QUOTE, TICK, COLON, STAR
 ) = map(Suppress, "()[]{}#'`:*")
 
-symbol = set_class(Regex(r'[\w\d\-./~_*+=]+'), Symbol)
+symbol = set_class(Regex(r'[\w\d\-./~_*+=?]+'), Symbol)
 keyword = set_class(Group(COLON + symbol), Keyword)
 
 decimal = set_class(Regex(r'-?0|[1-9]\d*'), Decimal)
@@ -183,7 +183,10 @@ def gsetter(name, value):
     return value
 
 def defmacro(name, body):
-    return gsetter(name, Macro(name, body))
+    if (name.val() == "if"):
+        return gsetter(name, IF(name, body))
+    else:
+        return gsetter(name, Macro(name, body))
 
 def eval_llist(expr_llist, new_stack=False):
     #print ("eval_llist", expr_llist, new_stack)
@@ -228,26 +231,45 @@ class Macro(object):
         )
 
     def __str__(self): return repr(self)
+
+    def eval_vars(self, args):
+        for var in self.body[0]:
+            #print("var", var)
+            assert(isinstance(var, Symbol))
+            if var.val().startswith("*"):
+                setter(Symbol([var.val()[1:]]), args[:])
+                args = []
+                break
+            else:
+                setter(var, args[0])
+                args = args[1:]
+        if args:
+            raise SyntaxError("arguments do not match")
+
     def __call__(self, *args):
         stack_incr()
         try:
-            #print("__call__", self.name, self.body, args)
-            for var in self.body[0]:
-                #print("var", var)
-                assert(isinstance(var, Symbol))
-                if var.val().startswith("*"):
-                    setter(Symbol([var.val()[1:]]), args[:])
-                    args = []
-                    break
-                else:
-                    setter(var, args[0])
-                    args = args[1:]
-            if args:
-                raise SyntaxError("arguments do not match")
-            #print("STACK", STACK, 'body', self.body[1:])
+            self.eval_vars(args)
+            last = None
             for body in self.body[1:]:
-                eval_list(body, new_stack=True)
-            #return eval_list([Symbol(["print"]), "hello"])
+                last = eval_list(body, new_stack=True)
+            print("%s: %s -> %s" % (self, args, last))
+            return last
+        finally:
+            stack_decr()
+
+def s(sym):
+    return Symbol([sym])
+
+class IF(Macro):
+    def __call__(self, *args):
+        stack_incr()
+        try:
+            self.eval_vars(args)
+            if eval_list([s("?"), [s("~"), s("cond")]]):
+                return eval_list([Symbol(["~"]), Symbol(["then"])])
+            else:
+                return eval_list([Symbol(["~"]), Symbol(["else"])])
         finally:
             stack_decr()
 
@@ -263,6 +285,10 @@ def stack_decr():
 
 def eval_symbol(symbol0):
     symbol = symbol0.val()
+    if symbol == "True":
+        return True
+    if symbol == "False":
+        return False
     val = CORE.get(symbol)
     if val:
         return val
@@ -344,6 +370,8 @@ CORE = {
     "=": setter,
     "~": eval_list,
     "~~": eval_llist,
+    "==": lambda x, y: x == y,
+    "?": lambda x: True if x else False
 }
 
 def evals(s, dump_tree=False):
@@ -354,7 +382,7 @@ def evals(s, dump_tree=False):
 
 evals("(defmacro do [*args] (~~ args))")
 evals('(defmacro hello [name] (do (print "hello" (~ name)) (print "bye")))')
-evals("(defmacro if [cond then else] (~ else))")
+evals("(defmacro if [cond then else] (...))")
 #print("MACROS:", MACROS, "GLOBALS:", GLOBALS)
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
@@ -384,7 +412,7 @@ def main():
     elif args.eval:
         evals(args.eval, args.tree)
     elif args.file:
-        print(args.file)
+        sys.setrecursionlimit(40000)
         if args.file == "-":
             evals(sys.stdin.read(), args.tree)
         else:
@@ -409,3 +437,6 @@ if __name__ == "__main__":
 # http://mail.python.org/pipermail/pypy-dev/2006-April/002985.html
 # http://doc.pypy.org/en/latest/coding-guide.html#implementing-a-mixed-interpreter-application-level-module
 # http://stackoverflow.com/questions/10470800/compile-pypy-to-exe
+# http://pyppet.blogspot.in/2010/08/rpython-callbacks-from-c.html
+# http://code.google.com/p/rpythonic/wiki/UnderstandingRpython
+# http://pyppet.blogspot.in/2010/08/rpython-callbacks-from-c.html

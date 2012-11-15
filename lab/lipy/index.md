@@ -20,7 +20,8 @@ $ sudo easy_install -U amitu.lipy
 {% endhighlight %}
 
 Please note that it is an experimental package so far, I will be releasing
-updates without any fanfare, so please use -U every so often.
+updates without any fanfare, so please use -U every so often. Don't use it for
+anything but demos.
 
 #### What Works So Far
 
