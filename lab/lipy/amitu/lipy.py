@@ -49,7 +49,30 @@ HELLO WORLD
 1
 >>> evals('(test1 (string.upper "hello"))')
 HELLO
->>>
+>>> evals('(== 1 2)')
+False
+>>> evals('(< 1 2)')
+True
+>>> evals('(>= 200 200)')
+True
+>>> evals('(not (< (+ 1 2) (* 3 6)))')
+False
+>>> evals('(if (== 2 2) (do (print "yo") (print "man")) (print ":-("))')
+yo
+man
+>>> evals("\
+(do\
+    (= dofact (fn [x acc]\
+        (if (== x 1)\
+            (~ acc)\
+            (dofact (- x 1) (* acc x))\
+        )\
+    ))\
+    (print (dofact 5 1))\
+)\
+")
+120
+
 """
 from __future__ import print_function
 import sys, inspect
@@ -90,7 +113,7 @@ def set_class(p, C):
     LPAR, RPAR, LBRK, RBRK, LBRC, RBRC, HASH, QUOTE, TICK, COLON, STAR
 ) = map(Suppress, "()[]{}#'`:*")
 
-symbol = set_class(Regex(r'[\w\d\-./~_*+=?]+'), Symbol)
+symbol = set_class(Regex(r'[\w\d\-./~_*+=?<>]+'), Symbol)
 keyword = set_class(Group(COLON + symbol), Keyword)
 
 decimal = set_class(Regex(r'-?0|[1-9]\d*'), Decimal)
@@ -357,8 +380,13 @@ def resolve(head, leading, rest):
             "head must be either a list of a symbol, found %s" % head
         )
 
+max_stack = 0
+
 def check_stack_depth():
-    assert len(inspect.stack()) < 40, "stack over flow"
+    global max_stack
+    current_stack_depth = len(inspect.stack())
+    if max_stack < current_stack_depth:
+        max_stack = current_stack_depth
 
 def eval_list(expr_list, **kw):
     check_stack_depth()
@@ -389,6 +417,10 @@ CORE = {
     "~": eval_list,
     "~~": eval_llist,
     "==": lambda x, y: x == y,
+    ">": lambda x, y: x > y,
+    ">=": lambda x, y: x >= y,
+    "<": lambda x, y: x < y,
+    "<=": lambda x, y: x <= y,
     "?": lambda x: True if x else False
 }
 
@@ -401,6 +433,7 @@ def evals(s, dump_tree=False):
 evals("(defmacro do [*args] (~~ args))")
 evals("(defmacro if [cond then else] (...))")
 evals("(defmacro fn [args *body] (~~ body))")
+evals("(defmacro not [p] (if (~ p) (~ False) (~ True)))")
 evals("(defmacro defn [name args *body] (= name (fn args (~~ body))))")
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
@@ -419,6 +452,7 @@ def main():
         prog="lipy", description='lipy - a pythonic lisp'
     )
     parser.add_argument("--test", "-t", action="store_true")
+    parser.add_argument("--verbose", "-v", action="store_true")
     parser.add_argument("--eval", "-e")
     parser.add_argument("--tree", action="store_true")
     parser.add_argument("file", nargs="?")
@@ -437,6 +471,8 @@ def main():
             evals(file(args.file).read(), args.tree)
     else:
         parser.print_help()
+    if args.verbose:
+        print("Done, max_stack =", max_stack)
 
 if __name__ == "__main__":
     main()

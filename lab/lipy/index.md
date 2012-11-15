@@ -60,6 +60,12 @@ $ lipy -e '(do (print "hello") (print "world"))'
 hello
 world
 
+$ lipy -e '(if (< 1 2) (print "one less than two") (print "universe error"))'
+one less than two
+
+$ lipy -e '(print (not True))'
+False
+
 $ lipy -e '
 (do
     (defmacro hello [name] (do (print "hello" (~ name)) (print "bye")))
@@ -76,15 +82,26 @@ bye
 hello 1
 bye
 
+$ lipy -e '
+(do
+    (= dofact (fn [x acc]
+        (if (== x 1)
+            (~ acc)
+            (dofact (- x 1) (* acc x))
+        )
+    ))
+    (print (dofact 5 1))
+)'
+120
+
 {% endhighlight %}
 
 #### Major ToDos
 
- * proper lambda, macros are too high painful as a substitute for fn
- * proper stack management, currently everything is global
+ * proper stack management, currently everything is global, big issue
  * modules and imports
- * booleans and conditions
  * looping?
+ * can we do the whole thing in a non recursive fashion?
  * tail call optimization
  * python import hook to load lipy from python?
 

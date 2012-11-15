@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name = "amitu.lipy",
     description = "Lipy - Pythonic Lisp",
-    version = "0.0.1a3",
+    version = "0.0.1a4",
     author = 'Amit Upadhyay',
     author_email = "upadhyay@gmail.com",
 
