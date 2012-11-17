@@ -57,6 +57,8 @@ True
 True
 >>> evals('(not (< (+ 1 2) (* 3 6)))')
 False
+>>> evals('(not True)')
+False
 >>> evals('(if (== 2 2) (do (print "yo") (print "man")) (print ":-("))')
 yo
 man
@@ -213,12 +215,12 @@ def defmacro(name, body):
     else:
         return gsetter(name, Macro(name, body))
 
-def eval_llist(expr_llist, new_stack=False):
-    #print ("eval_llist", expr_llist, new_stack)
+def eval_llist(expr_llist):
+    #print ("eval_llist", expr_llist)
     last = None
     for expr_list in expr_llist:
-        last = eval_list(expr_list, new_stack=new_stack)
-    #print("eval_list done", expr_llist, new_stack, last)
+        last = eval_list(expr_list)
+    #print("eval_list done", expr_llist, last)
     return last
 
 def get_mod_func(callback):
@@ -277,7 +279,7 @@ class Macro(object):
             self.eval_vars(args)
             last = None
             for body in self.body[1:]:
-                last = eval_list(body, new_stack=True)
+                last = eval_list(body)
             return last
         finally:
             stack_decr()
@@ -321,14 +323,16 @@ def stack_decr():
     return
     STACK.pop()
 
+NOT_FOUND = object()
+
 def eval_symbol(symbol0):
     symbol = symbol0.val()
     if symbol == "True":
         return True
     if symbol == "False":
         return False
-    val = CORE.get(symbol)
-    if val:
+    val = CORE.get(symbol, NOT_FOUND)
+    if val != NOT_FOUND:
         return val
     mod_name, func_name = get_mod_func(symbol)
     try:
@@ -337,14 +341,20 @@ def eval_symbol(symbol0):
         try:
             val = getattr(__builtin__, symbol)
         except AttributeError:
-            pass
-    if val:
+            val = NOT_FOUND
+    if val != NOT_FOUND:
         return val
+    val = stack_lookup(symbol)
+    if val != NOT_FOUND:
+        return val
+    return symbol0
+
+def stack_lookup(symbol):
     if symbol in STACK[-1]:
         return STACK[-1][symbol]
     if symbol in MACROS:
         return MACROS[symbol]
-    return symbol0
+    return NOT_FOUND
 
 def resolve(head, leading, rest):
     # head can be:
@@ -388,11 +398,9 @@ def check_stack_depth():
     if max_stack < current_stack_depth:
         max_stack = current_stack_depth
 
-def eval_list(expr_list, **kw):
+def eval_list(expr_list):
     check_stack_depth()
-    new_stack = kw.get("new_stack", True)
     if type(expr_list) != list: return expr_list
-    if new_stack: stack_incr()
     if not isinstance(expr_list, list):
         raise SyntaxError("Only lists can be evaled")
     head = expr_list[0]
@@ -402,9 +410,9 @@ def eval_list(expr_list, **kw):
         leading, rest = expr_list[1], expr_list[2:]
     callback, rest = resolve(head, leading, rest)
     #print("eval_list before", callback, rest)
+    assert callable(callback), "%s is not callable" % callback
     val = callback(*rest)
     #print("eval_list after", callback, rest, val, "END")
-    if new_stack: stack_decr()
     return val
 
 CORE = {
