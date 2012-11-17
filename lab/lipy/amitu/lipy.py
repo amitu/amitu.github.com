@@ -36,12 +36,28 @@ HELLO WORLD
 4
 >>> evals('(print ("hello world" upper))')
 HELLO WORLD
->>> evals('(= x 10)')
+>>> evals('(var x 10)')
+>>> evals('(print x)')
 10
+>>> evals('(= y 10)')
+Traceback (most recent call last):
+...
+SyntaxError: setting an unknown variable y
+>>> evals("(var x 12)")
+Traceback (most recent call last):
+...
+AssertionError: variable redeclared? x
+>>> evals("(= x 20)")
+>>> evals("(print x)")
+20
+"""
+from __future__ import print_function
+
+"""
 >>> evals('(do (print 1) (print 10))')
 1
 10
->>> evals('(do (= y 12) (print y))')
+>>> evals('(do (var y 12) (print y))')
 12
 >>> evals('(defmacro test1 [x] (print (~ x)))')
 <Macro:test1 ...>
@@ -64,7 +80,7 @@ yo
 man
 >>> evals("\
 (do\
-    (= dofact (fn [x acc]\
+    (var dofact (fn [x acc]\
         (if (== x 1)\
             (~ acc)\
             (dofact (- x 1) (* acc x))\
@@ -76,7 +92,6 @@ man
 120
 
 """
-from __future__ import print_function
 import sys, inspect
 from pprint import pprint
 try:
@@ -141,6 +156,7 @@ sexp << (
     sexpLiteral |
     sexpTicked
 )
+msexp = ZeroOrMore(sexp)
 
 def clean_up(tree):
     tree_type = type(tree)
@@ -149,6 +165,8 @@ def clean_up(tree):
     if tree_type in (List, Vector):
         val = tree.val()
         return [clean_up(i) for i in val]
+    elif tree_type == list:
+        return [clean_up(i) for i in tree]
     elif tree_type in (String, Decimal, Real):
         return tree.val()
     elif tree_type == Symbol:
@@ -177,7 +195,8 @@ def clean_up(tree):
         raise SyntaxError("Bad tree type %s: %s" % (tree_type, tree))
 
 def parse(s):
-    return clean_up(sexp.parseString(s, parseAll=False)[0])
+    #print("parse", s, msexp.parseString(s).asList())
+    return clean_up(msexp.parseString(s).asList())
 
 STACK = [{}]
 GLOBALS = {}
@@ -190,30 +209,31 @@ def divider(first, *rest): return reduce(lambda x, y: x / y, rest, first)
 def prit(*args): print(*args, end="")
 
 def setter(name, value):
-    if name in STACK[-1]: raise SyntaxError("Value already set")
-    assert type(name) == Symbol
-    STACK[-1][name.val()] = value
+    assert type(name) == Symbol, "n=%s v=%s" % (name, value)
+    stack_set(name.val(), value)
     return value
 
 def msetter(name, value):
-    if name in MACROS: raise SyntaxError("Value already set")
-    assert type(name) == Symbol
+    assert type(name) == Symbol, name
     MACROS[name.val()] = value
     return value
 
 def gsetter(name, value):
-    if name in GLOBALS: raise SyntaxError("Value already set")
-    assert type(name) == Symbol
-    MACROS[name.val()] = value
+    assert type(name) == Symbol, name
+    GLOBALS[name.val()] = value
     return value
 
 def defmacro(name, body):
     if (name.val() == "if"):
-        return gsetter(name, IF(name, body))
+        return msetter(name, IF(name, body))
     elif (name.val() == "fn"):
-        return gsetter(name, Lambda(name, body))
+        return msetter(name, Lambda(name, body))
+    elif (name.val() == "var"):
+        return msetter(name, Var(name, body))
+    elif (name.val() == "="):
+        return msetter(name, Equal(name, body))
     else:
-        return gsetter(name, Macro(name, body))
+        return msetter(name, Macro(name, body))
 
 def eval_llist(expr_llist):
     #print ("eval_llist", expr_llist)
@@ -264,40 +284,49 @@ class Macro(object):
             #print("var", var)
             assert(isinstance(var, Symbol))
             if var.val().startswith("*"):
-                setter(Symbol([var.val()[1:]]), args[:])
+                stack_set(Symbol([var.val()[1:]]), args[:], True)
                 args = []
                 break
             else:
-                setter(var, args[0])
+                stack_set(var, args[0], True)
                 args = args[1:]
         if args:
             raise SyntaxError("arguments do not match")
 
     def __call__(self, *args):
-        stack_incr()
-        try:
-            self.eval_vars(args)
-            last = None
-            for body in self.body[1:]:
-                last = eval_list(body)
-            return last
-        finally:
-            stack_decr()
+        self.eval_vars(args)
+        last = None
+        for body in self.body[1:]:
+            last = eval_list(body)
+        return last
 
 def s(sym):
     return Symbol([sym])
 
 class IF(Macro):
     def __call__(self, *args):
-        stack_incr()
-        try:
-            self.eval_vars(args)
-            if eval_list([s("?"), [s("~"), s("cond")]]):
-                return eval_list([Symbol(["~"]), Symbol(["then"])])
-            else:
-                return eval_list([Symbol(["~"]), Symbol(["else"])])
-        finally:
-            stack_decr()
+        self.eval_vars(args)
+        if eval_list([s("?"), [s("~"), s("cond")]]):
+            return eval_list([Symbol(["~"]), Symbol(["then"])])
+        else:
+            return eval_list([Symbol(["~"]), Symbol(["else"])])
+
+class Var(Macro):
+    def __call__(self, *args):
+        assert len(args) % 2 == 0, "uneven number of params passed"
+        for i in range(len(args)/2):
+            k, v = args[2 * i], args[2 * i + 1]
+            assert isinstance(k, Symbol), (
+                "key is not a symbol: %s, %s" % (k, args)
+            )
+            stack_set(k.val(), v, top=True)
+
+class Equal(Macro):
+    def __call__(self, name, value):
+        assert isinstance(name, Symbol)
+        if stack_lookup(name.val()) == NOT_FOUND:
+            raise SyntaxError("setting an unknown variable %s" % name.val())
+        stack_set(name.val(), value)
 
 class Lambda(Macro):
     def __call__(self, *args):
@@ -315,12 +344,14 @@ class Lambda(Macro):
         finally:
             stack_decr()
 
+def stack_reset():
+    global STACK
+    STACK = [{}]
+
 def stack_incr():
-    return
     STACK.append({})
 
 def stack_decr():
-    return
     STACK.pop()
 
 NOT_FOUND = object()
@@ -334,6 +365,9 @@ def eval_symbol(symbol0):
     val = CORE.get(symbol, NOT_FOUND)
     if val != NOT_FOUND:
         return val
+    val = stack_lookup(symbol)
+    if val != NOT_FOUND:
+        return val
     mod_name, func_name = get_mod_func(symbol)
     try:
         val = getattr(__import__(mod_name, {}, {}, ['']), func_name)
@@ -342,18 +376,34 @@ def eval_symbol(symbol0):
             val = getattr(__builtin__, symbol)
         except AttributeError:
             val = NOT_FOUND
+    except ValueError:
+        val = NOT_FOUND
     if val != NOT_FOUND:
         return val
-    val = stack_lookup(symbol)
-    if val != NOT_FOUND:
-        return val
-    return symbol0
-
-def stack_lookup(symbol):
-    if symbol in STACK[-1]:
-        return STACK[-1][symbol]
     if symbol in MACROS:
         return MACROS[symbol]
+    return symbol0
+
+def stack_set(name, value, top=False):
+    #print("stack_set", name, value, top)
+    if top:
+        assert name not in STACK[-1], "variable redeclared? %s" % name
+        STACK[-1][name] = value
+        return
+    else:
+        for i in range(len(STACK) - 1, -1, -1):
+            stack = STACK[i]
+            if name in stack:
+                stack[name] = value
+                return
+        raise SyntaxError("setting an unknown variable %s" % name)
+
+
+def stack_lookup(symbol):
+    for i in range(len(STACK) - 1, -1, -1):
+        stack = STACK[i]
+        if symbol in stack:
+            return stack[symbol]
     return NOT_FOUND
 
 def resolve(head, leading, rest):
@@ -410,7 +460,7 @@ def eval_list(expr_list):
         leading, rest = expr_list[1], expr_list[2:]
     callback, rest = resolve(head, leading, rest)
     #print("eval_list before", callback, rest)
-    assert callable(callback), "%s is not callable" % callback
+    assert callable(callback), "%s is not callable [%s]" % (callback, expr_list)
     val = callback(*rest)
     #print("eval_list after", callback, rest, val, "END")
     return val
@@ -421,7 +471,6 @@ CORE = {
     "-": minuser,
     "*": prodder,
     "/": divider,
-    "=": setter,
     "~": eval_list,
     "~~": eval_llist,
     "==": lambda x, y: x == y,
@@ -429,20 +478,22 @@ CORE = {
     ">=": lambda x, y: x >= y,
     "<": lambda x, y: x < y,
     "<=": lambda x, y: x <= y,
-    "?": lambda x: True if x else False
+    "?": lambda x: True if x else False,
 }
 
 def evals(s, dump_tree=False):
     tree = parse(s)
     if dump_tree:
         pprint(tree)
-    return eval_list(tree)
+    return eval_llist(tree)
 
-evals("(defmacro do [*args] (~~ args))")
+#evals("(defmacro do [*args] (~~ args))")
 evals("(defmacro if [cond then else] (...))")
-evals("(defmacro fn [args *body] (~~ body))")
-evals("(defmacro not [p] (if (~ p) (~ False) (~ True)))")
-evals("(defmacro defn [name args *body] (= name (fn args (~~ body))))")
+#evals("(defmacro fn [args *body] (~~ body))")
+#evals("(defmacro not [p] (if (~ p) (~ False) (~ True)))")
+evals("(defmacro var [*args] (...))")
+evals("(defmacro = [name value] (...))")
+#evals("(defmacro defn [name args *body] (= name (fn args (~~ body))))")
 
 # http://blog.hackthology.com/writing-an-interactive-repl-in-python
 # http://docs.python.org/2/library/cmd.html
