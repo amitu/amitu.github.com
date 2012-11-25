@@ -50,13 +50,13 @@ AssertionError: variable redeclared? x
 >>> evals("(= x 20)")
 >>> evals("(print x)")
 20
+>>> evals('(do (print 1) (print 10))')
+1
+10
 """
 from __future__ import print_function
 
 """
->>> evals('(do (print 1) (print 10))')
-1
-10
 >>> evals('(do (var y 12) (print y))')
 12
 >>> evals('(defmacro test1 [x] (print (~ x)))')
@@ -487,7 +487,7 @@ def evals(s, dump_tree=False):
         pprint(tree)
     return eval_llist(tree)
 
-#evals("(defmacro do [*args] (~~ args))")
+evals("(defmacro do [*args] (~~ args))")
 evals("(defmacro if [cond then else] (...))")
 #evals("(defmacro fn [args *body] (~~ body))")
 #evals("(defmacro not [p] (if (~ p) (~ False) (~ True)))")
