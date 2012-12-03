@@ -5,6 +5,13 @@ description: ""
 ---
 {% include JB/setup %}
 
+The problem with the world is that the intelligent people are full of doubts,
+and the stupid people are full of confidence.
+
+----
+"Trust those who seek the truth, doubt those who claim have found it."
+
+----
 "Anyone can build a bridge that stands, it takes an engineer to build a bridge
 that barely stands."
 
@@ -145,18 +152,18 @@ like it."
 already getting hit, so you've got nothing to lose."
 
 ----
-People are bad to you because you let them. 
+People are bad to you because you let them.
 
 ----
-I am not ready to die yet. 
+I am not ready to die yet.
 
 ----
-We are the Universe comprehending itself. 
+We are the Universe comprehending itself.
   -- Carl Sagan
 
 ----
 The only decisions you ll really regret are the ones you let others make them
-for you. 
+for you.
 
 ----
 The only constant in all your failures is you.  -- some boss, while firing
