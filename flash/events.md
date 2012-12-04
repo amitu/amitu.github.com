@@ -12,8 +12,8 @@ EventDispatcher has a protected dispatchEvent() method that can be used by the
 subclass to fire events.
 
 EventDispatcher subclasses have a public addEventListener() that can be used to
-bind event handlers to events fired. Events in flash are identified by a name
-that is a unique string representing that event. This identified is passed to
+bind event handlers to events fired. Events in flash are identifier by a name
+that is a unique string representing that event. This identifier is passed to
 addEventListener(identifier, handler) along with a handler method. If handler
 is a method on any class, that method must be public, otherwise it can be an
 anonymous function. There is also a corresponding removeEventListener() that
@@ -26,7 +26,7 @@ object that may contain event specific data.
 It is a common pattern to create a public Event subclass for every event
 emitting class, and store the event identifier string as a public static const
 attribute on this class. This facilitates in compile time code validation, as
-using string identified directly is error prone to typos.
+using string identifier directly is error prone to typos.
 
 Lets create a class that emits events, lets say we store some data in a data
 container, DataContainer, and this data container does validation on the data,
@@ -139,7 +139,7 @@ package com.amitu.example
 An astute reader will immediate identify a race condition problem with this
 example and our DataContainer, we are passing the initial value to
 DataContainer as constructor parameter, and DataContainer constructor is
-calling .set() which calls .validate(), which intern fires the event. All this
+calling .set() which calls .validate(), which in tern fires the event. All this
 happens before we get to call data.addEventListener().
 
 Flash event system will not buffer events, and the way to fix this is by either

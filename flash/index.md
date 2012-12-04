@@ -32,3 +32,4 @@ me simplify the scope.
 1. Webcam access
 1. Logging, trace and console
 1. JavaScript interface
+1. Putting it all together: Helicopter
