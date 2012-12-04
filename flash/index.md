@@ -13,7 +13,10 @@ me simplify the scope.
 1. [Getting Started, Hello World](/flash/getting-started-hello-world.html)
 1. Managing Flash File Display Size
 1. ActionScript primer
+1. [Event System](/flash/events.html)
+1. Keyboard and mouse events
 1. [What is displaylist?](/flash/displaylist.html)
+1. [Timers, Frames and Animation](/flash/timer-frames-and-animation.html)
 1. Override rant
 1. Working with scenes
 1. Custom widgets
@@ -21,8 +24,6 @@ me simplify the scope.
 1. Network programming
 1. User default/flash cookies
 1. Facebook
-1. Timers and frames
-1. Keyboard and mouse events
 1. Creating Libraries And Working With Third Party Libraries
 1. Multiple applications from common code base 
 1. Loading images: internal and external
