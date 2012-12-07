@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git Pull Basics For New Forker"
+title: "GitHub Pull-Request Basics For New Forker"
 description: ""
 category: 
 tags: []
