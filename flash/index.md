@@ -14,22 +14,35 @@ me simplify the scope.
 1. Managing Flash File Display Size
 1. ActionScript primer
 1. [Event System](/flash/events.html)
-1. Keyboard and mouse events
+1. [Keyboard and mouse events](/flash/keyboard-and-mouse.html)
+    1. localX vs mouseX vs global position
+    2. Drag and drop
 1. [What is displaylist?](/flash/displaylist.html)
+    1. stage and root
+    1. reordering items
 1. [Timers, Frames and Animation](/flash/timer-frames-and-animation.html)
 1. Override rant
 1. Working with scenes
 1. Custom widgets
+1. Text
+    1. Text decoration
+    1. TextInput, single vs multiline, focus, selection
+    1. Displaying text, normal vs rich text vs pdf, embedding fonts, hyperlinks
+1. SimpleButton
 1. 2D graphics
-1. Network programming
+1. Network programming: JSON/Rest API and Socket Programming
 1. User default/flash cookies
 1. Facebook
 1. Creating Libraries And Working With Third Party Libraries
 1. Multiple applications from common code base 
 1. Loading images: internal and external
-1. Sound And Video
+1. Loading other swf files
+1. [Sound](/flash/sound.html)
+1. Video
 1. Uploading images from user computer
 1. Webcam access
 1. Logging, trace and console
 1. JavaScript interface
+1. swfobject
+1. i18n
 1. Putting it all together: Helicopter

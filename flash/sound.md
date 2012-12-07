@@ -1,0 +1,188 @@
+---
+layout: page
+title: "Flash: Sound"
+description: ""
+---
+{% include JB/setup %}
+
+Sound is one of the things the flash got right, and is one of the reasons you
+want to pick flash for your project. HTML5, as good as it has become in last
+few years does not have the capabilities that matches flash when it comes to
+sound.
+
+Sound related APIs in flash a very pleasently designed, and barring a few
+points can be almost called pythonic.
+
+#### Embed MP3 File In SWF And Play It
+
+Playing sound or mp3 is very easy in flash using "flash.media.Sound" class.
+There are two ways to create instances of this class. We can either use the
+constructor of flash.media.Sound class, as we will see later, or we can flash's
+ability to embed media in swf file.
+
+Embedding mp3 in swf increases the size of swf file, it takes longer to
+download the file, but it makes file management easier, all we have to worry
+about is one swf file.
+
+Flash provides a common way to embed images, mp3, flv etc in the swf file, by
+using a construct like this:
+
+{% highlight actionscript %}
+package
+{
+    import flash.display.Sprite;
+
+    public class EmbedSoundTest extends Sprite
+    {
+        [Embed(source="sound.mp3")] private static const MySound:Class;
+    }
+}
+{% endhighlight %}
+
+What this [Embed] construct does is, it verifies that file indeed exists, then
+it makes sure file is something flash can handle, flash can handle few image
+formats, few sound formats and some video formats. You will see compiler errors
+if the file does not exist or if it is a format flash can not handle.
+
+After all verification, flash compiler embeds the referenced file sound.mp3
+into generated swf file, and at runtime flash runtime creates a class for us,
+the class is then stored as a private class attribute by name MySound, of type
+Class.
+
+So we have created EmbedSoundText class, a subclass of Sprite, and
+EmbedSoundText.MySound, a class that can be used to create instances of Sound
+class. Why are we not storing it as const MySound:Sound? Because that would
+imply MySound is an instance of Sound class, which it is not. MySound is an
+instance of class Class, just like in python where every class is instance of
+class "type".
+
+So lets take our MySound class and create an instance of Sound class and play
+our sound:
+
+{% highlight actionscript %}
+package
+{
+    import flash.display.Sprite;
+    import flash.media.Sound;
+
+    public class EmbedSoundTest extends Sprite
+    {
+        [Embed(source="sound.mp3")] private static const MySound:Class;
+
+        public function EmbedSoundTest()
+        {
+            var mysound:Sound = new MySound() as Sound;
+            mysound.play();
+        }
+    }
+}
+{% endhighlight %}
+
+We created an instance of MySound class, which happens to be subclass of Sound,
+so we casted it as such. All that is left to do is call .play() on it to start
+playing the sound.
+
+#### Load A MP3 From Server And Play It
+
+Embedding mp3 in swf is good for a set of predefined sounds, but other times we
+want to load sound from net. Either because we are creating a mp3 player, or
+because we want to keep a few mp3 files out of swf to reduce the swf file size,
+and loading the mp3 dynamically when needed, eg at the end of game, or
+beginning of next stage etc.
+
+So how do we download sound files from net? flash.media.Sound class has two way
+to load mp3 from net, it can either take an instance of flash.net.URLRequest
+class as constructor argument, or we can pass URLRequest instance to sound
+class instance's .load() method.
+
+In either case flash will start downloading the mp3 file right away, and will
+play it when .play() is called.
+
+URLRequest takes the path of mp3 file as a string constructor parameter. The
+path can be relative to swf file, or it can be absolute URL. Flash will check
+flash policy file in case the URL points to a different domain.
+
+Lets take a look at how it all looks like:
+
+{% highlight actionscript %}
+package
+{
+    import flash.display.Sprite;
+    import flash.media.Sound;
+    import flash.net.URLRequest;
+
+    public class ExternalSoundTest extends Sprite
+    {
+        public function ExternalSoundTest()
+        {
+            var sound:Sound = new Sound(new URLRequest("song.mp3"));
+            sound.play();
+        }
+    }
+}
+{% endhighlight %}
+
+As soon as sound object is created, flash starts downloading and buffering the
+mp3. By default it waits for 1 second buffer, and starts playing as soon as 1
+second worth of mp3 is downloaded, so playback will start after a small delay.
+
+#### Playing At Offset And Repeating
+
+The .play() method on Sound class instance can optionally take two parameters:
+.play(start_offset_in_milliseconds=0, repeat_count=1), with default values 0
+and 1. Repeat cound has to be an integer, if you want to keep repeating a song,
+pass a large integer value, eg int.MAX_VALUE.
+
+#### Stoppping, Pausing And Resuming Playback
+
+Stopping playback is trivial. Sound.play() method return an instance of
+SoundChannel, and this instance has a method .stop()
+
+There is no native support of pause and resume in Sound API, but we can
+implement pause by storing the current position of sound when stoppping and
+implement resume by passing the stored position to .play() method.
+
+The current position can be obtained as soundchannel.position attribute. This
+attribute contains time in milliseconds since the beginning of sound.
+
+#### Detecting End Of Playback
+
+Before we implement pause and resume we have to track if sound has already
+finished playing.
+
+One way to do that is by using Sound.leght property to find length of sound in
+milliseconds and compare it with SoundChannel.position when play/pause button
+is clicked.
+
+Another option is to monitor Event.SOUND_COMPLETE fired by SoundChannel object.
+
+Lets combine all this to make a mp3 player.
+
+We will have two buttons on it, "Play" and "Stop". "Stop" button is initially
+disabled. Once we hit play the sound will start playing, and the text of "Play"
+button with change to "Pause", and "Stop" button gets enabled. We monitor the
+SOUND_COMPLETE event, when it is fired we change the text of "Pause" back to
+"Play" and disable "Stop" button.
+
+While the sound is playing, if one hits the "Pause" button, we store the
+SoundChannel.current in a variable, call SoundChannel.stop() and change the
+"Pause" button text to "Resume". If the user hits "Resume" button, we call
+Sound.play() with stored position to resume sound from old position, and change
+the text of "Resume" button to "Pause" again.
+
+While the sound if playing we also listen to ENTER_FRAME event and draw a bar
+showing total sound length and another bar indicating the current position in
+playback.
+
+...
+
+#### Buffering, Tracking Buffering and Stopping Download
+
+
+
+1. mp3 and ID3 tags
+1. Sound levels and spectrum for visualization
+1. Controlling volume
+1. SoundMixer class for global sound management
+
+Back to [Flash For Python Developers](/flash/).

@@ -5,6 +5,13 @@ description: ""
 ---
 {% include JB/setup %}
 
+Don't do something permanently stupid just because you are temporarily upset.
+
+----
+Though we travel the world over to find beauty, we must carry it in us or we
+find it not.
+
+----
 The problem with the world is that the intelligent people are full of doubts,
 and the stupid people are full of confidence.
 
