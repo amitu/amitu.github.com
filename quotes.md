@@ -5,6 +5,11 @@ description: ""
 ---
 {% include JB/setup %}
 
+Politics is the gentle art of getting votes from the poor and campaign funds
+from the rich by promising to protect each from the other. -- [Anupam
+Kher](https://twitter.com/AnupamPkher/status/276929105776230401)
+
+----
 Don't do something permanently stupid just because you are temporarily upset.
 
 ----
