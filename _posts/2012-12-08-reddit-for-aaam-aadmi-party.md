@@ -344,3 +344,9 @@ license](http://creativecommons.org/licenses/by-sa/3.0/deed.en_US).
 1. Subscribe to [/r/aap](http://www.reddit.com/r/aap), vote and comment there.
 1. Somehow get Arvind Kejriwal to read this post :-)
 
+PS: If you have something to say about this post, please submit your comment
+over at reddit. I have already submitted this, you can find the post here:
+[Reddit For Aaam Aadmi Party: Why I created this
+subreddit](http://www.reddit.com/r/aap/comments/14hpof/reddit_for_aaam_aadmi_party_why_i_created_this/).
+Please rip my arguments apart, but keep it healthy.
+
