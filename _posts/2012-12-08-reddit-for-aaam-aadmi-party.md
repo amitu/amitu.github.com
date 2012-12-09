@@ -7,7 +7,7 @@ tags: []
 ---
 {% include JB/setup %}
 
-tl;dr: Go join [/r/aap](http://www.reddit.com/r/app), and spread the word now.
+tl;dr: Go join [/r/aap](http://www.reddit.com/r/aap), and spread the word now.
 
 Political activism is getting a lot of press and attention in India these days,
 primarily because of rampant corruption.
