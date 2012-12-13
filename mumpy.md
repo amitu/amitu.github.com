@@ -6,7 +6,7 @@ description: ""
 {% include JB/setup %}
 
 {% literal %}
-<div ng-controller="MumPyGD">
+<div ng-controller="MumPyGD" class="ng-cloak">
     <dl ng-repeat="row in gd" class="user_{{ row.username }}" style="margin-bottom: 0px;">
         <dt>{{ row.name }}</dt>
         <dd ng-show="row.username">
