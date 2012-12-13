@@ -5,7 +5,7 @@ description: ""
 ---
 {% include JB/setup %}
 
-{% raw %}
+{% literal %}
 <div ng-controller="MumPyGD">
     <dl ng-repeat="row in gd" class="user_{{ row.username }}" style="margin-bottom: 0px;">
         <dt>{{ row.name }}</dt>
@@ -59,7 +59,7 @@ description: ""
     <div id="chart_loc" style="height: 300px;"> </div>
     
 </div>
-{% endraw %}
+{% endliteral %}
 
 <link rel="stylesheet" type="text/css" href="/javascripts/jquery.fancybox-1.3.4.css" media="screen" />
 <script src="/javascripts/jquery.min.js"> </script>
