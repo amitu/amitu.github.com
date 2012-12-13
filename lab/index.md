@@ -13,7 +13,9 @@ google docs apis and angularjs a bit more.
 
 Here it is: [mumpy.html](/mumpy.html).
 
-Source: mumpy.md, mumpy.js.
+Source:
+[mumpy.md](https://raw.github.com/amitu/amitu.github.com/master/mumpy.md),
+[mumpy.js](https://github.com/amitu/amitu.github.com/blob/master/javascripts/mumpy.js)
 
 ----
 
