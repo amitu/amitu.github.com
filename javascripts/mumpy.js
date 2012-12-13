@@ -3,23 +3,6 @@ google.load("visualization", "1", {packages:["corechart"]});
 var gd_jsonp_url = "https://spreadsheets.google.com/feeds/list/0AurZRRemURREdF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK";
 var gs_edit_url = "https://docs.google.com/spreadsheet/viewform?formkey=dF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE6MQ&";
 
-var form_keys = [
-    "username", "name", "haveyouattendedanypreviousmumpy", "wantedto",
-    "wanttoattendfuturemeetups", "personalwebsite", "yearsofpython",
-    "startupwebsite", "twitter", "githubusername", "pypipackages",
-    "whatisprimaryreasonyouwanttoattend", "keywordwork", "keywordlearn",
-    "daypreference", "datepreference", "locationpreference"
-]
-
-function edit_url_for_user(user) {
-    var parts = [];
-    for (var i in form_keys) {
-        var key = form_keys[i];
-        parts.push("entry_" + i + "=" + user[key]);
-    }
-    return gs_edit_url + parts.join("&");
-}
-
 function update_preference(key, collector, user) {
     console.log(key, collector, user);
     if (user[key]) {
