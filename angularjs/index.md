@@ -232,3 +232,4 @@ description: ""
   elements the data will go to when writing javascript. So we use \{\{ somedata
   \}\} like expressions in angular.
 
+ * Hello, \{\{ name || 'Empty' \}\}!, shows "Hello, amitu!" or "Hello, Empty".

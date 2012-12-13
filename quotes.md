@@ -5,6 +5,11 @@ description: ""
 ---
 {% include JB/setup %}
 
+I am a dishonest person and a dishonest person you can always trust to be
+dishonest. Honestly it's the honest one's you need to watch out for. --
+[Mrigakshi](https://www.switchidea.com/mrigakshi)
+
+----
 Politics is the gentle art of getting votes from the poor and campaign funds
 from the rich by promising to protect each from the other. -- [Anupam
 Kher](https://twitter.com/AnupamPkher/status/276929105776230401)

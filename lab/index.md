@@ -5,6 +5,18 @@ description: ""
 ---
 {% include JB/setup %}
 
+#### [MumPy Survey](/mumpy.html)
+
+For latest [mumpy.org](http://mumpy.org) meet we are collecting some data using
+google docs. I wanted to give some visualization of that, basically play with
+google docs apis and angularjs a bit more.
+
+Here it is: [mumpy.html](/mumpy.html).
+
+Source: mumpy.md, mumpy.js.
+
+----
+
 #### [ikog.amitu.com](http://ikog.amitu.com)
 
 [ikog](https://sites.google.com/site/henspace/ikog/) web port using
