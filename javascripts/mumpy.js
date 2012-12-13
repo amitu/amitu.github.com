@@ -47,12 +47,20 @@ function MumPyGD($scope, $http) {
                 var edit_parts = [];
                 for (j in row) {
                     if (j.substr(0, 4) == "gsx$") {
-                        obj[j.substring(4)] = $.trim(row[j]["$t"]);
-                        if (j.substring(4) != "timestamp") {
+                        var key = j.substring(4);
+                        var value = $.trim(row[j]["$t"]); 
+                        obj[key] = value;
+                        if (key != "timestamp") {
+                            if (key in [
+                                "whatisprimaryreasonyouwanttoattend", 
+                                "daypreference", "locationpreference"
+                            ]) {
+                                value = value.split(",").join("|");
+                            }
                             edit_parts.push(
                                 "entry_" + edit_parts.length + 
-                                "=" + obj[j.substring(4)]
-                            )
+                                "=" + encodeURIComponent(value)
+                            );
                         }
                     }
                 }
