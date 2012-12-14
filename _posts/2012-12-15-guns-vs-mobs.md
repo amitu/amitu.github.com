@@ -16,6 +16,12 @@ tragedies and how US should have stronger gun control laws.
 
 I find myself quite torn at this topic.
 
+First let me clarify that *guns indeed kill people*. A similar incident
+happened in China today, [Knife attack at Chinese school wounds 22
+children](http://edition.cnn.com/2012/12/14/world/asia/china-knife-attack/index.html).
+Some day. Fortunately in this case the assailent had knife and not gun, so 22
+were wounded and not killed.
+
 What exactly is a gun? *Gun is an assurance against mob*. A mob of 4 people can
 get me killed with impunity, even if they have nothing. They can kill me for 10
 bucks if they decide to.
@@ -50,7 +56,7 @@ terrorists.
 
 27 died in Connecticut today.
 
-40 died today in Mumbai routine road accidents.
+40 died today in Mumbai routine road accidents. I am glad about my car.
 
 A friend of mine had a gunda running his building internet connection. When he
 tried to switch ISP, the gunda came with a few men, unarmed men, and forcefully
@@ -68,3 +74,4 @@ medical attention, due to lack of income for daily wage workers and so forth in
 those 3 days.
 
 I guess if we do not see numbers in headline we assume the number is zero.
+
