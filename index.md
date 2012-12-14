@@ -22,7 +22,8 @@ post](/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/) and please
 [subscribe to my mailing list](http://eepurl.com/pRhOD) to help me in this
 experiment.
 
-Writings: [angularjs](/angularjs/), [flash for python developers](/flash/).
+Writings: [angularjs](/angularjs/), [flash for python developers](/flash/),
+[style guide](/style.html).
 
 -- Amit Upadhyay
 
