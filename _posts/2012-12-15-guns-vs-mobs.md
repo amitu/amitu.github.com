@@ -75,3 +75,8 @@ those 3 days.
 
 I guess if we do not see numbers in headline we assume the number is zero.
 
+I guess too that if gun manufacturers are given free rein, like in US, they
+will want to sell not just handguns, but automatic assult rifles and so forth.
+Unless we are invading a neighbourhood army, assult rifle is not a requisite
+for self defence. They are sold because men love toys and they are very
+profitable for gun manufacturers.
