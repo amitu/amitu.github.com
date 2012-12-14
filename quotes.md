@@ -5,6 +5,31 @@ description: ""
 ---
 {% include JB/setup %}
 
+Any attempt by a govt to redistribute wealth will only redistribute poverty.
+
+----
+Put a mask on a man and you ll see his true face.
+
+----
+By three methods we may learn wisdom: First, by reflection, which is noblest;
+Second, by imitation, which is easiest; and third by experience, which is the
+bitterest.  -- Confucius
+
+----
+Ethics of contradiction: don't without substantiation.
+
+----
+Competition is the only fair thing in scarcity. But scarcity is not fair.
+
+----
+Key of success is ability to go from one failure to next with no loss of
+enthusiasm. -- \(slightly paraphrased\) Winston Churchill
+
+----
+In matters of style swim with the current. In matters of principles stand like
+a rock. -- Thomas Jefferson
+
+----
 I am a dishonest person and a dishonest person you can always trust to be
 dishonest. Honestly it's the honest one's you need to watch out for. --
 [Mrigakshi](https://www.switchidea.com/mrigakshi)
