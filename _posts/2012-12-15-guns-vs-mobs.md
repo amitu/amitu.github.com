@@ -30,8 +30,8 @@ handful of bikers with flags went around the city of 20 million people, closing
 all the shops down. No citizen dare step out, because 4 guys will come and beat
 him up.  The citizens of this city stayed home. They surrendered to the mob.
 
-If we had guns, the biters would have required to travel with guns. And if
-bikers travelled with guns, police would have not allowed them to raom freely.
+If we had guns, the bikers would have required to travel with guns. And if
+bikers travelled with guns, police would have not allowed them to roam freely.
 Police allowed bikers to roam freely because they were unarmed, "peaceful",
 "harmless".
 
