@@ -80,3 +80,10 @@ will want to sell not just handguns, but automatic assult rifles and so forth.
 Unless we are invading a neighbourhood army, assult rifle is not a requisite
 for self defence. They are sold because men love toys and they are very
 profitable for gun manufacturers.
+
+----
+
+#### Research
+
+* [Gun Situation in Japan](http://m.theatlantic.com/international/archive/2012/07/a-land-without-guns-how-japan-has-virtually-eliminated-shooting-deaths/260189/)
+* [Gun Death vs Gun Ownership for OECD countries](https://dl.dropbox.com/u/38668/deaths-vs-guns.png)
