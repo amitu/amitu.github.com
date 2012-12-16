@@ -56,7 +56,7 @@ function MumPyGD($scope, $http) {
                         if (key != "timestamp") {
                             if (sp_keys.indexOf(key) != -1) {
                                 value = $.map(value.split(","), function(v){
-                                    return encodeURIComponent(v);
+                                    return encodeURIComponent($.trim(v));
                                 }).join("|")
                             } else {
                                 value = encodeURIComponent(value)
