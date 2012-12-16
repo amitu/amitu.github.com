@@ -6,6 +6,18 @@ description: ""
 {% include JB/setup %}
 
 {% literal %}
+
+<!--
+
+This is using google spreadsheet/drive. Data is stored in a public spreadsheet.
+Entered using google form. I access it using their jsonp api using angularjs,
+another google library and plot it via google chart api.
+
+Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
+        https://github.com/amitu/amitu.github.com/blob/master/javascripts/mumpy.js
+
+-->
+
 <div ng-controller="MumPyGD" class="ng-cloak">
     <dl ng-repeat="row in gd" class="user_{{ row.username }}" style="margin-bottom: 0px;">
         <dt>{{ row.name }}</dt>
@@ -18,13 +30,15 @@ description: ""
             <a 
                 class="edit" title="Yes you can edit, be good." 
                 href="{{ row.edit_link }}"
-            >edit</a>
+            >edit</a>.
         </dd>
     </dl>
     
     <div style="margin-top: 20px; margin-bottom: 15px;">
-        <a href="" ng-click="refresh()">Refresh</a> | 
-        <a href="#" class="add_self">Add Your Self</a>
+        <a href="" ng-click="refresh()">Refresh</a> |
+        <a href="#" class="add_self">Add yourself</a> |
+        (MumPy: <a href="http://mumpy.org/wiki/Main_Page" target="_blank">wiki</a>,
+        <a href="http://groups.google.com/group/mumpy" target="_blank">mailing list</a>)
     </div>
 
     <h3>Keyword Work</h3>

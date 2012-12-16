@@ -8,7 +8,10 @@ comments: false
 
 Hey!
 
-I work with the wonderful folks at [CrispyGames](http://crispygam.es).
+I work with the wonderful folks at [CrispyGames](http://crispygam.es). We just
+released two games, [Slots](http://apps.facebook.com/casinoallin-slots/) and
+[Poker](http://apps.facebook.com/casinoallin-poker/), for facebook platform,
+check it out :-\)
 
 A few of my open source babies [smarturls](/smarturls/),
 [fhurl](http://packages.python.org/fhurl/), [importd](/importd/),
@@ -16,14 +19,10 @@ A few of my open source babies [smarturls](/smarturls/),
 [dutils](http://packages.python.org/dutils/). Check out my [open
 source](/open-source.html) page to see them in detail.
 
-I have recently moved away from facebook to a blog+email list based setup, read
-about it in this [blog
-post](/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/) and please
-[subscribe to my mailing list](http://eepurl.com/pRhOD) to help me in this
-experiment.
-
 Writings: [angularjs](/angularjs/), [flash for python developers](/flash/),
 [style guide](/style.html).
+
+Interested in Mumbai and Python? Join our [latest meetup](/mumpy.html).
 
 -- Amit Upadhyay
 
