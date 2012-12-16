@@ -2,9 +2,12 @@ google.load("visualization", "1", {packages:["corechart"]});
 
 var gd_jsonp_url = "https://spreadsheets.google.com/feeds/list/0AurZRRemURREdF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE/od6/public/values?alt=json-in-script&callback=JSON_CALLBACK";
 var gs_edit_url = "https://docs.google.com/spreadsheet/viewform?formkey=dF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE6MQ&";
+var sp_keys = [
+    "whatisprimaryreasonyouwanttoattend", 
+    "daypreference", "locationpreference"
+].join(",");
 
 function update_preference(key, collector, user) {
-    console.log(key, collector, user);
     if (user[key]) {
         var parts = user[key].split(",");
         for (var i in parts) {
@@ -51,15 +54,16 @@ function MumPyGD($scope, $http) {
                         var value = $.trim(row[j]["$t"]); 
                         obj[key] = value;
                         if (key != "timestamp") {
-                            if (key in [
-                                "whatisprimaryreasonyouwanttoattend", 
-                                "daypreference", "locationpreference"
-                            ]) {
-                                value = value.split(",").join("|");
+                            if (sp_keys.indexOf(key) != -1) {
+                                value = $.map(value.split(","), function(v){
+                                    return encodeURIComponent(v);
+                                }).join("|")
+                            } else {
+                                value = encodeURIComponent(value)
                             }
                             edit_parts.push(
                                 "entry_" + edit_parts.length + 
-                                "=" + encodeURIComponent(value)
+                                "=" + value
                             );
                         }
                     }
