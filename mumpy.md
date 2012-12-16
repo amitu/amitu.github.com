@@ -54,6 +54,9 @@ description: ""
     
     <h3 style="margin-top: 15px;">Day Preference</h3>
     <div id="chart_day" style="height: 300px;"> </div>
+
+    <h3 style="margin-top: 15px;">Date Preference</h3>
+    <div id="chart_date" style="height: 300px;"> </div>
     
     <h3 style="margin-top: 15px; clear: both;">Location Preference</h3>
     <div id="chart_loc" style="height: 300px;"> </div>

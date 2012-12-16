@@ -127,6 +127,7 @@ function MumPyGD($scope, $http) {
             $scope.kls = klsl;
             
             display_chart("chart_day", dayp, "Day");
+            display_chart("chart_date", datep, "Date");
             display_chart("chart_loc", locp, "Location");
         });
     }
