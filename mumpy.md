@@ -38,7 +38,8 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
         <a href="" ng-click="refresh()">Refresh</a> |
         <a href="#" class="add_self">Add yourself</a> |
         (MumPy: <a href="http://mumpy.org/wiki/Main_Page" target="_blank">wiki</a>,
-        <a href="http://groups.google.com/group/mumpy" target="_blank">mailing list</a>)
+        <a href="http://groups.google.com/group/mumpy" target="_blank">mailing list</a>) | 
+		<a href="https://docs.google.com/spreadsheet/ccc?key=0AurZRRemURREdF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE#gid=0" target="_blank">Raw Data</a>
     </div>
 
     <h3>Keyword Work</h3>
