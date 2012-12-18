@@ -52,7 +52,14 @@ function MumPyGD($scope, $http) {
                     if (j.substr(0, 4) == "gsx$") {
                         var key = j.substring(4);
                         var value = $.trim(row[j]["$t"]); 
-                        obj[key] = value;
+                        if (key == "personalwebsite" || key == "startupwebsite"){
+                            if (value.substr(0, 4) == "http")
+                                obj[key] = value;
+                            else
+                                obj[key] = "http://" + value;
+                        } else {
+                            obj[key] = value;
+                        }
                         if (key != "timestamp") {
                             if (sp_keys.indexOf(key) != -1) {
                                 value = $.map(value.split(","), function(v){
