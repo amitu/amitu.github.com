@@ -23,8 +23,8 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
         <dt>{{ row.name }}</dt>
         <dd ng-show="row.username">
             {{ row.username }}<span ng-show="row.personalwebsite">, 
-            per: <a href="{{ row.personalwebsite }}" target="_blank">{{ row.personalwebsite }}</a></span><span ng-show="row.startupwebsite">, 
-            sup: <a href="{{ row.startupwebsite }}" target="_blank">{{ row.startupwebsite }}</a></span>,<span ng-show="row.keywordlearn">
+            per: <a href="{{ row.personalwebsite }}" target="_blank">{{ row.personalwebsite_d }}</a></span><span ng-show="row.startupwebsite">, 
+            sup: <a href="{{ row.startupwebsite }}" target="_blank">{{ row.startupwebsite_d }}</a></span>,<span ng-show="row.keywordlearn">
             kl: <span ng-repeat="kl in row.keywordlearn.split(',')" class="kw_{{ kl }} keyword kl">{{ kl }}, </span></span><span ng-show="row.keywordwork">
             kw: <span ng-repeat="kw in row.keywordwork.split(',')" class="kw_{{ kl }} keyword kw">{{ kw }}, </span></span>
             <a 

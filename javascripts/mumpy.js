@@ -55,8 +55,11 @@ function MumPyGD($scope, $http) {
                         if (key == "personalwebsite" || key == "startupwebsite"){
                             if (value.substr(0, 4) == "http")
                                 obj[key] = value;
-                            else
-                                obj[key] = "http://" + value;
+                            else {
+                                if (value)
+                                    obj[key] = "http://" + value;
+                            }
+                            obj[key + "_d"] = obj[key].split("://")[1];
                         } else {
                             obj[key] = value;
                         }
