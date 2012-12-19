@@ -81,6 +81,35 @@ Unless we are invading a neighbourhood army, assult rifle is not a requisite
 for self defence. They are sold because men love toys and they are very
 profitable for gun manufacturers.
 
+I think everyone will agree that unless a government provides reasonable
+gaurantees about access to police protection in a timely fashion, if I report a
+crime, if police comes within a few minutes, unless that happens, government
+has no right to take away our ability to protect ourselves from criminals using
+whatever means we can muster, including guns.
+
+Sure easier access to guns means more criminals will have them, and they will
+use them against us when committing crime, but the equation will completely
+change for us. Today criminals know we are utterly helpless and they know
+police will take forever to come, for criminals attacking us has no risk. They
+can escape police by moving states. They have no risk of getting hurt during
+crime. One can argue that if lets say 10% of population had guns, then
+criminals will have to take this factor into consideration. This will reduce
+the instances of crime.
+
+So we can see that easier access to guns will both increase some kind of crime
+and decrease some other kind of crime. Whether or not guns should be allowed is
+not a decision we can take without doing comprehensive analysis of these two
+factors.
+
+This becomes even more important for a third world country like India where
+police is no where adequate to provide even any semblance of protection. Police
+in India comes only after a crime has been comitted, the response time of
+Indian police, from filing a complaint on phone to police reaching the crime
+scene is measured in hours if not days. No politician has even promised that
+this delay will come to minutes ever. It will require massive beefing up of
+police forces, improvement in their infrastructure, much larger footprint of
+petrol cars on the ground, bigger budget and so on. We have no money for that.
+
 ----
 
 #### Research
