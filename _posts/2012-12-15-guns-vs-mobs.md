@@ -24,11 +24,11 @@ were wounded and not killed.
 
 What exactly is a gun? *Gun is an assurance against mob*. A mob of 4 people can
 get me killed with impunity, even if they have nothing. They can kill me for 10
-bucks if they decide to.
+bucks if they decide to. If I am a female I can get raped.
 
 Giving a gun to all 4 of them and me changes everything. It does nothing to to
-mobs ability to kill me, but it empowers me to kill the mob too. It lets me
-stand up. It makes mob fear me even if I am one.
+mobs ability to kill me or rape me, but it empowers me to kill the mob too. It
+lets me stand up. It makes mob fear me even if I am one.
 
 Very recently a mob decided to take [bombay
 hostage](http://en.wikipedia.org/wiki/Bal_Thackeray#Death). For three days
