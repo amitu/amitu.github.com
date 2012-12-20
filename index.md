@@ -24,6 +24,9 @@ Writings: [angularjs](/angularjs/), [flash for python developers](/flash/),
 
 Interested in Mumbai and Python? Join our [latest meetup](/mumpy.html).
 
+I am a strong beliver of "[Women must own Taser (Stun Gun) In
+India](http://amitu.com/taser/)".
+
 -- Amit Upadhyay
 
 <header>
