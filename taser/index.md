@@ -7,10 +7,10 @@ description: ""
 
 #### Problem
 
-A spate of rape related stories like recent rape case middle of road in Delhi,
-and a series of rape cases of women in Mumbai in their home, are all pointing
-towards the abysmal security we have in India for people in general and women
-in particular.
+A spate of rape related stories like recent rape case in the middle of road in
+Delhi, and a series of rape cases of women in Mumbai in their homes, are all
+pointing towards the abysmal security we have in India for people in general
+and women in particular.
 
 Police is no where to be found, and the moment a woman is found alone she is
 completely helpless against any agression by men. No one can dispute that if
@@ -21,8 +21,8 @@ weeks. Police has failed us.
 Our courts have huge pendency, rape cases take forever to lead to conviction,
 so the punishment as a deterrence to crime is not working. Till 2000 the
 average time for a rape case was above 7 years before it can be closed. In most
-cases the guilty walks free because of lack of evidence and loss of interest of
-potential witnesses. Courts have failed us too.
+cases the guilty walks free because of loss of evidence with time and loss of
+interest of potential witnesses due to delays. Courts have failed us too.
 
 Overall the society too takes a very backwards view on this issue, try to blame
 women for their dressing style, the way people walk and so on. Some elements in
@@ -30,7 +30,8 @@ our society, the moral police, want women to lose their right for the
 "privilage" of security. We are a free country. Women must be allowed to do
 what they chose to within the limits of law, and it is societies responsiblity
 to provide protection not moral lessons. Society is full of people who really
-believe "she goes to nightclubs, she deserved it". Society has failed us too.
+believe "she goes to nightclubs or she wears jeans, she deserved it".  Society
+has failed us too.
 
 The lack of security, the environment in which women feel unsafe stepping out
 of the house not only affects freedom of women, it also affects their ability
@@ -40,7 +41,7 @@ not work at all. Many husbands can demand or request their wives to not work as
 it is unsafe. Families can not let their daughters to travel in unsafe areas
 and times, even at the expense on their education. Even people who are not
 getting raped are victims of rape, entire generations are being denied access
-to education, job opportunities because of the this.
+to education, job opportunities because of this.
 
 #### Solution
 
@@ -65,12 +66,13 @@ With this a woman can intervene, not just when she is attacked, but also when
 she senses someone else is under threat.
 
 A stun gun may not provide much protection when attacked by a gang, but it
-provides plenty of protection against individual perpetrators.
+provides plenty of protection against one or two perpetrators.
 
 It is not just about personal safety, it is a responsibility of women to do
 something to empower women. Even if one is not personally in threat, by
 spreading awareness about it, showing it to potential victims, educating them
-about it is also women's responsiblity.
+about it is also women's responsiblity. Safety is a neccessity for true
+freedom.
 
 Police, judiciary and society is not coming to protect you. Women must protect
 themselves and help empower each others. In order for achieving equality with
