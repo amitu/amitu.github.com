@@ -86,8 +86,8 @@ away tasers from women just so that they can not harm anyone.
 
 #### Would Private Establishments Allow StunGuns?
 
-A very interesting question was raise by [@ayenaz](twitter.com/ayenaz). If
-malls, theatres, discs, shops, schools, who routinely inspect a persons
+A very interesting question was raise by [@ayenaz](http://twitter.com/ayenaz).
+If malls, theatres, discs, shops, schools, who routinely inspect a persons
 belonging at enterance and do not allow "dangerous" things, if they do not
 allow stun guns, then women will be forced to not carry it when going to
 school, malls, theatres, etc. This might consitute majority of reasons for
