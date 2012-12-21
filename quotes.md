@@ -5,6 +5,9 @@ description: ""
 ---
 {% include JB/setup %}
 
+In India you don't cast your vote, you vote your caste.
+
+----
 Any attempt by a govt to redistribute wealth will only redistribute poverty.
 
 ----

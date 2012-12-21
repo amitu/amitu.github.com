@@ -84,6 +84,31 @@ those women who actually misuse tasers deserver punishment. We do not take way
 penis of all men to make sure they never rape, similarly society can not take
 away tasers from women just so that they can not harm anyone.
 
+#### Would Private Establishments Allow StunGuns?
+
+A very interesting question was raise by [@ayenaz](twitter.com/ayenaz). If
+malls, theatres, discs, shops, schools, who routinely inspect a persons
+belonging at enterance and do not allow "dangerous" things, if they do not
+allow stun guns, then women will be forced to not carry it when going to
+school, malls, theatres, etc. This might consitute majority of reasons for
+stepping out and women would be rendered helpless to either not go those places
+or not carry stun gun.
+
+It is therefore an urgent duty for stronger women of society to demand they be
+allowed it when going to any of these establishment. Strong women, more
+educated, well to do, well connected etc, probably face lesser risk of rape,
+yet they must carry stun guns in larger numbers so as to make it easy for other
+less fortunate women.
+
+Airport faces a similar problem, but stun gan can be stored in checkin luggage
+before checking it in, and recovered when stepping out, so it is not a real
+problem.
+
+In this regard, surprisingly, only private establishments would be a problem
+and not government. And private establishments we can hurt with our pocket. If
+some do not allow stunguns, then we must publish this fact and encourage all of
+our friends to not pay them any money.
+
 #### Conclusion
 
 If a woman is travelling alone in autorickshaw, bus or a train, police can not
