@@ -13,7 +13,7 @@ pointing towards the abysmal security we have in India for people in general
 and women in particular.
 
 Police is no where to be found, and the moment a woman is found alone she is
-completely helpless against any agression by men. No one can dispute that if
+completely helpless against any aggression by men. No one can dispute that if
 one complains to police about crime in progress in India, the time it takes for
 police to show up and stop the crime is measured in hours and days if not
 weeks. Police has failed us.
@@ -27,15 +27,15 @@ interest of potential witnesses due to delays. Courts have failed us too.
 Overall the society too takes a very backwards view on this issue, try to blame
 women for their dressing style, the way people walk and so on. Some elements in
 our society, the moral police, want women to lose their right for the
-"privilage" of security. We are a free country. Women must be allowed to do
-what they chose to within the limits of law, and it is societies responsiblity
+"privilege" of security. We are a free country. Women must be allowed to do
+what they chose to within the limits of law, and it is societies responsibility
 to provide protection not moral lessons. Society is full of people who really
 believe "she goes to nightclubs or she wears jeans, she deserved it".  Society
 has failed us too.
 
 The lack of security, the environment in which women feel unsafe stepping out
 of the house not only affects freedom of women, it also affects their ability
-be self suffecient, to support a family, to live an independent life. Work
+be self sufficient, to support a family, to live an independent life. Work
 requires us to travel, and if we can not travel because it is unsafe, we can
 not work at all. Many husbands can demand or request their wives to not work as
 it is unsafe. Families can not let their daughters to travel in unsafe areas
@@ -48,7 +48,7 @@ to education, job opportunities because of this.
 If the problem starts with people not taking things in their own hands, then
 problem ends too by other people taking things in their hands.
 
-Tasers or stun guns are one of the best defence against rape. Unlike guns it
+Tasers or stun guns are one of the best defense against rape. Unlike guns it
 does not require training or license to own it (for the models that do not
 taser from a distance). Unlike guns they are cheaply available.
 
@@ -57,9 +57,9 @@ rendering him completely helpless for that duration, without any long term
 impact on his well being, so it can be really used in a shoot first and ask
 questions later fashion without any real drawbacks.
 
-Women must own it, at least in statistically suffecient number that a potential
+Women must own it, at least in statistically sufficient number that a potential
 aggressor takes this into consideration before attacking someone. One can keep
-it handy when opening doors to strangers, or in purse when travelling in late
+it handy when opening doors to strangers, or in purse when traveling in late
 hours or secluded areas.
 
 With this a woman can intervene, not just when she is attacked, but also when
@@ -71,7 +71,7 @@ provides plenty of protection against one or two perpetrators.
 It is not just about personal safety, it is a responsibility of women to do
 something to empower women. Even if one is not personally in threat, by
 spreading awareness about it, showing it to potential victims, educating them
-about it is also women's responsiblity. Safety is a neccessity for true
+about it is also women's responsibility. Safety is a necessity for true
 freedom.
 
 Police, judiciary and society is not coming to protect you. Women must protect
@@ -87,31 +87,31 @@ away tasers from women just so that they can not harm anyone.
 #### Would Private Establishments Allow StunGuns?
 
 A very interesting question was raise by [@ayenaz](http://twitter.com/ayenaz).
-If malls, theatres, discs, shops, schools, who routinely inspect a persons
-belonging at enterance and do not allow "dangerous" things, if they do not
-allow stun guns, then women will be forced to not carry it when going to
-school, malls, theatres, etc. This might consitute majority of reasons for
+If malls, theaters, discs, shops, schools, etc, where they routinely inspect a
+person's belonging at entrance and do not allow "dangerous" things, if they do
+not allow stun guns, then women will be forced to not carry it when going to
+school, malls, theaters, etc. This might constitute majority of reasons for
 stepping out and women would be rendered helpless to either not go those places
 or not carry stun gun.
 
 It is therefore an urgent duty for stronger women of society to demand they be
-allowed it when going to any of these establishment. Strong women, more
-educated, well to do, well connected etc, probably face lesser risk of rape,
-yet they must carry stun guns in larger numbers so as to make it easy for other
-less fortunate women.
+allowed entry in all those places with stun gun. Strong women, more educated,
+well to do, well connected etc, probably face lesser risk of rape, yet they
+must carry stun guns in larger numbers so as to make it easy for other less
+fortunate women.
 
-Airport faces a similar problem, but stun gan can be stored in checkin luggage
+Airport faces a similar problem, but stun gun can be stored in checkin luggage
 before checking it in, and recovered when stepping out, so it is not a real
 problem.
 
 In this regard, surprisingly, only private establishments would be a problem
 and not government. And private establishments we can hurt with our pocket. If
-some do not allow stunguns, then we must publish this fact and encourage all of
+some do not allow stun guns, then we must publish this fact and encourage all of
 our friends to not pay them any money.
 
 #### Conclusion
 
-If a woman is travelling alone in autorickshaw, bus or a train, police can not
+If a woman is traveling alone in auto-rickshaw, bus or a train, police can not
 come for their protection if attacked. There is no other solution other than
 giving strength to women to defend themselves. Regular guns are difficult to
 obtain, maintain, use in time of threat, and keep safe, where as stun guns do
@@ -124,7 +124,7 @@ required, and then some more. It is your and mine responsibility.
 #### How to obtain Stun Gun
 
 In Bombay I know of one supplier, contact: 9821071107, sells for 3500 bucks or
-so. In pune there is [another
+so. In Pune there is [another
 supplier](http://trade.indiamart.com/details.mp?offer=2507600563), their
 website:
 [www.securityplanet.co](http://www.securityplanet.co/self-defense-products.html).
