@@ -5,6 +5,33 @@ description: ""
 ---
 {% include JB/setup %}
 
+If she's amazing, she won't be easy. If she's easy, she won't be amazing. If
+she's worth it, you won't give up. If you give up, you're not worthy. ... Truth
+is, everybody is going to hurt you, you just gotta find the ones worth
+suffering for. -- Bob Marley
+
+----
+A weak man is just by accident. A strong but non-voilent man is unjust by
+accident. -- Gandhi
+
+----
+The plural of anecdotes is not data.
+
+----
+Fairy tales do not tell children the dragons exist. Children already know that
+dragons exist. Fairy tales tell children the dragons can be killed. -- G. K.
+Chesterton
+
+----
+The individual has always had to struggle to keep from being overwhelmed by the
+tribe. If you try it, you will be lonely often, and sometimes frightened. But
+no price is too high to pay for the privilege of owning yourself. -- Nietzsche
+
+----
+Many a man fails to become a thinker for the sole reason that his memory is too
+good -- Nietzsche
+
+----
 In India you don't cast your vote, you vote your caste.
 
 ----
