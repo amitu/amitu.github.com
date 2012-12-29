@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Do"
+title: "The Creed of Do"
 description: ""
 ---
 
