@@ -407,9 +407,9 @@ of society.
 
 Women who are more capable of self defence will have lesser chance of being
 victims of rape. First line of attack is always self suffeciency. I have
-written in detail about how stun guns can play a major role in that. They are
-cheap, they are safe, and they provide adequate defence against one or two
-assilents.
+written in detail about [how stun guns can play a major role](/taser/) in that.
+They are cheap, they are safe, and they provide adequate defence against one or
+two assilents.
 
 In terms of second line of defence, police or others around us intervening
 while a crime is underway. This is one of the real differences between Mumbai
@@ -420,7 +420,7 @@ where one is left vulnerable to assult. While there is very little we can do
 about geography, we can make it easier for an onlooker to intervene, and we can
 make onlookers a bigger threat to potential assilents if we had easier gun
 control and access to guns by a statistically significant section of society. I
-have written about it in my gun related essay.
+have written about it in my [gun related essay](/2012/12/guns-vs-mobs/).
 
 And finally the third, crime and punishment. Like I have said previously our
 problem is not that our laws have problems, but that our laws are not
