@@ -99,8 +99,8 @@ visited lucknow airport on my next trip, this is what I saw:
 
 ![Lucknow Airport](/images/lucknow-airport.jpg)
 
-As you can see they implemented my "Proposal 2". On left is Gate 2, domestic
-flights, and right is Gate 1 for international flights. When I wrote the mail
+As you can see they implemented my "Proposal 2". On left is Gate 1 and 2,
+domestic flights, and right is for international flights. When I wrote the mail
 it was a glass wall, now it has been opened.
 
 Ye! :-)
