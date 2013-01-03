@@ -5,6 +5,18 @@ description: ""
 ---
 {% include JB/setup %}
 
+Don't let your past dictate who you are. But do keep some place for it in your
+future. -- My Big Fat Greek Wedding
+
+----
+Justice is not same as revenge. Justice makes future generations better,
+revenge burns everybody involved.
+
+----
+"To sin by silence when they should protest makes cowards of men." -Abraham
+Lincoln
+
+----
 If she's amazing, she won't be easy. If she's easy, she won't be amazing. If
 she's worth it, you won't give up. If you give up, you're not worthy. ... Truth
 is, everybody is going to hurt you, you just gotta find the ones worth
