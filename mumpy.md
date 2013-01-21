@@ -5,7 +5,7 @@ description: ""
 ---
 {% include JB/setup %}
 
-{% literal %}
+{% raw %}
 
 <!--
 
@@ -77,7 +77,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
     <div id="chart_loc" style="height: 300px;"> </div>
     
 </div>
-{% endliteral %}
+{% endraw %}
 
 <link rel="stylesheet" type="text/css" href="/javascripts/jquery.fancybox-1.3.4.css" media="screen" />
 <script src="/javascripts/jquery.min.js"> </script>
