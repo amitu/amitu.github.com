@@ -5,6 +5,12 @@ description: ""
 ---
 {% include JB/setup %}
 
+So much one man can do that does both act and know. - Andrew Marvell
+
+----
+When what you are is what you want to be, that is happiness. - Malcom Forbes
+
+----
 Don't let your past dictate who you are. But do keep some place for it in your
 future. -- My Big Fat Greek Wedding
 
