@@ -5,6 +5,9 @@ description: ""
 ---
 {% include JB/setup %}
 
+"Fear follows crime, and is its punishment." -Voltaire
+
+----
 So much one man can do that does both act and know. - Andrew Marvell
 
 ----

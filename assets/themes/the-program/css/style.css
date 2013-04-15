@@ -3,6 +3,9 @@ HTML5 display definitions from [HTML5 Boilerplate](http://j.mp/rP0wmY)
 
 No styleguide reference.
 */
+
+@import url(/kudos/kudos.css);
+
 article,
 aside,
 details,
