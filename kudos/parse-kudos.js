@@ -1,7 +1,7 @@
 $(function(){
     Parse.initialize(
-        "3zzX0d8FRvGgkEuhlC3URM6QsPzn4pDI64ew6IVU", 
-        "bZfIWUsKZdGiQJh9ufqPmRGzPONPPBgmUxhRlncL"
+        "3zzX0d8FRvGgkEuhlC3URM6QsPzn4pDI64ew6IVU", // parse app id
+        "bZfIWUsKZdGiQJh9ufqPmRGzPONPPBgmUxhRlncL"  // parse javascript key
     );
 
     var key = document.location.pathname;
