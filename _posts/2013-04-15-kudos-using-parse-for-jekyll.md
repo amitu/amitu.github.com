@@ -26,8 +26,8 @@ million requests per month.
 [/kudos/parse-kudos.js](/kudos/parse-kudos.js) and 
 [/kudos/jstorage.js](/kudos/jstorage.js) and include them in your 
 "_include/themes/\[your-theme\]/default.html".
-3. Link to http://www.parsecdn.com/js/parse-1.2.3.min.js and jquery in your 
-default.html.
+3. Link to [parse-1.2.3.min.js](http://www.parsecdn.com/js/parse-1.2.3.min.js)
+and jquery in your default.html.
 4. Get and link [/kudos/kudos.css](/kudos/kudos.css) as CSS in your default.html.
 5. Store [/kudos/heart_60x60.png](/kudos/heart_60x60.png) somewhere. 
 6. Update parse-kudos.js with your parse keys.
