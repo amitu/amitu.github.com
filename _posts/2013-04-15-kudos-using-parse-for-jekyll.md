@@ -32,7 +32,7 @@ default.html.
 5. Store [/kudos/heart_60x60.png](/kudos/heart_60x60.png) somewhere. 
 6. Update parse-kudos.js with your parse keys.
 7. Update kudos.css with the location on heart_60x60.png.
-8. In your "_include/themes/\[your-theme\]/[post|page].html files, add [the
+8. In your "_include/themes/\[your-theme\]/\[post|page\].html files, add [the
 highlighted
 HTML](https://github.com/amitu/amitu.github.com/blob/master/_includes/themes/the-program/page.html#L18-L28) 
 where it makes sense.
