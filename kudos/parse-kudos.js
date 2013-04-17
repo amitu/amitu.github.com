@@ -1,3 +1,11 @@
+/* 
+    TODO:
+        - use Parse' AnonymousUser instead of local storage
+            : more reliable
+            : less dependency
+        - concat/minify js
+*/ 
+
 $(function(){
     Parse.initialize(
         "3zzX0d8FRvGgkEuhlC3URM6QsPzn4pDI64ew6IVU", // parse app id
@@ -5,7 +13,6 @@ $(function(){
     );
 
     var key = document.location.pathname;
-    // initialize kudos
     $("figure.kudoable").kudoable();
 
     var Kudos = Parse.Object.extend("Kudos");
@@ -27,7 +34,6 @@ $(function(){
             $(".num").html(kudo.get("score"));
         }, 
         error: function (error) {
-            console.log("error", error);
             kudo = new Kudos();
             kudo.set("url", key);
             kudo.set("score", 0);
@@ -40,7 +46,6 @@ $(function(){
         $("figure.kudoable").removeClass("animate").addClass("complete");
     }
 
-    // after kudo'd
     $("figure.kudo").bind("kudo:added", function(e)
     {
         kudo.increment("score");
@@ -50,7 +55,6 @@ $(function(){
         }});
     });
 
-    // after removing a kudo
     $("figure.kudo").bind("kudo:removed", function(e)
     {
         kudo.increment("score", -1);
