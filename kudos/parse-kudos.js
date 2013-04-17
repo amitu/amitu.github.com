@@ -8,7 +8,7 @@ $(function(){
     // initialize kudos
     $("figure.kudoable").kudoable();
 
-    var Kudos = Parse.Object.extend("Kudos"); // 
+    var Kudos = Parse.Object.extend("Kudos");
     var query = new Parse.Query(Kudos);
 
     var kudo;
@@ -45,7 +45,9 @@ $(function(){
     {
         kudo.increment("score");
         $.jStorage.set(key, true);
-        kudo.save();
+        kudo.save(null, {success: function(k) {
+            $(".num").html(k.get("score"));
+        }});
     });
 
     // after removing a kudo
@@ -53,7 +55,9 @@ $(function(){
     {
         kudo.increment("score", -1);
         $.jStorage.set(key, false);
-        kudo.save();
+        kudo.save(null, {success: function(k) {
+            $(".num").html(k.get("score"));
+        }});
     });
 
 });

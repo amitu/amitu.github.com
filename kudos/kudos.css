@@ -49,10 +49,9 @@ figure{
 }
 figure.kudo{
 	#position: absolute;
-    margin-left: 95%;
+    margin-left: 90%;
 	right: 50%;
 	margin-right: -30px;
-    margin-bottom: 26px;
 	top: 3px;
 	text-align:center;
 }
