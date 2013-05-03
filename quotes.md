@@ -5,6 +5,13 @@ description: ""
 ---
 {% include JB/setup %}
 
+To end an argument, explain to counterparty THEIR position until they agree you
+understand it. Then make them do same with your position.
+
+----
+It is difficult to free fools from the chains they revere. - Voltaire
+
+----
 "Fear follows crime, and is its punishment." -Voltaire
 
 ----
