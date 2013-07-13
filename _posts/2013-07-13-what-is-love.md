@@ -51,6 +51,6 @@ sadness or joy. You enjoy end of another day. You wonder what life has
 in it for you in coming days and beyond. You go to sleep thinking. You
 gave your life some love.
 
-Love is not in your heart, love is not what you do. Love is what you give, love is in what you do. Love is your attention, your thought, your time.
+Love is not in your heart, love is something you give.
 
 What are you giving your love to everyday?
