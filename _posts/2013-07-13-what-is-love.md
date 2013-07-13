@@ -51,6 +51,8 @@ sadness or joy. You enjoy end of another day. You wonder what life has
 in it for you in coming days and beyond. You go to sleep thinking. You
 gave your life some love.
 
-Love is not in your heart, love is something you give.
+You can not love someone or something, you can only give your love to
+them for some duration at a time. Somethings you give love to regularly,
+some other things less than regularly. Love is measured in hours.
 
-What are you giving your love to everyday?
+What are you giving your love to today?
