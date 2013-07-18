@@ -995,6 +995,8 @@ pre {
 	Not that old computer layout 
 */
 @media only screen and (min-width: 1280px) {
+  .twitter-timeline { display: block; } /* amitu */
+
   .the-header .unit-head .nav-global .logo {
     border-bottom: 0 none;
     display: block;
@@ -1029,7 +1031,7 @@ pre {
 /*
 	Huge-screen layout 
 */
-@media only screen and (min-width: 1410px) {
+@media only screen and (min-width: 141000px) {
   .the-header {
     float: left;
     width: 19%;
@@ -1493,4 +1495,8 @@ pre.light {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+}
+
+.twitter-timeline { /* amitu */
+  width: 400px ! important;
 }

@@ -225,7 +225,8 @@ import sys
 import sys, os
 {% endhighlight %}
 
-I say opposite of this. There is no resaon to second type is inferior to first.
+I say opposite of this. There is no resaon the second type is inferior to first, 
+and second is more concise.
 
 Just never use bracket to stuff multiple import in one line, split imports if
 all can not fit in 80 char limit.
