@@ -956,7 +956,7 @@ pre {
 */
 @media only screen and (min-width: 768px) {
   .twitter-timeline { display: none; }
-  
+
   .the-header .unit-head {
     padding: 0;
   }
@@ -1504,4 +1504,8 @@ pre.light {
 .twitter-timeline { /* amitu */
   width: 400px ! important;
   margin-bottom: 30px;
+}
+
+blockquote {
+  font-weight: normal;
 }
