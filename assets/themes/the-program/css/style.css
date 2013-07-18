@@ -945,6 +945,8 @@ pre {
 	Smartphone
 */
 @media only screen and (min-width: 320px) and (max-width: 767px) {
+  .twitter-timeline { display: none; }
+
   img {
     max-width: 100%;
   }
@@ -953,6 +955,8 @@ pre {
 	Tablet
 */
 @media only screen and (min-width: 768px) {
+  .twitter-timeline { display: none; }
+  
   .the-header .unit-head {
     padding: 0;
   }
@@ -1499,4 +1503,5 @@ pre.light {
 
 .twitter-timeline { /* amitu */
   width: 400px ! important;
+  margin-bottom: 30px;
 }
