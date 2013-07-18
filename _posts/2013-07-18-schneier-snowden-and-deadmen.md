@@ -39,8 +39,8 @@ And Schneier suggests in his blog post:
 And I would like to say Mr Schneier, that Snowden has indeed thought this
 through. What you seem to be not be getting is that Snowden is not bothered
 about the world as much as his personal security. If you accept this, then you
-will see that the *deadmans switch not only prevents some people to kill you,
-but it also forces others to make sure you stay alive*, and this is what
+will see that the *deadmans switch not only prevents some people from killing
+you, but it also forces others to make sure you stay alive*, and this is what
 Snowden is trying to do.
 
 With this move Snowden has forced US intelligence agencies to put all their
