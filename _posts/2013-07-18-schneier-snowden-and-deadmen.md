@@ -9,8 +9,8 @@ tags: []
 
 So I am a huge fan of [Schneier](http://www.schneier.com/about.html), he is one
 of the finest minds of our times. He writes about security, and society, and
-how aspects of popular perception meet with cutting edge security technology.
-You must subscribe to his monthly newletter:
+what happens when aspects of popular perception meet with cutting edge security
+technology.  You must subscribe to his monthly newletter:
 [Crypto-Gram](http://www.schneier.com/crypto-gram.html), and spend a few hours
 every month to know whats really going on in security around the world. So much
 of my thinking has been shaped by his words and ideas.
