@@ -50,10 +50,11 @@ author of the blog would have easier time draining the entire bank balance of
 Bill Gates and pocketing it than changing anything in the blog post and still
 getting these magical numbers.
 
-This all has been possible due to the power of git, and github pages. And not
-only can cryptoblogs are impossible to modify after published without the
-history being visible to everyone forever and ever, it is also extremely easy
-to download the entire content of the cryptoblog, all the posts, and all the
+This all has been possible due to the power of git, and [github
+pages](https://help.github.com/articles/what-are-github-pages). And not only
+can cryptoblogs are impossible to modify after published without the history
+being visible to everyone forever and ever, it is also extremely easy to
+download the entire content of the cryptoblog, all the posts, and all the
 revisions done in the past.
 
 With cryptoblog no politician can say something and change his words later.
