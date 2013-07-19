@@ -15,7 +15,7 @@ CRYPTOBLOG!
 
 You see this fine specimen of a blog, and you wonder to yourself, my god this
 is excellent, but what exactly is it! And I tell you my dear audiance, that
-this blog is properties never seen before, properties that have to do with
+this blog has properties never seen before, properties that have to do with
 Math! Math and cryptography!
 
 Anybody can write a blog. Blog with posts stored in mysql tables, or the new
