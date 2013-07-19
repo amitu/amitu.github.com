@@ -1509,3 +1509,8 @@ pre.light {
 blockquote {
   font-weight: normal;
 }
+
+img.hcenter {
+  margin-left: auto;
+  margin-right: auto;
+}
