@@ -69,4 +69,5 @@ with one fine fellow, who is willing to live with all his mistakes made public
 forever. One who you know will never lie to you. Not on his blog. His
 cryptoblog.
 
-
+[Why is CryptoBlog impossible to
+hack?](/2013/07/why-is-cryptoblog-impossible-to-hack/)
