@@ -1,7 +1,0 @@
-(do
-    (var x 10)
-    (print "before" x)
-    (var foo (fn [] (var x 20) (print "fn" x)))
-    (foo)
-    (print "after" x)
-)

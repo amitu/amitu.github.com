@@ -1,9 +1,0 @@
-thoughts
-
-ask someone how likely they are to recommend this product to a friend, and if
-they answer quite, then show a popup with options to do so. once someone says 
-yes, they ll be "forced" to, and if the product is good, they would be "forced"
-to say yes. 
-
-
-http://www.brainpickings.org/2013/01/29/anton-chekhov-8-qualities-of-cultured-people/
