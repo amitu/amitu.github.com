@@ -1,22 +1,186 @@
----
-layout: page
-title: Categories
-header: Posts By Category
-group: navigation
----
-{% include JB/setup %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Amit Upadhyay: Categories</title>
+	<meta name="author" content="Amit Upadhyay">
+	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="Categories" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body ng-app>
+
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<nav class="nav-global">
+					<ul>
+						<li class="logo"><a href="/">Amit Upadhyay</a></li>
+						<!-- li class="archive"><a href="/archive.html">archive</a></li -->
+						<li class="page"><a href="/">blog</a></li>
+						<li class="page"><a href="/open-source.html">open source</a></li>
+						<li class="page"><a href="/quotes.html">quotes</a></li>
+						<li class="page"><a href="/lab/">experiments</a></li>
+						<!-- li class="page"><a href="/faq.html">faq</a></li -->
+						<!-- li class="page"><a href="/pages.html">pages</a></li -->
+						<!-- li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><div><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
+									allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></div></li -->
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+					
+<article class="unit-article layout-page">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title">Categories</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					
 
 <ul class="tag_box inline">
-  {% assign categories_list = site.categories %}
-  {% include JB/categories_list %}
+  
+  
+
+
+  
+    
+  
+
+
 </ul>
 
 
-{% for category in site.categories %} 
-  <h2 id="{{ category[0] }}-ref">{{ category[0] | join: "/" }}</h2>
-  <ul>
-    {% assign pages_list = category[1] %}  
-    {% include JB/pages_list %}
-  </ul>
-{% endfor %}
+
+
+
+				</div><!-- entry-content -->
+			</div><!-- bd -->
+					<hr>
+<figure class="kudo kudoable" data-id="1">
+    <a class="kudobject">
+        <div class="opening">
+            <div class="circle">&nbsp;</div>
+        </div>
+    </a>
+    <a href="#kudo" class="count">
+        <span class="num">0</span>
+        <span class="txt">Kudos</span>
+    </a>
+</figure>
+					
+                    <p clas="subscribe" style="background: #fcf7ab; padding-left: 10px">
+
+                        <a href="http://twitter.com/amitu">Follow me on twitter: 
+                        @amitu</a>.
+
+                    </p>
+
+					<div class="comment">
+                        
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+
+					</div>
+
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<!-- p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p -->
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
+				<div class="misc vcard">
+					<h4>about</h4>
+					<ul>
+						<li class="contact"><address><span class="author fn n">Amit Upadhyay</span> - <span class="fn email">blog@amitu.com</span></address></li>
+						<li class="github"><a href="http://github.com/amitu/" rel="me">github.com/amitu</a></li>
+						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
+                        <li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li>
+                        <li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li>
+					</ul>
+				</div><!-- misc -->
+				<a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @amitu</a>
+				<p class="licence">
+					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+  
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
+  <script src="/kudos/jstorage.js"></script>
+  <script src="/kudos/kudos.js"></script>
+  <script src="/kudos/parse-kudos.js"></script>
+</body>
+</html>
 

@@ -1,0 +1,20 @@
+geek:
+    - My Git Flow:
+        pass:
+            Off late I am using branches a lot when working with git. I
+            considered using [git-flow](https://github.com/nvie/gitflow) but
+            its not working, as the whole team is not using it and I am not
+            getting to configure it to treat master as my develop branch. I had
+            very bad experience with
+            [git-up](https://github.com/aanand/git-up), it lost my commits!,
+            and now with this I am feeling that it is probably best to stay
+            away from these tools and use more stable tools that come with git
+            directly to implement the workflow we like.
+
+india:
+    - Don't Lecture me:
+        http://americanradioworks.publicradio.org/features/tomorrows-college/lectures/:
+            Lecture based learning dates back to a time when it was unviable to
+            print books. If you couldn't print content you needed to dictate it
+            to students. Why are we still doing this?
+

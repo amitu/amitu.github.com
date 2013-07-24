@@ -1,0 +1,9 @@
+(do
+    (= dofact (fn [x acc]
+        (if (== x 1)
+            (~ acc)
+            (dofact (- x 1) (* acc x))
+        )
+    ))
+    (print (dofact 5 1))
+)

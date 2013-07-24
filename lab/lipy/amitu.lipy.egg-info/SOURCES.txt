@@ -1,0 +1,10 @@
+setup.py
+amitu/__init__.py
+amitu/lipy.py
+amitu.lipy.egg-info/PKG-INFO
+amitu.lipy.egg-info/SOURCES.txt
+amitu.lipy.egg-info/dependency_links.txt
+amitu.lipy.egg-info/entry_points.txt
+amitu.lipy.egg-info/namespace_packages.txt
+amitu.lipy.egg-info/top_level.txt
+amitu.lipy.egg-info/zip-safe

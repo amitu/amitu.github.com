@@ -1,0 +1,9 @@
+(do
+    (defn dofact [x acc]
+        (if (== x 1)
+            (~ acc)
+            (dofact (- x 1) (* acc x))
+        )
+    )
+    (print (dofact 3 1))
+)

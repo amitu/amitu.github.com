@@ -1,0 +1,37 @@
+<!doctype html>
+<html ng-app="myapp">
+  <head>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.2/angular.min.js"></script>
+    <script>
+        function MyApp($scope) {
+            $scope.items = [1, 2, 3];
+            $scope.add = function() {
+                $scope.items.push($scope.item);
+                $scope.item = "";
+            }
+        }
+        angular.module("amitu-clicker", []).directive("clicker", function() {
+            return function(scope, element, attrs) {
+                element.bind("click", function(){ console.log("click"); });
+            }
+        });
+    </script>
+  </head>
+  <body>
+      <a href="#f" clicker>clicker</a>
+      <div ng-controller="MyApp">
+          <div>Num elements: {{ items.length }}</div>
+          <div>Elements: {{ items }}</div>
+          <form ng-submit="add()">
+              add: <input ng-model="item">
+          </form>
+      </div>
+      <div ng-controller="MyApp">
+          <div>Num elements: {{ items.length }}</div>
+          <div>Elements: {{ items }}</div>
+          <form ng-submit="add()">
+              add: <input ng-model="item">
+          </form>
+      </div>
+  </body>
+</html>

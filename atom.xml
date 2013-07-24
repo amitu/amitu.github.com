@@ -1,28 +1,1507 @@
----
-layout: nil
-title : Atom Feed
----
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
  
- <title>{{ site.title }}</title>
- <link href="{{ site.production_url }}/atom.xml" rel="self"/>
- <link href="{{ site.production_url }}"/>
- <updated>{{ site.time | date_to_xmlschema }}</updated>
- <id>{{ site.production_url }}</id>
+ <title>Amit Upadhyay</title>
+ <link href="http://amitu.com/atom.xml" rel="self"/>
+ <link href="http://amitu.com"/>
+ <updated>2013-07-22T19:38:28-07:00</updated>
+ <id>http://amitu.com</id>
  <author>
-   <name>{{ site.author.name }}</name>
-   <email>{{ site.author.email }}</email>
+   <name>Amit Upadhyay</name>
+   <email>blog@amitu.com</email>
  </author>
 
- {% for post in site.posts %}
+ 
  <entry>
-   <title>{{ post.title }}</title>
-   <link href="{{ site.production_url }}{{ post.url }}"/>
-   <updated>{{ post.date | date_to_xmlschema }}</updated>
-   <id>{{ site.production_url }}{{ post.id }}</id>
-   <content type="html">{{ post.content | xml_escape }}</content>
+   <title>Why is CryptoBlog impossible to hack?</title>
+   <link href="http://amitu.com/2013/07/why-is-cryptoblog-impossible-to-hack"/>
+   <updated>2013-07-22T00:00:00-07:00</updated>
+   <id>http://amitu.com/2013/07/why-is-cryptoblog-impossible-to-hack</id>
+   <content type="html">&lt;p&gt;So the other day I introduced &lt;a href='/2013/07/cryptoblog/'&gt;cryptyblog&lt;/a&gt; with much fan fare. And the most important property of cryptoblog is that it is impossible to &amp;#8220;hack&amp;#8221;, and I would like to talk about that here.&lt;/p&gt;
+
+&lt;p&gt;Lets start with the definition of &amp;#8220;hack&amp;#8221;. For the purpose of this post, &amp;#8220;hacking&amp;#8221; a blog can mean either of two things:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Some individual defaced the site, changed any of the content, without the author knowing about it. Used the site to misrepresent the views of the author, or used the website to phish, or distribute malware etc.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;The second possibility, and the possibility I am more concerned about is, the author himself tries to pull a fast one, triesto change the content of the website without the readers being aware of it.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id='setup_of_this_blog'&gt;Setup of this blog&lt;/h4&gt;
+
+&lt;p&gt;This blog is hosted on github pages, a free hosting service, by a reasonably trusted player. In github pages, as long as one does not &amp;#8220;hack&amp;#8221; github itself, the only way to modify the content of this site is my making a commit in git repository for this site.&lt;/p&gt;
+
+&lt;p&gt;This opens two questions, how can my reader be sure that the website is indeed hosted by github pages?&lt;/p&gt;
+
+&lt;p&gt;This is relatively easy, if you trust github, then you can visit their &lt;a href='
+https://help.github.com/articles/setting-up-a-custom-domain-with-pages'&gt;custom domain instruction&lt;/a&gt;, and you will see this:&lt;/p&gt;
+&lt;img src='/images/github-custom.png' class='hcenter' /&gt;
+&lt;p&gt;And doing a &amp;#8220;dig amitu.com +nostats +nocomments +nocmd&amp;#8221; on my site, you will see:&lt;/p&gt;
+&lt;img src='/images/amitu.com-dig.png' class='hcenter' /&gt;
+&lt;p&gt;With this you can verify that my site is going to github pages.&lt;/p&gt;
+
+&lt;p&gt;Now to the second question: how can one be sure that github itself is not hacked, may be github employees are involved.&lt;/p&gt;
+
+&lt;p&gt;This is quite interesting, and you should never trust any corporation, no matter how trustworthy they appear on face. So how do bring in trust in this environment where trust is to difficult.&lt;/p&gt;
+
+&lt;h4 id='cryptoblog_on_your_machine'&gt;Cryptoblog on your machine&lt;/h4&gt;
+
+&lt;p&gt;Lets first cut the middleman, github. Github pages is just a convenient way to access this blog. The moment you suspect something is fishy, please forgo the convenience, and do a little bit of work to recreate this blog on a machine you trust.&lt;/p&gt;
+
+&lt;p&gt;This blog is powered by something called &lt;a href='http://jekyllrb.com/'&gt;jekyll&lt;/a&gt;, so here is what you will have to do:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;&lt;span class='nv'&gt;$ &lt;/span&gt;gem install jekyll
+&lt;span class='nv'&gt;$ &lt;/span&gt;git clone https://github.com/amitu/amitu.github.com.git
+&lt;span class='nv'&gt;$ &lt;/span&gt;&lt;span class='nb'&gt;cd &lt;/span&gt;amitu.github.com
+&lt;span class='nv'&gt;$ &lt;/span&gt;jekyll serve
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;With these four commands you have installed the software powering my blog, &lt;em&gt;and&lt;/em&gt; downloaded the entire history of this blog, all the posts, images etc. And a local copy of this blog will not be available to you, just open http://localhost:4000 in browser.&lt;/p&gt;
+
+&lt;p&gt;With this you can verify that the content of amitu.com is same as what you see on your local machine.&lt;/p&gt;
+
+&lt;h4 id='git_to_rescue'&gt;Git to rescue!&lt;/h4&gt;
+
+&lt;p&gt;You will then say that you are still trusting github.com, because this is where you have downloaded my blog from.&lt;/p&gt;
+
+&lt;p&gt;This is where the power of git, cryptographic hashes, and maths come to rescue.&lt;/p&gt;
+
+&lt;p&gt;See, you are not trusting github.com when you are downloading my blog from there, you are trusting git. Git lets you see the latest &amp;#8220;hash&amp;#8221; of my blog. Eg&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;&lt;span class='nv'&gt;$ &lt;/span&gt;git log -1
+commit a87b1a57640af59753273cfaf18baed16970090b
+Author: Amit Upadhyay &amp;lt;comments@amitu.com&amp;gt;
+Date:   Thu Jul 18 22:49:43 2013 -0700
+
+    minor
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You see this string &amp;#8220;a87b1a57640af59753273cfaf18baed16970090b&amp;#8221;, it is a bit hard to prove, but there are many &lt;a href='http://www-cs-students.stanford.edu/~blynn/gitmagic/ch08.html'&gt;sources on internet&lt;/a&gt; that can help you understand how it is true, suffice it to say, this string of number in itself can not be the same if the entire history is not the same.&lt;/p&gt;
+
+&lt;p&gt;In other words, git log will never show &amp;#8220;a87b1a57640af59753273cfaf18baed16970090b&amp;#8221; unless the history is intact, and if someone modifies the history in any smallest way, the end result would be a string that is completely different. This property lies at the core of bitcoin, ssl, https, this property is the reason internet banking can happen.&lt;/p&gt;
+
+&lt;h4 id='what_does_it_all_mean'&gt;What does it all mean?&lt;/h4&gt;
+
+&lt;p&gt;The content of this blog can not be modified, without leaving a trail. I can never say something on this blog, and later on deny that I did not say it. It is not just difficult, it is impossible, neither can I do it, nor the president of United States if he had a cryptoblog.&lt;/p&gt;
+
+&lt;p&gt;It is a common habit of politicians to lie, to change what they said afterwards, to claim they have been misquoted. If you demand you politican to commit everything on a cryptoblog, the politician will never be able to take anything back.&lt;/p&gt;</content>
  </entry>
- {% endfor %}
+ 
+ <entry>
+   <title>Schneier, Snowden and Deadmen</title>
+   <link href="http://amitu.com/2013/07/schneier-snowden-and-deadmen"/>
+   <updated>2013-07-18T00:00:00-07:00</updated>
+   <id>http://amitu.com/2013/07/schneier-snowden-and-deadmen</id>
+   <content type="html">&lt;p&gt;So I am a huge fan of &lt;a href='http://www.schneier.com/about.html'&gt;Schneier&lt;/a&gt;, he is one of the finest minds of our times. He writes about security, and society, and what happens when aspects of popular perception meet with cutting edge security technology. You must subscribe to his monthly newletter: &lt;a href='http://www.schneier.com/crypto-gram.html'&gt;Crypto-Gram&lt;/a&gt;, and spend a few hours every month to know whats really going on in security around the world. So much of my thinking has been shaped by his words and ideas.&lt;/p&gt;
+
+&lt;p&gt;Today I read his blog post, and for the first time I felt I can better him, or find a flaw in his thinking.&lt;/p&gt;
+
+&lt;p&gt;So this &lt;a href='http://en.wikipedia.org/wiki/Edward_Snowden'&gt;Snowden guy&lt;/a&gt; is causing quite a drama these days. He is making the world a better place, and is smart.&lt;/p&gt;
+
+&lt;p&gt;One of the aspects of his &amp;#8220;smartness&amp;#8221; is what Schneier commented on today, &lt;a href='
+https://www.schneier.com/blog/archives/2013/07/snowdens_dead_m.html'&gt;the dead mans switch&lt;/a&gt;. Its when you set things up such that if you die something bad happens, so that it reduces peoples incentive to kill someone, in this case Snowden fears US intelligence agencies (such a sad commentary on what the world has come to).&lt;/p&gt;
+
+&lt;p&gt;And Schneier suggests in his blog post:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I&amp;#8217;m not sure he&amp;#8217;s thought this through, though. I would be more worried that someone would kill me in order to get the documents released than I would be that someone would kill me to prevent the documents from being released. Any real-world situation involves multiple adversaries, and it&amp;#8217;s important to keep all of them in mind when designing a security system.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;And I would like to say Mr Schneier, that Snowden has indeed thought this through. What you seem to be not be getting is that Snowden is not bothered about the world as much as his personal security. If you accept this, then you will see that the &lt;em&gt;deadmans switch not only prevents some people from killing you, but it also forces others to make sure you stay alive&lt;/em&gt;, and this is what Snowden is trying to do.&lt;/p&gt;
+
+&lt;p&gt;With this move Snowden has forced US intelligence agencies to put all their resources to make sure Snowden stays alive, and its a brilliant move. Please do not take it away from him by saying he hasn&amp;#8217;t thought things through.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>CryptoBlog</title>
+   <link href="http://amitu.com/2013/07/cryptoblog"/>
+   <updated>2013-07-18T00:00:00-07:00</updated>
+   <id>http://amitu.com/2013/07/cryptoblog</id>
+   <content type="html">&lt;p&gt;Ladies and Gentlemen, in your life time you must have seen a lot of blogs, social blog, microblog, this blog and that blog. Tonite, for the very first time in the history of blogs you are going to see something totally new, a blog that has never been seen before. Ladies and Gentlemen, brace your heart for the CRYPTOBLOG!&lt;/p&gt;
+
+&lt;p&gt;You see this fine specimen of a blog, and you wonder to yourself, my god this is excellent, but what exactly is it! And I tell you my dear audiance, that this blog has properties never seen before, properties that have to do with Math! Math and cryptography!&lt;/p&gt;
+
+&lt;p&gt;Anybody can write a blog. Blog with posts stored in mysql tables, or the new age blogs with posts stored in nosql. Then there are blogs with posts stored in plain old retro text files! Cryptoblog my friends, stores the posts in test files which themselves are stored in git!&lt;/p&gt;
+
+&lt;p&gt;And what does that give you you might ask? For the very first time, the entire revision history of the blog is available for anyone to see! And with the power of Maths and Cryptography, the author of a cryptoblog can not change the content of the blog without you seeing all edits.&lt;/p&gt;
+
+&lt;p&gt;Look here, the entire history of this blog is available here on this fine &lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;github hosted page&lt;/a&gt;.&lt;/p&gt;
+&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img src='/images/cryptoblog1.png' class='hcenter' /&gt;&lt;/a&gt;
+&lt;p&gt;Look! The authors of the blog can no longer modify the blogs post after publishing them once. And if you are wondering what do these strange things mean:&lt;/p&gt;
+&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img src='/images/cryptoblog2.png' class='hcenter' /&gt;&lt;/a&gt;
+&lt;p&gt;Those numbers and characters have special power of Maths. The Maths gaurantee that the author can never change any of his previous blog posts without also changing those numbers. The entire history, in this case all 200 or so changes, and the content of all the posts and files all have been mixed together with the magical power of maths, and out came that special id 9ac95dd5f7, and the author of the blog would have easier time draining the entire bank balance of Bill Gates and pocketing it than changing anything in the blog post and still getting these magical numbers.&lt;/p&gt;
+
+&lt;p&gt;This all has been possible due to the power of git, and &lt;a href='https://help.github.com/articles/what-are-github-pages'&gt;github pages&lt;/a&gt;. And not only can cryptoblogs are impossible to modify after published without the history being visible to everyone forever and ever, it is also extremely easy to download the entire content of the cryptoblog, all the posts, and all the revisions done in the past.&lt;/p&gt;
+
+&lt;p&gt;With cryptoblog no politician can say something and change his words later. Imagine the era of utopia cryptoblogs herald! The perfect accountability of ones public actions and speech. No saying one thing to one audiance and another to another. No taking money and favors and changing views without public scritiny. No one can cover their tracks.&lt;/p&gt;
+
+&lt;p&gt;For this reason only the daring few will use cryptoblog, but then my dear ladies and gentlmen, when you see one of them, you know that you are dealing with one fine fellow, who is willing to live with all his mistakes made public forever. One who you know will never lie to you. Not on his blog. His cryptoblog.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='/2013/07/why-is-cryptoblog-impossible-to-hack/'&gt;Why is CryptoBlog impossible to hack?&lt;/a&gt;&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>[Script Analysis] Red Dwarf - Camille</title>
+   <link href="http://amitu.com/2013/07/script-analysis-red-dwarf---camille"/>
+   <updated>2013-07-17T00:00:00-07:00</updated>
+   <id>http://amitu.com/2013/07/script-analysis-red-dwarf---camille</id>
+   <content type="html">&lt;p&gt;I recently discoverd this space based British comedy, &lt;a href='http://www.imdb.com/title/tt0094535/?ref_=tt_ov_inf'&gt;Red Dwarf&lt;/a&gt;, and instantly fell in love with it. Its a really bold premise, one human, male, one hologram, male, one african american male who evolved from a cat, and an artificial intelligent computer, in a space ship, and there are 9 seasons of that!&lt;/p&gt;
+
+&lt;p&gt;It would have been extremely difficult to pull it off, despite being based in space, the story writers never invoke space &amp;#8220;stuff&amp;#8221; to further any story, though a handful of episodes has something to do with time travel, and one episode with alien life form, yet the scinency stuff quickly fades back. They do not even have any females to create that aspect off drama. And yet they manage to remain entertaining episode after episode.&lt;/p&gt;
+
+&lt;p&gt;Anyways, so I am basically a big fan of the writers of the show, and here I would like to discuss one example of their writing genius.&lt;/p&gt;
+
+&lt;p&gt;In this episode, &lt;a href='http://www.imdb.com/title/tt0684149/'&gt;season 4, episode one&lt;/a&gt;, they encounter mysetious life form, who takes shape of the one you desire.&lt;/p&gt;
+
+&lt;p&gt;Let me first describe the characters, the human male is a slob, messy person, who has almost no ambitions, but loves to party. The hologram has a personality of a dead crew mate, who is too much into military stuff, descipline, fitness, aims to become commander etc. The android, is well an android, who just wants to serve humans. And the &amp;#8220;Cat&amp;#8221;, cat is extrmely narcissit, he is a graceful dancer, has a wardrobe full of suits, and can not get away from a mirror.&lt;/p&gt;
+
+&lt;p&gt;So the android rescues Camille, and she appears to him as an andriod, almost the same make as him, but &amp;#8220;fully loaded&amp;#8221; version. This happened in the beginning of the episode, and we had no idea about Camille&amp;#39;s special abilities. Then she meets the hologram, and he sees her in proper military-ish uniform, and we discover her special ability.&lt;/p&gt;
+
+&lt;p&gt;This part was intriguing, and given that its a scify, its a perfectly normal kind of thing. At this point I started thinking. We can already imagine what is going to happen next. She will meet the slob and would have a slob like personality. But then she would meet the Cat, and I assumed she would be swanky, probably african american, dancing, well dressed personality.&lt;/p&gt;
+
+&lt;p&gt;But the moment that thought occured to me, I also got kind of disappointed, I mean that sounds boring. Showing her in new forms again and again, four times in one episode is tedious, and it can not work.&lt;/p&gt;
+
+&lt;p&gt;Anyways, my first curiosity was what would they do with the human, they have already revealed her &amp;#8220;speciality&amp;#8221;, and to andriod she appeared andriod and to hologram she appeared hologram, but the thing is holograms don&amp;#8217;t look different than humans in the show, they just have a H written on their forehead, gotta love the british humour there. So I the third form of hers was curious and it worked, it emphasised the stupidity of having H written on the forehead vs not to distinguish humans and holograms, and it worked in a self depreciating sort of humorous way. Further they also showed a three way dialog in which she is saying one thing, but human and hologram are both hearing two different versions at the same time. That worked too.&lt;/p&gt;
+
+&lt;p&gt;And the scene was set to introduce her to the cat. And this is where I felt the most curious. The cat is the most obnoxious, most narcissitic, weirdest character one can find, and cat knew she would look exactly like his dream, so this was the first time her speciality was discussed before the meeting, which had to be because by this time in the audiance head its well established, so they can not show cat getting surprised about it, as it would be repetitous.&lt;/p&gt;
+
+&lt;p&gt;I also started wondering who will they cast for this role. The female andriod, the military looking, the slobbish, all these are rather simple characters to portray, showing somebody who thinks they are the best looking person in the world, and doing so with grace and straight face, is difficult. So casting for that role presented special challenge, and there was a build up in my head to see who she would be. And because of this I wondered if the Camille character is going to be a one episode entertainment, or a recurring character.&lt;/p&gt;
+
+&lt;p&gt;Now the show has explicitly tried to avoid female characters, and if they introduce her as a regular character, the whole chemistry of the show will change, imagine everyone lusting after her. So in my head, they can not put her as a regular, while I have not finished watching the episode yet, so I do not know how accurate my prediction turns out to be.&lt;/p&gt;
+
+&lt;p&gt;Anyways, one way or another, who they show against the cat became quite a question in my head, and it must have been in the head of the writers of the episode too. How would they &amp;#8220;resolve&amp;#8221; this &amp;#8220;situation&amp;#8221;?&lt;/p&gt;
+
+&lt;p&gt;And the writers really delighted me with what they did. Camille appeared to cat as cat. Its so not what I was expecting, and it was so hilarious! God I love good writing. This was the perfect resolution. No need to cast a new flashy cast. Is funny. Reinforce the character of one of the characters. I couldn&amp;#8217;t have done better.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>What is love?</title>
+   <link href="http://amitu.com/2013/07/what-is-love"/>
+   <updated>2013-07-13T00:00:00-07:00</updated>
+   <id>http://amitu.com/2013/07/what-is-love</id>
+   <content type="html">&lt;p&gt;You have a front yard, you have a busy life, you are going about with it, you see some weeds growing up, you see flowers not watered. You take a few minutes out, you work on the weed, you water the flowers, and you leave it little bit better than how you found. You gave your plants some love.&lt;/p&gt;
+
+&lt;p&gt;You pick up lunch during a busy week, you notice the headline in the newspaper laying about, and you notice you do not fully understand the story thats making the headlines. You take a few minutes out, you read the story in newspaper, you find a few different websites with different biases, read up the story on them to see different point of views, you go back about your busy life. You gave your country some love.&lt;/p&gt;
+
+&lt;p&gt;You in the middle of a busy schedule, You hear your parents worried about some family issue, you take out some time and call them, you talk to them about the latest cricket match, and what they had for lunch, you tell them how happy you are with the way things are going for you, and you take their advice on somethings you can do. You gave your family some love.&lt;/p&gt;
+
+&lt;p&gt;Walking busy from one place to another you realize you do not have the energy you used to till a few years back, you sit down on the bench, reevaluate your meals and skip the cab and take a long walk to where you were going. You gave your health some love.&lt;/p&gt;
+
+&lt;p&gt;You came back to work, you saw the menu widget on your web product is hiding too soon, you go to a few different sites who has implemented that menu, you read up some blog posts about how to properly implement it, and you add a delay in opening and closing it to give it some sense of &amp;#8220;weight&amp;#8221;. You stared at your product some more, noted down a couple of issues you will come back to when you have some time. You gave your product some love.&lt;/p&gt;
+
+&lt;p&gt;You open your browser, checkoutfacebook and twitter, post some comments and retweets, make a call or two to some friends, and you gave your friends some love.&lt;/p&gt;
+
+&lt;p&gt;You open your work list, and spend next 6 hours on them. You gave your work some love.&lt;/p&gt;
+
+&lt;p&gt;You catch up with your girlfriend throughout the day whenever you can to tell her you are thinking of her. Share what going on with you, and ask how her day is coming along. Plan the next thing you are going to do together, or day dream about what the life is going be like in future. You gave your girlfriend some love.&lt;/p&gt;
+
+&lt;p&gt;You go to bed thinking about some story from past, you relive the sadness or joy. You enjoy end of another day. You wonder what life has in it for you in coming days and beyond. You go to sleep thinking. You gave your life some love.&lt;/p&gt;
+
+&lt;p&gt;You can not love someone or something, you can only give your love to them for some duration at a time. Somethings you give love to regularly, some other things less than regularly. Love is measured in hours.&lt;/p&gt;
+
+&lt;p&gt;What are you giving your love to today?&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Kudos Using Parse For Jekyll</title>
+   <link href="http://amitu.com/2013/04/kudos-using-parse-for-jekyll"/>
+   <updated>2013-04-15T00:00:00-07:00</updated>
+   <id>http://amitu.com/2013/04/kudos-using-parse-for-jekyll</id>
+   <content type="html">&lt;p&gt;Kudos:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href='http://dustincurtis.com/'&gt;Dustin Kurtis&lt;/a&gt; came up with an excellent idea for the &lt;a href='http://svbtle.com/'&gt;Svbtle&lt;/a&gt; blogging network (go visit &lt;a href='http://svbtle.com/'&gt;Svbtle.com&lt;/a&gt; to see an example). He called them Kudos. They&amp;#8217;re little widgets next to each post that enable users to give &amp;#8220;Kudos&amp;#8221; to posts they really like. You hover over the widget, it gives a fun little animation, and changes the icon and count after a moment.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Source: &lt;a href='https://github.com/masukomi/kudos'&gt;masukomi/kudos&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;A working demo at the bottom of this post.&lt;/p&gt;
+
+&lt;h3 id='how_to'&gt;How To&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;You will need a &lt;a href='https://parse.com/plans'&gt;parse account&lt;/a&gt;, its free for upto a million requests per month.&lt;/li&gt;
+
+&lt;li&gt;Get the files &lt;a href='/kudos/kudos.js'&gt;/kudos/kudos.js&lt;/a&gt;, &lt;a href='/kudos/parse-kudos.js'&gt;/kudos/parse-kudos.js&lt;/a&gt; and &lt;a href='/kudos/jstorage.js'&gt;/kudos/jstorage.js&lt;/a&gt; and include them in your &amp;#8220;_include/themes/[your-theme]/default.html&amp;#8221;.&lt;/li&gt;
+
+&lt;li&gt;Link to &lt;a href='http://www.parsecdn.com/js/parse-1.2.3.min.js'&gt;parse-1.2.3.min.js&lt;/a&gt; and jquery in your default.html.&lt;/li&gt;
+
+&lt;li&gt;Get and link &lt;a href='/kudos/kudos.css'&gt;/kudos/kudos.css&lt;/a&gt; as CSS in your default.html.&lt;/li&gt;
+
+&lt;li&gt;Store &lt;a href='/kudos/heart_60x60.png'&gt;/kudos/heart_60x60.png&lt;/a&gt; somewhere.&lt;/li&gt;
+
+&lt;li&gt;Update parse-kudos.js with your parse keys.&lt;/li&gt;
+
+&lt;li&gt;Update kudos.css with the location on heart_60x60.png.&lt;/li&gt;
+
+&lt;li&gt;In your &amp;#8220;_include/themes/[your-theme]/[post|page].html files, add &lt;a href='https://github.com/amitu/amitu.github.com/blob/master/_includes/themes/the-program/page.html#L18-L28'&gt;the highlighted HTML&lt;/a&gt; where it makes sense.&lt;/li&gt;
+
+&lt;li&gt;Enjoy&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;I can create a jekyll plugin, but since &lt;a href='http://pages.github.com/'&gt;github pages&lt;/a&gt; do not support custom jekyll plugins, I wont myself be using the plugins. And hopefully the above steps can be used with minimal changes on other static site/blog generators.&lt;/p&gt;
+
+&lt;h3 id='credits'&gt;Credits&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href='http://www.masukomi.org/'&gt;Masukomi&lt;/a&gt; for &lt;a href='https://github.com/masukomi/kudos'&gt;masukomi/kudos&lt;/a&gt;, jquery plugin that does the animation.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Truth Vs Non Violence</title>
+   <link href="http://amitu.com/2013/02/truth-vs-non-violence"/>
+   <updated>2013-02-10T00:00:00-08:00</updated>
+   <id>http://amitu.com/2013/02/truth-vs-non-violence</id>
+   <content type="html">&lt;p&gt;When it comes arguments, a lot of times a battle can be won at the cost of war.&lt;/p&gt;
+
+&lt;p&gt;When one argues with another person, the only reason it is being called argument and not monologue is because the other person is talking. Because the other person has interest.&lt;/p&gt;
+
+&lt;p&gt;Sometimes arguments can be &amp;#8220;won&amp;#8221; at the cost of people. At the cost of other person losing interest. At those times it is important for us to ask ourselves if it is worth it.&lt;/p&gt;
+
+&lt;p&gt;We argue with a person to mutually educate ourselves. There is not much education in losing people. People worth losing are never worth arguing with, and vice versa.&lt;/p&gt;
+
+&lt;p&gt;When Gandhi spoke about truth and non violence as two virtues, he was hinting to us that sometimes truth, or perception of it, leads to &amp;#8220;violence&amp;#8221;. When we are right, our approach towards others is &amp;#8220;violent&amp;#8221;. Gandhi believed that &amp;#8220;violence&amp;#8221; should not be narrowly defined as physical act of violence, but should also include our mental process, our approach towards others and so on.&lt;/p&gt;
+
+&lt;p&gt;With that refined definition of violence it is easy to see how truth can sometimes lead to violence, and on the other hand trying to avoid violence, trying to be too polite too much, leads us away from truth.&lt;/p&gt;
+
+&lt;p&gt;Life is a quest to walk the thin line between truth and non violence. We are too quick to &amp;#8220;lose&amp;#8221; people, and resort to show of strength to &amp;#8220;prove&amp;#8221; our ideas, or lose ideas to &amp;#8220;keep&amp;#8221; people. Only when we can walk the thin line, that we can create a world that Gandhi envisioned.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>The Silent Teacher</title>
+   <link href="http://amitu.com/2013/02/the-silent-teacher"/>
+   <updated>2013-02-10T00:00:00-08:00</updated>
+   <id>http://amitu.com/2013/02/the-silent-teacher</id>
+   <content type="html">&lt;blockquote&gt;
+&lt;p&gt;Once there was a saint who never spoke. He was asked to teach a student. He gave a thumbs up.&lt;/p&gt;
+
+&lt;p&gt;When the student came, he soon heard about the teachers silence and started to go back telling the silent teacher that he can learn nothing from him. The teacher gave him a thumbs down. And that was his first lesson.&lt;/p&gt;
+
+&lt;p&gt;From that day, for many years, the student learnt much from the teacher, and that first thumbs down was the only thumbs down he got from the teacher.&lt;/p&gt;
+
+&lt;p&gt;Teacher knew not only that words are not essential for teaching, and only thumbs up and thumbs down are suffecient, but also that one can teach as effectively with just approval without needing disapporval.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Thoughts that came to my mind when I was driving a car when I noticed the effectiveness of the &amp;#8220;ECO&amp;#8221; indicator as a teaching aid to drive the car &amp;#8220;properly&amp;#8221;. The indicator turns green when I am driving at right speed and &amp;#8220;gas&amp;#8221;, and is otherwise turned off.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Protests, Demands and a Gambit</title>
+   <link href="http://amitu.com/2013/01/protests-demands-and-a-gambit"/>
+   <updated>2013-01-31T00:00:00-08:00</updated>
+   <id>http://amitu.com/2013/01/protests-demands-and-a-gambit</id>
+   <content type="html">&lt;p&gt;It is become quite fashionable in India to protest against government.&lt;/p&gt;
+
+&lt;p&gt;I believe most of the &amp;#8220;righteous&amp;#8221; protesters are wrong. The protesters against rape case. The protesters who fashionably march after each terror attack with candle in their hands. Protesters who protested with Anna, which is not fashionable today, but Kejriwal, who too seems to be losing the fancy of protesters off late, but enjoyed protestor support till some time back.&lt;/p&gt;
+
+&lt;p&gt;I believe all these protesters, or rather most of them are wrong.&lt;/p&gt;
+
+&lt;p&gt;There is a cynicism that government does nothing for you. The protesters are simply adding to this cynicism. A failed protest adds to total cynicism of the country, and cynic citizens, who have lost hope in government are not good citizens.&lt;/p&gt;
+
+&lt;p&gt;I have a law of protesting, a protest without demand is sedition. Yes, people who protest against government without a concrete, credible demand are traitors of the country, and water cannon is too good for them, machine gun is what they deserve.&lt;/p&gt;
+
+&lt;h4 id='why_is_protesting_against_demand_so_bad'&gt;Why is protesting against demand so bad?&lt;/h4&gt;
+
+&lt;p&gt;Lets take a scenario, I start protesting against my school headmaster. Headmaster learns that there is a student uprising against him, so he tries to find out what are they demanding. Headmaster&amp;#8217;s first wish is to see if the situation can be diffused by meeting the demand raised by the students.&lt;/p&gt;
+
+&lt;p&gt;So headmaster does inquiry and it turns out students are simply &amp;#8220;outraged&amp;#8221;. The idiots have no demand that headmaster can fullfill, but they continue to protest.&lt;/p&gt;
+
+&lt;h4 id='meta_demands'&gt;Meta Demands&lt;/h4&gt;
+
+&lt;p&gt;Sometimes students claim they have a demand, they want &amp;#8220;better education&amp;#8221;. What the fuck does it mean? 100 people can each have 100 different meaning of &amp;#8220;better education&amp;#8221;, but unless there is a wide spread consensus on what is demanded, better school timing, better teachers, better facilities, a meta demand can not be met.&lt;/p&gt;
+
+&lt;p&gt;Take protest against rape for example. They have a meta wish that somehow rape stop. It is a sad thing, and if God can intervene and make humanity better such that rape stops it would be awesome.&lt;/p&gt;
+
+&lt;p&gt;But government can not do that. Government can pass specific directives to police and judges, government can introduce new laws or alter existing ones. Government can take measures that may reduce rape, but government can not reduce rape itself.&lt;/p&gt;
+
+&lt;p&gt;Government can not reduce poverty. Government can not increase exports, reduce inflation and so on. Government may take measures that may at times do these things.&lt;/p&gt;
+
+&lt;p&gt;Bottome line is that government can do only what government can do. Any demand that does not tell government what to do, but instead focuses on what should be the end results is a meta demand.&lt;/p&gt;
+
+&lt;p&gt;Removing poverty is meta demand. Increasing more schools is a concrete demand. Providing easier microfinancing is a concrete demand. Improving infrastructure in poor sectors is a concrete demand. Provinding cheaper health care, cheaper fertilizers, cheaper access to internet and telecommunication are all concrete demands. All of them may lower powerty. These are the things government does. These are the things that one may demand. One may not demand meta demands like remove poverty. Or end rape.&lt;/p&gt;
+
+&lt;h4 id='protests_are_dangerous'&gt;Protests are dangerous&lt;/h4&gt;
+
+&lt;p&gt;A continued and popular protest march is dangerous for the stability of the government. Media starts proclaiming government has failed. A protest in large number, if it does not have a concrete demand, has only purpose, to topple the government.&lt;/p&gt;
+
+&lt;p&gt;If large enough number of population turns out to a demand that is impossible for government to meet, that is if it is a meta demand, then government can do nothing, government can take measures, concrete steps, but meta demanding protest is not interested in specific demands, and that creates an environment in which something drastic must happen, like an unconstitution taking of power by a different agency. May be the military will intervene, may be other countries of world will intervene if government starts using drastic measures to control the protest that is disrupting the country.&lt;/p&gt;
+
+&lt;p&gt;A protest without concrete demand, a protest with meta demand is an invitation to government to use drastic measures. We can see how proudly Kejriewal in almost all his protests got himself beaten up by police and got arrested.&lt;/p&gt;
+
+&lt;h4 id='how_to_protest_properly'&gt;How to protest properly&lt;/h4&gt;
+
+&lt;p&gt;A protest is done with an aim. Do we want to topple the government and over throw the constitution, then too the demand can be called concrete.&lt;/p&gt;
+
+&lt;p&gt;But one can not demand for throwing the constitution without providing their own constitution that would replace it.&lt;/p&gt;
+
+&lt;p&gt;So either provide at least a skeleton of a new constitution in the protest if it is about a new constitution, or else provide a sketch of the bill if a new law has to be passed. Or an executive order if a new order is to be issued, like banning or unbanning a movie.&lt;/p&gt;
+
+&lt;p&gt;One way or another a concrete demand must be provided.&lt;/p&gt;
+
+&lt;h4 id='amitus_gambit_on_protest'&gt;AmitU&amp;#8217;s gambit on protest&lt;/h4&gt;
+
+&lt;p&gt;If I was the Prime Mister of India, I would employ this gambit to end all protests: I will ask the protesters to assume they are the prime minster of India, and ask them what will they do?&lt;/p&gt;
+
+&lt;p&gt;If a protester gets all the power that Indian Prime Minister has, complete control over police, legislation, budget, reasonable control over judiciary and media and so on, they must be able to do what they are demanding.&lt;/p&gt;
+
+&lt;p&gt;A protester with concrete demand will be happy, will not require all the powers offered and will tell you fluently what he will do. A protester like Kejriwal, a protester with meta demand, will on the other hand mumble and jumble, but wont have any clue what to do. Kejriwal for example pretends he wants to introduce a new law, and as Prime Minister nobody will stop him from implementing &lt;em&gt;his&lt;/em&gt; law, and then he will mumble about how a commettee should me made who will think what this damn law should be. He will be exposed as a fraud who is demanding a law that he has no idea what it is.&lt;/p&gt;
+
+&lt;p&gt;This gambit will immediate expose if the protesters are sincere, if they have a concrete demand, and if their demand is reasonable. Some concrete demands would be something that one can not just assume he has mandate of entire country to do. Someone will say they want to wage a war against another country, and then it will be on them to go and produce evidence that entire country wants the war. Some will talk about how the country doesnt know what is good for the country, and then you will know you have a lunatic at your hands.&lt;/p&gt;
+
+&lt;p&gt;Sometimes the country doesnt know what is good for the country, but in democacry that doesnt mean one forces the &amp;#8220;good for the country&amp;#8221; to the country, but one must educate the country about that good. If maida or lead was bad for country, one does not have to demand dictatorial power to ban lead and maida, it is suffecient for one to write articles about research that has proven how bad they are.&lt;/p&gt;
+
+&lt;p&gt;With this gambit most protester would agree they have no clue what they will do as Prime Minister, and then they will probably learn that the Prime Minister of India is not genie or God. Then when the protester goes back home, he goes back not as cynic, who thinks government doesnt do anything for people, but he will go back with a greater respect about the problems we are facing, he will go back with a determination to do more homework and come back again when he some concrete ideas. Or he will have such a compelling answer to what he will do as PM that you will join him in his protest and demand actual PM do what he suggested.&lt;/p&gt;
+
+&lt;h4 id='protest_requires_consensus'&gt;Protest requires consensus&lt;/h4&gt;
+
+&lt;p&gt;You will see that the reason that most protest dont have concrete demand is not because there are none that exist, but because there is no consensus about what it should be.&lt;/p&gt;
+
+&lt;p&gt;People go into protests prematurely. They realize getting a consensus is a difficult task, so they just settle for the simplified meta demand, which is nothing but sloganeering, hoping that the cheap slongan will attract a lot of support.&lt;/p&gt;
+
+&lt;p&gt;This is a very unethical stand taken by most protesters who do not want to do the effort of presenting their concrete demand, presenting a study of meta demand and what all possible concrete demands that could be related to that, and why the currect concrete demand is the best one. This is the homework that most protesters do not do and this is the reason they fail.&lt;/p&gt;
+
+&lt;p&gt;So ask yourself what you will do as prime minister, but also ask yourself how to convince your fellow supporters about that particular specific series of steps and measures.&lt;/p&gt;
+
+&lt;p&gt;Supporters of protesters must also grow up and realize that the one shouting the slogan the most and loudest is not the voice who should get maximum coverage, but those who have specific voice. A serious internal debate is must, and that is missing, and not government inaction or apathy.&lt;/p&gt;
+
+&lt;p&gt;A majority that can only agree on slogans is not a majority to look forward to, that thinking is power play, and politics. And the only way that kind of power play can succeed if it was used as a vote bank.&lt;/p&gt;
+
+&lt;p&gt;Real change will not come by this kind of sloganeering based power play politics, but by intelligent people to start taking interest in what is beyond slogans. In concrete steps.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Kejriwal Clueless About Economics? Or Fooling His Supporters?</title>
+   <link href="http://amitu.com/2013/01/kejriwal-clueless-about-economics-fooling-supporters"/>
+   <updated>2013-01-21T00:00:00-08:00</updated>
+   <id>http://amitu.com/2013/01/kejriwal-clueless-about-economics-fooling-supporters</id>
+   <content type="html">&lt;p&gt;So I just saw this status update from Kejriwal on Facebook, and sometimes I think the man is either clueless about economics or so desperate in his &amp;#8220;blame the government at whatever cost&amp;#8221; game that he ignores economics/common sense and is fooling the masses who is following him.&lt;/p&gt;
+
+&lt;p&gt;Here is the post:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/kejriwal-diesel.png' alt='Kejriwal about Diesel' /&gt;&lt;/p&gt;
+
+&lt;p&gt;He claims government is exporting diesel at Rs 42/- per liter and yet selling at a higher price Rs 55/- per liter, and based on this he concludes there is no subsidy and government is lying.&lt;/p&gt;
+
+&lt;p&gt;Rs 42 per liter is the price at the which we buy from the exporting country. Lets assume that that is the cost at which it is delivered at our port in Bombay.&lt;/p&gt;
+
+&lt;p&gt;Once the product has arrived at the port, it has to be unloaded into tankers, cost. If sufficient tankers are not available at the time the ship arrives, the ship has to wait in the harbor, cost. The product is very hazardous and possibly corrosive so the transportation containers are costlier than the usual shipping containers used for inland transportation, cost. Then the tankers have to travel from Bombay to 1000s KM. Cost.&lt;/p&gt;
+
+&lt;p&gt;At destination they unloaded, cost, stored in local storage facility, cost, and after a few days or weeks sent loaded back into transport tankers, cost. Finally at the petrol pumps, the product has to be safely kept in a area in the dense population, cost. Eventually the petrol pump owner is not doing a charity, he is running a business. Cost.&lt;/p&gt;
+
+&lt;p&gt;All this assuming there is no custom duty, there is no sales tax and so on. Taxes themselves cover the difference, and if government is not charging it, it is subsidy, the roads and trains to transport it are still built, the tax department still has to audit the transaction, etc.&lt;/p&gt;
+
+&lt;h4 id='conclusion'&gt;Conclusion&lt;/h4&gt;
+
+&lt;p&gt;Kejriwal has assumed all of these costs, tax and custom duty breaks do not exist. He assumes that Rs 13/- is the profit government is making in all this and is lying to us about subsidies. He is either a fool or is dishonest.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Risk vs Personal Risk</title>
+   <link href="http://amitu.com/2013/01/risk-vs-personal-risk"/>
+   <updated>2013-01-02T00:00:00-08:00</updated>
+   <id>http://amitu.com/2013/01/risk-vs-personal-risk</id>
+   <content type="html">&lt;p&gt;Came across this interesting &lt;a href='http://www.livemint.com/Opinion/7wi2s1Ddp2TsfDEAIQyjLL/The-age-of-black-swans.html'&gt;article on risk&lt;/a&gt;.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;About 3,800 years ago, the Code of Hammurabi specified that if a house collapses and causes the death of its owner, the house&amp;#8217;s builder shall be put to death.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;The ancients understood that the builder always knows more about the risks than the client, and can hide sources of fragility and improve his profitability by cutting corners. The foundation is the best place to hide risk. The builder can also fool the inspector; the person hiding risk has a large informational advantage over the one who has to find it.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;Why do I believe that a certain class of people has an incentive to &amp;#8220;look good&amp;#8221; rather than &amp;#8220;do good&amp;#8221;? The reason is simply the absence of personal risk.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;&amp;#8230; there are warmongers. To deal with them, the one-time consumer advocate and former US presidential candidate Ralph Nader has proposed that those who vote in favour of war should place themselves or a descendent into military service.&lt;/p&gt;
+&lt;/blockquote&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>My Tryst With Lucknow Airport Officials</title>
+   <link href="http://amitu.com/2012/12/my-tryst-with-lucknow-airport-officials"/>
+   <updated>2012-12-30T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/12/my-tryst-with-lucknow-airport-officials</id>
+   <content type="html">&lt;p&gt;On June 26th, 2012 I wrote the following mail to Lucknow Airport Public Relations Officer:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;To: pgofficerchq@aai.aero&lt;/p&gt;
+
+&lt;p&gt;Subject: No space for passengers to wait&lt;/p&gt;
+
+&lt;p&gt;Hello Officer,&lt;/p&gt;
+
+&lt;p&gt;I am pleased to see the new airport, but very disappointed by the lack of seating for waiting passengers.&lt;/p&gt;
+
+&lt;p&gt;With two gates, there is total of 80 seats for passengers to wait. Two commercial flights can host anywhere between 200 and 300 passengers.&lt;/p&gt;
+
+&lt;p&gt;This is grossly dissatisfactory as this is not a problem of space, one can see plenty of unoccupied and wasted space, this is a failure of planning.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Amit Upadhyay&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I got prompt reply, first reply at 10PM in the night! To my dismay the report was closed:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;From: PGO Officer Lucknow &lt;a href='mailto:pgo_lko@aai.aero'&gt;&amp;#112;&amp;#103;&amp;#111;&amp;#095;&amp;#108;&amp;#107;&amp;#111;&amp;#064;&amp;#097;&amp;#097;&amp;#105;&amp;#046;&amp;#097;&amp;#101;&amp;#114;&amp;#111;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Subject: Re: FW: No space for passengers to wait G No 143 dt 27/06/2012&lt;/p&gt;
+
+&lt;p&gt;Sir,&lt;/p&gt;
+
+&lt;p&gt;The reply received from Jt. G.M.(Ops.) for your information on the above mentioned subject.&lt;/p&gt;
+
+&lt;p&gt;Quote&lt;/p&gt;
+
+&lt;p&gt;Maximum number of seats (90 seats) have been made available on the ground floor of domestic SHA. This is the maximum which can be placed there as some space have to be kept for movement of PAX.&lt;/p&gt;
+
+&lt;p&gt;Unquote&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Anil Vajpayee, Public Grievances Officer&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;To this I replied:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Hello Officers,&lt;/p&gt;
+
+&lt;p&gt;I am very happy to see such prompt replies.&lt;/p&gt;
+
+&lt;p&gt;The assertion that 1. In current configuration maximum 90 seats can be placed and 2. 90 seats are indeed there, are both correct.&lt;/p&gt;
+
+&lt;p&gt;But this was not my complaint, my complaint is: 1. There are two gates, with two air crafts, each with 180 passenger capacity, the requirement is for 360 seats. Providing 90 seats where 360 is required is grossly bad planning. 2. There is possibility of making very minor modifications to allow for more seating capacity.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;p&gt;Proposal 1: the security check can be shifted backwards allowing another 90 or 120 more seats. Currently nearly half of the hall is used for security check queue and other half for seating. security check queue has sufficient place to stand comfortable before entering the hall.&lt;/p&gt;
+
+&lt;p&gt;Proposal 2: there is another section right next to domestic gates 1 and 2, separated by a glass wall. That section too has 90 seat capacity. It was for international flights presumably. There are not enough international flights compared to domestic ones. The wall can be shifted, allowing for 90 more seats on domestic side and reducing the number of seats in international to 45.&lt;/p&gt;
+
+&lt;p&gt;Proposal 3: remove international boarding altogether from ground floor and shift them to first floor. This ll give significantly more room, and even though 4 gates are there only 2-3 flights are scheduled at the same time. Even in the case that all 4 flights are schedule on 4 gates, breaking down the partition will give more space for seats. Further only one section of security would be required instead of two so seats can be placed in that space too.&lt;/p&gt;
+
+&lt;p&gt;Proposal 4: only use one gate at ground level. There are more gates on first floor. There was three flights in 1 hr from ground floor and none from first floor. This kind of situation can be avoided by equidistribution of flights on either level.&lt;/p&gt;
+
+&lt;p&gt;&amp;#8211; Amit Upadhyay&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I got no reply from them afterwards and I considered matter closed. Till I visited lucknow airport on my next trip, this is what I saw:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/lucknow-airport.jpg' alt='Lucknow Airport' /&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see they implemented my &amp;#8220;Proposal 2&amp;#8221;. On left is Gate 1 and 2, domestic flights, and right is for international flights. When I wrote the mail it was a glass wall, now it has been opened.&lt;/p&gt;
+
+&lt;p&gt;Ye! :-)&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Love Katju</title>
+   <link href="http://amitu.com/2012/12/love-katju"/>
+   <updated>2012-12-30T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/12/love-katju</id>
+   <content type="html">&lt;p&gt;In a &lt;a href='http://justicekatju.blogspot.in/2012/09/required-two-tongues_20.html'&gt;post about promoting Hindi&lt;/a&gt; Justice Katju says:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;At the function many speakers would say &amp;#8220;Agrezi Hatao&amp;#8221;, that is, abolish Hindi from our country. Some would disparagingly describe English as a &amp;#8220;dasi&amp;#8221; (slave girl).&lt;/p&gt;
+
+&lt;p&gt;When my turn came to speak I would tell the audience that if their children did not learn English they would only be fit to drive bullock carts (Hal chalane layak rah jayenge). I said I, too, love Hindi which is my mother tongue but that does not mean I should behave like a fool. All knowledge in the world is in English. If one went to an Engineering college all the the books are in English, similarly all the books in a Medical College are in English. If one wanted to study history, economics, philosophy, science,literature etc the books are all in English. How could one do without English? It is totally stupid to say &amp;#8220;Agrezi Hatao&amp;#8221;, and only enemies of their children talk like that. In fact we mustspread English more in our country for the country&amp;#8217;s progress. So, on the occasion of HindiDiwas I make the same appeal.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;How can you not love a man who goes to a room full of people and tells them you are all fools and makes a good case about it.&lt;/p&gt;
+
+&lt;p&gt;He does have a point, all hindi supporters keep talking about hindi vs english, where as hindi&amp;#8217;s biggest role would be to unify india. Bollywood is the most popular hindi teaching school, majority of India already knows hindi, if local states accepted hindi, it would be very easy for them to learn hindi, and hindi has potential of becoming a common language that english can not, beyond the elite. Not as a compulsion but as an option.&lt;/p&gt;
+
+&lt;p&gt;I love how he takes unconventional positions, justies them using logic and reasoned arguments, and is a shining beacon of freedom in India.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>First Newsletter Out</title>
+   <link href="http://amitu.com/2012/12/first-newsletter-out"/>
+   <updated>2012-12-26T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/12/first-newsletter-out</id>
+   <content type="html">&lt;p&gt;After sitting on it for months I finally took some time to finish up &lt;a href='/weekly/1.html'&gt;my first newsletter&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I started this experiment primarily to share links on my blog/email instead of on facebook/twitter, as facebook and twitter are very good at losing them (this is not how you scale guys!) and to give myself more control.&lt;/p&gt;
+
+&lt;p&gt;I usually read articles on Instapaper, so most of my work was predone, I liked the links I considered for adding it over there, and added them in the html one time before sending the newsletter. It is still a bit more work than I like, editing HTML by hand. The structure I have is quite templatized, and I guess I will be writing a few scripts to make this easier.&lt;/p&gt;
+
+&lt;p&gt;The very first attempt all ended in SPAM folder due to some &lt;a href='/2012/10/yo-mailchimp-test-your-test-mail-bro/'&gt;stupidity mailchimp did&lt;/a&gt;. I &lt;em&gt;hate&lt;/em&gt; their click tracking, which I can not disable in the free version, hate my clean URL getting clobbered.&lt;/p&gt;
+
+&lt;p&gt;I am not sure if I will be sticking to weekly frequency or not, but it feels the most reasonable as of now. I guess some weeks may be longer than others if I am upto something else.&lt;/p&gt;
+
+&lt;p&gt;It is still not conversational as I initially thought, lets see.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Guns Vs Mobs</title>
+   <link href="http://amitu.com/2012/12/guns-vs-mobs"/>
+   <updated>2012-12-15T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/12/guns-vs-mobs</id>
+   <content type="html">&lt;p&gt;A tragedy happened today in America, &lt;a href='http://www.nytimes.com/2012/12/15/nyregion/shooting-reported-at-connecticut-elementary-school.html?hp&amp;amp;_r=0'&gt;a gunman killed a lot of kindergarten kids including others&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;This is sad indeed. A lot of blame is going on gun ownership allowing such tragedies and how US should have stronger gun control laws.&lt;/p&gt;
+
+&lt;p&gt;I find myself quite torn at this topic.&lt;/p&gt;
+
+&lt;p&gt;First let me clarify that &lt;em&gt;guns indeed kill people&lt;/em&gt;. A similar incident happened in China today, &lt;a href='http://edition.cnn.com/2012/12/14/world/asia/china-knife-attack/index.html'&gt;Knife attack at Chinese school wounds 22 children&lt;/a&gt;. Some day. Fortunately in this case the assailent had knife and not gun, so 22 were wounded and not killed.&lt;/p&gt;
+
+&lt;p&gt;What exactly is a gun? &lt;em&gt;Gun is an assurance against mob&lt;/em&gt;. A mob of 4 people can get me killed with impunity, even if they have nothing. They can kill me for 10 bucks if they decide to. If I am a female I can get raped.&lt;/p&gt;
+
+&lt;p&gt;Giving a gun to all 4 of them and me changes everything. It does nothing to to mobs ability to kill me or rape me, but it empowers me to kill the mob too. It lets me stand up. It makes mob fear me even if I am one.&lt;/p&gt;
+
+&lt;p&gt;Very recently a mob decided to take &lt;a href='http://en.wikipedia.org/wiki/Bal_Thackeray#Death'&gt;bombay hostage&lt;/a&gt;. For three days handful of bikers with flags went around the city of 20 million people, closing all the shops down. No citizen dared to step out, because 4 guys will come and beat him up. The citizens of this city stayed home. They surrendered to the mob. Mob knew they had no guns, they are helpless.&lt;/p&gt;
+
+&lt;p&gt;If even few had guns, the bikers would have required to travel with guns. And if bikers travelled with guns, police would not have allowed them to roam freely. Police allowed bikers to roam freely because they were unarmed, &amp;#8220;peaceful&amp;#8221;, &amp;#8220;harmless&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;If we had guns, police would be dealing with lot more brutal crime.&lt;/p&gt;
+
+&lt;p&gt;Mumbai police took 45 minutes to come out of the police station at Regal theatre when those gunmen were roaming on our streets.&lt;/p&gt;
+
+&lt;p&gt;Mumbai police has not faced armed gunmen since D company left town. Mumbai police was &amp;#8220;defeated by its own success&amp;#8221; as Bane would say. Mumbai police is impotent. &lt;a href='http://en.wikipedia.org/wiki/2008_Mumbai_attacks'&gt;164&lt;/a&gt; people died dues to mumbai police impotency, because our police does not know how to handle gunmen. 164 people died because citizens had no guns to do anything against the terrorists.&lt;/p&gt;
+
+&lt;p&gt;27 died in Connecticut today.&lt;/p&gt;
+
+&lt;p&gt;40 died today in Mumbai routine road accidents. I am glad about my car.&lt;/p&gt;
+
+&lt;p&gt;A friend of mine had a gunda running his building internet connection. When he tried to switch ISP, the gunda came with a few men, unarmed men, and forcefully removed his network cables. Would the gunda risk his life for the meagre Rs 500 per month had we been living in a country without gun control, had he had a risk that my friend could have owned a gun?&lt;/p&gt;
+
+&lt;p&gt;Gun control only prevents law abiding citizens from owning guns to defend themselves. Criminals are fine with knives, with their numbers, and they are called criminals because they defy laws, like gun control law.&lt;/p&gt;
+
+&lt;p&gt;Sure we do not get such sensationalistic news like 27 killed by a gunman in India, but we never do calculation about the number of death due to inadequate medical attention, due to lack of income for daily wage workers and so forth in those 3 days.&lt;/p&gt;
+
+&lt;p&gt;I guess if we do not see numbers in headline we assume the number is zero.&lt;/p&gt;
+
+&lt;p&gt;I guess too that if gun manufacturers are given free rein, like in US, they will want to sell not just handguns, but automatic assult rifles and so forth. Unless we are invading a neighbourhood army, assult rifle is not a requisite for self defence. They are sold because men love toys and they are very profitable for gun manufacturers.&lt;/p&gt;
+
+&lt;p&gt;I think everyone will agree that unless a government provides reasonable gaurantees about access to police protection in a timely fashion, if I report a crime, if police comes within a few minutes, unless that happens, government has no right to take away our ability to protect ourselves from criminals using whatever means we can muster, including guns.&lt;/p&gt;
+
+&lt;p&gt;Sure easier access to guns means more criminals will have them, and they will use them against us when committing crime, but the equation will completely change for us. Today criminals know we are utterly helpless and they know police will take forever to come, for criminals attacking us has no risk. They can escape police by moving states. They have no risk of getting hurt during crime. One can argue that if lets say 10% of population had guns, then criminals will have to take this factor into consideration. This will reduce the instances of crime.&lt;/p&gt;
+
+&lt;p&gt;So we can see that easier access to guns will both increase some kind of crime and decrease some other kind of crime. Whether or not guns should be allowed is not a decision we can take without doing comprehensive analysis of these two factors.&lt;/p&gt;
+
+&lt;p&gt;This becomes even more important for a third world country like India where police is no where adequate to provide even any semblance of protection. Police in India comes only after a crime has been comitted, the response time of Indian police, from filing a complaint on phone to police reaching the crime scene is measured in hours if not days. No politician has even promised that this delay will come to minutes ever. It will require massive beefing up of police forces, improvement in their infrastructure, much larger footprint of petrol cars on the ground, bigger budget and so on. We have no money for that.&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h4 id='research'&gt;Research&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href='http://m.theatlantic.com/international/archive/2012/07/a-land-without-guns-how-japan-has-virtually-eliminated-shooting-deaths/260189/'&gt;Gun Situation in Japan&lt;/a&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;a href='https://dl.dropbox.com/u/38668/deaths-vs-guns.png'&gt;Gun Death vs Gun Ownership for OECD countries&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Kejriwal Should Know This About Media</title>
+   <link href="http://amitu.com/2012/12/kejriwal-should-know-this-about-media"/>
+   <updated>2012-12-14T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/12/kejriwal-should-know-this-about-media</id>
+   <content type="html">&lt;p&gt;Media loves listening to Mr Kejriwal while he exposes politicians after politicians. But what media would love even more is if someone exposes Mr Kejriwal of something. See, media doesn&amp;#8217;t care about the country, media loves gossip it can sell. That&amp;#8217;s their only interest in all this. The success and failure of a campaign should not be judged by media attention, neither the purpose of a campaign should be to get media attention. Media is only a tool, a mean, not the goal.&lt;/p&gt;
+
+&lt;p&gt;Media should only be used to rally support of people, to get these people to do something. Media is like ads. It can get people to see your product. But the purpose of ads is not so that people see the product, but to get people to do something.&lt;/p&gt;
+
+&lt;p&gt;Getting people to do something is the goal. That requires a detailed plan of what is to be done, a clear call for action. Once all that is in place media can be used to bring in people.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Very Useful Hidden ViM Feature You Do Not Know About</title>
+   <link href="http://amitu.com/2012/12/very-useful-hidden-vim-feature-you-do-not-know-about"/>
+   <updated>2012-12-09T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/12/very-useful-hidden-vim-feature-you-do-not-know-about</id>
+   <content type="html">&lt;p&gt;You can use vim as a pager or syntax highlighting viewer for content from web.&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='bash'&gt;&lt;span class='nv'&gt;$ &lt;/span&gt;vim http://amitu.com/javascripts/quotes.js
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;ViM downloads the file using curl and opens it in readonly mode.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Reddit For Aaam Aadmi Party</title>
+   <link href="http://amitu.com/2012/12/reddit-for-aaam-aadmi-party"/>
+   <updated>2012-12-08T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/12/reddit-for-aaam-aadmi-party</id>
+   <content type="html">&lt;p&gt;tl;dr: Go join &lt;a href='http://www.reddit.com/r/aap'&gt;/r/aap&lt;/a&gt;, and spread the word now.&lt;/p&gt;
+
+&lt;p&gt;Political activism is getting a lot of press and attention in India these days, primarily because of rampant corruption.&lt;/p&gt;
+
+&lt;h4 id='arvind_kejriwal'&gt;Arvind Kejriwal&lt;/h4&gt;
+
+&lt;p&gt;One of the most important man behind all this is &lt;a href='/india/arvind-kejriwal.html'&gt;Arvind Kejriwal&lt;/a&gt;. He quit his job as a government beurocrat to and participated in a series of investigative research/campaign against various local governements.&lt;/p&gt;
+
+&lt;p&gt;About a year and half(?) back &lt;a href='http://en.wikipedia.org/wiki/Anna_Hazare'&gt;Anna Hazare&lt;/a&gt;, another political activist, credited for being main person responsible for &lt;a href='http://en.wikipedia.org/wiki/Right_to_Information_Act'&gt;Right to Information Act&lt;/a&gt; in India, exploded into limelight by going on a fast against corruption, and demanding a new legislation to root out corruption, lokpal bill.&lt;/p&gt;
+
+&lt;p&gt;Arvind was touted as the brain behind Anna&amp;#8217;s campaign and lokpal bill. Right after that Arvind started becoming a media darling by providing a series scandalous expose on various corruption scams by different politicians.&lt;/p&gt;
+
+&lt;p&gt;After decrying every political party, not most, &lt;em&gt;every&lt;/em&gt;, Arvind started his own political part, &lt;a href='http://en.wikipedia.org/wiki/Aam_Aadmi_Party'&gt;Aaam Aadmi Party&lt;/a&gt;, Common man party: &lt;a href='http://aamaadmiparty.org/'&gt;aamaadmiparty.org&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4 id='i_am_not_a_fan_of_anna_and_then_arvinds_movement_and_of_lokpal_bill'&gt;I am not a fan of Anna and then Arvind&amp;#8217;s movement and of lokpal bill&lt;/h4&gt;
+
+&lt;p&gt;Since the beginning I have been publicly protesting against the lokpal bill at every venue available. The premise of the bill is idiotic, &amp;#8220;everybody so far, whether selected via merit or popular vote, is corrupt, but officers sitting in lokpal office won&amp;#8217;t be&amp;#8221;. The proponents of the bill want to create a power more powerful than prime minister of India or Supreme Court of India, and expect these people not to get corrupt some how. You will find few things more idiotic than this. &amp;#8220;We will find some way to solve such issues&amp;#8221; is the strongest argument lokpal bill supporters come up with.&lt;/p&gt;
+
+&lt;p&gt;Arvind and Anna, they are very quick at declaring themselves winner. Half a dozen time ruling party fooled Anna by offering dicey promises, half a dozen times Anna declared himself a winner, and then half a dozen times he came back crying when he realized he was taken for a ride.&lt;/p&gt;
+
+&lt;p&gt;Arvind, he is too happy feeding media and not carrying through on anything. You would expect a person who got such a widespread support as Arvind, from nearly every quarted of country, who is campaigning for years against corruption, who prides himself for uncovering solid evidence showing corruption, that at least he would have gotten at least a few hundred people behind bars by now. None. This is a man who wants to beat Sachins world record in the first match he plays in gally. He wants the first person to go behind jail to the most powerful person in the country. He would not settle for less.&lt;/p&gt;
+
+&lt;p&gt;Whole country gave support to these guys, and these guys have cheated the country, in my opinion, by throwing all of it away by not even attempting to come up with a strategy. I will go on fast, or I will sit outside someones house till police forces me, this is the only strategy these guys have got.&lt;/p&gt;
+
+&lt;p&gt;If I had the support and was actively involved in activism, I would have gone after lowest level of govt involved in corruption. The upper level guys would not have tried much to save these guys, and if you have taken 10 rupees as bribe I would have put my entire energy into getting you behind the bar. I would not touch the ones taking lakhs and crores, not for first few years. I would have gotten thousands and thousands of people behind the bar, low level, but with clear message, if you are corrupt, start sleeping uneasy, for its only a matter of time, this will send a chilling message. I would not have self congratulated myself for finding evidence, I would have rejoiced only if a court accepts the evidence, otherwise it is not really evidence.&lt;/p&gt;
+
+&lt;p&gt;In any movement we have to build momentum if we have to continue to keep make progress, and my exposing politicians after politicians but with zero conviction, Arvind is building a momentum of failure. It becomes very difficult to change from string of failures to success, so it is important to seek our success, even if they are small in the beginning.&lt;/p&gt;
+
+&lt;p&gt;And finally, the biggest mistake in my opinion, is the Aam Aadmi Party, Arvind should not have started a party. The politicians love throwing this argument against anti corruption movement: if you want the bill, stand in election, come to power and pass it. This was a ploy to detract the movement, they know that if this is the path Arvind is foolish enough to chose, lokpal will automatically go in cold burner for years or probably decade. And Arvind fell for it and this is exactly what happened, today nobody talks about lokpal bill.&lt;/p&gt;
+
+&lt;p&gt;The premise that everybody who wants a change brought in India must start a political party and pass the bill themselves is deeply flawed for two reasons, one, it kills all the momentum as forming a party is tedious task, elections comes in 4 year cycle, second, much bigger problem is that for a party to become powerful enough to force a bill in parliament/state legislature house, that party has to be too powerful, and politics is comples, there are so many issues that devide the country, reservation, ayodhya, FDI, tilangana, and dozens more, it is simply not possible for me to know that a party, like aam aadmi party, who is asking me to vote for them so they bring about lokpal bill, will have any intelligent or sane position on all these issues. Its a losers choice. We have to start to force our politicians, the guys we put in office to repsent us, to start representing us, and do as we say as people. That is democracy, accepting that is not possible is giving out a message that democracy does not work in India. If it does not, then all of this is pointless.&lt;/p&gt;
+
+&lt;h4 id='so_why_do_i_support_arvind_kejriwal_and_aap'&gt;So Why Do I Support Arvind Kejriwal and AAP?&lt;/h4&gt;
+
+&lt;p&gt;To say I support them is premature and probably I will never support anybody, to me politics and democracy in India is failing not because politicians are corrupt, that is just refusal to take responsibility and attempt to find scape goat and play blame game. According to me this is why we have corrupt politicians, because we do not want to look into details, we do not want to be involved in day to day affairs of politics, we do not want to exercise our mind, we just want to find saviour, some massiha will come and solve our problems, and if he does not then we will proclaim him to Ravan and loath them.&lt;/p&gt;
+
+&lt;p&gt;This, only dealing in absolute love and hate, and the inability to have level headed, objective look into people, their motives, their actions, changing need and times, is the reason we are in this mess.&lt;/p&gt;
+
+&lt;p&gt;Two of my fav quotes about politics are:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Democracy is a device that ensures we shall be governed no better than we
+deserve.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Anyone who says they are not interested in politics is like a drowning man
+who insists he is not interested in water. -- Anupam Kher&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We all are part of politics. We are just not performing our duties. And saying I support a man, or I oppose a man, is the most convenient way to avoid our duties.&lt;/p&gt;
+
+&lt;p&gt;In my opinion ideal situation would be entire country, every person with franchise, votes on individual bills, direct democracy. Representative democracy is a legacy of past, and only there because we did not have means to collect votes from everyone on every issue till before advent of mobile and internet. Now that it is possible, it must happen.&lt;/p&gt;
+
+&lt;p&gt;But till the time we do not get to vote on individual bills, we have to vote for people, and the only way we can make sure the people we elect continue to honour our wills on individual issues is talking about issues and keeping people and party secondary.&lt;/p&gt;
+
+&lt;p&gt;There are issues that are important to me, Arvind and AAP may appear to share my views on those issues, and by keeping track of their track record on their speech vs action, I would be able to decide if I will vote for them or not. I am not giving anyone unconditional support.&lt;/p&gt;
+
+&lt;p&gt;So again why I support Arvind Kejriwal. One of the things that is most important to me, is ability to have healthy discussion, even if the views are not favorable to you. This is how you learn, this is how you hone your skill and arguments to sway more people, this is how you gather support from the intelligent people, this is how you not put off intelligent people actually.&lt;/p&gt;
+
+&lt;p&gt;And despite all my complaints, Arvind appears amenable to consenting views. He brings attention to allegation made against him. He gives support to voices who are critical to him, but would have lost without his support in all the noise.&lt;/p&gt;
+
+&lt;p&gt;To me this means the man is, as of now, capable to represent me, if he learns what I want. So my job is to tell him what I want.&lt;/p&gt;
+
+&lt;h4 id='so_how_do_we_tell_arvind_what_we_want'&gt;So How Do We Tell Arvind What We Want?&lt;/h4&gt;
+
+&lt;p&gt;Why this is a simple problem you would say, you meet him, you write to him, you go to his facebook page and post on his wall.&lt;/p&gt;
+
+&lt;p&gt;If only life was this simple. After working in Information Technology, a field that deals in part how to manage flow of information, I find it a very non trivial problem.&lt;/p&gt;
+
+&lt;p&gt;Signal vs Noise is a very important problem. My voice can get lost in all the well meaning voices shouting nothings to him. He gets load of letters every day. He has no time to read all of them. Even if he does, and if he can spot the kernel of corn from the surrounding shit, his attention may get stolen by the something more immideate. Same with facebook and emails and personal meeting. Also he may not get my point because of my poor writing, he may require clarification, but has no time for and so forth.&lt;/p&gt;
+
+&lt;p&gt;So how do we solve this problem? Well this in my opinion, for the use case concerned here, is a nearly solved problem, and solution is &lt;a href='http://reddit.com'&gt;reddit&lt;/a&gt; or a reddit like system.&lt;/p&gt;
+
+&lt;h4 id='what_is_reddit_and_how_can_it_help'&gt;What Is Reddit And How Can It Help?&lt;/h4&gt;
+
+&lt;p&gt;Reddit is a tool, and while there are many other tools for gathering suggestions, here is what is most important requirements in my opinion.&lt;/p&gt;
+
+&lt;p&gt;First thing first, the tool must be public. If I write a letter to Arvind, there is no reason for Arvind to read it. Its a criminal wastage of his time to read every letter. He simply can not do justice to them, even if he tries to sqeeze time in for going through them out of a sense of respect of the person who wrote it.&lt;/p&gt;
+
+&lt;p&gt;What he needs is to publicly publish all those letters, and let people review them. For this to work, he will need a large audiance, but luckily Arvind has show repeated proofs that he is capable of mobilising voulanteers to help him.&lt;/p&gt;
+
+&lt;p&gt;So a large number of people go through the letters, and vote them up and down. And they post replies, offer objections and suggestions, original guy improves his suggestion based on criticism offered, and if the suggestion still continues to get traction from people, then Arvind should review it.&lt;/p&gt;
+
+&lt;p&gt;I have no adolation for Arvind, a lot of his supporters do. It is very important that we realize that his views could be flawed (everybody&amp;#8217;s). What he considers good may be bad, and what he considers bad may be good at times. It is our responsibility to offer him not just menial labour help, but also to offer him intellectual help, by offering well reasoned arguments for and against things. Arguments that are based on logic, arguments that avoid &lt;a href='http://en.wikipedia.org/wiki/Fallacy'&gt;logical fallacies&lt;/a&gt;, arguments that are beyond the flood of &amp;#8220;me toos&amp;#8221;, &amp;#8220;I am with you&amp;#8221; the poor man is getting. If you don&amp;#8217;t like something don&amp;#8217;t dismiss it by making a comment about the person who made the point, argue against the point, talk about why what is said is wrong irresective of who made the point or what their intention was. Keep people and ideas separate, and focus on ideas. Once we offer him those curated ideas, he has seen pros and cons, he has an option of acting on them.&lt;/p&gt;
+
+&lt;p&gt;Please note that this is the reason Anna and that yoga baba kept splitting and coming together, and then today Anna and Kejriwal are facing love hate relationship, it is because they are all acting on their wishes, what they should be acting on is based on crown wisdom that all the supporters of the movement wish. Each individual is different, they will conflict with others, but if a crowd comes votes on everything, then the individual opinion becomes lot less important, it matter lot less who is at top, as long as he is doing a decent job of helping the community organize, facilitate a healthy discussion, act as a moderator when needed, does not give a message that this is what I want and therefore this is what I am doing, but that this is what all of us want, so this is what I am going to do. We have to elevate ourselves from level of people to level of ideas, and if used effectively, reddit can help us do that, this is what reddit is designed to do. It does that by letting people vote up comments and articles that makes sense.&lt;/p&gt;
+
+&lt;p&gt;One of my biggest problem with Arvind Kejriwal is that he is not asking me for help. He is trying to write his own draft of lokpal without inviting me. Not me personally, but people in general. There is so much we can do for him, but we do not have a place to discuss what ideas help, and what ideas hurt, what has merit and what is just noise. We can not go to commetties, India is big, we have jobs, and even if we assemble somewhere for a week, nothing substantial will happen, only few people will be represented. If there is one idea in the head of one person, who could not come for any reason, that was helpful for our cause, we would miss that idea, that contribution, and we would all suffer. Internet is changing everything, we can do those commettee discussions online. We must. We do not have to force people to travel using jingoistic lines like &amp;#8220;you can&amp;#8217;t even do this much for country when there are people who are doing so much!!!&amp;#8221;, that is losers position again. If you can get something, you must, if you dont, and put the blame on it on others then you are loser. We can get feedback from the whole country without forcing them to travel, so we must.&lt;/p&gt;
+
+&lt;p&gt;So a system, that has proven track record of helping people distinguish signal from noise is essential for Arvind, and activism in India in general. And reddit is that tool. Even Obama used reddit as the means to reach out to talk to general people of America.&lt;/p&gt;
+
+&lt;h4 id='so_how_can_we_use_reddit_to_the_fullest'&gt;So How Can We Use Reddit To The Fullest?&lt;/h4&gt;
+
+&lt;p&gt;If you agree that a forum of sorts, that supports robust voting mechanism, handles proper threading and so, is good for Arvind, and if you unite with me in trying to use the best tool for the job, which Reddit is, then there are a few points to note so we can optimally use it.&lt;/p&gt;
+
+&lt;p&gt;First and foremost, any such tool only works if it has people on it. So our first responsibility is to reach out to people far and wide, people only we can talk to, and introduce them to reddit. It is our job number one.&lt;/p&gt;
+
+&lt;p&gt;Second: Reddit is organized into subreddit, portals for individual interests. I have created one such subreddit, &lt;a href='www.reddit.com/r/aap/'&gt;/r/aap&lt;/a&gt;. You will want to join reddit and subscribe to it.&lt;/p&gt;
+
+&lt;p&gt;Now how does reddit work? On reddit we do three things: one, we read about what is popular. We do not want to read just what Arvind shared on his wall, or whats in the newspaper you subscribe to, we want to read any article, no matter where it is published, that is deemed worthy by the community. We can see articles ranked by recency and voting, we can see comments about that article, again ranked by our votes.&lt;/p&gt;
+
+&lt;p&gt;Two: We as community, people who have subscribed to &lt;a href='http://www.reddit.com/r/aap'&gt;/r/aap&lt;/a&gt;, have to vote. We want to keep the community healthy, not give in to needless cynicism, or over the top optimism, idolatig Arvind, or discuss in hyperboles. We are doing a service when we vote, we can not just vote opinions we favor, but we have to vote opinions that merit it. We have the duty of supporting differing opinions that are thoughfully written, logically argued, and are offering a new perspective, new solution, new idea. If someone says Arvind sucks, and presents a very good case about it, Arvind is the biggest beneficiary of that comment, if he is open minded, amenable to change, not stuck up or full of himself. It is therefore our duty to upvote such logical criticism so it comes in notice of Arvind and others. We can not hide our flaws by sweeping them under the rug, we can only get rid of them by addressing them fair and square.&lt;/p&gt;
+
+&lt;p&gt;Third: We have to submit articles and comments. If you see a opinion that have some merit, bring it to &lt;a href='http://www.reddit.com/r/aap'&gt;/r/aap&lt;/a&gt; and submit it there. Respond to comments, do not take comments to personally, do not make things personal, never attack a person, only attack people&amp;#8217;s positions.&lt;/p&gt;
+
+&lt;p&gt;While commenting and submitting it is very important to keep away from meaningless &amp;#8220;Indian comments&amp;#8221; like &amp;#8220;hi&amp;#8221;, &amp;#8220;me too&amp;#8221;, &amp;#8220;I am with you&amp;#8221;. Write proper english, care about grammar, spelling and &lt;a href='http://www.bartleby.com/141/'&gt;style&lt;/a&gt;. We Indians are at a disadvantage in this regard, english is not our native language, we do not think in it, and yet enligsh is almost the defacto official language. So a lot of our brothers and sisters make mistake, write shoddy comments. We have a further disadvantage that we do not put emphasis on literature and writing as much as other developed countries, for the simple reason that art comes after roti kapda aur makan. This does not mean we accept our flaws, we have to make a concious choice, put in effort to improve, and improve we must, for that is the whole point of all this.&lt;/p&gt;
+
+&lt;h4 id='what_can_you_do_now'&gt;What Can You Do Now?&lt;/h4&gt;
+
+&lt;p&gt;First of all, thank you for reading this long post. I am hoping I have provided adequete justifications for my views, in case I have missed out on something, please take it kindly, writing is something I am still learning, if you find anything I said crass or offensive, please reserve judgement till you have interacted more with me. I do respect what you do most probably, I just do not believe what we respect should be immune to scrutiny, criticism and even mockery.&lt;/p&gt;
+
+&lt;p&gt;Assuming what I said appeals to you, please help me make this a success. There is two ways we can make it a success, one: by getting people to subscribe to &lt;a href='http://www.reddit.com/r/aap'&gt;/r/aap&lt;/a&gt;, and activily participating in it, two: by getting Arvind to participate in &lt;a href='http://www.reddit.com/r/aap'&gt;/r/aap&lt;/a&gt;. You have to help me reach Arvind, so if you can post this article to places he frquent, somehow bring it to his notice it would be greatly appreciated. Bottom line is if Arvind is not onboard with this, the chances of this becoming a success are rather low.&lt;/p&gt;
+
+&lt;p&gt;In case it really works and Arvind is reading it: thanks man for not taking offense at the criticism and reading till here. I am more than willing to do anything address your queries. Also, please accept the admin rights to &lt;a href='http://www.reddit.com/r/aap'&gt;/r/aap&lt;/a&gt; from me, or assign it to someone you trust, as long as you resolve to fight all form of censorship.&lt;/p&gt;
+
+&lt;p&gt;Let me repeat:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Spread the word about &lt;a href='http://www.reddit.com/r/aap'&gt;www.reddit.com/r/aap&lt;/a&gt;, use this blog post in case some justification is required, or go on copy anything I have written, rewrite it, post it anywhere, the content of this blog is available under liberal &lt;a href='http://creativecommons.org/licenses/by-sa/3.0/deed.en_US'&gt;creative commons license&lt;/a&gt;.&lt;/li&gt;
+
+&lt;li&gt;Subscribe to &lt;a href='http://www.reddit.com/r/aap'&gt;/r/aap&lt;/a&gt;, vote and comment there.&lt;/li&gt;
+
+&lt;li&gt;Somehow get Arvind Kejriwal to read this post :-)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;PS: If you have something to say about this post, please submit your comment over at reddit. I have already submitted this, you can find the post here: &lt;a href='http://www.reddit.com/r/aap/comments/14hpof/reddit_for_aaam_aadmi_party_why_i_created_this/'&gt;Reddit For Aaam Aadmi Party: Why I created this subreddit&lt;/a&gt;. Please rip my arguments apart, but keep it healthy.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>GitHub Pull-Request Basics For New Forker</title>
+   <link href="http://amitu.com/2012/12/github-pull-request-basics-for-new-forker"/>
+   <updated>2012-12-07T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/12/github-pull-request-basics-for-new-forker</id>
+   <content type="html">&lt;p&gt;So you found a open source project on github you like and you have many ideas on how to make it better. You know what to do, you fork it.&lt;/p&gt;
+
+&lt;h3 id='why_is_forking_better'&gt;Why Is Forking Better&lt;/h3&gt;
+
+&lt;p&gt;Actually you have a &lt;em&gt;few different options&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;You can keep creating issues and attaching patches to it&lt;/em&gt;. The advantage of this is you have to do minimal of administrative stuff, just clone the repository, may be create a branch, and hack away, everytime you are done with a feature or a bugfix, create a complete diff from master branch which is tracking upstream.&lt;/p&gt;
+
+&lt;p&gt;While this works, it has a one small problem, it is not easy for me to try your changes. First there is no gaurantee that your patch will cleanly apply as upstream may have moved since last you submitted the patch. Even if it has not, as a observer I have to do more work on my part to see you code working, I have to clone the repository, create a branch, apply your patch. If I am looking at patches submitted by many developers, then I will have to either commit your changes in my newly created branch, or do the patching part again the next time I want to come to you. And if a new patch comes along I have to revert the commit and apply patch again.&lt;/p&gt;
+
+&lt;p&gt;There is no reason it can not work, linux development happens like this, many other open source project work like this.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Another option is you trying to get commit access to the original project&lt;/em&gt;, you can directly commit now. But it lacks a review process, people do not get to voice their opinion. Any good open source project will aspire to have a better review policy. This also applies to the case when you yourself own the original project, you think you can push changes willy-nilly, but going through the same process is much better. An open source project, when it gets reasonably popular should get its primary repository shifted to a project specific user from original developer, ie amitu/foo should shift to foo/foo.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Pull requests, along with github hosting is the best option&lt;/em&gt;, if you dont mind github. All contributors can fork the original project, create a feature specific branch, work on it, and when feature is ready, submit a pull request. The pull request is visible as an issue, people can comment on it.&lt;/p&gt;
+
+&lt;p&gt;Based on comments and feedbacks further changes can be made in that branch in your repo, and those changes will automatically be visible in the pull request, and be part of merge when original developer choses to merge your pull request.&lt;/p&gt;
+
+&lt;h4 id='how_to_do_pull_requests_right'&gt;How To Do Pull Requests Right?&lt;/h4&gt;
+
+&lt;p&gt;Lets say somedeveloper/someproject rocks. I, amitu, want to contribute a few features/bugfixes to it. So first thing I do is I clone somedeveloper/someproject as amitu/someproject.&lt;/p&gt;
+
+&lt;p&gt;Now the original somedeveloper may have many branches in someproject, and all those will come to me, but I should ignore all as his private stuff. My concern is master branch.&lt;/p&gt;
+
+&lt;p&gt;It is highly recommended to use &lt;a href='http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/'&gt;git flow&lt;/a&gt;, it helps create branches based on feature. If you use git-flow, use it only to create feature branches, and not to merge things back to master.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Never make any changes to master branch&lt;/em&gt;. All your changes must be in feature specific branches. &lt;em&gt;Also never have changes that you intend to go as separate pull request/issues, go in the same feature branch&lt;/em&gt;. This is very important.&lt;/p&gt;
+
+&lt;p&gt;Now lets say you want to fix issue # 12, in somedeveloper/someproject/issues/12. It would be a good idea to turn off issues in your fork, and confine all issues in original repository somedeveloper/someproject. Create branch feature/12, when you are satisfied that the issue is fixed, send a pull request. Github currently lacks easy way to associate pull request to existing issue, may be it is a good thing, it gives different developers to propose different solutions to same issue. Once you file a pull request, a new issue would be created, put a comment about it in issue # 12.&lt;/p&gt;
+
+&lt;p&gt;You can be working on any number of issues and feature requests in different branches, create pull request for each of them, rest of the developers/watchers can track your changes, offer feedback. If they want to try you changes they can simply clone your fork and switch to right branch, and keep pulling your changes as it happens, and testing your work. If someone wants to build on your unaccepted changes, they can fork your fork, or pull your branch by adding you as a repository, get access to your feature/12 branch, add more commits, and create their own pull requests.&lt;/p&gt;
+
+&lt;p&gt;PS: You will have to do &amp;#8220;git push &amp;#8211;all&amp;#8221; to push your newly created branches, as by default they don&amp;#8217;t go.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Google vs Bing</title>
+   <link href="http://amitu.com/2012/11/google-vs-bing"/>
+   <updated>2012-11-18T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/11/google-vs-bing</id>
+   <content type="html">&lt;p&gt;The real reason google is better than bing is not because of:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/google.png' alt='Google' /&gt;&lt;/p&gt;
+
+&lt;p&gt;vs&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/bing.png' alt='Bing' /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;#8230; but because I knew this will happen even before I tried this.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>GitHub Usability Sucks</title>
+   <link href="http://amitu.com/2012/11/github-usability-sucks"/>
+   <updated>2012-11-05T00:00:00-08:00</updated>
+   <id>http://amitu.com/2012/11/github-usability-sucks</id>
+   <content type="html">&lt;p&gt;At &lt;a href='http://crispygam.es'&gt;crispygam.es&lt;/a&gt; we love &lt;a href='http://github.com'&gt;GitHub&lt;/a&gt;. Or at least we use it a lot. Our code is in github, and so are our milestones and issues.&lt;/p&gt;
+
+&lt;h4 id='no_way_to_see_all_issues_on_one_page'&gt;No Way To See All Issues On One Page&lt;/h4&gt;
+
+&lt;p&gt;We have 5-6 different repositories in github, each repository specific to individual project. In the beginning of the day I have to see what are the urgent issues waiting my attention. &lt;strong&gt;GitHub makes it very difficult to view issues if you have multiple repositories&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;GitHub provides no way to see all issues in one go, so I have to visit each project individually. And to make matters worse it &lt;strong&gt;takes me three clicks (Home -&amp;gt; Project Name -&amp;gt; Issues) and subsequent page load to see issues for a project&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;GitHub has a command bar, and if I remember the name of each project I can enter like 20 well crafted key strokes to visit issues page for each project. If they removed this crap and instead put a simple nested navigation tree, it would take me 3 click without reloads to go to issues page of another project, but without page reload. A navigation element invented in 1998 would be a huge improvement compared to current state of affairs in GitHub.&lt;/p&gt;
+
+&lt;p&gt;Update: While writing this post I came across &lt;a href='https://github.com/dashboard/issues/assigned?sort=created&amp;amp;state=open'&gt;issues&lt;/a&gt; page that is exactly what I wanted.&lt;/p&gt;
+
+&lt;p&gt;I still find the situation quite bad from usability point of view. The link is only visible from home page. Once someone clicked on any issue, clicking on the most prominent &amp;#8220;issues&amp;#8221; link takes you to project specific issues page and not to issues across projects.&lt;/p&gt;
+
+&lt;p&gt;The issues link should be in top bar as the current cycle is: Home -&amp;gt; All Issues -&amp;gt; Individual Issue -&amp;gt; Issues (wrong link) -&amp;gt; Home -&amp;gt; All Issues. Where as the cycle should be Home -&amp;gt; All Issues -&amp;gt; Individual Issue -&amp;gt; All Issues. I know one can use back button, but relying on user remembering to use the back button, instead of clicking a conflicting wrong link is very bad usablity.&lt;/p&gt;
+
+&lt;h4 id='github_stars_are_worse'&gt;GitHub Stars Are Worse&lt;/h4&gt;
+
+&lt;p&gt;Here is another example of GitHub usability nightmare, you starred a repository yesterday, and you want to visit it now, how many clicks do you think it will take? One from GitHub homepage? After all there is a Tab named &amp;#8220;Stars&amp;#8221; on the home page! WRONG. That page shows items starred in God only knows what order. There are six items to better refine this view, but none of them order them in reverse chronological order as you would expect.&lt;/p&gt;
+
+&lt;p&gt;What you have to do is click on your name in the top navigation, there again you see a link marked stars on left side bar, don&amp;#8217;t click on it, it does something completely different compared to Stars on home page. Click on &amp;#8220;Public Activity&amp;#8221; tab. There you will see all your activities, and hopefully the repository that you starred yesterday.&lt;/p&gt;
+
+&lt;h4 id='what_do_you_do_if_you_went_to_a_gist_page'&gt;What do you do if you went to a gist page?&lt;/h4&gt;
+
+&lt;p&gt;And you want to come back to github main page? GitHub for some reason thinks that a person clicking on the big bold logo on left top bar which is the usual place to click when lost on site, is trying to create a new gist!&lt;/p&gt;
+
+&lt;p&gt;In order to go to homepage you have to instead click on the link marked &amp;#8220;Dashboard&amp;#8221;. No where else in github.com site is the word Dashboard used!&lt;/p&gt;
+
+&lt;p&gt;Compare this to the help page link, that takes you to &lt;a href='http://help.github.com'&gt;help.github.com&lt;/a&gt;, where they label the link taking you back to github.com as &amp;#8220;Back to GitHub&amp;#8221;. Which is excellent label compared to Dashboard!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://gist.github.com'&gt;gist.github.com&lt;/a&gt; as a separate site, with its own header/navigation etc is not a good decision. I, as a user, see gist related updates next to github related ones on github. If you show me a list of items, clicking on them should not take me to completely different sites. gist.github.com appears to have been separated from github.com but not completely. Github should make up their mind whether they think they are two different sites or not.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>My First Day On Standing Desk</title>
+   <link href="http://amitu.com/2012/11/my-first-day-on-standing-desk"/>
+   <updated>2012-11-02T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/11/my-first-day-on-standing-desk</id>
+   <content type="html">&lt;p&gt;Sometime back I learnt that &lt;a href='/2012/10/sitting-considered-bad/'&gt;sitting may be bad for my health&lt;/a&gt; I have been looking for a standing desk solution. I am not yet sure if standing desk would work out for me, or if it does, what sort of desk I would need, so I am not too keen on investing any money yet.&lt;/p&gt;
+
+&lt;p&gt;Today I came upon the idea of using my fridge as my desk. It is the right height:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/standing-desk-1.jpg' alt='My Fridge' /&gt;&lt;/p&gt;
+
+&lt;p&gt;There is plenty of room for my laptop and my arms to rest.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/standing-desk-2.jpg' alt='Plenty of room' /&gt;&lt;/p&gt;
+
+&lt;p&gt;Unlike some advice I heard in ergonomics, I prefer to rest my entire arm from elbow to wrist on the table, so I needed some room for my arms.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/standing-desk-3.jpg' alt='Plenty of room' /&gt;&lt;/p&gt;
+
+&lt;p&gt;As luck would have it my kitchen has fan, and the weather is such that AC is not really required.&lt;/p&gt;
+
+&lt;p&gt;I worked about 4 hours today on it. My feet hurt. There is slight physical tiredness, but my neck and back feels great. I moved around a lot, walking away as soon as I start thinking, and coming back to laptop when I decide I have to read/write something.&lt;/p&gt;
+
+&lt;p&gt;I am happy with it so far and am going to spend more days on this setup.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Markdown in Java</title>
+   <link href="http://amitu.com/2012/11/markdown-in-java"/>
+   <updated>2012-11-02T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/11/markdown-in-java</id>
+   <content type="html">&lt;p&gt;Here is a note to future self about using markdown in java.&lt;/p&gt;
+
+&lt;p&gt;There are two pure java libraries I found: &lt;a href='https://github.com/sirthias/pegdown'&gt;pagedown&lt;/a&gt; and &lt;a href='http://markdownj.org/quickstart.html'&gt;markdownj&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Pagedown usage:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;&lt;span class='n'&gt;PegDownProcessor&lt;/span&gt; &lt;span class='n'&gt;mp&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='n'&gt;PegDownProcessor&lt;/span&gt;&lt;span class='o'&gt;();&lt;/span&gt;
+&lt;span class='n'&gt;String&lt;/span&gt; &lt;span class='n'&gt;html&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;mp&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;markdownToHtml&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;markup&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Pagedown has a dependency on &lt;a href='https://github.com/sirthias/parboiled/wiki'&gt;parboiled&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;markdownj usage:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='java'&gt;&lt;span class='n'&gt;MarkdownProcessor&lt;/span&gt; &lt;span class='n'&gt;mp&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='k'&gt;new&lt;/span&gt; &lt;span class='n'&gt;MarkdownProcessor&lt;/span&gt;&lt;span class='o'&gt;();&lt;/span&gt;
+&lt;span class='n'&gt;String&lt;/span&gt; &lt;span class='n'&gt;html&lt;/span&gt; &lt;span class='o'&gt;=&lt;/span&gt; &lt;span class='n'&gt;mp&lt;/span&gt;&lt;span class='o'&gt;.&lt;/span&gt;&lt;span class='na'&gt;markdown&lt;/span&gt;&lt;span class='o'&gt;(&lt;/span&gt;&lt;span class='n'&gt;markup&lt;/span&gt;&lt;span class='o'&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;markdownj is pure java library with no dependencies.&lt;/p&gt;
+
+&lt;p&gt;And there is always &lt;a href='http://strapdownjs.com/'&gt;strapdownjs&lt;/a&gt;, a pure javascript/client side implementation.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Would Society And Our Ego Allow Coaching?</title>
+   <link href="http://amitu.com/2012/10/would-society-and-our-ego-allow-coaching"/>
+   <updated>2012-10-21T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/10/would-society-and-our-ego-allow-coaching</id>
+   <content type="html">&lt;p&gt;I came across another interesting article via &lt;a href='https://twitter.com/rahulg'&gt;@rahulg&lt;/a&gt;, a New Yorker post: &lt;a href='http://www.newyorker.com/reporting/2011/10/03/111003fa_fact_gawande?currentPage=all'&gt;Coaching a Surgeon: What Makes Top Performers Better?&lt;/a&gt;. Must read article.&lt;/p&gt;
+
+&lt;p&gt;Raises some very interesting questions:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This is why it will never be easy to submit to coaching, especially for those who are well along in their career. I&amp;#8217;m ostensibly an expert. I&amp;#8217;d finished long ago with the days of being tested and observed. I am supposed to be past needing such things. Why should I expose myself to scrutiny and fault-finding?&lt;/p&gt;
+
+&lt;p&gt;&amp;#8230;&lt;/p&gt;
+
+&lt;p&gt;For society, too, there are uncomfortable difficulties: we may not be ready to accept &amp;#8211; or pay for &amp;#8211; a cadre of people who identify the flaws in the professionals upon whom we rely, and yet hold in confidence what they see. Coaching done well may be the most effective intervention designed for human performance. Yet the allegiance of coaches is to the people they work with; their success depends on it. And the existence of a coach requires an acknowledgment that even expert practitioners have significant room for improvement. Are we ready to confront this fact when we&amp;#8217;re in their care?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I think it will happen, purely because coaching is a real earning opportunity.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Sitting Considered Bad</title>
+   <link href="http://amitu.com/2012/10/sitting-considered-bad"/>
+   <updated>2012-10-21T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/10/sitting-considered-bad</id>
+   <content type="html">&lt;p&gt;I am surprised to learn something this week, sitting is bad.&lt;/p&gt;
+
+&lt;p&gt;I came across &lt;a href='http://well.blogs.nytimes.com/2012/10/17/get-up-get-out-dont-sit/'&gt;Get Up. Get Out. Don&amp;#8217;t Sit.&lt;/a&gt; via &lt;a href='https://twitter.com/rahulg'&gt;@rahulg&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;The gist of the article is that we are not designed for sitting in chairs all day long. Certain metabolic activity is triggered by muscle activity, that does not happen while we sit. Exercise is also not suffecient, to offset this loss. The muscle in back weakens, and it leads to back ache issues, one thing that I personally face once in a while.&lt;/p&gt;
+
+&lt;p&gt;The recommendation is &lt;a href='http://www.apartmenttherapy.com/making-your-own-standing-desk-145685'&gt;standup desks&lt;/a&gt;, that is becoming a &lt;a href='http://lifehacker.com/5881393/one-year-at-my-standing-desk'&gt;trend&lt;/a&gt; these days.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href='http://healthland.time.com/2011/04/13/the-dangers-of-sitting-at-work%E2%80%94and-standing/'&gt;Standing too much has also its flaws&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I have always found standing better for my energy level, when I have to discuss something on phone, or do a voice recording, or even think about any problem, I tend to stand up and walk.&lt;/p&gt;
+
+&lt;p&gt;I am thinking of setting myself a standup work station. Lets see how it goes.&lt;/p&gt;
+
+&lt;p&gt;Update: I just had my &lt;a href='/2012/11/my-first-day-on-standing-desk/'&gt;first day of work on my fridge as standing desk&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>How To Be Righter Than Others?</title>
+   <link href="http://amitu.com/2012/10/how-to-be-righter-than-others"/>
+   <updated>2012-10-20T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/10/how-to-be-righter-than-others</id>
+   <content type="html">&lt;p&gt;One of the things I do a lot is argue with people. I do that because I &lt;em&gt;feel&lt;/em&gt; I am &lt;em&gt;usually&lt;/em&gt; righter than others. I think &lt;em&gt;if&lt;/em&gt; that has to be correct it would be because I am very quick at identifying a weakness in my position and changing it if warranted by an intelligent argument. For me purpose of argument is to test my understanding of a topic, and not really to prove the other wrong. I consider it a failure to not get an insightful/intelligent argument made by my opponent in an argument, and it pains to see my opponents constantly trying to overlook all the pointed attacks I make against theirs.&lt;/p&gt;
+
+&lt;p&gt;This &lt;a href='http://37signals.com/svn/posts/3289-some-advice-from-jeff-bezos'&gt;this post&lt;/a&gt; goes very well with what I believe in, &lt;a href='http://en.wikipedia.org/wiki/Jeff_Bezos'&gt;Jeff Bezos&lt;/a&gt; said the following in a talk with &lt;a href='http://37signals.com/'&gt;37signals&lt;/a&gt; staff.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;He said people who were right a lot of the time were people who often
+changed their minds. He doesn&amp;#39;t think consistency of thought is a
+particularly positive trait. It&amp;#39;s perfectly healthy -- encouraged,
+even -- to have an idea tomorrow that contradicted your idea today.
+
+He&amp;#39;s observed that the smartest people are constantly revising their
+understanding, reconsidering a problem they thought they&amp;#39;d already
+solved. They&amp;#39;re open to new points of view, new information, new ideas,
+contradictions, and challenges to their own way of thinking.
+
+This doesn&amp;#39;t mean you shouldn&amp;#39;t have a well formed point of view,
+but it means you should consider your point of view as temporary.
+
+What trait signified someone who was wrong a lot of the time? Someone
+obsessed with details that only support one point of view. If someone
+can&amp;#39;t climb out of the details, and see the bigger picture from
+multiple angles, they&amp;#39;re often wrong most of the time.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I think it is political debates that made changing positions such a taboo by equating a person who changes his opinion based on new eveidence and observations with a fickle minded, untrustable person. &amp;#8220;If he changed his mind before my friends, how can we trust him to not change his mind in future and do opposite of what he has said. We can not trust such a person.&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;Good rhetoric technique. I think the proper way to counter it is being very proactive about documenting changing positions if it was made publicly. There should be an &amp;#8220;listening and thinking&amp;#8221; stage when one must weigh in all arguments about any position, and only after thinking it through they should settle on any position. I think it is also important to explain why one arrived at any position, with the pros and cons, how each con was rejected.&lt;/p&gt;
+
+&lt;p&gt;If people do not do that, explain properly their positions, preferably in written documents, and without explaining positions, do advocacy based on those positions, and then eventually change their positions, and possibly advocate different things based on those changed position, then they set up for the redicule, and deserve the &amp;#8220;untrustworthy&amp;#8221; title.&lt;/p&gt;
+
+&lt;p&gt;Two sincere intelligent people only ever differ because their assumptions are different. We are not always aware of our assumption. May be law is supreme, or may be freedom is. Or is it morality? Is justice more important or forgiveness? Means matter or only the end results? Are principles everything, or should we be pragmatic? And many more.&lt;/p&gt;
+
+&lt;p&gt;So the only way to be correct more often than not is to constantly evaluate all your positions, figure out what assumptions you are living by, figure out inconsistencies of those assumptions with each other, if any, and inconsistencies of those assumptions with popular opinion, and from the opponents in arguments. And be quick in adjusting.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>What do I want Parse to do?</title>
+   <link href="http://amitu.com/2012/10/what-do-i-want-parse-to-do"/>
+   <updated>2012-10-19T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/10/what-do-i-want-parse-to-do</id>
+   <content type="html">&lt;p&gt;What is &lt;a href='http://parse.com'&gt;parse&lt;/a&gt;, why is it significant? It allows HTML/JavaScript developers to write fully functional web apps without any backend at all. And because &lt;a href='http://phonegap.com/'&gt;phonegap&lt;/a&gt; webapp therefore mobile apps.&lt;/p&gt;
+
+&lt;p&gt;Some apps. Not all.&lt;/p&gt;
+
+&lt;p&gt;Why not more apps? This is the question. What do we need that is required but parse does not or can not provide?&lt;/p&gt;
+
+&lt;p&gt;First of all we need hosting. &lt;a href='http://github.com'&gt;GitHub&lt;/a&gt; is awesome. But by giving hosting parse can become a one stop solution. Here I am talking about &lt;a href='https://help.github.com/articles/what-are-github-pages'&gt;GitHub pages&lt;/a&gt; style static hosting.&lt;/p&gt;
+
+&lt;p&gt;Then comes google. Google wants data in the page, and parse asks you to fetch the data after page load. To make google happy we need a degree of dynamism.&lt;/p&gt;
+
+&lt;p&gt;Here is what I propose: parse dynamic pages. Parse developers attach URL regex with JavaScript callbacks. Parse engine matches the URL and calls the callback. The callback calls parae api to fetch data and uses django style rendering engine to render the page. Parse dynamic engine only responds to GET requests.&lt;/p&gt;
+
+&lt;p&gt;That will make me happy. And an unlimited credit for their service for my personal apps.&lt;/p&gt;
+
+&lt;p&gt;PS: Can parse do server side javascript evaluation of scripts supplied by untrusted developers? &lt;a href='https://www.parse.com/docs/cloud_code_guide'&gt;They already do&lt;/a&gt;.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Meaning Of Upadhyay</title>
+   <link href="http://amitu.com/2012/10/meaning-of-upadhyay"/>
+   <updated>2012-10-17T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/10/meaning-of-upadhyay</id>
+   <content type="html">&lt;p&gt;Today I learnt the meaning of &lt;a href='http://en.wikipedia.org/wiki/Upajjhaya'&gt;Upadhyay on Wikipedia&lt;/a&gt;. I always knew it was some kind of teacher, and it is indeed:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;An upadhyaya is specifically a professional teacher in the technical
+subjects of Vedanga, i.e. Sanskrit grammar and other basic skills required
+for the perusal of the Vedas. In this he is distinguished from an acharya,
+a spiritual teacher or guide who introduces the student to the religious
+mysteries of the Vedas.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Given my passion for teaching, I feel it is quite fitting :-)&lt;/p&gt;
+
+&lt;p&gt;PS: I might be starting a campaign in future of discarding ones surnames and picking new ones as a means to end caste system in India, so please do not read too much into this post.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>AmitU's Brush</title>
+   <link href="http://amitu.com/2012/10/amitus-brush"/>
+   <updated>2012-10-17T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/10/amitus-brush</id>
+   <content type="html">&lt;p&gt;AmitU&amp;#8217;s Brush states:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;If for a movie, if we can find an alternate interpretation of what happened
+in it, that may even contradict with writer and director, but 1. does not
+contradict what happened in movie, 2. gives a meaning to the movie far
+beyond what movie initially had, then that interpretation should be
+considered valid interpretation of the movie.&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Applies to books, or even people too. Here is one example for people.&lt;/p&gt;
+
+&lt;p&gt;Here is &lt;a href='http://www.quora.com/Are-there-any-major-flaws-with-the-sci-fi-movie-Looper/answer/Amit-Upadhyay'&gt;one example&lt;/a&gt;, in the movie Looper, the end of the movie leaves open the interpretation that many parallel reality exists and the climax is that of only one of them. Would it be satisfying to know that bad things happen to all characters in most of those parallel realities but the one shown? Of course not.&lt;/p&gt;
+
+&lt;p&gt;But a strong case can be made that movie allowed for only one timeline. Alternate realities are possible in future, but only one timeline exists, even tho it may loop back in time. The movie showed things disappearing and appearing, memories getting lost or formed based on what is the current timeline. And when old bruce was killed, when young bruce took the kid, not only old bruce&amp;#8217;s body disappered, but all memory of him being there, all physical evidence, everything about existance of looper organization, everything disappeared and the only remaining timeline is the one in which everyone lives happily lives everafter.&lt;/p&gt;
+
+&lt;p&gt;There is nothing in the movie that contradicts with this. [Other then one plot hole, but arguably not introduced by this interpretation]. This interpretation adds to the movie without taking anything away. And therefore should be considered a valid interpretation, even if writers/director did aim for this.&lt;/p&gt;
+
+&lt;p&gt;Here is another example, applied on a person:&lt;/p&gt;
+
+&lt;p&gt;Hitler is universal bad guy. But lets apply amitu&amp;#8217;s brush on him, lets look at the world with and without him. He created a world in which there was no more wars. He may not have wanted to create that world, but he was instrumental to it. Today the peace we enjoy is direct consequence of his actions. Wars were common occurances, countries used to keep fighting with each other, he ended that era of our history. He killed a lot of innocent people, but all wars do.&lt;/p&gt;
+
+&lt;p&gt;I am not saying he was not a monster, but so were everyone who were involved with wars, and by showing the real ugly face of wars and power, Hitler did a favor too. It is easy to create alternate reality stories in which Hitler cried when he killed those he did (who is there to say he did not when no one was looking, who is there to say he did not put a mask of monster), so he can save those who were saved when era of war ended. The only worthy question to ask is if the world is a better place with him or without him, would wars have stopped on their own without the ugly worldwars that crippeled every war lusting countries ability to wage wars?&lt;/p&gt;
+
+&lt;p&gt;Point is there is no point in spending all time in reality, certain kind of picture can be painted by taking amitu&amp;#8217;s brush in hand, that diverges from reality, without taking too much away, but by giving a more awesome story.&lt;/p&gt;
+
+&lt;p&gt;Here is &lt;a href='http://www.reddit.com/r/FanTheories/comments/uv4xp/what_happened_in_prometheus/'&gt;another example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;At the end of the day only stories matter. The awesomer they are the better.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Yo MailChimp, test your test mail bro!</title>
+   <link href="http://amitu.com/2012/10/yo-mailchimp-test-your-test-mail-bro"/>
+   <updated>2012-10-12T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/10/yo-mailchimp-test-your-test-mail-bro</id>
+   <content type="html">&lt;p&gt;MailChimp sent me this preview mail when I tried to use them for sending a mail to mailing list:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/mailchimp-preview.png' alt='Preview Mail' /&gt;&lt;/p&gt;
+
+&lt;p&gt;And this is the mail they sent when I actually sent it:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src='/images/mailchimp-sent.png' alt='Preview Mail' /&gt;&lt;/p&gt;
+
+&lt;p&gt;FAIL!&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Yo AmitU, Aren't you facebook dead?</title>
+   <link href="http://amitu.com/2012/10/yo-amitu-arent-you-facebook-dead"/>
+   <updated>2012-10-12T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/10/yo-amitu-arent-you-facebook-dead</id>
+   <content type="html">&lt;p&gt;I have been running an &lt;a href='/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/'&gt;experiment&lt;/a&gt; since sometime where I am trying to move away from facebook. Its been three weeks since it started, so lets review how it has been so far.&lt;/p&gt;
+
+&lt;p&gt;But before we do that, please subscribe to my &lt;a href='http://eepurl.com/pRhOD'&gt;mailing list&lt;/a&gt; if you havent already :-)&lt;/p&gt;
+
+&lt;h4 id='did_anything_good_come_out_of_it_so_far'&gt;Did anything good come out of it so far?&lt;/h4&gt;
+
+&lt;p&gt;I have some 25 friends who signed up on my mailing list! :-) Trying to not SPAM them, and trying to write the perfect first post that will justify my appreciation I have been stuck in a perfectionism-paralysis and not yet send anything to them. May be I will send them a link to this post.&lt;/p&gt;
+
+&lt;p&gt;The first major positive that came out of this move is I have started maintaining a &lt;a href='https://medium.com/p/8d6e7df7ae58'&gt;spark file&lt;/a&gt;. If I think of something, I have an urge to do something about it, so far I used to go post it on facebook wall, and it used to be lost, but in last three weeks I have written some 11000 words in my spark file. I even thought of building a spark file web service backed by some iPhone app, as currently I am maintaining it in Notes app in my iPhone, and I always worry what if I lose it, there is no undo in Notes, and it is very easy to delete everything in the note, so every so often I manually mail the whole content to my gmail. This is not perfect at all. I have also noticed that most of my spark note file is publicish.&lt;/p&gt;
+
+&lt;p&gt;I have also started a &amp;#8220;spark file&amp;#8221;-ish page on &lt;a href='/angularjs/'&gt;angularjs&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id='yo_amitu_arent_you_facebook_dead'&gt;&amp;#8220;Yo AmitU, Aren&amp;#8217;t you facebook dead?&amp;#8221;&lt;/h4&gt;
+
+&lt;p&gt;This is the most common question I encounter when I post comments on facebook these days, so let me clarify. Here is what I wrote what I am going to do in my &lt;a href='/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/'&gt;leaving facebook post&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;I am going to stop writing status updates on facebook. Or may be I will limit it to purely personal, very close friends and family targeted updates.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I do not intend to leave facebook altogether, my friends are still there. I intend to start talking through my blog post and mailing list, but keep listening on facebook.&lt;/p&gt;
+
+&lt;p&gt;Apologies for the (click-bait?) misleading headline :-)&lt;/p&gt;
+
+&lt;p&gt;My personal stuff will still go to facebook, facebook will remain my photo sharing app, where I want to tightly control who sees what. I will continue to drop trivial comments here and there, if I do not see them as blogable material, or when I am trying thrash out some idea with friends, where facebooks comment notification allows a better communication, and chat is not appropriate as it is too private and too forceful.&lt;/p&gt;
+
+&lt;h4 id='arent_your_facebook_promotion_of_blog_articles_spam'&gt;&amp;#8220;Aren&amp;#8217;t your facebook promotion of blog articles SPAM?&amp;#8221;&lt;/h4&gt;
+
+&lt;p&gt;So I wrote an &lt;a href='/2012/09/the-unintended-spam/'&gt;article on unintended SPAM&lt;/a&gt;, where I implied I have different kind of audiance and to better target those audiance I have groups in my mailing list.&lt;/p&gt;
+
+&lt;p&gt;But if I keep posting my blog links on my facebook I continue to SPAM my friends. I want to continue to use facebook to reach friends who are not yet in my mailing list, and yet not SPAM my friends who have already subscribed to my list and are receiving emails from me [these friends have advantage of picking the topics on which they want to receive emails, and thus do not have to get SPAM from me].&lt;/p&gt;
+
+&lt;p&gt;So here is what I have decided: I have created a &lt;a href='https://www.facebook.com/help/friends/lists'&gt;friend list&lt;/a&gt; where I manually add my friends when they subscribe to mailing list, and when posting on facebook about my latest blog post, I would change privacy setting to not show it to them.&lt;/p&gt;
+
+&lt;p&gt;But would it not also completely hide those posts and all comments on them to my subscriber friends? Yes it would, and therefore I would discourage comments on those status updates.&lt;/p&gt;
+
+&lt;h4 id='conclusion'&gt;Conclusion&lt;/h4&gt;
+
+&lt;p&gt;This appears to be working for me so far, I am writing more meaningful stuff, tho not yet publishing them often. I feel I will never lose my friends who are on the mailing list, whether or not Facebook survives, so there is something more special about them.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Dojo: dojo/domReady! vs dojo/ready</title>
+   <link href="http://amitu.com/2012/09/dojo-dojodomready-vs-dojoready"/>
+   <updated>2012-09-26T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/09/dojo-dojodomready-vs-dojoready</id>
+   <content type="html">&lt;p&gt;&lt;a href='http://dojotoolkit.org/'&gt;Dojo&lt;/a&gt;, my javascript library of interest these days, has one stumbling block for beginners, the distinction between &lt;a href='http://dojotoolkit.org/reference-guide/1.8/dojo/domReady.html'&gt;dojo/domReady!&lt;/a&gt; plugin and &lt;a href='http://dojotoolkit.org/reference-guide/1.8/dojo/ready.html'&gt;dojo/ready&lt;/a&gt; module.&lt;/p&gt;
+
+&lt;p&gt;dojo/domReady! is used in all the examples and is considered equivalent of &lt;a href='http://api.jquery.com/ready/'&gt;jquery.ready&lt;/a&gt; method.&lt;/p&gt;
+
+&lt;p&gt;This:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='nx'&gt;$&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='nx'&gt;console&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;log&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;DOM ready&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='p'&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;is equivalent to:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='nx'&gt;require&lt;/span&gt;&lt;span class='p'&gt;([&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;dojo/domReady!&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt; &lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;()&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='nx'&gt;console&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;log&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;DOM ready&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+&lt;span class='p'&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The problem is that dojo has a concept of modules that can be loaded on demand, and dojo loads them asynchronously, which means your application initialization has to wait for DOM to get ready, as well as wait for all modules to become available.&lt;/p&gt;
+
+&lt;p&gt;For this functionality, there is &amp;#8220;dojo/ready&amp;#8221;. Equivalent code would be:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='javascript'&gt;&lt;span class='nx'&gt;require&lt;/span&gt;&lt;span class='p'&gt;([&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;dojo/ready&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt; &lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;ready&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+    &lt;span class='nx'&gt;ready&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='kd'&gt;function&lt;/span&gt;&lt;span class='p'&gt;(){&lt;/span&gt;
+        &lt;span class='nx'&gt;console&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;log&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;DOM is ready and all required modules are loaded&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+    &lt;span class='p'&gt;});&lt;/span&gt;
+&lt;span class='p'&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;One of the common beginners error in dojo is using &amp;#8220;dojo/domReady!&amp;#8221; when using dojo&amp;#39;s &lt;a href='https://dojotoolkit.org/reference-guide/1.8/dojo/parser.html'&gt;declarative syntax&lt;/a&gt;. Widgets that are initialized by declaring them in HTML, they &amp;#8220;become available&amp;#8221; after &amp;#8220;dojo/parser&amp;#8221; and widgets referenced in HTML are loaded. Further &amp;#8220;dojo/parser&amp;#8221; first waits for DOM to become available, and then it starts processing the HTML. When using domReady!, the callback is called while parser is doing its thing, and widgets may not be ready yet.&lt;/p&gt;
+
+&lt;p&gt;So which to use? &amp;#8220;dojo/domReady!&amp;#8221; is slightly less code, and slightly more &amp;#8220;aesthetic&amp;#8221;, and may be used when doing something complex, and not using dijit widgets, or relying on dojo&amp;#39;s autoparser. For anything else use &amp;#8220;dojo/require&amp;#8221;.&lt;/p&gt;
+
+&lt;p&gt;Here is an &lt;a href='http://dojo-toolkit.33424.n3.nabble.com/A-Blank-Canvas-td3989993.html#a3990000'&gt;interesting thread&lt;/a&gt; on dojo&amp;#39;s mailing list about this.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>The Unintended SPAM</title>
+   <link href="http://amitu.com/2012/09/the-unintended-spam"/>
+   <updated>2012-09-25T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/09/the-unintended-spam</id>
+   <content type="html">&lt;p&gt;It so happens I spam, without realizing it. No I do not send messages to unknown people, I spam my followers and friends. A lot of my friends/twitter followers are following me to read my technical posts, with no interest to my views on politics or pictures of my latest trip. Some on the other hand liked my views on anan hazare or rame sena, and have no interest in how great django or python is. And my family, well they just want to know when will I get married.&lt;/p&gt;
+
+&lt;p&gt;I am not the only one, almost everybody with twitter/facebook/blogs has this problem, people have more than one interests they want to write about. But people who read them are not interested in all their interests, just a few.&lt;/p&gt;
+
+&lt;p&gt;And no matter how informative, well written a post is, if it is not of my interest, it is SPAM(1).&lt;/p&gt;
+
+&lt;p&gt;This is one of the reasons I stopped using Google Reader and twitter. I followed people and blogs because I loved some of their posts, but the percentage of posts by them that appeals me is typically low, and this means majority of articles/posts are SPAM for me.&lt;/p&gt;
+
+&lt;p&gt;One solution for this is we have topic specific blog and twitter accounts, but that has very bad usability, now I have to maintain three login passwords on twitter, go to three different blog pages to review comments/spams etc etc.&lt;/p&gt;
+
+&lt;p&gt;Blogs do have topic specific RSS feed that I could subscribe, but there too the usability is a big problem. Lets say I liked your post and I subscribed to you on Google Reader, and in a week or so realize that 80% of your posts are not of my interest, there is nothing in Google Reader that lets me select only the topic I am interested in, I have to unsubscribe your main RSS feed, find RSS of the tag/category on your blog I like and subscribe it again.&lt;/p&gt;
+
+&lt;p&gt;In my opinion, these usability issues are the key reason I moved away from these services.&lt;/p&gt;
+
+&lt;p&gt;I am playing with an &lt;a href='/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/'&gt;experiment&lt;/a&gt; of managing my followers though &lt;a href='bit.ly/QfLC35'&gt;email list&lt;/a&gt;, where I have created groups each subscriber can add themselves to. In my case the &lt;a href='bit.ly/QfLC35'&gt;groups&lt;/a&gt; are &amp;#8220;Programming &amp;amp; Geeky Stuff&amp;#8221;, &amp;#8220;Politics &amp;amp; India &amp;amp; Philosophy&amp;#8221;, and &amp;#8220;Personal Stuff &amp;amp; Random Thoughts&amp;#8221;(2).&lt;/p&gt;
+
+&lt;p&gt;I think this is a superior approach than the facebook/twitter/blog rss because when my readers will receive an email they do not like, they will see a link at the bottom of the mail which lets them remove themseves from the group that mail belonged to.&lt;/p&gt;
+
+&lt;p&gt;My friends who have added have added themselves in distinct sets of groups. Which probably already indicates that for the groups they did not add themselves to, my posts related to that topic was SPAM for them. Apologies and welcome to my mailing list :-)&lt;/p&gt;
+
+&lt;p&gt;Notes:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;There is a use case of discovery, if I follow you because you wrote something on topic A, and your next post is on topic B that is new to me, it may not be spam and I might get interested in it. But once you give topic B a shot, you realize it is not for you, if you continue to receive posts about it from a person, it is spam.&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;I thought of being more fine grained, but this is a tradeoff, and further I feel within the group, there is a good amount of discovery potential, I do want my java readers to see my django is awesome posts so that they may switch.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>I Am Leaving Facebook, Why And How You Should Too</title>
+   <link href="http://amitu.com/2012/09/i-am-leaving-facebook-why-and-how-you-should-too"/>
+   <updated>2012-09-25T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/09/i-am-leaving-facebook-why-and-how-you-should-too</id>
+   <content type="html">&lt;h4 id='i_am_tired_of_facebook'&gt;I am tired of facebook&lt;/h4&gt;
+
+&lt;p&gt;Facebook lets me know what my friends are doing. But that is just a theory today, in practice facebook is virtually what &lt;a href='http://www.reddit.com'&gt;reddit&lt;/a&gt; is, a source of random &amp;#8220;interesting&amp;#8221; stuff.&lt;/p&gt;
+
+&lt;p&gt;I am so losing touch with my real friends. We do not email each other. We do not read each others blogs, and we do not have discussions. This sucks. And this is because of facebook.&lt;/p&gt;
+
+&lt;p&gt;There is yet another problem with facebook, I have written may be thousands of status updates, but for someone to view them it is very difficult, as it is filled with all kinds of unrelated stuff like what I liked, what I commented else where, my photos and so on.&lt;/p&gt;
+
+&lt;p&gt;Facebook is also a huge privacy nightmare, so I play it safe and keep my privacy options as tight as possible. But then my writings, my status updates, my pseudo-intellectual discussions with fellow geeks and interest based enthusiasts, they are all lost to the world.&lt;/p&gt;
+
+&lt;h4 id='so_i_am_moving_from_facebook_and_here_is_how'&gt;So I am moving from facebook, and here is how&lt;/h4&gt;
+
+&lt;p&gt;I am going to stop writing status updates on facebook. Or may be I will limit it to purely personal, very close friends and family targeted updates.&lt;/p&gt;
+
+&lt;p&gt;I am not going to move to twitter, or some next social network. I am going to blog.&lt;/p&gt;
+
+&lt;p&gt;But my friends do not read blogs, blog is a pull mechanism not push like facebook. Or email. So I have created a mailing list, and I am asking everyone I know to subscribe to it. After I write a blog post, I am going to copy paste the content of that post in a mail, and then send it to people who have subscribed to my mailing list.&lt;/p&gt;
+
+&lt;p&gt;My mailing list is my new friend list. If you want in, you join, if you feel I am spamming, you leave. I have also created a few groups my friends can pick, so my family does not have to be spammed by my posts about python, and users of my open source libraries do not have to be spammed by my views on FDI in retail in India.&lt;/p&gt;
+
+&lt;p&gt;I am using &lt;a href='http://eepurl.com/pRuVn'&gt;mailchimp&lt;/a&gt; for this, they have a free plan, damn easy to setup and create groups, forms that I am adding on my blog where my friends can come and subscribe/unsubscribe etc.&lt;/p&gt;
+
+&lt;p&gt;My friends will receive my blog posts as email, they will read it, and because I want discussion, I am going to invite them to come to my blog and leave a public comment. But many friends of mine wont do that, instead they would just reply to mail, call me an asshole and I would tell them some secrets about their mama their dad dont know. We will be friends and we will talk in the privacy of mail.&lt;/p&gt;
+
+&lt;h4 id='i_want_all_my_friends_to_do_this_too'&gt;I want all my friends to do this too&lt;/h4&gt;
+
+&lt;p&gt;It is easy, you have to setup a blog, and a mailing list. There are numerous free providers for both, but geeks will have to lead the way. One does not have to formally create a mailing list, most email services allows one to create email list and they can do it themselves. I do not have that many friends that I can not add them all to a list one evening.&lt;/p&gt;
+
+&lt;p&gt;The posts we create, the discussions we have, the mails we share, will all be ours forever, not on the whims of what Facebook as decided.&lt;/p&gt;
+
+&lt;p&gt;Writing public mails to friends is a tradition historical figures have employed. This helps us communicate with world via a proxy of friend. Since our posts would be public on our blog; instead of a complex mix of private and public space called facebook, where we are misled into thinking we are writing private stuff, which turns public at some future time we did not expect; we would write with that caution we show when we are public. We will be more polite, we will be more careful of our language, and we will interact with the world.&lt;/p&gt;
+
+&lt;p&gt;More importantly we will be owners of our data, we will have years worth of public writing experience. Politics is a profession of using one-s communication skills to gain power. So many of worlds problems are related to communication. We becoming good at communication, which we will by public writing, is only good for everyon.&lt;/p&gt;
+
+&lt;h4 id='so_my_friend_join_my_mailing_list_now'&gt;So my friend, join my mailing list now&lt;/h4&gt;
+
+&lt;p&gt;Click on this &lt;a href='http://eepurl.com/pRhOD'&gt;link&lt;/a&gt;, enter your email address and pick a topic of interest about which you would want to hear from me, and done!&lt;/p&gt;
+
+&lt;h4 id='ps_but_this_is_a_usability_nightmare_compared_to_facebook'&gt;PS: But this is a usability nightmare compared to facebook&lt;/h4&gt;
+
+&lt;p&gt;Yes it sounds a bit difficult, but it does not have to be. Like I hinted, most email software, web or desktop, allow email lists. There are blogging services that allow you to create a new post by sending a mail. Just send to your blog private URL along with your friends, and the post would be published and delivered to your friends.&lt;/p&gt;
+
+&lt;p&gt;[If the geek in you is wondering how you can refernce the URL of the yet to be genrated blog post be included in mail, well dont, just include the link to your blog, your post be there by the time your friends get there to comment publicly].&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>On WebApps and Passwords</title>
+   <link href="http://amitu.com/2012/09/on-webapps-and-passwords"/>
+   <updated>2012-09-22T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/09/on-webapps-and-passwords</id>
+   <content type="html">&lt;p&gt;So you building a new webapp. It will require authentication. Which usually has passwords. Now passwords need storage, and everyone tells you clear passwords are bad idea. This is obvious. But for a modern webapp the answer on how to hash is not obvious.&lt;/p&gt;
+
+&lt;h4 id='slow_vs_fast_hash_tradeoff'&gt;Slow vs Fast hash tradeoff&lt;/h4&gt;
+
+&lt;p&gt;The traditiona/unix philosophy on this topic has been to use a hashing algorithm that is slow. So if someone gets hold of your hashed passwords, it takes really long for them to do a brute force attack on them. bcrypt is one such algorithm. It takes a matter of 100s of milliseconds to compute.&lt;/p&gt;
+
+&lt;p&gt;But this philosophy has one problem: what if you want to release an API?&lt;/p&gt;
+
+&lt;p&gt;Unix passwords were entered by only a few user but for a successful next twitter, the authentication would then kill you. You can also not easily change hash function used to encrypt your passwords (a note, django mentions the hash function used in the password, which is very good practice as it allows you to change hash function over a period of time). SHA1, the hash used by default by django, is designed to be fast.&lt;/p&gt;
+
+&lt;h4 id='salting'&gt;Salting&lt;/h4&gt;
+
+&lt;p&gt;To understand what salt does: if I stole a 1 million password hashes, without salt, and I know the hash function. Lets assume that total number of possible passwords a user could have picked is 1 billion. I can do a brute force dictionary attack and generate hashes of all these billion passwords. Lets say it take 1 hr to generate 1 billion hashes. So in one hr, plus the matching time, I would crack all passwords.&lt;/p&gt;
+
+&lt;p&gt;With salting, I need not just the hashes and hash function, but also the salting strategy, in case of django it is to prepend some secret key with password. If I do not have the secret key, the stolen hashes are of no use. If I do know the secret, then back in 1hr I have all the passwords.&lt;/p&gt;
+
+&lt;h4 id='user_specific_salt'&gt;User specific salt&lt;/h4&gt;
+
+&lt;p&gt;One way to make things more secure is to include per user immutable data as part salt when hashing password. While in general people are discouraged to use creativity when implementing security, being creative in picking salt can be a good thing. Just make sure its immutable/predictable.&lt;/p&gt;
+
+&lt;p&gt;With per user salt, then cracker will have to generate billion of hashes for each user. This means it will take me 1 million hours to get all million passwords.&lt;/p&gt;
+
+&lt;h4 id='recap'&gt;Recap&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Hash passwords&lt;/li&gt;
+
+&lt;li&gt;Salt hashes with secret keys&lt;/li&gt;
+
+&lt;li&gt;Per user salts&lt;/li&gt;
+
+&lt;li&gt;Include hash strategy hint in password so it can be changed in future&lt;/li&gt;
+&lt;/ol&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Announcing a new feature? Please do this.</title>
+   <link href="http://amitu.com/2012/09/announcing-a-new-feature-please-do-this"/>
+   <updated>2012-09-22T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/09/announcing-a-new-feature-please-do-this</id>
+   <content type="html">&lt;p&gt;You got a new release or new feature of your awesome software/library/startup, and you write a blog post about it, and put it on hackernews? Good job. But please do yourself and your readers a favor and include a paragraph aimed towards an audiance that learns about your software/library/startup for the first time.&lt;/p&gt;
+
+&lt;p&gt;It is vain to assume people who come to your latest announcement page knows about you. It gets picked up by hacker news, by r/programming, twitter etc.&lt;/p&gt;
+
+&lt;p&gt;Yes people can click on homepage, and but in so many cases the home button takes you to the home page of the blog, which then shows the same very post. It is utterly idiotic to have a blog about a startup/library, whose &amp;#8220;home&amp;#8221; is linked to blog home page blog.something.com instead of something.com.&lt;/p&gt;
+
+&lt;p&gt;Thank you.&lt;/p&gt;
+
+&lt;p&gt;PS: If you read any article on techcrunc etc, they include a blurb about the companies mentioned. This is a responsible thing to do, they will describe what google does in every article they write about google, your software/startup is not as well known as google/facebook, please accept this.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Tips on Rendering Optimization for Mobile</title>
+   <link href="http://amitu.com/2012/08/tips-on-rendering-optimization-for-mobile"/>
+   <updated>2012-08-24T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/08/tips-on-rendering-optimization-for-mobile</id>
+   <content type="html">&lt;h4 id='mobile_browsers_boom'&gt;Mobile Browsers Boom&lt;/h4&gt;
+
+&lt;p&gt;Webkit started as a fork to KDE&amp;#8217;s Konquerer/KHTML. Apple did a marvelous job of removing all KDE cruft, and fixing the licensing nightmare, and gave us Webkit. Google took the open source webkit and ran with it, producing Chrome and then Andriod based on it.&lt;/p&gt;
+
+&lt;p&gt;This is a blessing for developers. HTML is available everywhere. First class browsers on desktop and mobile. This gives us a false sense of confidence that we dont really have to worry about mobile now.&lt;/p&gt;
+
+&lt;p&gt;If only. Apple has redefined the performance expectation on mobile. Users click, and they want the results. Gone are the days when mobile being slow was acceptable in users mind. The increased and still increasing expectations, and improving but still must leaner processors and ram availibility on mobiles has given some interesting challenges to us.&lt;/p&gt;
+
+&lt;p&gt;So while our HTML/JS/CSS skills come very handy, its also required to rethink everything from mobile point of view.&lt;/p&gt;
+
+&lt;p&gt;Here are some tips when optimizing a website for mobile browsers.&lt;/p&gt;
+
+&lt;h4 id='dom_minimization'&gt;DOM Minimization&lt;/h4&gt;
+
+&lt;p&gt;Desktop CPUs are fast enough that we do not have to think of the number of DOM elements in the page as a performance issue. The number of elements that desktop can support is usually an order of maginitude more than what we usually find in a reasonable page. As soon as we hit mobile, this ratio is no longer valid.&lt;/p&gt;
+
+&lt;p&gt;So instead of putting a LI, that contains a link, on which we put click handler, put the click handler directly on LI. Same for images.&lt;/p&gt;
+
+&lt;p&gt;Another thing to do to minimize the number of dom nodes would be client side templating. Lets say a page has 3 tabs, only one visible on page load. In general we ll create the dom for all three tabs, and display none the tabs not to be shown. This leads to wasteful creation of DOM elements that may not be required at all, and slows down the initial page load. One could use some javascript templating library like &lt;a href='http://icanhazjs.com/'&gt;http://icanhazjs.com/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Further, its becoming a norm these days to only load images below the fold if the user scrolls. Consider similar techniques for DOMs themselves.&lt;/p&gt;
+
+&lt;p&gt;It will all become really fun really soon. So do keep in mind that premature optimizations is evil.&lt;/p&gt;
+
+&lt;h4 id='test_on_old_devices'&gt;Test On Old Devices&lt;/h4&gt;
+
+&lt;p&gt;On premature optimization, somewhere I read about purchasing (relatively) old devices for testing, they are cheap, they are slower, so if your code is fast enough on them, there is no need to optimize, and well, they are good for the environment.&lt;/p&gt;
+
+&lt;h4 id='minimize_reflow'&gt;Minimize Reflow&lt;/h4&gt;
+
+&lt;p&gt;Reflow is something that happens in browsers, but desktop developers are usually not aware of it, and it tends to become a problem in mobile.&lt;/p&gt;
+
+&lt;p&gt;Javascript interacts with DOM api and alters DOM in various ways, updates style of elements, adds/removes elements to dom, and so on. All these operations forces browser to revisit the entire page, see if every element has suffecient space, if page height has to be updated, if scroll bars are to be adjusted and so on.&lt;/p&gt;
+
+&lt;p&gt;Reflow is heavy, and desktop developers will blissfully update the css of children of a node, one at a time in a loop without a second thought, on trivial actions like mouse over. Desktop browsers will forgive you, they are fast enough, but if each update to css of even one elements is taking 100s of milliseconds, this can become really slow really fast.&lt;/p&gt;
+
+&lt;p&gt;While just knowing that thats a problem one will spot many opportunities to reduce such updates, but one non trivial trick is dom swapping.&lt;/p&gt;
+
+&lt;p&gt;Instead of modifying the dom directly, clone the nearest parent. Cloning it creates a copy of the dom, apply all dom updates on the clone. Because clone is not yet part of the DOM tree, browser does not apply reflow. Once all operations are done, call replaceChild, to remove the old node and add the new dom node.&lt;/p&gt;
+
+&lt;p&gt;Remember that a display none is not suffecient, tho it is better than nothing.&lt;/p&gt;
+
+&lt;h4 id='no_js_animation_for_you'&gt;No JS Animation for you!&lt;/h4&gt;
+
+&lt;p&gt;Reflow latency also rules out most javascript animation on mobile browsers. Till they catch up, CSS animations should be considered (judiciously). &lt;a href='https://developer.mozilla.org/en/CSS/CSS_animations'&gt;CSS_animations&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id='click_vs_touchstart'&gt;Click vs TouchStart&lt;/h4&gt;
+
+&lt;p&gt;It is usually said that the same jquery code will work on both desktop and mobile, barring the hover events, that done exist on touch phones. Well tho click does, understanding how it works gives a hint on why its slow and how to fix it.&lt;/p&gt;
+
+&lt;p&gt;There is no &amp;#8220;click&amp;#8221; in a touch screen mobile. When there is a touch, OS does not know if its a random contact to be ignored, or a concious attempt by user to &amp;#8220;click&amp;#8221;/touch some UI element, and while the touch is still there, OS does not even know if its a scroll attempt or a touch attempt. So first OS ignores the touches with very little time span. Then the OS has to wait and see if the user&amp;#8217;s finger starts to move after the touch or not, if they moved, its a scroll or drag attempt, else its a &amp;#8220;click&amp;#8221; attempt. This means for OS to understand that it really is a click, it has to wait for a while, making sure finger is not moving, even after giving user humanly reasonable time to move.&lt;/p&gt;
+
+&lt;p&gt;Well this humanly reasonable time is also delaying the click event handler, making your webapp appear that bit slow. The solution: instead of waiting for click, wait for touch start.&lt;/p&gt;
+
+&lt;p&gt;Of course by trying to do a part of what OS is doing for you, you are inviting lots of book keeping and work on your plate. What if users is actually trying to scroll? Or what if user touches a different location before releasing touch in the first one, which usually does not trigger click event is a expected by user to be cancelling the accidental click?&lt;/p&gt;
+
+&lt;p&gt;Google has got a good article on this and many issues and their solutions with some code: &lt;a href='http://code.google.com/intl/ro-RO/mobile/articles/fast_buttons.html'&gt;google fast buttons&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id='javascript_optimization_usual_suspects'&gt;Javascript Optimization: Usual suspects&lt;/h4&gt;
+
+&lt;p&gt;Goes without saying that because memory is much smaller, memory leaks is much bigger problem on mobiles. Always use var as far as possible to limit the scope of variables, explicitly delete any references you do not want to keep, delete all initlialization functions and data references after their use.&lt;/p&gt;
+
+&lt;h4 id='javascript_optimization_anonymous_functions_not_so_great'&gt;Javascript Optimization: Anonymous functions not so great!&lt;/h4&gt;
+
+&lt;p&gt;Closures and anonymous functions leads to a lot of references, reducing the usage of anonymous functions, in favor of pre defined ones has double advantage of not having local variable appearing in closure scope and remaining permanently attached while the function is attached as an event handler; and not having multiple copies of the same function in multiple click handler for multiple elements.&lt;/p&gt;
+
+&lt;h4 id='javascript_optimization_avoid_jquery'&gt;Javascript Optimization: Avoid jQuery&lt;/h4&gt;
+
+&lt;p&gt;We all love jquery, but there are smaller alternatives available, esp those that are optimized for webkit. Consider including them in your mobile version on your site instead of jquery. The key problem with jQuery/prototype is all the hacks they have done to handle IE or old browsers, well if you dont need them, they are just performance bottlenecks, waiting to be thrown away.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>dojo/text! Plugin And undefined Build Issue</title>
+   <link href="http://amitu.com/2012/08/dojotext-plugin-and-undefined-build-issue"/>
+   <updated>2012-08-21T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/08/dojotext-plugin-and-undefined-build-issue</id>
+   <content type="html">&lt;h4 id='dojo_is_awesome'&gt;Dojo is awesome&lt;/h4&gt;
+
+&lt;p&gt;Dojo is an awesome javascript library. The reason it is really awesome is because it reminds us that programming is hard, and asks us to respect the hardness of web programming, and helps us solve the hard parts.&lt;/p&gt;
+
+&lt;p&gt;jQuery on the other hand wants you to believe things are easy, just include a script node and a few lines and voila! animation. A few lines of code is indeed easier in jquery than dojo, but no one in their sane mind will build gmail/facebook etc with jquery. Sure they may use jquery as a little piece in their toolbox, but they would end up re-inventing most of dojo.&lt;/p&gt;
+
+&lt;h4 id='about_this_post'&gt;About this post&lt;/h4&gt;
+
+&lt;p&gt;This post is about one feature that makes dojo shine, and a bug in their implementation of that feature and a workaround for that.&lt;/p&gt;
+
+&lt;h4 id='dojo_build_system'&gt;Dojo build system&lt;/h4&gt;
+
+&lt;p&gt;That feature is build system. Dojo comes as a zip containing more than 9000 files, with more than 4000 of them being javascript files. It is not uncommon for a simple hello world project including only a few features of dojo to end up requiring more than 200 dependencies.&lt;/p&gt;
+
+&lt;p&gt;To solve this dojo comes with a build system that takes application description file, and creates a minified, dojo.js that includes all the 200 or 4000 javascript files.&lt;/p&gt;
+
+&lt;p&gt;The best part of this build system is that it can build not just dojo modules, but also modules you may write. And it can handle css files too.&lt;/p&gt;
+
+&lt;p&gt;There is a learning curve associated with using the build system, build system is going through massive internal refactoring, which means a significant amount of documentation and blog post you may come across may not apply to the version of dojo you may use. So mitigate this problem one can start from a dojo base project, &lt;a href='https://github.com/csnover/dojo-boilerplate'&gt;dojo-boilerplate&lt;/a&gt;, that comes with build preconfigured. It works great.&lt;/p&gt;
+
+&lt;h4 id='dojotext_plugin'&gt;dojo/text! plugin&lt;/h4&gt;
+
+&lt;p&gt;One of the cool features of dojo is dojo/text! &amp;#8220;plugin&amp;#8221;. This plugin loads a resource using XHR. Dojo recommends all HTML portion of a widget or a library be kept in a separate html file. And use this plugin to load the html use it in widget/javascript. Ex:&lt;/p&gt;
+&lt;div class='highlight'&gt;&lt;pre&gt;&lt;code class='html'&gt;&lt;span class='nt'&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;script&lt;/span&gt;
+&lt;span class='nt'&gt;        &lt;/span&gt;&lt;span class='na'&gt;data-dojo-config=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;async: true&amp;quot;&lt;/span&gt;
+        &lt;span class='na'&gt;src=&lt;/span&gt;&lt;span class='s'&gt;&amp;quot;dojo.js&amp;quot;&lt;/span&gt;&lt;span class='nt'&gt;&amp;gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;script&amp;gt;&lt;/span&gt;
+        &lt;span class='nx'&gt;require&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;
+            &lt;span class='c1'&gt;// instruct dojo to load file.html and pass&lt;/span&gt;
+            &lt;span class='c1'&gt;// it to our callback&lt;/span&gt;
+            &lt;span class='p'&gt;[&lt;/span&gt;&lt;span class='s2'&gt;&amp;quot;dojo/text!file.html&amp;quot;&lt;/span&gt;&lt;span class='p'&gt;],&lt;/span&gt;
+            &lt;span class='kd'&gt;function&lt;/span&gt; &lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;filecontent&lt;/span&gt;&lt;span class='p'&gt;)&lt;/span&gt; &lt;span class='p'&gt;{&lt;/span&gt;
+                &lt;span class='nx'&gt;console&lt;/span&gt;&lt;span class='p'&gt;.&lt;/span&gt;&lt;span class='nx'&gt;log&lt;/span&gt;&lt;span class='p'&gt;(&lt;/span&gt;&lt;span class='nx'&gt;filecontent&lt;/span&gt;&lt;span class='p'&gt;);&lt;/span&gt;
+            &lt;span class='p'&gt;}&lt;/span&gt;
+        &lt;span class='p'&gt;);&lt;/span&gt;
+    &lt;span class='nt'&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class='nt'&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Since dojo/text! plugin loads the resource using a HTTP request, it would be bad if we used 100s of resources. But it is not since dojo build system includes them in the generated dojo.js, thus avoiding http request in production.&lt;/p&gt;
+
+&lt;p&gt;This is a huge incentive to keep javascript clean and keep html separate.&lt;/p&gt;
+
+&lt;h4 id='bug_in_dojo_build_system_with_dojotext_plugin_and_work_around'&gt;Bug in dojo build system with dojo/text! plugin and work around&lt;/h4&gt;
+
+&lt;p&gt;There is a bug in dojo build system, &lt;a href='http://bugs.dojotoolkit.org/ticket/15867'&gt;ticket#15867&lt;/a&gt;, which causes dojo to ignore any dojo/text! plugin files unless they end with .html extension.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Why Hacker News Sucks Off Late</title>
+   <link href="http://amitu.com/2012/08/why-hacker-news-sucks-off-late"/>
+   <updated>2012-08-19T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/08/why-hacker-news-sucks-off-late</id>
+   <content type="html">&lt;p&gt;So I get some free time from work and decide to check hacker news. I open the site, and I find a few interesting stories on the first page. I ctrl-click on a few to open them in new tab, read a few of them, and close the tab. I reach the bottom of first page and I click on &amp;#8220;next&amp;#8221;, and hacker news shows me &amp;#8220;Unknown or expired link.&amp;#8221;&lt;/p&gt;
+
+&lt;p&gt;I am forced to reload the main page, and then click on the next button. And if I was on the second page etc, I am forced to go to first page, reload, quickly click on next a few times.&lt;/p&gt;
+
+&lt;p&gt;There are a lot of posts on hackernews about how the quality of hackernews is going down, because of the increasing difference between the votes on stories on the first page vs the ones that comes on subsequent pages.&lt;/p&gt;
+
+&lt;p&gt;My theory: it is because of this incredibly &amp;#8220;cheap&amp;#8221; caching policy second page has become very hard to access and subsequent pages are nearly impossible to visit.&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>Stupid Mistake Jekyll and GitHub Made (And Solution)</title>
+   <link href="http://amitu.com/2012/08/stupid-mistake-jekyll-and-github-made-and-solution"/>
+   <updated>2012-08-06T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/08/stupid-mistake-jekyll-and-github-made-and-solution</id>
+   <content type="html">&lt;h4 id='background'&gt;Background&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href='http://github.com'&gt;Github&lt;/a&gt; has an excellent feature called &lt;a href='http://http://pages.github.com/'&gt;pages&lt;/a&gt;, that allows one to host and publish static websites from any git repository on github. This is great for projects to host a free project page. Github also allows and encourages github users to host their personal static sites on github pages. They go to the extent of allowing you to host your custom domains (making it almost completely alturistic exercise on their part).&lt;/p&gt;
+
+&lt;p&gt;Managing static sites is a pain, and we meet &lt;a href='https://github.com/mojombo/jekyll/'&gt;Jekyll&lt;/a&gt;, a static site generator designed with blogs in mind. What jekyll does is it expects some special files and folders with names starting with an underscore, and uses them to convert all files in the current folder with .md (etc) extension into .html files. In folder named _posts, specially named .md files are used to create blog, with categories and tags. Post meta data is stored in the .md files themselves at the top. jekyll creates archive page, a list of all pages on the site, rss and sitemap file and all.&lt;/p&gt;
+
+&lt;p&gt;Jekyll takes all the content, applies jekyll rules and plugins and generate a static site and stores it in a folder named _site.&lt;/p&gt;
+
+&lt;h4 id='the_mistake'&gt;The Mistake&lt;/h4&gt;
+
+&lt;p&gt;Github ignores the _site folder.&lt;/p&gt;
+
+&lt;p&gt;Github has jekyll of its own, and it insists on using its copy of jekyll to generate _site, or where-ever they store static files.&lt;/p&gt;
+
+&lt;p&gt;Github does it so you do not have to have jekyll installed on your machine, and still be able to publish jekyll sites, so it assumes _site may be out of date.&lt;/p&gt;
+
+&lt;h4 id='the_consequence_of_the_mistake'&gt;The Consequence Of The Mistake&lt;/h4&gt;
+
+&lt;p&gt;The first problem with this decision is: jekyll plugins. Jekyll comes with a wide range of &lt;a href='https://github.com/mojombo/jekyll/wiki/Plugins'&gt;plugins&lt;/a&gt;, but jekyll copy of github wont load most of them.&lt;/p&gt;
+
+&lt;p&gt;There are ways to overcome this, instead of storing jekyll in the repository, store the static compiled _site in the repository and tell github that it is not a jekyll repo.&lt;/p&gt;
+
+&lt;p&gt;This introduces complexities for developers. I have to now maintain two different repositories or branches, I have to write &lt;a href='http://charliepark.org/jekyll-with-plugins/'&gt;scripts to sync them&lt;/a&gt; etc. And it completely defeats the point of supporting jekyll at github level.&lt;/p&gt;
+
+&lt;p&gt;If we look at a normal software build, we have Makefile, we have src/*.c etc, and compiled output is stored in some special folder named &amp;#8220;build&amp;#8221; etc. What we have with jekyll is very close to this, but not there.&lt;/p&gt;
+
+&lt;h4 id='solution_github_contract'&gt;Solution: Github Contract&lt;/h4&gt;
+
+&lt;p&gt;This design decision to incorporate jekyll is bad compromise. I posit that almost no jekyll based repository is maintained by someone without access to jekyll on their local system.&lt;/p&gt;
+
+&lt;p&gt;Instead of github trying to take care of that use case (and the use case of cases where a repository can be modified from web), github takes care of a much better use case: site original files and built static sites being stored in the same repo, which is a real pain point &lt;a href='http://stackoverflow.com/questions/6201339/a-clean-system-for-github-pages-with-local-plugins'&gt;faced by people&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Here is my proposed github contract for pages: &lt;em&gt;if a github pages repository contains a folder named _site, the http request to /any-url goes to file /_site/any-url instead of the file /any-url&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;If github does that then they can claim they have equal support for not just jekyll but any static site generation system. I can use jekyll with my custom plugins as easily as without them, or as easily as &lt;a href='http://ringce.com/hyde'&gt;hyde&lt;/a&gt; or even my own make files that takes index.md and compiles it into _site/index.html.&lt;/p&gt;
+
+&lt;p&gt;The solution is completely backward compatible. Github already supports a protocol to indicate that a given repository does not require jekyll processing. Any repository that requires _site feature but still use jekyll can disable github jekyll, and still use local jekyll to create _site folder.&lt;/p&gt;
+
+&lt;p&gt;This drastically reduces github jekyll processing and makes life easier for nearly every github pages user, as we do not have to manage two repositories/branches.&lt;/p&gt;
+
+&lt;p&gt;Anybody at Github listening? :-)&lt;/p&gt;</content>
+ </entry>
+ 
+ <entry>
+   <title>About This Blog</title>
+   <link href="http://amitu.com/2012/08/about-this-blog"/>
+   <updated>2012-08-06T00:00:00-07:00</updated>
+   <id>http://amitu.com/2012/08/about-this-blog</id>
+   <content type="html">&lt;h4 id='background'&gt;Background&lt;/h4&gt;
+
+&lt;p&gt;This is my newest blog. I have been blogging since almost when the word blogging was coined. My first blog was managed by blogger.com. Eventually came a time when I got frustrated by blogger. One of my prime gripe was lack of control over it, no proper way to handle one off static pages. Blogger is good for a blog but not a site.&lt;/p&gt;
+
+&lt;p&gt;Being a web developer I did what is obvious next choice, wrote my own blogging engine. I decided to forgo database for storing blog posts and instead stored them in a git repo. I called in &lt;a href='http://github.com/amitu/gitology'&gt;gitology&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;I made a mistake with that gitology. I tried to handle comments too with gitology. This meant my blog had to be a dynamic site instead of a static html site. I had to deploy my site on a django friendly host, limiting my options.&lt;/p&gt;
+
+&lt;h4 id='on_content'&gt;On Content&lt;/h4&gt;
+
+&lt;p&gt;I wrote an import system that got my old posts out from blogger, but this lead to be a problem instead. I have overgrown quite a few of the things, and the old blog always put me in the old &amp;#8220;place&amp;#8221;, and this lead to me not blogging at all. So I decided to start afresh.&lt;/p&gt;
+
+&lt;p&gt;Archive.org has got my &lt;a href='http://web.archive.org/web/20100115120330/http://www.amitu.com/blog/'&gt;old blog&lt;/a&gt; in wayback machine.&lt;/p&gt;
+
+&lt;h4 id='latest_setup'&gt;Latest Setup&lt;/h4&gt;
+
+&lt;p&gt;For the blog I still want to use git repository concept. Which lead me to &lt;a href='http://jekyllrb.com/'&gt;jekyll&lt;/a&gt;. There are a few alternatives, &lt;a href='http://ringce.com/hyde'&gt;hyde&lt;/a&gt; being the most prominent one. Hyde is python based, and jekyll ruby. I generally have a python bias, but for this time I decided to stick with jekyll for its support by github.&lt;/p&gt;
+
+&lt;p&gt;I used &lt;a href='http://jekyllbootstrap.com/'&gt;jekyllbootstrap&lt;/a&gt; as my starting point as it comes with a theme I liked. A simple clone, and I could start after modifying _config file.&lt;/p&gt;
+
+&lt;p&gt;Only time will tell till how long will I stick with it. I love the design and simplicity of the system so far. Though I am not yet sure what is the meaning of jekyll being run by github.&lt;/p&gt;</content>
+ </entry>
+ 
  
 </feed>

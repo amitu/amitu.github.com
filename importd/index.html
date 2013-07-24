@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>importd</title>
+	<meta name="author" content="Amit Upadhyay">
+	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="importd" type="application/atom+xml">
+	<!-- script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script -->
+</head>
+<body>
+
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<nav class="nav-global">
+					<ul>
+						<li class="logo"><a href="/">&lt;- amitu</a></li>
+						<li class="archive"><a href="/importd/">importd</a></li>
+						<!-- li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li -->
+						<!-- li class="forkme"><div><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=amitu&repo=importd&type=fork&count=true"
+									allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></div></li -->
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+					
+<article class="unit-article layout-page">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title">importd</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<p>importd is the fastest way to django. No project creation, no apps, no settings.py, just an import.</p>
+
+<p>Install importd:</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>easy_install importd
+</code></pre></div>
+<p>Say hello to importd:</p>
+<div class='highlight'><pre><code class='python'><span class='c'># hello.py</span>
+<span class='kn'>from</span> <span class='nn'>importd</span> <span class='kn'>import</span> <span class='n'>d</span>
+
+<span class='nd'>@d</span><span class='p'>(</span><span class='s'>&quot;/&quot;</span><span class='p'>)</span>
+<span class='k'>def</span> <span class='nf'>index</span><span class='p'>(</span><span class='n'>request</span><span class='p'>):</span>
+    <span class='k'>return</span> <span class='n'>d</span><span class='o'>.</span><span class='n'>HttpResponse</span><span class='p'>(</span><span class='s'>&quot;hello world&quot;</span><span class='p'>)</span>
+</code></pre></div>
+<p>Run your app:</p>
+<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>python hello.py
+Validating models...
+
+0 errors found
+Django version 1.4.1, using settings None
+Development server is running at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+</code></pre></div>
+<h4 id='features'>Features</h4>
+
+<p>importd takes a lot of inspiration from sinatra, no need of half a dozen file for a simple api server, and from jquery, a single namespace: d. importd does all this without losing django compatibility. Some of the notable features:</p>
+
+<ul>
+<li>automatically configure django</li>
+
+<li>explicitly configure django, eg d(DEBUG=True)</li>
+
+<li>automatically include &#8220;templates&#8221; in TEMPLATE_DIRS setting, so start using templates without any boiler plate</li>
+
+<li>automatically configure django with sqlite3 if no DATABASES is defined</li>
+
+<li>automatically configure django to serve files in &#8220;static&#8221; on &#8220;/static/&#8221;</li>
+
+<li>a view can return a string, that will be assumed name of template, which will be rendered using render_to_response</li>
+
+<li>a view can return tuple containing string, dict. in this case dict will be treated as context when rendering template</li>
+
+<li>if view returns anything not a string, tuple or HttpResponse, it will be rendered as a json</li>
+
+<li>smart urls: importd can automatically construct regular expressions for your urls, based on preconfigure regular expression patterns</li>
+
+<li>custom regular expression patterns can be defined</li>
+
+<li>d acts like a wsgi application</li>
+
+<li>works with gunicorn eg $ gunicorn hello:d</li>
+
+<li>manage.py commands are available eg $ python hello.py syncdb</li>
+
+<li>automatically runs a debug server</li>
+
+<li>works with <a href='http://packages.python.org/fhurl/'>fhurl</a></li>
+
+<li>auto configuration, and other magic features can be turned off</li>
+
+<li>most commonly used classes and functions in django are available on d namespace, eg d.HttpResponse</li>
+
+<li>fully compatible with existing django apps and projects</li>
+</ul>
+
+<h4 id='examples'>Examples</h4>
+
+<p>A few of the features can be seen in the following example:</p>
+<div class='highlight'><pre><code class='python'><span class='kn'>from</span> <span class='nn'>importd</span> <span class='kn'>import</span> <span class='n'>d</span>
+
+<span class='n'>d</span><span class='p'>(</span><span class='n'>DEBUG</span><span class='o'>=</span><span class='bp'>True</span><span class='p'>)</span> <span class='c'># configure django</span>
+
+<span class='k'>def</span> <span class='nf'>real_index2</span><span class='p'>(</span><span class='n'>request</span><span class='p'>):</span>
+    <span class='k'>return</span> <span class='n'>d</span><span class='o'>.</span><span class='n'>HttpResponse</span><span class='p'>(</span><span class='s'>&quot;real_index2&quot;</span><span class='p'>)</span>
+
+<span class='c'># setup other urlpatterns</span>
+<span class='n'>d</span><span class='p'>(</span><span class='n'>d</span><span class='o'>.</span><span class='n'>patterns</span><span class='p'>(</span><span class='s'>&quot;&quot;</span><span class='p'>,</span>
+    <span class='p'>(</span><span class='s'>&quot;^$&quot;</span><span class='p'>,</span> <span class='n'>real_index2</span><span class='p'>),</span>
+<span class='p'>))</span>
+
+<span class='nd'>@d</span> <span class='c'># /index/, url derived from name of view</span>
+<span class='k'>def</span> <span class='nf'>index</span><span class='p'>(</span><span class='n'>request</span><span class='p'>):</span>
+    <span class='kn'>import</span> <span class='nn'>time</span>
+    <span class='k'>return</span> <span class='s'>&quot;index.html&quot;</span><span class='p'>,</span> <span class='p'>{</span><span class='s'>&quot;msg&quot;</span><span class='p'>:</span> <span class='n'>time</span><span class='o'>.</span><span class='n'>time</span><span class='p'>()}</span>
+
+<span class='nd'>@d</span><span class='p'>(</span><span class='s'>&quot;^home/$&quot;</span><span class='p'>,</span> <span class='n'>name</span><span class='o'>=</span><span class='s'>&quot;home&quot;</span><span class='p'>)</span>  <span class='c'># named urls</span>
+<span class='k'>def</span> <span class='nf'>real_index</span><span class='p'>(</span><span class='n'>request</span><span class='p'>):</span>
+    <span class='k'>return</span> <span class='s'>&quot;home.html&quot;</span>
+
+<span class='nd'>@d</span>  <span class='c'># served at /json/, converts object to json string, with proper mimetype</span>
+<span class='k'>def</span> <span class='nf'>json</span><span class='p'>(</span><span class='n'>request</span><span class='p'>):</span>
+    <span class='k'>return</span> <span class='p'>{</span>
+        <span class='s'>&quot;sum&quot;</span><span class='p'>:</span> <span class='p'>(</span>
+            <span class='nb'>int</span><span class='p'>(</span><span class='n'>request</span><span class='o'>.</span><span class='n'>GET</span><span class='o'>.</span><span class='n'>get</span><span class='p'>(</span><span class='s'>&quot;x&quot;</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>))</span> <span class='o'>+</span> <span class='nb'>int</span><span class='p'>(</span><span class='n'>request</span><span class='o'>.</span><span class='n'>GET</span><span class='o'>.</span><span class='n'>get</span><span class='p'>(</span><span class='s'>&quot;y&quot;</span><span class='p'>,</span> <span class='mi'>0</span><span class='p'>))</span>
+        <span class='p'>)</span>
+    <span class='p'>}</span>
+
+<span class='nd'>@d</span><span class='p'>(</span><span class='s'>&quot;/edit/&lt;int:id&gt;/&quot;</span><span class='p'>,</span> <span class='n'>name</span><span class='o'>=</span><span class='s'>&quot;edit_page&quot;</span><span class='p'>)</span> <span class='c'># translats to ^edit/(?P&lt;id&gt;\d+)/$</span>
+<span class='k'>def</span> <span class='nf'>edit</span><span class='p'>(</span><span class='n'>request</span><span class='p'>,</span> <span class='nb'>id</span><span class='p'>):</span>
+    <span class='k'>return</span> <span class='p'>{</span><span class='s'>&quot;id&quot;</span><span class='p'>:</span> <span class='nb'>id</span><span class='p'>}</span>
+
+<span class='nd'>@d</span><span class='p'>(</span><span class='s'>&quot;^fhurl/$&quot;</span><span class='p'>)</span>
+<span class='k'>class</span> <span class='nc'>MyForm</span><span class='p'>(</span><span class='n'>d</span><span class='o'>.</span><span class='n'>RequestForm</span><span class='p'>):</span>
+    <span class='n'>x</span> <span class='o'>=</span> <span class='n'>d</span><span class='o'>.</span><span class='n'>forms</span><span class='o'>.</span><span class='n'>IntegerField</span><span class='p'>()</span>
+    <span class='n'>y</span> <span class='o'>=</span> <span class='n'>d</span><span class='o'>.</span><span class='n'>forms</span><span class='o'>.</span><span class='n'>IntegerField</span><span class='p'>()</span>
+
+    <span class='k'>def</span> <span class='nf'>save</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>):</span>
+        <span class='k'>return</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>cleaned_data</span><span class='p'>[</span><span class='s'>&quot;x&quot;</span><span class='p'>]</span> <span class='o'>+</span> <span class='bp'>self</span><span class='o'>.</span><span class='n'>cleaned_data</span><span class='p'>[</span><span class='s'>&quot;y&quot;</span><span class='p'>]</span>
+</code></pre></div>
+				</div><!-- entry-content -->
+			</div><!-- bd -->
+
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<!-- p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p -->
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
+				<div class="misc vcard">
+					<h4>importd 0.1.4</h4>
+					<ul>
+						<li class="github">fork me: <a href="http://github.com/amitu/importd/">github.com/amitu/importd</a></li>
+						<li class="docs"><a href="http://packages.python.org/importd">importd documentation</a></li -->
+                        <li class="docs"><a href="https://github.com/amitu/importd/blob/master/ChangeLog.rst">ChangeLog</a></li>
+						<li class="github">pypi: <a href="http://pypi.python.org/pypi/importd/">pypi.python.org/pypi/importd</a></li>
+						<li class="github"><a href="http://github.com/amitu/importd/issues/">issues</a></li>
+						<li class="github">license: <a href="http://github.com/amitu/importd/issues/">bsd</a></li>
+					</ul>
+				</div><!-- misc -->
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
+	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/importd/index.html" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+  
+  
+</body>
+</html>
+

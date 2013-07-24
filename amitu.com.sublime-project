@@ -1,0 +1,9 @@
+{
+	"folders":
+	[
+		{
+			"path": "/Users/amitupadhyay/projects/amitu.com"
+		}
+	],
+    "folder_exclude_patterns": [".svn", ".git", ".hg", "_site", "CVS"]
+}

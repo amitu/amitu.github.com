@@ -1,0 +1,17 @@
+dojo store
+
+----------
+We can also refer to functions by name, and they will be looked up as a method on the store:
+
+store.lessThanTen = function(product){
+  return product.price < 10;
+});
+store.query("lessThanTen").forEach(function(shoe){
+  // called for each match
+});
+
+-----------
+
+__setTitleAttr: { node: "titleNode", type: "innerHTML" }
+
+the setter for "tab-index" is setTabIndexAttr() not "setTab-indexAttr"().

@@ -1,0 +1,5 @@
+current projects/todo
+
+* gamecanvas
+* kudos
+* new design
