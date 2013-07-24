@@ -4,7 +4,7 @@
  <title>Amit Upadhyay</title>
  <link href="http://amitu.com/atom.xml" rel="self"/>
  <link href="http://amitu.com"/>
- <updated>2013-07-24T05:43:53-07:00</updated>
+ <updated>2013-07-24T05:55:39-07:00</updated>
  <id>http://amitu.com</id>
  <author>
    <name>Amit Upadhyay</name>
@@ -38,9 +38,9 @@
 &lt;p&gt;This opens two questions, how can my reader be sure that the website is indeed hosted by github pages?&lt;/p&gt;
 
 &lt;p&gt;This is relatively easy, if you trust github, then you can visit their &lt;a href='https://help.github.com/articles/setting-up-a-custom-domain-with-pages'&gt;custom domain instruction&lt;/a&gt;, and you will see this:&lt;/p&gt;
-&lt;img src='/images/github-custom.png' class='hcenter' /&gt;
+&lt;img class='hcenter' src='/images/github-custom.png' /&gt;
 &lt;p&gt;And doing a &amp;#8220;dig amitu.com +nostats +nocomments +nocmd&amp;#8221; on my site, you will see:&lt;/p&gt;
-&lt;img src='/images/amitu.com-dig.png' class='hcenter' /&gt;
+&lt;img class='hcenter' src='/images/amitu.com-dig.png' /&gt;
 &lt;p&gt;With this you can verify that my site is going to github pages.&lt;/p&gt;
 
 &lt;p&gt;Now to the second question: how can one be sure that github itself is not hacked, may be github employees are involved.&lt;/p&gt;
@@ -125,9 +125,9 @@ https://www.schneier.com/blog/archives/2013/07/snowdens_dead_m.html'&gt;the dead
 &lt;p&gt;And what does that give you you might ask? For the very first time, the entire revision history of the blog is available for anyone to see! And with the power of Maths and Cryptography, the author of a cryptoblog can not change the content of the blog without you seeing all edits.&lt;/p&gt;
 
 &lt;p&gt;Look here, the entire history of this blog is available here on this fine &lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;github hosted page&lt;/a&gt;.&lt;/p&gt;
-&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img src='/images/cryptoblog1.png' class='hcenter' /&gt;&lt;/a&gt;
+&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img class='hcenter' src='/images/cryptoblog1.png' /&gt;&lt;/a&gt;
 &lt;p&gt;Look! The authors of the blog can no longer modify the blogs post after publishing them once. And if you are wondering what do these strange things mean:&lt;/p&gt;
-&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img src='/images/cryptoblog2.png' class='hcenter' /&gt;&lt;/a&gt;
+&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img class='hcenter' src='/images/cryptoblog2.png' /&gt;&lt;/a&gt;
 &lt;p&gt;Those numbers and characters have special power of Maths. The Maths gaurantee that the author can never change any of his previous blog posts without also changing those numbers. The entire history, in this case all 200 or so changes, and the content of all the posts and files all have been mixed together with the magical power of maths, and out came that special id 9ac95dd5f7, and the author of the blog would have easier time draining the entire bank balance of Bill Gates and pocketing it than changing anything in the blog post and still getting these magical numbers.&lt;/p&gt;
 
 &lt;p&gt;This all has been possible due to the power of git, and &lt;a href='https://help.github.com/articles/what-are-github-pages'&gt;github pages&lt;/a&gt;. And not only can cryptoblogs are impossible to modify after published without the history being visible to everyone forever and ever, it is also extremely easy to download the entire content of the cryptoblog, all the posts, and all the revisions done in the past.&lt;/p&gt;
@@ -376,7 +376,7 @@ https://www.schneier.com/blog/archives/2013/07/snowdens_dead_m.html'&gt;the dead
 
 &lt;p&gt;Here is the post:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/kejriwal-diesel.png' alt='Kejriwal about Diesel' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Kejriwal about Diesel' src='/images/kejriwal-diesel.png' /&gt;&lt;/p&gt;
 
 &lt;p&gt;He claims government is exporting diesel at Rs 42/- per liter and yet selling at a higher price Rs 55/- per liter, and based on this he concludes there is no subsidy and government is lying.&lt;/p&gt;
 
@@ -486,7 +486,7 @@ https://www.schneier.com/blog/archives/2013/07/snowdens_dead_m.html'&gt;the dead
 
 &lt;p&gt;I got no reply from them afterwards and I considered matter closed. Till I visited lucknow airport on my next trip, this is what I saw:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/lucknow-airport.jpg' alt='Lucknow Airport' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Lucknow Airport' src='/images/lucknow-airport.jpg' /&gt;&lt;/p&gt;
 
 &lt;p&gt;As you can see they implemented my &amp;#8220;Proposal 2&amp;#8221;. On left is Gate 1 and 2, domestic flights, and right is for international flights. When I wrote the mail it was a glass wall, now it has been opened.&lt;/p&gt;
 
@@ -791,11 +791,11 @@ who insists he is not interested in water. -- Anupam Kher&lt;/code&gt;&lt;/pre&g
    <id>http://amitu.com/2012/11/google-vs-bing</id>
    <content type="html">&lt;p&gt;The real reason google is better than bing is not because of:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/google.png' alt='Google' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Google' src='/images/google.png' /&gt;&lt;/p&gt;
 
 &lt;p&gt;vs&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/bing.png' alt='Bing' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Bing' src='/images/bing.png' /&gt;&lt;/p&gt;
 
 &lt;p&gt;&amp;#8230; but because I knew this will happen even before I tried this.&lt;/p&gt;</content>
  </entry>
@@ -847,15 +847,15 @@ who insists he is not interested in water. -- Anupam Kher&lt;/code&gt;&lt;/pre&g
 
 &lt;p&gt;Today I came upon the idea of using my fridge as my desk. It is the right height:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/standing-desk-1.jpg' alt='My Fridge' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='My Fridge' src='/images/standing-desk-1.jpg' /&gt;&lt;/p&gt;
 
 &lt;p&gt;There is plenty of room for my laptop and my arms to rest.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/standing-desk-2.jpg' alt='Plenty of room' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Plenty of room' src='/images/standing-desk-2.jpg' /&gt;&lt;/p&gt;
 
 &lt;p&gt;Unlike some advice I heard in ergonomics, I prefer to rest my entire arm from elbow to wrist on the table, so I needed some room for my arms.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/standing-desk-3.jpg' alt='Plenty of room' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Plenty of room' src='/images/standing-desk-3.jpg' /&gt;&lt;/p&gt;
 
 &lt;p&gt;As luck would have it my kitchen has fan, and the weather is such that AC is not really required.&lt;/p&gt;
 
@@ -1049,11 +1049,11 @@ considered valid interpretation of the movie.&lt;/code&gt;&lt;/pre&gt;
    <id>http://amitu.com/2012/10/yo-mailchimp-test-your-test-mail-bro</id>
    <content type="html">&lt;p&gt;MailChimp sent me this preview mail when I tried to use them for sending a mail to mailing list:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/mailchimp-preview.png' alt='Preview Mail' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Preview Mail' src='/images/mailchimp-preview.png' /&gt;&lt;/p&gt;
 
 &lt;p&gt;And this is the mail they sent when I actually sent it:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src='/images/mailchimp-sent.png' alt='Preview Mail' /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt='Preview Mail' src='/images/mailchimp-sent.png' /&gt;&lt;/p&gt;
 
 &lt;p&gt;FAIL!&lt;/p&gt;</content>
  </entry>

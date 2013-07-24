@@ -67,7 +67,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
         https://github.com/amitu/amitu.github.com/blob/master/javascripts/mumpy.js
 
 --><div ng-controller='MumPyGD' class='ng-cloak'>
-    <dl class='user_{{ row.username }}' style='margin-bottom: 0px;' ng-repeat='row in gd'>
+    <dl style='margin-bottom: 0px;' class='user_{{ row.username }}' ng-repeat='row in gd'>
         <dt>{{ row.name }}</dt>
         <dd ng-show='row.username'>
             {{ row.username }}<span ng-show='row.personalwebsite'>, 
@@ -89,7 +89,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
 
     <h3>Keyword Work</h3>
     <p>What people know.</p>
-    <dl class='kw_{{ kw.kw }}' style='margin-bottom: 0px;' ng-repeat='kw in kws'>
+    <dl style='margin-bottom: 0px;' class='kw_{{ kw.kw }}' ng-repeat='kw in kws'>
         <dt>{{ kw.kw }}</dt>
         <dd>
             {{ kw.users.length }}: 
@@ -99,7 +99,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
     
     <h3 style='margin-top: 15px;'>Keyword Learn</h3>
     <p>What people want to learn.</p>
-    <dl class='kw_{{ kw.kw }}' style='margin-bottom: 0px;' ng-repeat='kw in kls'>
+    <dl style='margin-bottom: 0px;' class='kw_{{ kw.kw }}' ng-repeat='kw in kls'>
         <dt>{{ kw.kw }}</dt>
         <dd>
             {{ kw.users.length }}: 
@@ -109,15 +109,15 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
     
     
     <h3 style='margin-top: 15px;'>Day Preference</h3>
-    <div id='chart_day' style='height: 300px;'> </div>
+    <div style='height: 300px;' id='chart_day'> </div>
 
     <h3 style='margin-top: 15px;'>Date Preference</h3>
-    <div id='chart_date' style='height: 300px;'> </div>
+    <div style='height: 300px;' id='chart_date'> </div>
     
     <h3 style='margin-top: 15px; clear: both;'>Location Preference</h3>
-    <div id='chart_loc' style='height: 300px;'> </div>
+    <div style='height: 300px;' id='chart_loc'> </div>
     
-</div><link type='text/css' href='/javascripts/jquery.fancybox-1.3.4.css' media='screen' rel='stylesheet' /><script src='/javascripts/jquery.min.js'> </script><script src='/javascripts/angular.min.js'> </script><script src='/javascripts/jquery.fancybox-1.3.4.js'> </script><script src='https://www.google.com/jsapi'> </script><script src='/javascripts/mumpy.js'> </script>
+</div><link href='/javascripts/jquery.fancybox-1.3.4.css' rel='stylesheet' media='screen' type='text/css' /><script src='/javascripts/jquery.min.js'> </script><script src='/javascripts/angular.min.js'> </script><script src='/javascripts/jquery.fancybox-1.3.4.js'> </script><script src='https://www.google.com/jsapi'> </script><script src='/javascripts/mumpy.js'> </script>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
