@@ -66,25 +66,25 @@ another google library and plot it via google chart api.
 Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
         https://github.com/amitu/amitu.github.com/blob/master/javascripts/mumpy.js
 
---><div ng-controller='MumPyGD' class='ng-cloak'>
+--><div class='ng-cloak' ng-controller='MumPyGD'>
     <dl style='margin-bottom: 0px;' ng-repeat='row in gd' class='user_{{ row.username }}'>
         <dt>{{ row.name }}</dt>
         <dd ng-show='row.username'>
             {{ row.username }}<span ng-show='row.personalwebsite'>, 
-            per: <a target='_blank' href='{{ row.personalwebsite }}'>{{ row.personalwebsite_d }}</a></span><span ng-show='row.startupwebsite'>, 
-            sup: <a target='_blank' href='{{ row.startupwebsite }}'>{{ row.startupwebsite_d }}</a></span>,<span ng-show='row.keywordlearn'>
+            per: <a href='{{ row.personalwebsite }}' target='_blank'>{{ row.personalwebsite_d }}</a></span><span ng-show='row.startupwebsite'>, 
+            sup: <a href='{{ row.startupwebsite }}' target='_blank'>{{ row.startupwebsite_d }}</a></span>,<span ng-show='row.keywordlearn'>
             kl: <span ng-repeat='kl in row.keywordlearn.split(&apos;,&apos;)' class='kw_{{ kl }} keyword kl'>{{ kl }}, </span></span><span ng-show='row.keywordwork'>
             kw: <span ng-repeat='kw in row.keywordwork.split(&apos;,&apos;)' class='kw_{{ kl }} keyword kw'>{{ kw }}, </span></span>
-            <a title='Yes you can edit, be good.' href='{{ row.edit_link }}' class='edit'>edit</a>.
+            <a href='{{ row.edit_link }}' title='Yes you can edit, be good.' class='edit'>edit</a>.
         </dd>
     </dl>
     
     <div style='margin-top: 20px; margin-bottom: 15px;'>
-        <a ng-click='refresh()' href=''>Refresh</a> |
+        <a href='' ng-click='refresh()'>Refresh</a> |
         <a href='#' class='add_self'>Add yourself</a> |
-        (MumPy: <a target='_blank' href='http://mumpy.org/wiki/Main_Page'>wiki</a>,
-        <a target='_blank' href='http://groups.google.com/group/mumpy'>mailing list</a>) | 
-		<a target='_blank' href='https://docs.google.com/spreadsheet/ccc?key=0AurZRRemURREdF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE#gid=0'>Raw Data</a>
+        (MumPy: <a href='http://mumpy.org/wiki/Main_Page' target='_blank'>wiki</a>,
+        <a href='http://groups.google.com/group/mumpy' target='_blank'>mailing list</a>) | 
+		<a href='https://docs.google.com/spreadsheet/ccc?key=0AurZRRemURREdF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE#gid=0' target='_blank'>Raw Data</a>
     </div>
 
     <h3>Keyword Work</h3>
@@ -117,7 +117,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
     <h3 style='margin-top: 15px; clear: both;'>Location Preference</h3>
     <div style='height: 300px;' id='chart_loc'> </div>
     
-</div><link type='text/css' rel='stylesheet' media='screen' href='/javascripts/jquery.fancybox-1.3.4.css' /><script src='/javascripts/jquery.min.js'> </script><script src='/javascripts/angular.min.js'> </script><script src='/javascripts/jquery.fancybox-1.3.4.js'> </script><script src='https://www.google.com/jsapi'> </script><script src='/javascripts/mumpy.js'> </script>
+</div><link rel='stylesheet' href='/javascripts/jquery.fancybox-1.3.4.css' media='screen' type='text/css' /><script src='/javascripts/jquery.min.js'> </script><script src='/javascripts/angular.min.js'> </script><script src='/javascripts/jquery.fancybox-1.3.4.js'> </script><script src='https://www.google.com/jsapi'> </script><script src='/javascripts/mumpy.js'> </script>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
