@@ -22,8 +22,6 @@ source](/open-source.html) page to see them in detail.
 Writings: [angularjs](/angularjs/), [flash for python developers](/flash/),
 [style guide](/style.html).
 
-Interested in Mumbai and Python? Join our [latest meetup](/mumpy.html).
-
 I am a strong beliver of [Women must own Taser (Stun Gun) In
 India](http://amitu.com/taser/). My position paper on [rape and what we should
 do about it](/india/rape/).
