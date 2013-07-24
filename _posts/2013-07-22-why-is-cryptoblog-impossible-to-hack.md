@@ -33,9 +33,9 @@ This opens two questions, how can my reader be sure that the website is indeed
 hosted by github pages?
 
 This is relatively easy, if you trust github, then you can visit their [custom
-domain instruction](
-https://help.github.com/articles/setting-up-a-custom-domain-with-pages ), and
-you will see this:
+domain
+instruction](https://help.github.com/articles/setting-up-a-custom-domain-with-pages),
+and you will see this:
 
 <img src="/images/github-custom.png" class="hcenter">
 
