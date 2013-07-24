@@ -67,29 +67,29 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
         https://github.com/amitu/amitu.github.com/blob/master/javascripts/mumpy.js
 
 --><div ng-controller='MumPyGD' class='ng-cloak'>
-    <dl style='margin-bottom: 0px;' class='user_{{ row.username }}' ng-repeat='row in gd'>
+    <dl class='user_{{ row.username }}' style='margin-bottom: 0px;' ng-repeat='row in gd'>
         <dt>{{ row.name }}</dt>
         <dd ng-show='row.username'>
             {{ row.username }}<span ng-show='row.personalwebsite'>, 
-            per: <a target='_blank' href='{{ row.personalwebsite }}'>{{ row.personalwebsite_d }}</a></span><span ng-show='row.startupwebsite'>, 
-            sup: <a target='_blank' href='{{ row.startupwebsite }}'>{{ row.startupwebsite_d }}</a></span>,<span ng-show='row.keywordlearn'>
+            per: <a href='{{ row.personalwebsite }}' target='_blank'>{{ row.personalwebsite_d }}</a></span><span ng-show='row.startupwebsite'>, 
+            sup: <a href='{{ row.startupwebsite }}' target='_blank'>{{ row.startupwebsite_d }}</a></span>,<span ng-show='row.keywordlearn'>
             kl: <span class='kw_{{ kl }} keyword kl' ng-repeat='kl in row.keywordlearn.split(&apos;,&apos;)'>{{ kl }}, </span></span><span ng-show='row.keywordwork'>
             kw: <span class='kw_{{ kl }} keyword kw' ng-repeat='kw in row.keywordwork.split(&apos;,&apos;)'>{{ kw }}, </span></span>
-            <a class='edit' title='Yes you can edit, be good.' href='{{ row.edit_link }}'>edit</a>.
+            <a href='{{ row.edit_link }}' class='edit' title='Yes you can edit, be good.'>edit</a>.
         </dd>
     </dl>
     
     <div style='margin-top: 20px; margin-bottom: 15px;'>
-        <a ng-click='refresh()' href=''>Refresh</a> |
-        <a class='add_self' href='#'>Add yourself</a> |
-        (MumPy: <a target='_blank' href='http://mumpy.org/wiki/Main_Page'>wiki</a>,
-        <a target='_blank' href='http://groups.google.com/group/mumpy'>mailing list</a>) | 
-		<a target='_blank' href='https://docs.google.com/spreadsheet/ccc?key=0AurZRRemURREdF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE#gid=0'>Raw Data</a>
+        <a href='' ng-click='refresh()'>Refresh</a> |
+        <a href='#' class='add_self'>Add yourself</a> |
+        (MumPy: <a href='http://mumpy.org/wiki/Main_Page' target='_blank'>wiki</a>,
+        <a href='http://groups.google.com/group/mumpy' target='_blank'>mailing list</a>) | 
+		<a href='https://docs.google.com/spreadsheet/ccc?key=0AurZRRemURREdF8zMWsxMHpIRVNMQ0EwREJjcnpXQVE#gid=0' target='_blank'>Raw Data</a>
     </div>
 
     <h3>Keyword Work</h3>
     <p>What people know.</p>
-    <dl style='margin-bottom: 0px;' class='kw_{{ kw.kw }}' ng-repeat='kw in kws'>
+    <dl class='kw_{{ kw.kw }}' style='margin-bottom: 0px;' ng-repeat='kw in kws'>
         <dt>{{ kw.kw }}</dt>
         <dd>
             {{ kw.users.length }}: 
@@ -99,7 +99,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
     
     <h3 style='margin-top: 15px;'>Keyword Learn</h3>
     <p>What people want to learn.</p>
-    <dl style='margin-bottom: 0px;' class='kw_{{ kw.kw }}' ng-repeat='kw in kls'>
+    <dl class='kw_{{ kw.kw }}' style='margin-bottom: 0px;' ng-repeat='kw in kls'>
         <dt>{{ kw.kw }}</dt>
         <dd>
             {{ kw.users.length }}: 
@@ -117,7 +117,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
     <h3 style='margin-top: 15px; clear: both;'>Location Preference</h3>
     <div id='chart_loc' style='height: 300px;'> </div>
     
-</div><link type='text/css' rel='stylesheet' href='/javascripts/jquery.fancybox-1.3.4.css' media='screen' /><script src='/javascripts/jquery.min.js'> </script><script src='/javascripts/angular.min.js'> </script><script src='/javascripts/jquery.fancybox-1.3.4.js'> </script><script src='https://www.google.com/jsapi'> </script><script src='/javascripts/mumpy.js'> </script>
+</div><link type='text/css' href='/javascripts/jquery.fancybox-1.3.4.css' media='screen' rel='stylesheet' /><script src='/javascripts/jquery.min.js'> </script><script src='/javascripts/angular.min.js'> </script><script src='/javascripts/jquery.fancybox-1.3.4.js'> </script><script src='https://www.google.com/jsapi'> </script><script src='/javascripts/mumpy.js'> </script>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
