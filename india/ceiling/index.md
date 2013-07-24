@@ -72,4 +72,9 @@ fact that it gives come honest politicians a fighting chance is just a bonus.
 All in all, if what I am demanding is implemented, it will be positive for
 India, with very little negative.
 
+#### What can you do to help?
+
+If you would like to help me do it, or if you want to stay updated with my
+progress with this, [please signup here](http://eepurl.com/CMsGv).
+
 -- Amit Upadhyay
