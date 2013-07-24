@@ -9,6 +9,7 @@ Hey!
 This page features my thoughts about India, the key issues faced by us. what we
 can do to help make India better. Here is what I have so far:
 
+1. [AmitU's Zeroth Law about Legislations](/india/zeroth-law.html)
 1. [We, The Mass - Manifesto](http://archive.org/details/WeTheMass-Manifesto) -
    what is the right way to go about protests.
 1. [All Indian girls and women must have easy access to tasers](/taser/).

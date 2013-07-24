@@ -72,6 +72,31 @@ fact that it gives come honest politicians a fighting chance is just a bonus.
 All in all, if what I am demanding is implemented, it will be positive for
 India, with very little negative.
 
+#### Employment and Expertise
+
+There is yet another benefit. The current allowed limit of 20L or so is so low
+that not even a proper website can be created, well designed web application
+that does any sort of A/B testing, polls, social campaign integration etc will
+easily cost more than that.
+
+Another thing one can do with legal money is PR agencies. PR agency can help a
+politician properly gauge the mood of public, and act accordingly, but no PR
+agency will work for less than 20-30L rupees, the entire budget EC thinks a
+member must spend.
+
+A politician needs to hire advertising agencies to properly reach their voter
+base. A politician needs political consultants from leading consulting
+companies. None of them cost less than 20-30L *each*.
+
+All this money will create employment. All this money will increase the
+expertise of everyone involved. Today who will want to work for a campaign that
+is funded by black money? No well respected company or agency wants to deal
+with black money. Sure some shady elements fill in, but that does not help
+neither the industry nor the politician and definitely not the public.
+
+Due to this *severe* shortage of money our politicians are not able to serve us
+right.
+
 #### What can you do to help?
 
 If you would like to help me do it, or if you want to stay updated with my
