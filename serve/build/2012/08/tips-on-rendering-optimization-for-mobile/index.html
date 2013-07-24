@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Amit Upadhyay: Tips on Rendering Optimization for Mobile</title>
+	<meta name="author" content="Amit Upadhyay">
+	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="Tips on Rendering Optimization for Mobile" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body ng-app>
+
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<nav class="nav-global">
+					<ul>
+						<li class="logo"><a href="/">Amit Upadhyay</a></li>
+						<!-- li class="archive"><a href="/archive.html">archive</a></li -->
+						<li class="page"><a href="/">blog</a></li>
+						<li class="page"><a href="/open-source.html">open source</a></li>
+						<li class="page"><a href="/quotes.html">quotes</a></li>
+						<li class="page"><a href="/lab/">experiments</a></li>
+						<!-- li class="page"><a href="/faq.html">faq</a></li -->
+						<!-- li class="page"><a href="/pages.html">pages</a></li -->
+						<!-- li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><div><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
+									allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></div></li -->
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+					
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title">Tips on Rendering Optimization for Mobile</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<h4 id='mobile_browsers_boom'>Mobile Browsers Boom</h4>
+
+<p>Webkit started as a fork to KDE&#8217;s Konquerer/KHTML. Apple did a marvelous job of removing all KDE cruft, and fixing the licensing nightmare, and gave us Webkit. Google took the open source webkit and ran with it, producing Chrome and then Andriod based on it.</p>
+
+<p>This is a blessing for developers. HTML is available everywhere. First class browsers on desktop and mobile. This gives us a false sense of confidence that we dont really have to worry about mobile now.</p>
+
+<p>If only. Apple has redefined the performance expectation on mobile. Users click, and they want the results. Gone are the days when mobile being slow was acceptable in users mind. The increased and still increasing expectations, and improving but still must leaner processors and ram availibility on mobiles has given some interesting challenges to us.</p>
+
+<p>So while our HTML/JS/CSS skills come very handy, its also required to rethink everything from mobile point of view.</p>
+
+<p>Here are some tips when optimizing a website for mobile browsers.</p>
+
+<h4 id='dom_minimization'>DOM Minimization</h4>
+
+<p>Desktop CPUs are fast enough that we do not have to think of the number of DOM elements in the page as a performance issue. The number of elements that desktop can support is usually an order of maginitude more than what we usually find in a reasonable page. As soon as we hit mobile, this ratio is no longer valid.</p>
+
+<p>So instead of putting a LI, that contains a link, on which we put click handler, put the click handler directly on LI. Same for images.</p>
+
+<p>Another thing to do to minimize the number of dom nodes would be client side templating. Lets say a page has 3 tabs, only one visible on page load. In general we ll create the dom for all three tabs, and display none the tabs not to be shown. This leads to wasteful creation of DOM elements that may not be required at all, and slows down the initial page load. One could use some javascript templating library like <a href='http://icanhazjs.com/'>http://icanhazjs.com/</a>.</p>
+
+<p>Further, its becoming a norm these days to only load images below the fold if the user scrolls. Consider similar techniques for DOMs themselves.</p>
+
+<p>It will all become really fun really soon. So do keep in mind that premature optimizations is evil.</p>
+
+<h4 id='test_on_old_devices'>Test On Old Devices</h4>
+
+<p>On premature optimization, somewhere I read about purchasing (relatively) old devices for testing, they are cheap, they are slower, so if your code is fast enough on them, there is no need to optimize, and well, they are good for the environment.</p>
+
+<h4 id='minimize_reflow'>Minimize Reflow</h4>
+
+<p>Reflow is something that happens in browsers, but desktop developers are usually not aware of it, and it tends to become a problem in mobile.</p>
+
+<p>Javascript interacts with DOM api and alters DOM in various ways, updates style of elements, adds/removes elements to dom, and so on. All these operations forces browser to revisit the entire page, see if every element has suffecient space, if page height has to be updated, if scroll bars are to be adjusted and so on.</p>
+
+<p>Reflow is heavy, and desktop developers will blissfully update the css of children of a node, one at a time in a loop without a second thought, on trivial actions like mouse over. Desktop browsers will forgive you, they are fast enough, but if each update to css of even one elements is taking 100s of milliseconds, this can become really slow really fast.</p>
+
+<p>While just knowing that thats a problem one will spot many opportunities to reduce such updates, but one non trivial trick is dom swapping.</p>
+
+<p>Instead of modifying the dom directly, clone the nearest parent. Cloning it creates a copy of the dom, apply all dom updates on the clone. Because clone is not yet part of the DOM tree, browser does not apply reflow. Once all operations are done, call replaceChild, to remove the old node and add the new dom node.</p>
+
+<p>Remember that a display none is not suffecient, tho it is better than nothing.</p>
+
+<h4 id='no_js_animation_for_you'>No JS Animation for you!</h4>
+
+<p>Reflow latency also rules out most javascript animation on mobile browsers. Till they catch up, CSS animations should be considered (judiciously). <a href='https://developer.mozilla.org/en/CSS/CSS_animations'>CSS_animations</a>.</p>
+
+<h4 id='click_vs_touchstart'>Click vs TouchStart</h4>
+
+<p>It is usually said that the same jquery code will work on both desktop and mobile, barring the hover events, that done exist on touch phones. Well tho click does, understanding how it works gives a hint on why its slow and how to fix it.</p>
+
+<p>There is no &#8220;click&#8221; in a touch screen mobile. When there is a touch, OS does not know if its a random contact to be ignored, or a concious attempt by user to &#8220;click&#8221;/touch some UI element, and while the touch is still there, OS does not even know if its a scroll attempt or a touch attempt. So first OS ignores the touches with very little time span. Then the OS has to wait and see if the user&#8217;s finger starts to move after the touch or not, if they moved, its a scroll or drag attempt, else its a &#8220;click&#8221; attempt. This means for OS to understand that it really is a click, it has to wait for a while, making sure finger is not moving, even after giving user humanly reasonable time to move.</p>
+
+<p>Well this humanly reasonable time is also delaying the click event handler, making your webapp appear that bit slow. The solution: instead of waiting for click, wait for touch start.</p>
+
+<p>Of course by trying to do a part of what OS is doing for you, you are inviting lots of book keeping and work on your plate. What if users is actually trying to scroll? Or what if user touches a different location before releasing touch in the first one, which usually does not trigger click event is a expected by user to be cancelling the accidental click?</p>
+
+<p>Google has got a good article on this and many issues and their solutions with some code: <a href='http://code.google.com/intl/ro-RO/mobile/articles/fast_buttons.html'>google fast buttons</a>.</p>
+
+<h4 id='javascript_optimization_usual_suspects'>Javascript Optimization: Usual suspects</h4>
+
+<p>Goes without saying that because memory is much smaller, memory leaks is much bigger problem on mobiles. Always use var as far as possible to limit the scope of variables, explicitly delete any references you do not want to keep, delete all initlialization functions and data references after their use.</p>
+
+<h4 id='javascript_optimization_anonymous_functions_not_so_great'>Javascript Optimization: Anonymous functions not so great!</h4>
+
+<p>Closures and anonymous functions leads to a lot of references, reducing the usage of anonymous functions, in favor of pre defined ones has double advantage of not having local variable appearing in closure scope and remaining permanently attached while the function is attached as an event handler; and not having multiple copies of the same function in multiple click handler for multiple elements.</p>
+
+<h4 id='javascript_optimization_avoid_jquery'>Javascript Optimization: Avoid jQuery</h4>
+
+<p>We all love jquery, but there are smaller alternatives available, esp those that are optimized for webkit. Consider including them in your mobile version on your site instead of jquery. The key problem with jQuery/prototype is all the hacks they have done to handle IE or old browsers, well if you dont need them, they are just performance bottlenecks, waiting to be thrown away.</p>
+					<div class="meta">
+                    <hr>
+						<p class="date-publish">
+							Published: 
+							<date class="date-pub" title="2012-08-24T00:00:00-07:00" datetime="2012-08-24T00:00:00-07:00" pubdate>
+							<span class="month"><abbr>August</abbr></span>
+							<span class="day">24</span>
+							<span class="year">2012</span>
+							</date>
+						</p>
+                        
+                        
+					</div><!-- meta -->
+				</div><!-- entry-content -->
+
+<figure class="kudo kudoable" data-id="1"> 
+    <a class="kudobject">
+        <div class="opening">
+            <div class="circle">&nbsp;</div>
+        </div>
+    </a>
+    <a href="#kudo" class="count">
+        <span class="num">0</span>
+        <span class="txt">Kudos</span>
+    </a>
+</figure>
+
+				<div class="misc-content" style="padding-top: 30px">
+                    <p clas="subscribe" style="background: #fcf7ab; padding-left: 10px">
+
+                        <a href="http://twitter.com/amitu">Follow me on twitter: 
+                        @amitu</a>.
+
+                    </p>
+					<!-- div class="social">
+						<ul class="list-linear">
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="amitu" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/amitu" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+						</ul>
+					</div -->
+					<div class="comment">
+					
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+					</div>
+				</div><!-- misc-content -->
+			</div><!-- bd -->
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							
+							<li class="prev"><a class="internal" rel="prev"  href="/2012/08/dojotext-plugin-and-undefined-build-issue" title="View dojo/text! Plugin And undefined Build Issue">&laquo; dojo/text! Plugin And undefined Build Issue</a></li>
+							
+							
+							<li class="pipe"> | </li>
+							
+							
+							<li class="next"><a class="internal" rel="next"  href="/2012/09/announcing-a-new-feature-please-do-this" title="View Announcing a new feature? Please do this.">Announcing a new feature? Please do this. &raquo;</a></li>
+							
+						</ul>
+					</nav>
+					<!-- p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p -->
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
+				<div class="misc vcard">
+					<h4>about</h4>
+					<ul>
+						<li class="contact"><address><span class="author fn n">Amit Upadhyay</span> - <span class="fn email">blog@amitu.com</span></address></li>
+						<li class="github"><a href="http://github.com/amitu/" rel="me">github.com/amitu</a></li>
+						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
+                        <li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li>
+                        <li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li>
+					</ul>
+				</div><!-- misc -->
+				<a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @amitu</a>
+				<p class="licence">
+					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+  
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
+  <script src="/kudos/jstorage.js"></script>
+  <script src="/kudos/kudos.js"></script>
+  <script src="/kudos/parse-kudos.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="http://code.createjs.com/easeljs-0.5.0.min.js"></script>
+        <script>
+            var stage, logo, g;
+            window.tick = function () {
+                // console.log("tick");
+                stage.clear();
+                logo.x += (stage.mouseX - logo.x) * 0.05;
+                logo.y += (stage.mouseY - logo.y) * 0.05;
+                
+                g.lineTo(logo.x, logo.y);
+                stage.update();
+            }
+            
+            window.onload = function () {
+                canvas = document.getElementById("canvas");
+                stage = new createjs.Stage(canvas);
+                stage.autoClear = true;
+                g = new createjs.Graphics();
+                g.setStrokeStyle(1);
+                g.beginStroke(createjs.Graphics.getRGB(255, 255, 255));
+                
+                var s = new createjs.Shape(g);
+                s.width = 240;
+                s.height = 320;
+                stage.addChild(s);
+                
+                logo = new createjs.Bitmap("man.png");
+                logo.regX = logo.image.width * 0.5;
+                logo.regY = logo.image.height * 0.5;
+                stage.addChild(logo);
+                
+                createjs.Ticker.setFPS(32);
+                createjs.Ticker.addListener(window);
+            }
+        </script>
+        <title>Ray Tracing</title>
+    </head>
+    <body>
+        <center>
+            <h1>Ray Tracing</h1>
+            <canvas id="canvas" 
+                width="240" height="320" style="background-color:#000000">
+                <p>Your browser is too old! Download a modern one now!</p>
+             </canvas>
+        </center>
+    </body>
+</html>
+
+

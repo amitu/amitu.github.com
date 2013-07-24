@@ -1,0 +1,360 @@
+<html>
+    <head>
+        <title>Amit Upadhyay: Reader</title>
+        <script src="/javascripts/jquery.min.js"></script>
+        <script>
+            $(function(){
+                var text = $("#story").text();
+                var fsize = 10;
+                var $view = $("#view");
+                var $view0 = $view.get(0);
+                var $v = $("#v");
+                var $v0 = $v.get(0);
+                var lines = text.split("\n");
+
+                var current_line = 0;
+                var current_word = 0;
+                var next_line = 0;
+                var next_word = 0;
+
+                var dump_state = function(caller) {
+                    return;
+                    console.log("caller", caller);
+                    console.log("current_word", current_word);
+                    console.log("current_line", current_line);
+                    console.log("next_word", next_word);
+                    console.log("next_line", next_line);
+                    console.log("lines.length", lines.length);
+                    console.log("lines[current_line].length", lines[current_line].length);
+                    console.log("lines[next_line].length", lines[next_line].length);
+                }
+
+                var set_size = function() {
+                    $view.css("font-size", 2 * fsize + "px");
+                    $v.css("font-size", 2 * fsize + "px");
+                    show_curr_page();
+                }
+
+                $("#incr").click(function(){
+                    if (fsize == 15) return false;
+                    fsize += 1;
+                    set_size();
+                    return false;;
+                });
+
+                $("#decr").click(function(){
+                    if (fsize == 3) return false;
+                    fsize -= 1;
+                    set_size();
+                    return false;;
+                });
+
+                for (i = 0; i < lines.length; i++)
+                {
+                    lines[i] = lines[i].split(" ");
+                }
+
+                var show_curr_page = function() {
+                    dump_state("show_curr_page");
+                    $v.text("");
+
+                    var current_text = "";
+                    var candidate_text = "";
+
+                    var iline = current_line;
+                    var iword = current_word;
+
+                    while (true) {
+                        current_text = candidate_text;
+                        candidate_text += (" " + lines[iline][iword]);
+                        $v.text(candidate_text);
+                        if ($v.innerHeight() != $v0.scrollHeight) break;
+                        iword++;
+                        if (iword == lines[iline].length) {
+                            iline++;
+                            iword = 0;
+                            if (iword == lines.length) break;
+                        }
+                    }
+
+                    next_line = iline;
+                    next_word = iword;
+
+                    $view.text(current_text);
+                    dump_state("show_curr_page.end");
+                    return false;
+                }
+
+                var show_next_page = function() {
+                    dump_state("show_next_page");
+                    // if there is nothing left to show, return
+                    if (next_line == lines.length || (next_line == lines.length - 1  && next_word == lines[next_line].length)) return false;
+
+                    var iline = next_line;
+                    var iword = next_word;
+
+                    $v.text("");
+
+                    var current_text = "";
+                    var candidate_text = "";
+
+                    current_line = next_line;
+                    current_word = next_word;
+
+                    while (true) {
+                        current_text = candidate_text;
+                        candidate_text += (" " + lines[iline][iword]);
+                        $v.text(candidate_text);
+                        if ($v.innerHeight() != $v0.scrollHeight) break;
+                        iword++;
+                        if (iword == lines[iline].length) {
+                            iline++;
+                            iword = 0;
+                            if (iline == lines.length) {
+                                break;
+                            }
+                        }
+                    }
+
+                    next_line = iline;
+                    next_word = iword;
+
+                    $view.text(current_text);
+                    dump_state("show_next_page.end");
+                    return false;
+                }
+
+                var show_prev_page = function() {
+                    dump_state("show_prev_page");
+                    // if there is nothing left to show, return
+                    if ((current_line <= 0 && current_word == 0) || current_word == -1) return false;
+                    $v.text("");
+
+                    var current_text = "";
+                    var candidate_text = "";
+
+                    var iline = current_line;
+                    var iword = current_word;
+
+                    next_line = current_line;
+                    next_word = current_word;
+
+                    while (true) {
+                        current_text = candidate_text;
+                        candidate_text = (
+                            lines[iline][iword] + " " + candidate_text
+                        );
+
+                        $v.text(candidate_text);
+                        if ($v.innerHeight() != $v0.scrollHeight) break;
+
+                        iword--;
+                        if (iword == -1) {
+                            iline--;
+                            if (iline == -1) {
+                                iline = 0;
+                                iword = 0;
+                                break;
+                            }
+                            iword = lines[iline].length - 1;
+                        }
+                    }
+
+                    current_line = iline;
+                    current_word = iword;
+
+                    if (current_line == 0 && current_word == 0)
+                        show_curr_page();
+                    else
+                        $view.text(current_text);
+
+                    dump_state("show_prev_page.end");
+                    return false;
+                }
+
+                $("#next").click(show_next_page);
+                $("#prev").click(show_prev_page);
+
+                set_size();
+            });
+        </script>
+        <style>
+            div#reader {
+                position: fixed;
+                left: 550px;
+                top: 20px;
+                background-image: url('/images/kindle.jpg');
+                background-color: #c0c0c0;
+            }
+            div#about {
+                width: 400px;
+                border-bottom: 1px dotted black;
+                padding-bottom: 10px;
+            }
+            div#view {
+                position: absolute;
+                padding: 5px;
+                left: 0px;
+                top: 20px;
+                text-align:justify;
+                width: 300px;
+                height: 400px;
+                overflow: scroll;
+                border: 1px solid #c0c0c0;
+                z-index: 20;
+                background: white;
+            }
+            div#v {
+                position: absolute;
+                padding: 5px;
+                left: 0px;
+                text-align:justify;
+                top: 20px;
+                width: 300px;
+                height: 400px;
+                overflow: scroll;
+                border: 1px solid #c0c0c0;
+                z-index: 1;
+            }
+            pre#story {
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="reader">
+            <a href="#" id="incr">++font++</a> <a href="#" id="decr">--font--</a>
+            <a href="#" id="next">++page++</a> <a href="#" id="prev">--page--</a>
+            <div id="view"></div>
+            <div id="v"></div>
+        </div>
+
+        <div id="about">
+            <h1>About</h1>
+
+            What is special about kindle that is not possible on web based
+            reader?  When I change font size on kindle, the first word on
+            current page remains the first word of the page with new font size.
+            This is huge. It allows me to change font size without losing where
+            I was. On web when I resize, especially long texts, I lose my
+            position very once in a while, and this negative feedback makes
+            sure I do not resize on web.
+
+            <div><a href="/lab/">back</a></div>
+
+        </div>
+
+        <pre id="story">
+the war of the worlds
+
+by h. g; wells
+
+book i. the coming of the martians.
+
+i.
+
+the eve of the war.
+
+no one would have believed, in the last years 
+of the nineteenth century, that human affairs 
+were being watched keenly and closely by 
+intelligences greater than man's and yet as 
+mortal as his own ; that as men busied them- 
+selves about their affairs they were scrutinized 
+and studied, perhaps almost as narrowly as a 
+man with a microscope might scrutinize the 
+transient creatures that swarm and multiply in 
+a drop of water. with infinite complacency 
+men went to and fro over this globe about 
+j;heir little affairs, serene in their assurance of 
+their empire over matter. it is possible that 
+the infusoria under the microscope do the 
+same. no one gave a thought to the older 
+worlds of space as sources of human danger, or 
+
+i thought of them only to dismiss the idea of life 
+upon them as impossible or improbable. it is 
+curious to recall some of the mental habits of 
+those departed days. at most, terrestrial men 
+fancied there might be other men upon mars, 
+perhaps inferior to themselves and ready to 
+welcome a missionary enterprise. yet, across 
+the gulf of space, minds that are to our minds 
+as ours are to those of the beasts that perish, 
+intellects vast and cool and unsympathetic, 
+regarded this earth with envious eyes, and 
+slowly and surely drew their plans against 
+us. and early in the twentieth century came 
+the great disillusionment. 
+
+the planet mars, i scarcely need remind the 
+reader, revolves about the sun at a mean dis- 
+tance of 140,000,000 miles, and the light and 
+heat it receives from the sun is barely half of 
+that received by this world. it must be, if the 
+nebular hypothesis has any truth, older than 
+our world, and long before this earth ceased to 
+be molten, life upon its surface must have 
+begun its course. the fact that it is scarcely one- 
+seventh of the volume of the earth must have 
+accelerated its cooling to the temperature at 
+which life could begin. it has air and water, 
+and all that is necessary for the support of 
+animated existence. 
+
+yet so vain is man, and so blinded by his 
+vanity, that no writer, up to the very end of the 
+nineteenth century, expressed any idea that 
+intelligent life might have developed there far, 
+or indeed at all, beyond its earthly level. nor 
+was it generally understood that since mars is 
+older than our earth, with scarcely a quarter of 
+the superficial area, and remoter from the sun, 
+it necessarily follows that it is not only more 
+distant from life's beginning but nearer its 
+end. 
+
+the secular cooling that must some day over- 
+take our planet has already gone far indeed 
+with our neighbour. Its physical condition is 
+still largely a mystery, but we know now that 
+even in its equatorial region the mid-day tem- 
+perature barely approaches that of our coldest 
+winter. Its air is much more attenuated than 
+ours, its oceans have shrunk until they cover 
+but a third of its surface, and as its slow seasons 
+change huge snowcaps gather and melt about 
+either pole, and periodically inundate its tem- 
+perate zones. That last stage of exhaustion, 
+which to us is still incredibly remote, has become 
+a present-day problem for the inhabitants of 
+Mars. The immediate pressure of necessity 
+has brightened their intellects, enlarged their 
+powers, and hardened their hearts. And look- 
+ing across space, with instruments and intelli- 
+gences such as we have scarcely dreamt of, they 
+see, at its nearest distance, only 35,000,000 of 
+miles sunward of them, a morning star of hope, 
+our own warmer planet, green with vegetation 
+and gray with water, with a cloudy atmosphere 
+eloquent of fertility, with glimpses through 
+its drifting cloud-wisps of broad stretches of 
+populous country and narrow navy -crowded 
+seas. 
+
+And we men, the creatures who inhabit this 
+earth, must be to them at least as alien and 
+lowly as are the monkeys and lemurs to us. 
+The intellectual side of man already admits 
+that life is an incessant struggle for existence, 
+and it would seem that this too is the belief of 
+the minds upon Mars. Their world is far gone 
+in its cooling, and this world is still crowded 
+with life, but crowded only with what they 
+regard as inferior animals. To carry warfare 
+sunward is indeed their only escape from the 
+destruction that generation after generation 
+creeps upon them. 
+        </pre>
+    </body>
+</html>
