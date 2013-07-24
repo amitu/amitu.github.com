@@ -6,8 +6,8 @@ title: "India"
 
 Hey!
 
-This page features my thoughts about India, the key issues faced by us. what we
-can do to help make India better. Here is what I have so far:
+This page features my thoughts about India, the key issues faced by us, and
+what we can do to help make India better. Here is what I have so far:
 
 1. [AmitU's Zeroth Law about Legislations](/india/zeroth-law.html)
 1. [We, The Mass - Manifesto](http://archive.org/details/WeTheMass-Manifesto) -
@@ -17,5 +17,11 @@ can do to help make India better. Here is what I have so far:
    short, increase judicial budgets.
 1. [Increase election expense ceilings](/india/ceiling/).
 1. No schooling requirements for clearing board exams.
+
+PS: This blog is a [cryptoblog](/2013/07/cryptoblog/), which means [even I can
+not modify it without you
+knowing](/2013/07/why-is-cryptoblog-impossible-to-hack/). I invite Kejriwal,
+and all other politically opinionated to match me in this level of
+transparency.
 
 -- Amit Upadhyay
