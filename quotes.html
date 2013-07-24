@@ -681,8 +681,8 @@ He who knows this shines with a golden light.
 <p>If you can&#8217;t see the light at the end of the tunnel. March down there and turn it on yourself.</p>
 <hr />
 <p>A gentle stream can split a mountain, given enough time.</p>
-<div id='QuotesList' style='position: relative' ng-controller='QuotesList'>
-    <input type='text' placeholder='Search' ng-model='search' class='search-query' style='position: absolute; left: 602px; top: -64px' />
+<div style='position: relative' ng-controller='QuotesList' id='QuotesList'>
+    <input type='text' placeholder='Search' ng-model='search' style='position: absolute; left: 602px; top: -64px' class='search-query' />
     <span ng-repeat='quote in quotes | filter:search'>
         <span ng-bind-html-unsafe='quote' />
         <hr />
@@ -761,8 +761,8 @@ He who knows this shines with a golden light.
 						<li class="contact"><address><span class="author fn n">Amit Upadhyay</span> - <span class="fn email">blog@amitu.com</span></address></li>
 						<li class="github"><a href="http://github.com/amitu/" rel="me">github.com/amitu</a></li>
 						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
-                        <li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li>
-                        <li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li>
+                        <!-- li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li -->
+                        <!-- li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li -->
 					</ul>
 				</div><!-- misc -->
 				<a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @amitu</a>

@@ -4,7 +4,7 @@
  <title>Amit Upadhyay</title>
  <link href="http://amitu.com/atom.xml" rel="self"/>
  <link href="http://amitu.com"/>
- <updated>2013-07-24T02:25:09-07:00</updated>
+ <updated>2013-07-24T03:01:32-07:00</updated>
  <id>http://amitu.com</id>
  <author>
    <name>Amit Upadhyay</name>
@@ -38,9 +38,9 @@
 &lt;p&gt;This opens two questions, how can my reader be sure that the website is indeed hosted by github pages?&lt;/p&gt;
 
 &lt;p&gt;This is relatively easy, if you trust github, then you can visit their &lt;a href='https://help.github.com/articles/setting-up-a-custom-domain-with-pages'&gt;custom domain instruction&lt;/a&gt;, and you will see this:&lt;/p&gt;
-&lt;img class='hcenter' src='/images/github-custom.png' /&gt;
+&lt;img src='/images/github-custom.png' class='hcenter' /&gt;
 &lt;p&gt;And doing a &amp;#8220;dig amitu.com +nostats +nocomments +nocmd&amp;#8221; on my site, you will see:&lt;/p&gt;
-&lt;img class='hcenter' src='/images/amitu.com-dig.png' /&gt;
+&lt;img src='/images/amitu.com-dig.png' class='hcenter' /&gt;
 &lt;p&gt;With this you can verify that my site is going to github pages.&lt;/p&gt;
 
 &lt;p&gt;Now to the second question: how can one be sure that github itself is not hacked, may be github employees are involved.&lt;/p&gt;
@@ -125,9 +125,9 @@ https://www.schneier.com/blog/archives/2013/07/snowdens_dead_m.html'&gt;the dead
 &lt;p&gt;And what does that give you you might ask? For the very first time, the entire revision history of the blog is available for anyone to see! And with the power of Maths and Cryptography, the author of a cryptoblog can not change the content of the blog without you seeing all edits.&lt;/p&gt;
 
 &lt;p&gt;Look here, the entire history of this blog is available here on this fine &lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;github hosted page&lt;/a&gt;.&lt;/p&gt;
-&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img class='hcenter' src='/images/cryptoblog1.png' /&gt;&lt;/a&gt;
+&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img src='/images/cryptoblog1.png' class='hcenter' /&gt;&lt;/a&gt;
 &lt;p&gt;Look! The authors of the blog can no longer modify the blogs post after publishing them once. And if you are wondering what do these strange things mean:&lt;/p&gt;
-&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img class='hcenter' src='/images/cryptoblog2.png' /&gt;&lt;/a&gt;
+&lt;a href='https://github.com/amitu/amitu.github.com/commits/master'&gt;&lt;img src='/images/cryptoblog2.png' class='hcenter' /&gt;&lt;/a&gt;
 &lt;p&gt;Those numbers and characters have special power of Maths. The Maths gaurantee that the author can never change any of his previous blog posts without also changing those numbers. The entire history, in this case all 200 or so changes, and the content of all the posts and files all have been mixed together with the magical power of maths, and out came that special id 9ac95dd5f7, and the author of the blog would have easier time draining the entire bank balance of Bill Gates and pocketing it than changing anything in the blog post and still getting these magical numbers.&lt;/p&gt;
 
 &lt;p&gt;This all has been possible due to the power of git, and &lt;a href='https://help.github.com/articles/what-are-github-pages'&gt;github pages&lt;/a&gt;. And not only can cryptoblogs are impossible to modify after published without the history being visible to everyone forever and ever, it is also extremely easy to download the entire content of the cryptoblog, all the posts, and all the revisions done in the past.&lt;/p&gt;
