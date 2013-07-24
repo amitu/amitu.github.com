@@ -20,7 +20,7 @@ A few of my open source babies [smarturls](/smarturls/),
 source](/open-source.html) page to see them in detail.
 
 Writings: [angularjs](/angularjs/), [flash for python developers](/flash/),
-[style guide](/style.html). 
+[style guide](/style.html).
 
 I am a strong beliver of [Women must own Taser (Stun Gun) In
 India](http://amitu.com/taser/). My position paper on [rape and what we should
