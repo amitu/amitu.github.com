@@ -33,6 +33,7 @@ http://amitu.com/weekly/1.html
 http://amitu.com/weekly/2.html
 http://amitu.com/weekly/index.html
 
+http://amitu.com/2013/07/am-i-a-writer
 http://amitu.com/2013/07/why-is-cryptoblog-impossible-to-hack
 http://amitu.com/2013/07/schneier-snowden-and-deadmen
 http://amitu.com/2013/07/cryptoblog
