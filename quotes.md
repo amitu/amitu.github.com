@@ -5,6 +5,43 @@ description: ""
 ---
 {% include JB/setup %}
 
+The greatest pleasure in life is doing what people say you can not do.
+
+----
+Always be capable of feeling deeply any injustice committed against anyone. --
+Che Guevara
+
+----
+Work so hard that one day your signature will be called an autograph.
+
+----
+Being honest may not get you a lof of friends but it will always get you the
+right ones. -- John Lennon
+
+----
+I always knew I was a star. And now, the rest of the world seems to agree with
+me. -- Fredie Mercury
+
+----
+Patriotism is supporting your country all the time, and your government when it
+deserves it. -- Mark Twain
+
+----
+Chains of habit are too light to be felt until they are too heavy to be broken.
+-- Warren Buffet
+
+----
+Everyone talks about leaving a better planet for our kids. Lets try to leave
+better kids for our planet.
+
+----
+The truth is like a lion. You don't have to defend it. Let it loose. It will
+defent itself.
+
+----
+"The reward for conformity is that everyone likes you. Except yourself."
+
+----
 To end an argument, explain to counterparty THEIR position until they agree you
 understand it. Then make them do same with your position.
 
