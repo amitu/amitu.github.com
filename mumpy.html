@@ -66,8 +66,8 @@ another google library and plot it via google chart api.
 Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
         https://github.com/amitu/amitu.github.com/blob/master/javascripts/mumpy.js
 
---><div ng-controller='MumPyGD' class='ng-cloak'>
-    <dl ng-repeat='row in gd' style='margin-bottom: 0px;' class='user_{{ row.username }}'>
+--><div class='ng-cloak' ng-controller='MumPyGD'>
+    <dl style='margin-bottom: 0px;' ng-repeat='row in gd' class='user_{{ row.username }}'>
         <dt>{{ row.name }}</dt>
         <dd ng-show='row.username'>
             {{ row.username }}<span ng-show='row.personalwebsite'>, 
@@ -89,7 +89,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
 
     <h3>Keyword Work</h3>
     <p>What people know.</p>
-    <dl ng-repeat='kw in kws' style='margin-bottom: 0px;' class='kw_{{ kw.kw }}'>
+    <dl style='margin-bottom: 0px;' ng-repeat='kw in kws' class='kw_{{ kw.kw }}'>
         <dt>{{ kw.kw }}</dt>
         <dd>
             {{ kw.users.length }}: 
@@ -99,7 +99,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
     
     <h3 style='margin-top: 15px;'>Keyword Learn</h3>
     <p>What people want to learn.</p>
-    <dl ng-repeat='kw in kls' style='margin-bottom: 0px;' class='kw_{{ kw.kw }}'>
+    <dl style='margin-bottom: 0px;' ng-repeat='kw in kls' class='kw_{{ kw.kw }}'>
         <dt>{{ kw.kw }}</dt>
         <dd>
             {{ kw.users.length }}: 
@@ -117,7 +117,7 @@ Source: https://raw.github.com/amitu/amitu.github.com/master/mumpy.md
     <h3 style='margin-top: 15px; clear: both;'>Location Preference</h3>
     <div style='height: 300px;' id='chart_loc'> </div>
     
-</div><link rel='stylesheet' href='/javascripts/jquery.fancybox-1.3.4.css' media='screen' type='text/css' /><script src='/javascripts/jquery.min.js'> </script><script src='/javascripts/angular.min.js'> </script><script src='/javascripts/jquery.fancybox-1.3.4.js'> </script><script src='https://www.google.com/jsapi'> </script><script src='/javascripts/mumpy.js'> </script>
+</div><link href='/javascripts/jquery.fancybox-1.3.4.css' media='screen' rel='stylesheet' type='text/css' /><script src='/javascripts/jquery.min.js'> </script><script src='/javascripts/angular.min.js'> </script><script src='/javascripts/jquery.fancybox-1.3.4.js'> </script><script src='https://www.google.com/jsapi'> </script><script src='/javascripts/mumpy.js'> </script>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
