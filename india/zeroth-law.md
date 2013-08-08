@@ -41,3 +41,26 @@ should become void by default.
 If 90% of people *are* violating a law, the state has no right to persecute a
 few. If the law *is* important for the state, then state *must* persecute
 everyone violating it.
+
+#### Why?
+
+In order to further understand the motivation behind this please read this
+brilliant article about [What Strengthens and Weakens Our Integrity -- Part I:
+Why Small Choices
+Count](http://www.artofmanliness.com/2013/08/05/what-strengthens-and-weakens-our-integrity-part-i-why-small-choices-count/).
+The key idea of which is:
+
+> Once you commit one dishonest act, your moral standards loosen, your
+> self-perception as an honest person gets a little hazier, your ability to
+> rationalize goes up, and your fudge factor margin increases. Where you draw
+> the line between ethical and unethical, honest and dishonest, moves outward.
+> From his research, Ariely has found that committing a dishonest act in one
+> area of your life not only leads to more dishonesty in that one area, but
+> ends up corrupting other areas of your life as well. "A single act of
+> dishonesty," he argues, "can change a person's behavior from that
+> point onward."
+
+A simple traffic rule, forces a person to decide for himself if they are going
+to be honest or not, and a mindless rule will force more and more people to
+break the rule, and skew their moral compass and make it more likely for them
+to break more rules (or feel bad about themselves).
