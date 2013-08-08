@@ -701,8 +701,8 @@ He who knows this shines with a golden light.
 <p>If you can&#8217;t see the light at the end of the tunnel. March down there and turn it on yourself.</p>
 <hr />
 <p>A gentle stream can split a mountain, given enough time.</p>
-<div id='QuotesList' style='position: relative' ng-controller='QuotesList'>
-    <input class='search-query' ng-model='search' type='text' style='position: absolute; left: 602px; top: -64px' placeholder='Search' />
+<div ng-controller='QuotesList' id='QuotesList' style='position: relative'>
+    <input class='search-query' placeholder='Search' type='text' ng-model='search' style='position: absolute; left: 602px; top: -64px' />
     <span ng-repeat='quote in quotes | filter:search'>
         <span ng-bind-html-unsafe='quote' />
         <hr />
