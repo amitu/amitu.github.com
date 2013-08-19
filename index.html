@@ -1,10 +1,9 @@
----
-layout: page
-title: "Welcome"
-tagline: Supporting tagline
-comments: false
----
-{% include JB/setup %}
+{% extends "page.html" %}
+{% block title %}Welcome{% endblock %}
+{% block comment %}{% endblock %}
+{% load markdown_this %}
+{% block page_content %}
+{% filter md %}
 
 Hey!
 
@@ -38,7 +37,8 @@ do about it](/india/rape/).
 
 <ul class="posts">
   {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}/">{{ post.title }}</a></li>
+    <li><span>{{ post.date }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}/">{{ post.title }}</a></li>
   {% endfor %}
 </ul>
-
+{% endfilter %}
+{% endblock %}
