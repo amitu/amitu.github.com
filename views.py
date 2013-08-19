@@ -13,7 +13,7 @@ def get_posts():
         if post.endswith(".swp"): continue
         content = post.open().read()
         _, header, body = content.split("---", 2)
-        #body = body.split("{% include JB/setup %}", 1)[1]
+        body = body.replace("{% include JB/setup %}", "")
         header = read_yaml(header)
         y, m, d, slug = post.basename().split("-", 3)
         slug = slug[:-3]
