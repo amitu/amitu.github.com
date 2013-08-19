@@ -10,8 +10,10 @@ def get_posts():
     if posts is not None: return posts
     posts = []
     for post in path(dotslash("_posts")).walkfiles():
+        if post.endswith(".swp"): continue
         content = post.open().read()
         _, header, body = content.split("---", 2)
+        #body = body.split("{% include JB/setup %}", 1)[1]
         header = read_yaml(header)
         y, m, d, slug = post.basename().split("-", 3)
         slug = slug[:-3]
@@ -19,7 +21,8 @@ def get_posts():
             "date": datetime(int(y), int(m), int(d)),
             "url": "/%s/%s/%s/" % (y, m, slug),
             "title": header["title"],
-            "file": (header, body),
+            "header": header,
+            "body": body,
         })
     posts.sort(lambda x, y: cmp(x["date"], y["date"]), reverse=True)
     return posts
@@ -45,4 +48,8 @@ def find_post_by_path(pth):
 @d("/<int4:year>/<int2:month>/<slug:slug>/")
 def post_page(request, year, month, slug):
     prev, curr, nex = find_post_by_path(request.path)
-    return [prev, curr, nex]
+    return "post.html", {
+        "previosu": prev,
+        "post": curr,
+        "next": nex
+    }

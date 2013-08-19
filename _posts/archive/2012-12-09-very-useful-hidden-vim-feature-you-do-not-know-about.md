@@ -9,8 +9,7 @@ tags: []
 
 You can use vim as a pager or syntax highlighting viewer for content from web.
 
-{% highlight bash %}
+:::shell
 $ vim http://amitu.com/javascripts/quotes.js
-{% endhighlight %}
 
 ViM downloads the file using curl and opens it in readonly mode.
