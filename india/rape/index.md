@@ -5,6 +5,8 @@ description: ""
 ---
 {% include JB/setup %}
 
+Help: There are a lot of typos in this document, [please help me fix some of them](https://draftin.com/documents/112034?token=E1xG8fEnQBfISHpeWO5SWCOka0DKAqgeFyBKVUnhX-pFqtz8NCW31XH9PO1FWxKVdKugOXruRBDjH2h3n2q42xA).
+
 India has gone into a frenzy over a gang rape case that rocked Delhi. Rape in a
 public bus. The victim of rape suffered brutal injuries and died subsequently.
 

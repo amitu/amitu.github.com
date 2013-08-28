@@ -5,6 +5,10 @@ description: ""
 ---
 {% include JB/setup %}
 
+"Where the needs of the world and your talents cross, there lies your
+vocation." -- Aristotle
+
+----
 The greatest pleasure in life is doing what people say you can not do.
 
 ----
