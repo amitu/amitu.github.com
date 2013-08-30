@@ -1,9 +1,8 @@
----
-layout: page
-title: "Quotes"
-description: ""
----
-{% include JB/setup %}
+{% extends "page.html" %}
+{% block title %}Quotes{% endblock %}
+{% block comment %}{% endblock %}
+{% block page_content %}
+{% filter md %}
 
 The greatest pleasure in life is doing what people say you can not do.
 
@@ -1244,10 +1243,11 @@ A gentle stream can split a mountain, given enough time.
     <input type="text" ng-model="search" class="search-query" style="position: absolute; left: 602px; top: -64px" placeholder="Search" />
     <span ng-repeat="quote in quotes | filter:search">
         <span ng-bind-html-unsafe="quote"></span>
-        <hr>
     </span>
 </div>
 
-<script src="/javascripts/jquery.min.js"> </script>
-<script src="/javascripts/angular.min.js"> </script>
-<script src="/javascripts/quotes.js"> </script>
+<script src="/static/js/jquery.min.js"> </script>
+<script src="/static/js/angular.min.js"> </script>
+<script src="/static/js/quotes.js"> </script>
+{% endfilter %}
+{% endblock %}

@@ -1,10 +1,8 @@
----
-layout: page
-title: "The Creed of Do"
-description: ""
----
-
-{% include JB/setup %}
+{% extends "page.html" %}
+{% block title %}The Creed of Do{% endblock %}
+{% block comment %}{% endblock %}
+{% block page_content %}
+{% filter md %}
 
 People are going to do whatever they are going to do, and the circumstances are
 going to be whatever they are going to be, the only thing a man has control
@@ -82,7 +80,7 @@ What realistic do we can to learn more. And what realistic do we can to make
 things better.
 
 There is always a path, and if you can not temporarily think of a path don't
-conclude there is none, jus wait for someone else to come up with a path. But
+conclude there is none, just wait for someone else to come up with a path. But
 do not prematurely conclude any random should to be a path because of
 ideological assumptions and fancies.
 
@@ -116,3 +114,6 @@ If the insignificants are not done the whole would come undone.
 #### So do
 
 Do. Do and learn. Learn and do.
+
+{% endfilter %}
+{% endblock %}

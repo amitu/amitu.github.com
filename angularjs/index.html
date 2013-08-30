@@ -1,9 +1,8 @@
----
-layout: page
-title: "angularjs"
-description: ""
----
-{% include JB/setup %}
+{% extends "page.html" %}
+{% block title %}angularjs{% endblock %}
+{% block comment %}{% endblock %}
+{% block page_content %}
+{% filter md %}
 
 #### Background And Personal Biases
 
@@ -112,30 +111,32 @@ description: ""
   available to for this application.
 
 * An example directive. Here we are creating a directive called "clicker". Once
-  the directive is created it can be used anywhere in HTML (within angular
-  root). [demo](/angularjs/clicker.html).
+the directive is created it can be used anywhere in HTML (within angular
+root). [demo](/angularjs/clicker.html).
 
-{% highlight html %}
-<!doctype html>
-<html ng-app="amitu-clicker">
-  <head>
-    <script src="/angularjs/angular.min.js"></script>
-    <script>
-        angular.module("amitu-clicker", []).
-            directive("clicker", function() {
-                return function(scope, element, attrs) {
-                    element.bind("click", function(){
-                        console.log("click");
-                    });
-                }
-            });
-    </script>
-  </head>
-  <body>
-      <a href="#" clicker>clicker</a>
-  </body>
-</html>
-{% endhighlight %}
+{% endfilter %}
+{% filter md %}
+
+    :::html
+    <!doctype html>
+    <html ng-app="amitu-clicker">
+      <head>
+        <script src="/angularjs/angular.min.js"></script>
+        <script>
+            angular.module("amitu-clicker", []).
+                directive("clicker", function() {
+                    return function(scope, element, attrs) {
+                        element.bind("click", function(){
+                            console.log("click");
+                        });
+                    }
+                });
+        </script>
+      </head>
+      <body>
+          <a href="#" clicker>clicker</a>
+      </body>
+    </html>
 
 * Things to note in this example:
 
@@ -233,3 +234,6 @@ description: ""
   \}\} like expressions in angular.
 
  * Hello, \{\{ name || 'Empty' \}\}!, shows "Hello, amitu!" or "Hello, Empty".
+
+{% endfilter %}
+{% endblock %}

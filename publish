@@ -1,0 +1,9 @@
+#!/bin/sh
+
+set -e
+set -x
+
+wget -m http://localhost:8000
+rm -rf build
+mv localhost:8000 build
+ghp-import -b master -m "syncing" build

@@ -1,8 +1,8 @@
----
-layout: page
-title: "India"
----
-{% include JB/setup %}
+{% extends "page.html" %}
+{% block title %}India{% endblock %}
+{% block comment %}{% endblock %}
+{% block page_content %}
+{% filter md %}
 
 Hey!
 
@@ -25,3 +25,5 @@ and all other politically opinionated to match me in this level of
 transparency.
 
 -- Amit Upadhyay
+{% endfilter %}
+{% endblock %}
