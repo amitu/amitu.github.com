@@ -1,9 +1,7 @@
----
-layout: page
-title: "Flash: Introduction"
-description: ""
----
-{% include JB/setup %}
+{% extends "page.html" %}
+{% block title %}Flash: Introduction{% endblock %}
+{% block page_content %}
+{% filter md %}
 
 Flash can be argued to be a dying technology, but this is the time I picked to
 learn Flash. I have always wanted to learn it, but I never "got it". I can not
@@ -19,3 +17,6 @@ while I generally dislike IDEs, eclipse backing with support for refactoring,
 type based auto complete, debugger has mostly over come my problems with IDEs.
 
 Back to [Flash For Python Developers](/flash/).
+
+{% endfilter %}
+{% endblock %}

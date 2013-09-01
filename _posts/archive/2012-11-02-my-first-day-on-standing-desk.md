@@ -16,16 +16,16 @@ money yet.
 Today I came upon the idea of using my fridge as my desk. It is the right
 height:
 
-![My Fridge](/images/standing-desk-1.jpg)
+![My Fridge](/static/images/standing-desk-1.jpg)
 
 There is plenty of room for my laptop and my arms to rest.
 
-![Plenty of room](/images/standing-desk-2.jpg)
+![Plenty of room](/static/images/standing-desk-2.jpg)
 
 Unlike some advice I heard in ergonomics, I prefer to rest my entire arm from
 elbow to wrist on the table, so I needed some room for my arms.
 
-![Plenty of room](/images/standing-desk-3.jpg)
+![Plenty of room](/static/images/standing-desk-3.jpg)
 
 As luck would have it my kitchen has fan, and the weather is such that AC is
 not really required.

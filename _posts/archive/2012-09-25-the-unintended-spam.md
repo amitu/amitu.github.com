@@ -42,11 +42,12 @@ In my opinion, these usability issues are the key reason I moved away from
 these services.
 
 I am playing with an
-[experiment](/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/) of
-managing my followers though [email list](bit.ly/QfLC35), where I have created
-groups each subscriber can add themselves to. In my case the
-[groups](bit.ly/QfLC35) are "Programming & Geeky Stuff", "Politics & India &
-Philosophy", and "Personal Stuff & Random Thoughts"(2).
+[experiment](/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/)
+of managing my followers though [email list](http://bit.ly/QfLC35),
+where I have created groups each subscriber can add themselves to. In my
+case the [groups](http://bit.ly/QfLC35) are "Programming & Geeky Stuff",
+"Politics & India & Philosophy", and "Personal Stuff & Random
+Thoughts"(2).
 
 I think this is a superior approach than the facebook/twitter/blog rss because
 when my readers will receive an email they do not like, they will see a link at

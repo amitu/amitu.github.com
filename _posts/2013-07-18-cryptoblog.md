@@ -32,14 +32,14 @@ Look here, the entire history of this blog is available here on this fine
 [github hosted page](https://github.com/amitu/amitu.github.com/commits/master).
 
 <a href="https://github.com/amitu/amitu.github.com/commits/master"><img
-src="/images/cryptoblog1.png" class="hcenter"></a>
+src="/static/images/cryptoblog1.png" class="hcenter"></a>
 
 Look! The authors of the blog can no longer modify the blogs post after
 publishing them once. And if you are wondering what do these strange things
 mean:
 
 <a href="https://github.com/amitu/amitu.github.com/commits/master"><img
-src="/images/cryptoblog2.png" class="hcenter"></a>
+src="/static/images/cryptoblog2.png" class="hcenter"></a>
 
 Those numbers and characters have special power of Maths. The Maths gaurantee
 that the author can never change any of his previous blog posts without also

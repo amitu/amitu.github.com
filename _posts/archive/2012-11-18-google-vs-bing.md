@@ -9,10 +9,10 @@ tags: []
 
 The real reason google is better than bing is not because of:
 
-![Google](/images/google.png)
+![Google](/static/images/google.png)
 
 vs
 
-![Bing](/images/bing.png)
+![Bing](/static/images/bing.png)
 
 ... but because I knew this will happen even before I tried this.

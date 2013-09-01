@@ -37,12 +37,12 @@ domain
 instruction](https://help.github.com/articles/setting-up-a-custom-domain-with-pages),
 and you will see this:
 
-<img src="/images/github-custom.png" class="hcenter">
+<img src="/static/images/github-custom.png" class="hcenter">
 
 And doing a "dig amitu.com +nostats +nocomments +nocmd" on my site, you will
 see:
 
-<img src="/images/amitu.com-dig.png" class="hcenter">
+<img src="/static/images/amitu.com-dig.png" class="hcenter">
 
 With this you can verify that my site is going to github pages.
 

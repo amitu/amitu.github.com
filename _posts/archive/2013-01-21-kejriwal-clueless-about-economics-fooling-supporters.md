@@ -14,7 +14,7 @@ and is fooling the masses who is following him.
 
 Here is the post:
 
-![Kejriwal about Diesel](/images/kejriwal-diesel.png)
+![Kejriwal about Diesel](/static/images/kejriwal-diesel.png)
 
 He claims government is exporting diesel at Rs 42/- per liter and yet selling
 at a higher price Rs 55/- per liter, and based on this he concludes there is no

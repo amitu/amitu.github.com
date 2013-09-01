@@ -266,9 +266,10 @@ First and foremost, any such tool only works if it has people on it. So our
 first responsibility is to reach out to people far and wide, people only we can
 talk to, and introduce them to reddit. It is our job number one.
 
-Second: Reddit is organized into subreddit, portals for individual interests. I
-have created one such subreddit, [/r/aap](www.reddit.com/r/aap/). You will want
-to join reddit and subscribe to it.
+Second: Reddit is organized into subreddit, portals for individual
+interests. I have created one such subreddit,
+[/r/aap](http://www.reddit.com/r/aap/). You will want to join reddit and
+subscribe to it.
 
 Now how does reddit work? On reddit we do three things: one, we read about what
 is popular. We do not want to read just what Arvind shared on his wall, or
