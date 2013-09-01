@@ -6,9 +6,12 @@ author:
 
 site:
     title: Amit Upadhyay
+    production_url: http://amitu.com
 
 TEMPLATE_CONTEXT_PROCESSORS:
     - django.core.context_processors.request
     - django.contrib.auth.context_processors.auth
     - views.context_processor
+
+DISCUSS_SHORTNAME: amitu
 

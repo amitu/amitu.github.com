@@ -36,8 +36,11 @@
 
                     </p>
 
+          {% block comments %}
 					<div class="comment">
+            {% include "comments.html" %}
 					</div>
+          {% endblock %}
 
 			<footer class="unit-foot">
 				<div class="unit-inner unit-foot-inner">

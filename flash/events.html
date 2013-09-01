@@ -1,0 +1,148 @@
+{% extends "page.html" %}
+{% block title %}Flash: Event System{% endblock %}
+{% block page_content %}
+{% filter md %}
+
+Flash has a unified event system, implemented in flash.events.EventDispatcher
+class. Any class that intends to emit events has to subclass EventDispatcher.
+
+EventDispatcher has a protected dispatchEvent() method that can be used by the
+subclass to fire events.
+
+EventDispatcher subclasses have a public addEventListener() that can be used to
+bind event handlers to events fired. Events in flash are identifier by a name
+that is a unique string representing that event. This identifier is passed to
+addEventListener(identifier, handler) along with a handler method. If handler
+is a method on any class, that method must be public, otherwise it can be an
+anonymous function. There is also a corresponding removeEventListener() that
+takes the same parameters as addEventListener(). If you intend to use
+removeEventListener() you can not use anonymous function as event handler.
+
+The event handler that is passed to addEventListener() is called with an event
+object that may contain event specific data.
+
+It is a common pattern to create a public Event subclass for every event
+emitting class, and store the event identifier string as a public static const
+attribute on this class. This facilitates in compile time code validation, as
+using string identifier directly is error prone to typos.
+
+Lets create a class that emits events, lets say we store some data in a data
+container, DataContainer, and this data container does validation on the data,
+and if data is found to be invalid it fires an InvalidData event.
+
+First lets look at our custom event:
+
+  :::actionscript
+  package com.amitu.datacontainer
+  {
+      import flash.events.Event;
+
+      public class DataContainerEvent extends Event
+      {
+          public static const InvalidData:String = (
+              "com.amitu.datacontainer.InvalidData";
+          )
+          public DataContainerEvent()
+          {
+              super(InvalidData);
+          }
+      }
+  }
+
+As you can see we have created a unique string identifier
+"com.amitu.datacontainer.InvalidData" and made it available via a public static
+const varaible. Rest of the code should refer to this string via this constant
+to avoid errors.
+
+Here is our DataContainer:
+
+  :::actionscript
+  package com.amitu.datacontainer
+  {
+      import flash.events.EventDispatcher
+
+      public class DataContainer extends EventDispatcher
+      {
+          private obj:Object;
+
+          public DataContainer(initial:Object)
+          {
+              set(initial);
+          }
+
+          public function set(o:Object):void
+          {
+              this.obj = o;
+              this.validate();
+          }
+
+          public function get():Object
+          {
+              return this.obj;
+          }
+
+          protected function fireError():void
+          {
+              dispatchEvent(new DataContainerEvent());
+          }
+
+          private function validate():void
+          {
+              // other classes may subclass this to
+              // implement custom validation
+              if (this.obj == null)
+              {
+                  this.fireError();
+              }
+          }
+      }
+  }
+
+The crux of this class is .validate() method that does validation and fires our
+DataContainerEvent on validation failure. Other classes may subclass
+DataContainer and provide custom .validate() methods for data type specific
+validation.
+
+We can also implement a new event DataChanged that is fired everytime we change
+the data.
+
+Now lets see how to use this class and event handler:
+
+  :::actionscript
+  package com.amitu.example
+  {
+      import com.amitu.datacontainer.DataContainer;
+      import com.amitu.datacontainer.DataContainerEvent;
+
+      public class DataContainerExample
+      {
+          public var data:DataContainer;
+          public function DataContainerExample()
+          {
+              data = new DataContainer(null);
+              data.addEventListener(
+                  DataContainerEvent.InvalidData, onInvalidData
+              );
+          }
+          public function onInvalidData(event:DataContainerEvent):void
+          {
+              trace("invalid data");
+          }
+      }
+  }
+
+An astute reader will immediate identify a race condition problem with this
+example and our DataContainer, we are passing the initial value to
+DataContainer as constructor parameter, and DataContainer constructor is
+calling .set() which calls .validate(), which in tern fires the event. All this
+happens before we get to call data.addEventListener().
+
+Flash event system will not buffer events, and the way to fix this is by either
+ignoring the event fired in constructor and calling data.set() after the call
+to data.addEventListener() in our DataContainerExample. Because of this
+drawback we may modify our DataContainer class to not accept initial value.
+
+Back to [Flash For Python Developers](/flash/).
+
+{% endfilter %}
+{% endblock %}

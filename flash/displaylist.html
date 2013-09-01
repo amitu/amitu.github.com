@@ -1,0 +1,51 @@
+{% extends "page.html" %}
+{% block title %}Flash: What is Displaylist?{% endblock %}
+{% block comment %}{% endblock %}
+{% block page_content %}
+{% filter md %}
+
+Displaylist is how flash runtime stores what objects are to be displayed on
+screen. Everything that is to be displayed has to be stored in displaylist.
+
+Displaylist is a rather wrong terminology, it should be called display tree, as
+flash runtime stores objects in a tree fashion. The main entry point of flash
+application is an object of class Sprite or its subclass. That object is the
+root of the display tree. The main class instantiates other display objects,
+and do addChild() on them, to add them as child nodes of current nodes, some of
+these children may have children of their own and so on.
+
+Flash runtime traverses through this tree, top to bottom, left to right, and
+and displays each object. Objects that come later may obscure objects that came
+before.
+
+Flash runtime has a concept of frame rate, typically 60FPS. That means flash
+runtime goes though the entire displaylist, 60 times per second, and updates
+the display. This means the more objects that are there in displaylist, the
+more processing power is required.
+
+Each object has a boolean attribute .visible, that can be set to false, and
+flash runtime will not show its content.
+
+There are two way to hide an object that is not currently needed, we can either
+remove it from the displaylist using the method .removeChild(), or we can set
+its visibility to false. If we remove the object from displaylist, adding it
+back may change it display order, or its position in displaylist, causing it to
+overlap other objects.  For this reason .visible=false may be preferred, as
+that does not change the order in which objects are drawn.
+
+Removing object from displaylist should be preferred for performance reasons,
+the fewer objects that are there in displaylist, the fewer objects flash
+runtime will have to go through in each frame.
+
+#### Display Object vs Display Container
+
+In flash, the objects that can be displayed on screen are called display
+object. Some of these objects can also contain children, such objects are
+called display container. Example of a display object that is not a display
+container is Bitmap, TextField and so on. This is another of performance
+optimizations.
+
+Back to [Flash For Python Developers](/flash/).
+
+{% endfilter %}
+{% endblock %}
