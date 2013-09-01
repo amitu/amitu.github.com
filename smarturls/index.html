@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
@@ -7,12 +6,13 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>smarturls</title>
+    <title>Amit Upadhyay: smarturls</title>
 	<meta name="author" content="Amit Upadhyay">
-	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<!-- script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script -->
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
-<body>
+<body ng-app>
 
 <div id="page" class="hentry">
 	<header class="the-header">
@@ -20,11 +20,18 @@
 			<div class="unit-inner unit-head-inner">
 				<nav class="nav-global">
 					<ul>
-						<li class="logo"><a href="/">&lt;- amitu</a></li>
-						<li class="archive"><a href="/smarturls/">smarturls</a></li>
+						<li class="logo"><a href="/">Amit Upadhyay</a></li>
+						<!-- li class="archive"><a href="/archive.html">archive</a></li -->
+						<li class="page"><a href="/">blog</a></li>
+						<li class="page"><a href="/open-source.html">open source</a></li>
+						<li class="page"><a href="/quotes.html">quotes</a></li>
+						<li class="page"><a href="/lab/">experiments</a></li>
+						<li class="page"><a href="/india/">India</a></li>
+						<!-- li class="page"><a href="/faq.html">faq</a></li -->
+						<!-- li class="page"><a href="/pages.html">pages</a></li -->
 						<!-- li class="category"><a href="/categories.html">categories</a></li>
-						<li class="tag"><a href="/tags.html">tags</a></li -->
-						<!-- li class="forkme"><div><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=amitu&repo=smarturls&type=fork&count=true"
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><div><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
 									allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></div></li -->
 					</ul>
 				</nav>
@@ -35,83 +42,123 @@
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
-					
+                    
 <article class="unit-article layout-page">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">smarturls</h1>
+                        <h1 class="h2 entry-title">smarturls</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>smarturls comes with a library of regularly used regular expression patterns to easy regex creation for django urls. The library can be extended by using django setting system.</p>
+                    
+<p>smarturls comes with a library of regularly used regular expression patterns to
+easy regex creation for django urls. The library can be extended by using
+django setting system.</p>
+<h4>Install smarturls</h4>
+<div class="codehilite"><pre><span class="nv">$ </span>easy_install smarturls
+</pre></div>
 
-<h4 id='install_smarturls'>Install smarturls</h4>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>easy_install smarturls
-</code></pre></div>
-<h4 id='example_usage'>Example usage</h4>
 
+<h4>Example usage</h4>
 <p>This is how normal django urls.py looks like:</p>
-<div class='highlight'><pre><code class='python'><span class='kn'>from</span> <span class='nn'>django.conf.urls.defaults</span> <span class='kn'>import</span> <span class='o'>*</span>
-<span class='n'>urlpatterns</span> <span class='o'>=</span> <span class='n'>patterns</span><span class='p'>(</span><span class='s'>&#39;&#39;</span><span class='p'>,</span>
-    <span class='p'>(</span><span class='s'>&#39;^book/(?P&lt;bookid&gt;\d+)/$&#39;</span><span class='p'>,</span> <span class='s'>&#39;some.view&#39;</span><span class='p'>),</span>
-    <span class='p'>(</span><span class='s'>&#39;^author/(?P&lt;author_name&gt;[-\w]+)/$&#39;</span><span class='p'>,</span> <span class='s'>&#39;some.other.view&#39;</span><span class='p'>),</span>
-    <span class='p'>(</span><span class='s'>&#39;^year/(?P&lt;year&gt;\d{4,4})/$&#39;</span><span class='p'>,</span> <span class='s'>&#39;year.view&#39;</span><span class='p'>),</span>
-    <span class='p'>(</span><span class='s'>&#39;^year/(?P&lt;year&gt;\d{4,4})/(?P&lt;month&gt;\w+)/$&#39;</span><span class='p'>,</span> <span class='s'>&#39;month.view&#39;</span><span class='p'>),</span>
-<span class='p'>)</span>
-</code></pre></div>
+<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="p">(</span><span class="s">&#39;^book/(?P&lt;bookid&gt;\d+)/$&#39;</span><span class="p">,</span> <span class="s">&#39;some.view&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;^author/(?P&lt;author_name&gt;[-\w]+)/$&#39;</span><span class="p">,</span> <span class="s">&#39;some.other.view&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;^year/(?P&lt;year&gt;\d{4,4})/$&#39;</span><span class="p">,</span> <span class="s">&#39;year.view&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s">&#39;^year/(?P&lt;year&gt;\d{4,4})/(?P&lt;month&gt;\w+)/$&#39;</span><span class="p">,</span> <span class="s">&#39;month.view&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
+
+
 <p>This is how it looks like with smarturls:</p>
-<div class='highlight'><pre><code class='python'><span class='kn'>from</span> <span class='nn'>django.conf.urls.defaults</span> <span class='kn'>import</span> <span class='o'>*</span>
-<span class='kn'>from</span> <span class='nn'>smarturls</span> <span class='kn'>import</span> <span class='n'>surl</span>
-<span class='n'>urlpatterns</span> <span class='o'>=</span> <span class='n'>patterns</span><span class='p'>(</span><span class='s'>&#39;&#39;</span><span class='p'>,</span>
-    <span class='n'>surl</span><span class='p'>(</span><span class='s'>&#39;/book/&lt;int:bookid&gt;/&#39;</span><span class='p'>,</span> <span class='s'>&#39;some.view&#39;</span><span class='p'>),</span>
-    <span class='n'>surl</span><span class='p'>(</span><span class='s'>&#39;/author/&lt;slug:author_name&gt;/&#39;</span><span class='p'>,</span> <span class='s'>&#39;some.other.view&#39;</span><span class='p'>),</span>
-    <span class='n'>surl</span><span class='p'>(</span><span class='s'>&#39;/year/&lt;int4:year&gt;/&#39;</span><span class='p'>,</span> <span class='s'>&#39;year.view&#39;</span><span class='p'>),</span>
-    <span class='n'>surl</span><span class='p'>(</span><span class='s'>&#39;/year/&lt;int4:year&gt;/&lt;word:month&gt;/&#39;</span><span class='p'>,</span> <span class='s'>&#39;month.view&#39;</span><span class='p'>),</span>
-<span class='p'>)</span>
-</code></pre></div>
-<h4 id='custom_patterns'>Custom patterns</h4>
+<div class="codehilite"><pre><span class="kn">from</span> <span class="nn">django.conf.urls.defaults</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">smarturls</span> <span class="kn">import</span> <span class="n">surl</span>
+<span class="n">urlpatterns</span> <span class="o">=</span> <span class="n">patterns</span><span class="p">(</span><span class="s">&#39;&#39;</span><span class="p">,</span>
+    <span class="n">surl</span><span class="p">(</span><span class="s">&#39;/book/&lt;int:bookid&gt;/&#39;</span><span class="p">,</span> <span class="s">&#39;some.view&#39;</span><span class="p">),</span>
+    <span class="n">surl</span><span class="p">(</span><span class="s">&#39;/author/&lt;slug:author_name&gt;/&#39;</span><span class="p">,</span> <span class="s">&#39;some.other.view&#39;</span><span class="p">),</span>
+    <span class="n">surl</span><span class="p">(</span><span class="s">&#39;/year/&lt;int4:year&gt;/&#39;</span><span class="p">,</span> <span class="s">&#39;year.view&#39;</span><span class="p">),</span>
+    <span class="n">surl</span><span class="p">(</span><span class="s">&#39;/year/&lt;int4:year&gt;/&lt;word:month&gt;/&#39;</span><span class="p">,</span> <span class="s">&#39;month.view&#39;</span><span class="p">),</span>
+<span class="p">)</span>
+</pre></div>
 
-<p>Existing patterns can be overwritten and new ones can be defined by defingin the django setting SURL_REGEXERS.</p>
 
+<h4>Custom patterns</h4>
+<p>Existing patterns can be overwritten and new ones can be defined by defingin
+the django setting SURL_REGEXERS.</p>
 <p>Eg, in settings.py:</p>
-<div class='highlight'><pre><code class='python'><span class='n'>SURL_REGEXERS</span> <span class='o'>=</span> <span class='p'>{</span>
-    <span class='s'>&quot;slug&quot;</span><span class='p'>:</span> <span class='s'>&quot;\w[-\w]*&quot;</span><span class='p'>,</span> <span class='c'># overwrite slug: always start with alphanumeric</span>
-    <span class='s'>&quot;username&quot;</span><span class='p'>:</span> <span class='s'>&quot;\w+&quot;</span>   <span class='c'># now you can use /author/&lt;username:author&gt;/ etc</span>
-<span class='p'>}</span>
-</code></pre></div>
-<h4 id='default_patterns'>Default Patterns</h4>
+<div class="codehilite"><pre><span class="n">SURL_REGEXERS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">&quot;slug&quot;</span><span class="p">:</span> <span class="s">&quot;\w[-\w]*&quot;</span><span class="p">,</span> <span class="c"># overwrite slug: always start with alphanumeric</span>
+    <span class="s">&quot;username&quot;</span><span class="p">:</span> <span class="s">&quot;\w+&quot;</span>   <span class="c"># now you can use /author/&lt;username:author&gt;/ etc</span>
+<span class="p">}</span>
+</pre></div>
 
+
+<h4>Default Patterns</h4>
 <p>By default smarturls comes with the following patterns:</p>
-
 <ul>
 <li>int: \d+</li>
-
 <li>int2: \d{2,2}</li>
-
 <li>int4: \d{4,4}</li>
-
 <li>word: \w+</li>
-
 <li>slug: [\w-]+</li>
-
 <li>digit: \d{1,1}</li>
-
 <li>username: [\w.@+-]+</li>
 </ul>
+<h4>Contribute</h4>
+<p>Do you repeatedly use some URL pattern that everyone may want to use? Please
+mail me about it: code@amitu.com.</p>
+<p>Report issues on <a href="http://github.com/amitu/smarturls/issues/">github issue page</a>
+or <a href="http://github.com/amitu/smarturls/">fork the project</a> (let me know if you
+do).</p>
 
-<h4 id='contribute'>Contribute</h4>
-
-<p>Do you repeatedly use some URL pattern that everyone may want to use? Please mail me about it: code@amitu.com.</p>
-
-<p>Report issues on <a href='http://github.com/amitu/smarturls/issues/'>github issue page</a> or <a href='http://github.com/amitu/smarturls/'>fork the project</a> (let me know if you do).</p>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
+					<hr>
+<figure class="kudo kudoable" data-id="1">
+    <a class="kudobject">
+        <div class="opening">
+            <div class="circle">&nbsp;</div>
+        </div>
+    </a>
+    <a href="#kudo" class="count">
+        <span class="num">0</span>
+        <span class="txt">Kudos</span>
+    </a>
+</figure>
+					
+                    <p clas="subscribe" style="background: #fcf7ab; padding-left: 10px">
+
+                        <a href="http://twitter.com/amitu">Follow me on twitter: 
+                        @amitu</a>.
+
+                    </p>
+
+          
+					<div class="comment">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'amitu';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+					</div>
+          
 
 			<footer class="unit-foot">
 				<div class="unit-inner unit-foot-inner">
@@ -125,7 +172,6 @@
 	</div><!-- unit-inner -->
 </article>
 
-
 				</div>
 			</div><!-- unit-inner -->
 		</div><!-- unit-body -->
@@ -134,16 +180,20 @@
 		<div class="unit-foot">
 			<div class="unit-inner unit-foot-inner">
 				<div class="misc vcard">
-					<h4>smarturls - 0.1.2</h4>
+					<h4>about</h4>
 					<ul>
-						<li class="github">fork me: <a href="http://github.com/amitu/smarturls/">github.com/amitu/smarturls</a></li>
-						<!-- li class="docs">docs: <a href="http://packages.python.org/smarturls">packages.python.org/smarturls</a></li -->
-                        <li class="docs"><a href="https://github.com/amitu/smarturls/blob/master/ChangeLog.rst">ChangeLog</a></li>
-						<li class="github">pypi: <a href="http://pypi.python.org/pypi/smarturls/">pypi.python.org/pypi/smarturls</a></li>
-						<li class="github"><a href="http://github.com/amitu/smarturls/issues/">issues</a></li>
-						<li class="github">license: <a href="http://github.com/amitu/smarturls/issues/">bsd</a></li>
+						<li class="contact"><address><span class="author fn n">Amit Upadhyay</span> - <span class="fn email">blog@amitu.com</span></address></li>
+						<li class="github"><a href="http://github.com/amitu/" rel="me">github.com/amitu</a></li>
+						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
+                        <!-- li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li -->
+                        <!-- li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li -->
 					</ul>
 				</div><!-- misc -->
+				<a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @amitu</a>
+				<p class="licence">
+					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
 			</div><!-- unit-foot-inner -->
 		</div><!-- unit-foot -->
 	</footer>
@@ -156,8 +206,6 @@
 		fjs.parentNode.insertBefore(js, fjs);
 		};
 	load('//platform.twitter.com/widgets.js', 'tweetjs');
-	// load('https://apis.google.com/js/plusone.js', 'gplus1js'); // Checkout http://j.mp/ApDgMr for usage html for this is <div class="g-plusone" data-size="medium"></div>
-	// load('//connect.facebook.net/en_US/all.js#xfbml=1', 'fbjssdk'); // Checkout http://j.mp/wZw2xR for using open graph protorol html for this is <div class="fb-like" data-href="/smarturls/index.html" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="verdana"></div>
 	}(document, 'script'));
 </script>
 <script>
@@ -165,7 +213,10 @@
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
   
-  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 </body>
 </html>
-

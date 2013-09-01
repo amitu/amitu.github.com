@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
@@ -7,10 +6,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Amit Upadhyay: Open Source</title>
+    <title>Amit Upadhyay: Open Source</title>
 	<meta name="author" content="Amit Upadhyay">
-	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<link href="http://amitu.com/atom.xml" rel="alternate" title="Open Source" type="application/atom+xml">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body ng-app>
@@ -43,103 +42,151 @@
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
-					
+                    
 <article class="unit-article layout-page">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">Open Source</h1>
+                        <h1 class="h2 entry-title">Open Source</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<h4 id='jappy_framework'><a href='https://github.com/jarsj/jappy-framework'>Jappy Framework</a></h4>
-
-<p>This is a nascent framework that <a href='http://www.linkedin.com/in/jarsj'>Harsh Jain</a> has developed. Its a web framework for Java and it rocks.</p>
-
-<p>It is in its very early days, very alpha, but I am using it in a few production apps and this framework is the only reason I can tolerate java for web development.</p>
-
-<p>So far I have only filed bugs, but I am planning to do a lot of advocacy for it, and hopefully fix few of those bugs.</p>
+                    
+<h4><a href="https://github.com/jarsj/jappy-framework">Jappy Framework</a></h4>
+<p>This is a nascent framework that <a href="http://www.linkedin.com/in/jarsj">Harsh Jain</a>
+has developed. Its a web framework for Java and it rocks.</p>
+<p>It is in its very early days, very alpha, but I am using it in a few production
+apps and this framework is the only reason I can tolerate java for web
+development.</p>
+<p>So far I have only filed bugs, but I am planning to do a lot of advocacy for
+it, and hopefully fix few of those bugs.</p>
 <hr />
-<h4 id='fhurl'><a href='http://packages.python.org/fhurl/'>fhurl</a></h4>
-
-<p>I do not think I will write any django application without my <a href='http://packages.python.org/fhurl/'>fhurl</a>. fhurl is a generic views that serves forms.</p>
-
-<p>Since I have designed it I have not found one use case that can not be handled by this generic utility, ajax form, as you type validation, pre conditions for forms, initializing forms with custom values, almost every thing is supported. Can handle multiple forms in the same page with equal ease.</p>
+<h4><a href="http://packages.python.org/fhurl/">fhurl</a></h4>
+<p>I do not think I will write any django application without my
+<a href="http://packages.python.org/fhurl/">fhurl</a>. fhurl is a generic views that
+serves forms.</p>
+<p>Since I have designed it I have not found one use case that can not be handled
+by this generic utility, ajax form, as you type validation, pre conditions for
+forms, initializing forms with custom values, almost every thing is supported.
+Can handle multiple forms in the same page with equal ease.</p>
 <hr />
-<h4 id='smarturls'><a href='/smarturls/'>smarturls</a></h4>
-
-<p><a href='/smarturls/'>smarturls</a> is a django helper to easy creation of urls.py. Django routes incoming HTTP requests to specific views by doing regular expression matches. This is awesome as it gives us <a href='http://www.w3.org/Provider/Style/URI.html'>clean URLs</a>. But it means we have to deal with &#8220;ugly&#8221; regular expressions.</p>
-
-<p>This library is kind of a regular expression generator library that integrates well with django. <a href='/smarturls/'>More details</a>.</p>
+<h4><a href="/smarturls/">smarturls</a></h4>
+<p><a href="/smarturls/">smarturls</a> is a django helper to easy creation of urls.py. Django
+routes incoming HTTP requests to specific views by doing regular expression
+matches. This is awesome as it gives us <a href="http://www.w3.org/Provider/Style/URI.html">clean
+URLs</a>. But it means we have to deal
+with "ugly" regular expressions.</p>
+<p>This library is kind of a regular expression generator library that integrates
+well with django. <a href="/smarturls/">More details</a>.</p>
 <hr />
-<h4 id='importd'><a href='/importd/'>importd</a></h4>
-
-<p><a href='/importd/'>importd</a> is my another favorite. A minimal django application is too large, it contains settings.py, urls.py, at least one views.py. If I want to quickly expose one small JSON api from my server, django appears to be an overkill. Flask and other micro frameworks are emerging to allow a single file web application. But django is awesome, and flask etc are a different beast to learn. One never knows when one api becomes 10 and when we start requiring more features. If I use flask I will have to either give up django, or rewrite everything again.</p>
-
-<p>Django rocks, and <a href='/importd/'>importd</a> makes it trivial to write single file django projects. It is still early in development, so please file bugs!</p>
+<h4><a href="/importd/">importd</a></h4>
+<p><a href="/importd/">importd</a> is my another favorite. A minimal django application is
+too large, it contains settings.py, urls.py, at least one views.py. If I want
+to quickly expose one small JSON api from my server, django appears to be an
+overkill. Flask and other micro frameworks are emerging to allow a single file
+web application. But django is awesome, and flask etc are a different beast to
+learn. One never knows when one api becomes 10 and when we start requiring more
+features. If I use flask I will have to either give up django, or rewrite
+everything again.</p>
+<p>Django rocks, and <a href="/importd/">importd</a> makes it trivial to write single file
+django projects. It is still early in development, so please file bugs!</p>
 <hr />
-<h4 id='zutils'><a href='https://github.com/amitu/zutils/blob/master/amitu/zutils.py'>zutils</a></h4>
-
-<p><a href='http://www.zeromq.org/intro:read-the-manual'>ZeroMQ</a> is an awesome library. Every developer should learn about it. It allows you to easily build network application with topologies other than peer-to-peer communication that bsd socket interface provides. ZeroMQ allows Pub-Sub, message queue, Request-Reply, Push-Pull topologies.</p>
-
-<p>ZeroMQ has good bindings for python, but they are a little too low level. My <a href='https://github.com/amitu/zutils/blob/master/amitu/zutils.py'>zutils</a> wraps zmq api and gives some high level classes to easily use zeromq. Nearly every zeromq application I have written have used these classes.</p>
+<h4><a href="https://github.com/amitu/zutils/blob/master/amitu/zutils.py">zutils</a></h4>
+<p><a href="http://www.zeromq.org/intro:read-the-manual">ZeroMQ</a> is an awesome library.
+Every developer should learn about it. It allows you to easily build network
+application with topologies other than peer-to-peer communication that bsd
+socket interface provides. ZeroMQ allows Pub-Sub, message queue, Request-Reply,
+Push-Pull topologies.</p>
+<p>ZeroMQ has good bindings for python, but they are a little too low level. My
+<a href="https://github.com/amitu/zutils/blob/master/amitu/zutils.py">zutils</a> wraps zmq
+api and gives some high level classes to easily use zeromq.  Nearly every
+zeromq application I have written have used these classes.</p>
 <hr />
-<h4 id='dutils'><a href='http://packages.python.org/dutils/'>dutils</a></h4>
-
-<p><a href='http://packages.python.org/dutils/'>dutils</a> is my collection of miscellaneous django related utility methods. dutils used to be my companion in all django projects till sometime back. dutils lacked any cohesive theme, and since then I have started splitting out functionalities out of it.</p>
-
-<p>It is one of my first open source libraries. It is still a good resource at times when I am doing django work.</p>
+<h4><a href="http://packages.python.org/dutils/">dutils</a></h4>
+<p><a href="http://packages.python.org/dutils/">dutils</a> is my collection of miscellaneous
+django related utility methods. dutils used to be my companion in all django
+projects till sometime back. dutils lacked any cohesive theme, and since then I
+have started splitting out functionalities out of it.</p>
+<p>It is one of my first open source libraries. It is still a good resource at
+times when I am doing django work.</p>
 <hr />
-<h4 id='amituwebsocketclient'><a href='https://github.com/amitu/amitu-websocket-client'>amitu-websocket-client</a></h4>
-
-<p><a href='https://github.com/amitu/amitu-websocket-client'>amitu-websocket-client</a> is my most forked project on github. Its a python library that can be used to communicate with websocket servers. It also supports <a href='http://socket.io'>socketio</a>.</p>
+<h4><a href="https://github.com/amitu/amitu-websocket-client">amitu-websocket-client</a></h4>
+<p><a href="https://github.com/amitu/amitu-websocket-client">amitu-websocket-client</a> is my
+most forked project on github. Its a python library that can be used to
+communicate with websocket servers. It also supports
+<a href="http://socket.io">socketio</a>.</p>
 <hr />
-<h4 id='hydrazine'><a href='https://github.com/amitu/hydrazine'>hydrazine</a></h4>
-
-<p>This is one awesome concept, basically what hydrazine does it takes your Ubuntu server or desktop, and it takes an Ubuntu ISO installation disk, and installs Ubuntu in a folder in the current directory. It then copies across a few script, in that folder, and those scripts are then used to configure this new Ubuntu in the folder inside chroot.</p>
-
-<p>This is an alternative to virtualization, running a completely isolated install of entire OS within chroot. This project makes it trivial to have many such installs, one for each project deployed. Each project gets its own version of mysql or apache, each running on a custom port.</p>
-
-<p>The motive of this project was that the entire system should be in version control, /etc/ conf files, list of packages installed via apt-get or via jumping over any combination of &#8220;configure; make; make install&#8221; hoops, users and groups and so on.</p>
-
-<p>I used it for a quite a detailed production setup and I would recommend people to play with it just to see the chroot world of linux deployments.</p>
-
-<p><a href='http://www.theoldmonk.net/'>Gera</a> gets the credit for name and initial proof of concept for this one.</p>
+<h4><a href="https://github.com/amitu/hydrazine">hydrazine</a></h4>
+<p>This is one awesome concept, basically what hydrazine does it takes your Ubuntu
+server or desktop, and it takes an Ubuntu ISO installation disk, and installs
+Ubuntu in a folder in the current directory. It then copies across a few
+script, in that folder, and those scripts are then used to configure this new
+Ubuntu in the folder inside chroot.</p>
+<p>This is an alternative to virtualization, running a completely isolated install
+of entire OS within chroot. This project makes it trivial to have many such
+installs, one for each project deployed. Each project gets its own version of
+mysql or apache, each running on a custom port.</p>
+<p>The motive of this project was that the entire system should be in version
+control, /etc/ conf files, list of packages installed via apt-get or via
+jumping over any combination of "configure; make; make install" hoops, users
+and groups and so on.</p>
+<p>I used it for a quite a detailed production setup and I would recommend people
+to play with it just to see the chroot world of linux deployments.</p>
+<p><a href="http://www.theoldmonk.net/">Gera</a> gets the credit for name and initial proof
+of concept for this one.</p>
 <hr />
-<h4 id='gitology'><a href='https://github.com/amitu/gitology'>Gitology</a></h4>
-
-<p>Gitology is a blog system, and the idea behind <a href='https://github.com/amitu/gitology'>gitology</a> was a blog that uses git instead of database to store blog posts. It is an example of over engineering, and it failed because of this, even though it got quite a lot of interest when I first released it.</p>
-
-<p>Gitology powered my blog for 2 year or so, but eventually I got tired of it. Today my blog runs on jekyll, another attempt to solve the same problem I tried to solve, but with a more modest ambition. My system tried to openid, web based comments, where comments themselves be stored in git, web based editing and so forth. Dont. Do. That. Do something small and make it work. Lesson learnt.</p>
+<h4><a href="https://github.com/amitu/gitology">Gitology</a></h4>
+<p>Gitology is a blog system, and the idea behind
+<a href="https://github.com/amitu/gitology">gitology</a> was a blog that uses git instead
+of database to store blog posts. It is an example of over engineering, and it
+failed because of this, even though it got quite a lot of interest when I first
+released it.</p>
+<p>Gitology powered my blog for 2 year or so, but eventually I got tired of it.
+Today my blog runs on jekyll, another attempt to solve the same problem I tried
+to solve, but with a more modest ambition. My system tried to openid, web based
+comments, where comments themselves be stored in git, web based editing and so
+forth. Dont. Do. That. Do something small and make it work. Lesson learnt.</p>
 <hr />
-<h4 id='dimagebundle'><a href='https://github.com/amitu/dimagebundle'>dimagebundle</a></h4>
-
-<p><a href='https://github.com/amitu/dimagebundle'>dimagebundle</a> is a django app, that clubs multiple images into a single image file and updates the html template to automatically use CSS based technique to show correct portion of the clubbed big image into original images.</p>
-
-<p>It was a proof of concept, it worked well, I used it for <a href='http://magazine.itmagz.com/index.php/component/content/549.html?task=view'>Vakow!</a> in 2008-2009. It probably doesn&#8217;t work with latest django, but it should be easy to fix it.</p>
+<h4><a href="https://github.com/amitu/dimagebundle">dimagebundle</a></h4>
+<p><a href="https://github.com/amitu/dimagebundle">dimagebundle</a> is a django app, that
+clubs multiple images into a single image file and updates the html template to
+automatically use CSS based technique to show correct portion of the clubbed
+big image into original images.</p>
+<p>It was a proof of concept, it worked well, I used it for
+<a href="http://magazine.itmagz.com/index.php/component/content/549.html?task=view">Vakow!</a>
+in 2008-2009. It probably doesn't work with latest django, but it should be
+easy to fix it.</p>
 <hr />
-<h4 id='jvectormapindia'><a href='https://github.com/amitu/jVectorMap-India'>jVectorMap-India</a></h4>
-
-<p><a href='https://github.com/amitu/jVectorMap-India'>jVectorMap-India</a> is plugin to <a href='http://jvectormap.com/'>jvectormap</a>, which is a jquery plugin, which is a javascript library. Yo!</p>
-
-<p>Take a look at a working <a href='http://amitu.com/jVectorMap-India/'>demo</a>.</p>
-
-<p>jvectormap has its own <a href='http://jvectormap.com/maps/countries/india/'>map of India</a>, but then there are more than one maps of India, one for Indians and another, and the other based in facts.</p>
+<h4><a href="https://github.com/amitu/jVectorMap-India">jVectorMap-India</a></h4>
+<p><a href="https://github.com/amitu/jVectorMap-India">jVectorMap-India</a> is plugin to
+<a href="http://jvectormap.com/">jvectormap</a>, which is a jquery plugin, which is a
+javascript library. Yo!</p>
+<p>Take a look at a working <a href="http://amitu.com/jVectorMap-India/">demo</a>.</p>
+<p>jvectormap has its own <a href="http://jvectormap.com/maps/countries/india/">map of
+India</a>, but then there are more
+than one maps of India, one for Indians and another, and the other based in
+facts.</p>
 <hr />
-<h4 id='django'>Django</h4>
-
-<p>I am proud to be listed in the <a href='https://github.com/django/django/blob/master/AUTHORS'>AUTHORS</a> file of django. I have helped improve django&#8217;s session and session cookie management. My patch allowed &#8220;remember me&#8221; button on django based signup page to become feasible without too much hacks.</p>
+<h4>Django</h4>
+<p>I am proud to be listed in the
+<a href="https://github.com/django/django/blob/master/AUTHORS">AUTHORS</a> file of django.
+I have helped improve django's session and session cookie management. My patch
+allowed "remember me" button on django based signup page to become feasible
+without too much hacks.</p>
 <hr />
-<h4 id='knowit'><a href='http://knowit.sourceforge.net/'>KnowIt</a></h4>
+<h4><a href="http://knowit.sourceforge.net/">KnowIt</a></h4>
+<p><a href="http://knowit.sourceforge.net/">KnowIt</a> has to be the first open source
+project I contributed to. When I learnt what is a mailing list and how to
+create and apply patches. CVS and sourceforge.</p>
+<p>I participated in one minor release of this app, and it used to be one of my
+most used application when KDE was my default desktop environment. Good old
+days.</p>
 
-<p><a href='http://knowit.sourceforge.net/'>KnowIt</a> has to be the first open source project I contributed to. When I learnt what is a mailing list and how to create and apply patches. CVS and sourceforge.</p>
-
-<p>I participated in one minor release of this app, and it used to be one of my most used application when KDE was my default desktop environment. Good old days.</p>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
@@ -162,18 +209,16 @@
 
                     </p>
 
+          
 					<div class="comment">
-                        
-
-
-  <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
-    
+    var disqus_shortname = 'amitu';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
@@ -181,11 +226,8 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
-
-
-
 					</div>
+          
 
 			<footer class="unit-foot">
 				<div class="unit-inner unit-foot-inner">
@@ -198,7 +240,6 @@
 		</div><!-- content -->
 	</div><!-- unit-inner -->
 </article>
-
 
 				</div>
 			</div><!-- unit-inner -->
@@ -241,12 +282,10 @@
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
   
-  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
-  <script src="/kudos/jstorage.js"></script>
-  <script src="/kudos/kudos.js"></script>
-  <script src="/kudos/parse-kudos.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 </body>
 </html>
-

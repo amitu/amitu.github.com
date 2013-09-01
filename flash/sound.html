@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
@@ -7,10 +6,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Amit Upadhyay: Flash: Sound</title>
+    <title>Amit Upadhyay: Flash: Sound</title>
 	<meta name="author" content="Amit Upadhyay">
-	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<link href="http://amitu.com/atom.xml" rel="alternate" title="Flash: Sound" type="application/atom+xml">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body ng-app>
@@ -43,139 +42,168 @@
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
-					
+                    
 <article class="unit-article layout-page">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">Flash: Sound</h1>
+                        <h1 class="h2 entry-title">Flash: Sound</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>Sound is one of the things the flash got right, and is one of the reasons you want to pick flash for your project. HTML5, as good as it has become in last few years does not have the capabilities that matches flash when it comes to sound.</p>
+                    
+<p>Sound is one of the things the flash got right, and is one of the reasons you
+want to pick flash for your project. HTML5, as good as it has become in last
+few years does not have the capabilities that matches flash when it comes to
+sound.</p>
+<p>Sound related APIs in flash a very pleasently designed, and barring a few
+points can be almost called pythonic.</p>
+<h4>Embed MP3 File In SWF And Play It</h4>
+<p>Playing sound or mp3 is very easy in flash using "flash.media.Sound" class.
+There are two ways to create instances of this class. We can either use the
+constructor of flash.media.Sound class, as we will see later, or we can flash's
+ability to embed media in swf file.</p>
+<p>Embedding mp3 in swf increases the size of swf file, it takes longer to
+download the file, but it makes file management easier, all we have to worry
+about is one swf file.</p>
+<p>Flash provides a common way to embed images, mp3, flv etc in the swf file, by
+using a construct like this:</p>
+<div class="codehilite"><pre><span class="kd">package</span>
+<span class="p">{</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
 
-<p>Sound related APIs in flash a very pleasently designed, and barring a few points can be almost called pythonic.</p>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nx">EmbedSoundTest</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="nx">Embed</span><span class="p">(</span><span class="nx">source</span><span class="o">=</span><span class="s2">&quot;sound.mp3&quot;</span><span class="p">)]</span> <span class="kd">private</span> <span class="kd">static</span> <span class="kd">const</span> <span class="nx">MySound</span><span class="o">:</span><span class="nb">Class</span><span class="o">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-<h4 id='embed_mp3_file_in_swf_and_play_it'>Embed MP3 File In SWF And Play It</h4>
 
-<p>Playing sound or mp3 is very easy in flash using &#8220;flash.media.Sound&#8221; class. There are two ways to create instances of this class. We can either use the constructor of flash.media.Sound class, as we will see later, or we can flash&#8217;s ability to embed media in swf file.</p>
+<p>What this [Embed] construct does is, it verifies that file indeed exists, then
+it makes sure file is something flash can handle, flash can handle few image
+formats, few sound formats and some video formats. You will see compiler errors
+if the file does not exist or if it is a format flash can not handle.</p>
+<p>After all verification, flash compiler embeds the referenced file sound.mp3
+into generated swf file, and at runtime flash runtime creates a class for us,
+the class is then stored as a private class attribute by name MySound, of type
+Class.</p>
+<p>So we have created EmbedSoundText class, a subclass of Sprite, and
+EmbedSoundText.MySound, a class that can be used to create instances of Sound
+class. Why are we not storing it as const MySound:Sound? Because that would
+imply MySound is an instance of Sound class, which it is not. MySound is an
+instance of class Class, just like in python where every class is instance of
+class "type".</p>
+<p>So lets take our MySound class and create an instance of Sound class and play
+our sound:</p>
+<div class="codehilite"><pre><span class="kd">package</span>
+<span class="p">{</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">media</span><span class="p">.</span><span class="nb">Sound</span><span class="o">;</span>
 
-<p>Embedding mp3 in swf increases the size of swf file, it takes longer to download the file, but it makes file management easier, all we have to worry about is one swf file.</p>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nx">EmbedSoundTest</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+    <span class="p">{</span>
+        <span class="p">[</span><span class="nx">Embed</span><span class="p">(</span><span class="nx">source</span><span class="o">=</span><span class="s2">&quot;sound.mp3&quot;</span><span class="p">)]</span> <span class="kd">private</span> <span class="kd">static</span> <span class="kd">const</span> <span class="nx">MySound</span><span class="o">:</span><span class="nb">Class</span><span class="o">;</span>
 
-<p>Flash provides a common way to embed images, mp3, flv etc in the swf file, by using a construct like this:</p>
-<div class='highlight'><pre><code class='actionscript'><span class='kd'>package</span>
-<span class='p'>{</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>display</span><span class='p'>.</span><span class='nb'>Sprite</span><span class='o'>;</span>
+        <span class="kd">public</span> <span class="kd">function</span> <span class="nx">EmbedSoundTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">var</span> <span class="nx">mysound</span><span class="o">:</span><span class="nb">Sound</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MySound</span><span class="p">()</span> <span class="nx">as</span> <span class="nb">Sound</span><span class="o">;</span>
+            <span class="nx">mysound</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-    <span class='kd'>public</span> <span class='kd'>class</span> <span class='nx'>EmbedSoundTest</span> <span class='kd'>extends</span> <span class='nb'>Sprite</span>
-    <span class='p'>{</span>
-        <span class='p'>[</span><span class='nx'>Embed</span><span class='p'>(</span><span class='nx'>source</span><span class='o'>=</span><span class='s2'>&quot;sound.mp3&quot;</span><span class='p'>)]</span> <span class='kd'>private</span> <span class='kd'>static</span> <span class='kd'>const</span> <span class='nx'>MySound</span><span class='o'>:</span><span class='nb'>Class</span><span class='o'>;</span>
-    <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
-<p>What this <span>Embed</span> construct does is, it verifies that file indeed exists, then it makes sure file is something flash can handle, flash can handle few image formats, few sound formats and some video formats. You will see compiler errors if the file does not exist or if it is a format flash can not handle.</p>
 
-<p>After all verification, flash compiler embeds the referenced file sound.mp3 into generated swf file, and at runtime flash runtime creates a class for us, the class is then stored as a private class attribute by name MySound, of type Class.</p>
-
-<p>So we have created EmbedSoundText class, a subclass of Sprite, and EmbedSoundText.MySound, a class that can be used to create instances of Sound class. Why are we not storing it as const MySound:Sound? Because that would imply MySound is an instance of Sound class, which it is not. MySound is an instance of class Class, just like in python where every class is instance of class &#8220;type&#8221;.</p>
-
-<p>So lets take our MySound class and create an instance of Sound class and play our sound:</p>
-<div class='highlight'><pre><code class='actionscript'><span class='kd'>package</span>
-<span class='p'>{</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>display</span><span class='p'>.</span><span class='nb'>Sprite</span><span class='o'>;</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>media</span><span class='p'>.</span><span class='nb'>Sound</span><span class='o'>;</span>
-
-    <span class='kd'>public</span> <span class='kd'>class</span> <span class='nx'>EmbedSoundTest</span> <span class='kd'>extends</span> <span class='nb'>Sprite</span>
-    <span class='p'>{</span>
-        <span class='p'>[</span><span class='nx'>Embed</span><span class='p'>(</span><span class='nx'>source</span><span class='o'>=</span><span class='s2'>&quot;sound.mp3&quot;</span><span class='p'>)]</span> <span class='kd'>private</span> <span class='kd'>static</span> <span class='kd'>const</span> <span class='nx'>MySound</span><span class='o'>:</span><span class='nb'>Class</span><span class='o'>;</span>
-
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='nx'>EmbedSoundTest</span><span class='p'>()</span>
-        <span class='p'>{</span>
-            <span class='k'>var</span> <span class='nx'>mysound</span><span class='o'>:</span><span class='nb'>Sound</span> <span class='o'>=</span> <span class='k'>new</span> <span class='nx'>MySound</span><span class='p'>()</span> <span class='nx'>as</span> <span class='nb'>Sound</span><span class='o'>;</span>
-            <span class='nx'>mysound</span><span class='p'>.</span><span class='nx'>play</span><span class='p'>();</span>
-        <span class='p'>}</span>
-    <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
-<p>We created an instance of MySound class, which happens to be subclass of Sound, so we casted it as such. All that is left to do is call .play() on it to start playing the sound.</p>
-
-<h4 id='load_a_mp3_from_server_and_play_it'>Load A MP3 From Server And Play It</h4>
-
-<p>Embedding mp3 in swf is good for a set of predefined sounds, but other times we want to load sound from net. Either because we are creating a mp3 player, or because we want to keep a few mp3 files out of swf to reduce the swf file size, and loading the mp3 dynamically when needed, eg at the end of game, or beginning of next stage etc.</p>
-
-<p>So how do we download sound files from net? flash.media.Sound class has two way to load mp3 from net, it can either take an instance of flash.net.URLRequest class as constructor argument, or we can pass URLRequest instance to sound class instance&#8217;s .load() method.</p>
-
-<p>In either case flash will start downloading the mp3 file right away, and will play it when .play() is called.</p>
-
-<p>URLRequest takes the path of mp3 file as a string constructor parameter. The path can be relative to swf file, or it can be absolute URL. Flash will check flash policy file in case the URL points to a different domain.</p>
-
+<p>We created an instance of MySound class, which happens to be subclass of Sound,
+so we casted it as such. All that is left to do is call .play() on it to start
+playing the sound.</p>
+<h4>Load A MP3 From Server And Play It</h4>
+<p>Embedding mp3 in swf is good for a set of predefined sounds, but other times we
+want to load sound from net. Either because we are creating a mp3 player, or
+because we want to keep a few mp3 files out of swf to reduce the swf file size,
+and loading the mp3 dynamically when needed, eg at the end of game, or
+beginning of next stage etc.</p>
+<p>So how do we download sound files from net? flash.media.Sound class has two way
+to load mp3 from net, it can either take an instance of flash.net.URLRequest
+class as constructor argument, or we can pass URLRequest instance to sound
+class instance's .load() method.</p>
+<p>In either case flash will start downloading the mp3 file right away, and will
+play it when .play() is called.</p>
+<p>URLRequest takes the path of mp3 file as a string constructor parameter. The
+path can be relative to swf file, or it can be absolute URL. Flash will check
+flash policy file in case the URL points to a different domain.</p>
 <p>Lets take a look at how it all looks like:</p>
-<div class='highlight'><pre><code class='actionscript'><span class='kd'>package</span>
-<span class='p'>{</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>display</span><span class='p'>.</span><span class='nb'>Sprite</span><span class='o'>;</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>media</span><span class='p'>.</span><span class='nb'>Sound</span><span class='o'>;</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>net</span><span class='p'>.</span><span class='nb'>URLRequest</span><span class='o'>;</span>
+<div class="codehilite"><pre><span class="kd">package</span>
+<span class="p">{</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">media</span><span class="p">.</span><span class="nb">Sound</span><span class="o">;</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">net</span><span class="p">.</span><span class="nb">URLRequest</span><span class="o">;</span>
 
-    <span class='kd'>public</span> <span class='kd'>class</span> <span class='nx'>ExternalSoundTest</span> <span class='kd'>extends</span> <span class='nb'>Sprite</span>
-    <span class='p'>{</span>
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='nx'>ExternalSoundTest</span><span class='p'>()</span>
-        <span class='p'>{</span>
-            <span class='k'>var</span> <span class='nx'>sound</span><span class='o'>:</span><span class='nb'>Sound</span> <span class='o'>=</span> <span class='k'>new</span> <span class='nb'>Sound</span><span class='p'>(</span><span class='k'>new</span> <span class='nb'>URLRequest</span><span class='p'>(</span><span class='s2'>&quot;song.mp3&quot;</span><span class='p'>));</span>
-            <span class='nx'>sound</span><span class='p'>.</span><span class='nx'>play</span><span class='p'>();</span>
-        <span class='p'>}</span>
-    <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
-<p>As soon as sound object is created, flash starts downloading and buffering the mp3. By default it waits for 1 second buffer, and starts playing as soon as 1 second worth of mp3 is downloaded, so playback will start after a small delay.</p>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nx">ExternalSoundTest</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+    <span class="p">{</span>
+        <span class="kd">public</span> <span class="kd">function</span> <span class="nx">ExternalSoundTest</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">var</span> <span class="nx">sound</span><span class="o">:</span><span class="nb">Sound</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Sound</span><span class="p">(</span><span class="k">new</span> <span class="nb">URLRequest</span><span class="p">(</span><span class="s2">&quot;song.mp3&quot;</span><span class="p">));</span>
+            <span class="nx">sound</span><span class="p">.</span><span class="nx">play</span><span class="p">();</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-<h4 id='playing_at_offset_and_repeating'>Playing At Offset And Repeating</h4>
 
-<p>The .play() method on Sound class instance can optionally take two parameters: .play(start_offset_in_milliseconds=0, repeat_count=1), with default values 0 and 1. Repeat cound has to be an integer, if you want to keep repeating a song, pass a large integer value, eg int.MAX_VALUE.</p>
-
-<h4 id='stoppping_pausing_and_resuming_playback'>Stoppping, Pausing And Resuming Playback</h4>
-
-<p>Stopping playback is trivial. Sound.play() method return an instance of SoundChannel, and this instance has a method .stop()</p>
-
-<p>There is no native support of pause and resume in Sound API, but we can implement pause by storing the current position of sound when stoppping and implement resume by passing the stored position to .play() method.</p>
-
-<p>The current position can be obtained as soundchannel.position attribute. This attribute contains time in milliseconds since the beginning of sound.</p>
-
-<h4 id='detecting_end_of_playback'>Detecting End Of Playback</h4>
-
-<p>Before we implement pause and resume we have to track if sound has already finished playing.</p>
-
-<p>One way to do that is by using Sound.leght property to find length of sound in milliseconds and compare it with SoundChannel.position when play/pause button is clicked.</p>
-
+<p>As soon as sound object is created, flash starts downloading and buffering the
+mp3. By default it waits for 1 second buffer, and starts playing as soon as 1
+second worth of mp3 is downloaded, so playback will start after a small delay.</p>
+<h4>Playing At Offset And Repeating</h4>
+<p>The .play() method on Sound class instance can optionally take two parameters:
+.play(start_offset_in_milliseconds=0, repeat_count=1), with default values 0
+and 1. Repeat cound has to be an integer, if you want to keep repeating a song,
+pass a large integer value, eg int.MAX_VALUE.</p>
+<h4>Stoppping, Pausing And Resuming Playback</h4>
+<p>Stopping playback is trivial. Sound.play() method return an instance of
+SoundChannel, and this instance has a method .stop()</p>
+<p>There is no native support of pause and resume in Sound API, but we can
+implement pause by storing the current position of sound when stoppping and
+implement resume by passing the stored position to .play() method.</p>
+<p>The current position can be obtained as soundchannel.position attribute. This
+attribute contains time in milliseconds since the beginning of sound.</p>
+<h4>Detecting End Of Playback</h4>
+<p>Before we implement pause and resume we have to track if sound has already
+finished playing.</p>
+<p>One way to do that is by using Sound.leght property to find length of sound in
+milliseconds and compare it with SoundChannel.position when play/pause button
+is clicked.</p>
 <p>Another option is to monitor Event.SOUND_COMPLETE fired by SoundChannel object.</p>
-
 <p>Lets combine all this to make a mp3 player.</p>
-
-<p>We will have two buttons on it, &#8220;Play&#8221; and &#8220;Stop&#8221;. &#8220;Stop&#8221; button is initially disabled. Once we hit play the sound will start playing, and the text of &#8220;Play&#8221; button with change to &#8220;Pause&#8221;, and &#8220;Stop&#8221; button gets enabled. We monitor the SOUND_COMPLETE event, when it is fired we change the text of &#8220;Pause&#8221; back to &#8220;Play&#8221; and disable &#8220;Stop&#8221; button.</p>
-
-<p>While the sound is playing, if one hits the &#8220;Pause&#8221; button, we store the SoundChannel.current in a variable, call SoundChannel.stop() and change the &#8220;Pause&#8221; button text to &#8220;Resume&#8221;. If the user hits &#8220;Resume&#8221; button, we call Sound.play() with stored position to resume sound from old position, and change the text of &#8220;Resume&#8221; button to &#8220;Pause&#8221; again.</p>
-
-<p>While the sound if playing we also listen to ENTER_FRAME event and draw a bar showing total sound length and another bar indicating the current position in playback.</p>
-
-<p>&#8230;</p>
-
-<h4 id='buffering_tracking_buffering_and_stopping_download'>Buffering, Tracking Buffering and Stopping Download</h4>
-
+<p>We will have two buttons on it, "Play" and "Stop". "Stop" button is initially
+disabled. Once we hit play the sound will start playing, and the text of "Play"
+button with change to "Pause", and "Stop" button gets enabled. We monitor the
+SOUND_COMPLETE event, when it is fired we change the text of "Pause" back to
+"Play" and disable "Stop" button.</p>
+<p>While the sound is playing, if one hits the "Pause" button, we store the
+SoundChannel.current in a variable, call SoundChannel.stop() and change the
+"Pause" button text to "Resume". If the user hits "Resume" button, we call
+Sound.play() with stored position to resume sound from old position, and change
+the text of "Resume" button to "Pause" again.</p>
+<p>While the sound if playing we also listen to ENTER_FRAME event and draw a bar
+showing total sound length and another bar indicating the current position in
+playback.</p>
+<p>...</p>
+<h4>Buffering, Tracking Buffering and Stopping Download</h4>
 <ol>
 <li>mp3 and ID3 tags</li>
-
 <li>Sound levels and spectrum for visualization</li>
-
 <li>Controlling volume</li>
-
 <li>SoundMixer class for global sound management</li>
 </ol>
+<p>Back to <a href="/flash/">Flash For Python Developers</a>.</p>
 
-<p>Back to <a href='/flash/'>Flash For Python Developers</a>.</p>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
@@ -198,18 +226,16 @@
 
                     </p>
 
+          
 					<div class="comment">
-                        
-
-
-  <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
-    
+    var disqus_shortname = 'amitu';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
@@ -217,11 +243,8 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
-
-
-
 					</div>
+          
 
 			<footer class="unit-foot">
 				<div class="unit-inner unit-foot-inner">
@@ -234,7 +257,6 @@
 		</div><!-- content -->
 	</div><!-- unit-inner -->
 </article>
-
 
 				</div>
 			</div><!-- unit-inner -->
@@ -277,12 +299,10 @@
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
   
-  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
-  <script src="/kudos/jstorage.js"></script>
-  <script src="/kudos/kudos.js"></script>
-  <script src="/kudos/parse-kudos.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 </body>
 </html>
-

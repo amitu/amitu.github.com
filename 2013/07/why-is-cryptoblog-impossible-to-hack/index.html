@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
@@ -7,10 +6,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Amit Upadhyay: Why is CryptoBlog impossible to hack?</title>
+    <title>Amit Upadhyay: Why is CryptoBlog impossible to hack?</title>
 	<meta name="author" content="Amit Upadhyay">
-	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<link href="http://amitu.com/atom.xml" rel="alternate" title="Why is CryptoBlog impossible to hack?" type="application/atom+xml">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body ng-app>
@@ -43,7 +42,7 @@
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
-					
+                    
 <article class="unit-article layout-post">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
@@ -57,85 +56,108 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>So the other day I introduced <a href='/2013/07/cryptoblog/'>cryptyblog</a> with much fan fare. And the most important property of cryptoblog is that it is impossible to &#8220;hack&#8221;, and I would like to talk about that here.</p>
-
-<p>Lets start with the definition of &#8220;hack&#8221;. For the purpose of this post, &#8220;hacking&#8221; a blog can mean either of two things:</p>
-
+					<p>So the other day I introduced <a href="/2013/07/cryptoblog/">cryptyblog</a> with much fan
+fare. And the most important property of cryptoblog is that it is impossible to
+"hack", and I would like to talk about that here.</p>
+<p>Lets start with the definition of "hack". For the purpose of this post,
+"hacking" a blog can mean either of two things:</p>
 <ol>
 <li>
-<p>Some individual defaced the site, changed any of the content, without the author knowing about it. Used the site to misrepresent the views of the author, or used the website to phish, or distribute malware etc.</p>
+<p>Some individual defaced the site, changed any of the content, without the
+author knowing about it. Used the site to misrepresent the views of the author,
+or used the website to phish, or distribute malware etc.</p>
 </li>
-
 <li>
-<p>The second possibility, and the possibility I am more concerned about is, the author himself tries to pull a fast one, triesto change the content of the website without the readers being aware of it.</p>
+<p>The second possibility, and the possibility I am more concerned about is,
+the author himself tries to pull a fast one, triesto change the content of the
+website without the readers being aware of it.</p>
 </li>
 </ol>
-
-<h4 id='setup_of_this_blog'>Setup of this blog</h4>
-
-<p>This blog is hosted on github pages, a free hosting service, by a reasonably trusted player. In github pages, as long as one does not &#8220;hack&#8221; github itself, the only way to modify the content of this site is my making a commit in git repository for this site.</p>
-
-<p>This opens two questions, how can my reader be sure that the website is indeed hosted by github pages?</p>
-
-<p>This is relatively easy, if you trust github, then you can visit their <a href='https://help.github.com/articles/setting-up-a-custom-domain-with-pages'>custom domain instruction</a>, and you will see this:</p>
-<img class='hcenter' src='/images/github-custom.png' />
-<p>And doing a &#8220;dig amitu.com +nostats +nocomments +nocmd&#8221; on my site, you will see:</p>
-<img class='hcenter' src='/images/amitu.com-dig.png' />
+<h4>Setup of this blog</h4>
+<p>This blog is hosted on github pages, a free hosting service, by a reasonably
+trusted player. In github pages, as long as one does not "hack" github itself,
+the only way to modify the content of this site is my making a commit in git
+repository for this site.</p>
+<p>This opens two questions, how can my reader be sure that the website is indeed
+hosted by github pages?</p>
+<p>This is relatively easy, if you trust github, then you can visit their <a href="https://help.github.com/articles/setting-up-a-custom-domain-with-pages">custom
+domain
+instruction</a>,
+and you will see this:</p>
+<p><img src="/static/images/github-custom.png" class="hcenter"></p>
+<p>And doing a "dig amitu.com +nostats +nocomments +nocmd" on my site, you will
+see:</p>
+<p><img src="/static/images/amitu.com-dig.png" class="hcenter"></p>
 <p>With this you can verify that my site is going to github pages.</p>
+<p>Now to the second question: how can one be sure that github itself is not
+hacked, may be github employees are involved.</p>
+<p>This is quite interesting, and you should never trust any corporation, no
+matter how trustworthy they appear on face. So how do bring in trust in this
+environment where trust is to difficult.</p>
+<h4>Cryptoblog on your machine</h4>
+<p>Lets first cut the middleman, github. Github pages is just a convenient way to
+access this blog. The moment you suspect something is fishy, please forgo the
+convenience, and do a little bit of work to recreate this blog on a machine you
+trust.</p>
+<p>This blog is powered by something called <a href="http://jekyllrb.com/">jekyll</a>, so
+here is what you will have to do:</p>
+<div class="codehilite"><pre><span class="nv">$ </span>gem install jekyll
+<span class="nv">$ </span>git clone https://github.com/amitu/amitu.github.com.git
+<span class="nv">$ </span><span class="nb">cd </span>amitu.github.com
+<span class="nv">$ </span>jekyll serve
+</pre></div>
 
-<p>Now to the second question: how can one be sure that github itself is not hacked, may be github employees are involved.</p>
 
-<p>This is quite interesting, and you should never trust any corporation, no matter how trustworthy they appear on face. So how do bring in trust in this environment where trust is to difficult.</p>
-
-<h4 id='cryptoblog_on_your_machine'>Cryptoblog on your machine</h4>
-
-<p>Lets first cut the middleman, github. Github pages is just a convenient way to access this blog. The moment you suspect something is fishy, please forgo the convenience, and do a little bit of work to recreate this blog on a machine you trust.</p>
-
-<p>This blog is powered by something called <a href='http://jekyllrb.com/'>jekyll</a>, so here is what you will have to do:</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>gem install jekyll
-<span class='nv'>$ </span>git clone https://github.com/amitu/amitu.github.com.git
-<span class='nv'>$ </span><span class='nb'>cd </span>amitu.github.com
-<span class='nv'>$ </span>jekyll serve
-</code></pre></div>
-<p>With these four commands you have installed the software powering my blog, <em>and</em> downloaded the entire history of this blog, all the posts, images etc. And a local copy of this blog will not be available to you, just open http://localhost:4000 in browser.</p>
-
-<p>With this you can verify that the content of amitu.com is same as what you see on your local machine.</p>
-
-<h4 id='git_to_rescue'>Git to rescue!</h4>
-
-<p>You will then say that you are still trusting github.com, because this is where you have downloaded my blog from.</p>
-
+<p>With these four commands you have installed the software powering my blog,
+<em>and</em> downloaded the entire history of this blog, all the posts, images etc.
+And a local copy of this blog will not be available to you, just open
+http://localhost:4000 in browser.</p>
+<p>With this you can verify that the content of amitu.com is same as what you see
+on your local machine.</p>
+<h4>Git to rescue!</h4>
+<p>You will then say that you are still trusting github.com, because this is where
+you have downloaded my blog from.</p>
 <p>This is where the power of git, cryptographic hashes, and maths come to rescue.</p>
-
-<p>See, you are not trusting github.com when you are downloading my blog from there, you are trusting git. Git lets you see the latest &#8220;hash&#8221; of my blog. Eg</p>
-<div class='highlight'><pre><code class='bash'><span class='nv'>$ </span>git log -1
+<p>See, you are not trusting github.com when you are downloading my blog from
+there, you are trusting git. Git lets you see the latest "hash" of my blog. Eg</p>
+<div class="codehilite"><pre><span class="nv">$ </span>git log -1
 commit a87b1a57640af59753273cfaf18baed16970090b
 Author: Amit Upadhyay &lt;comments@amitu.com&gt;
 Date:   Thu Jul 18 22:49:43 2013 -0700
 
     minor
-</code></pre></div>
-<p>You see this string &#8220;a87b1a57640af59753273cfaf18baed16970090b&#8221;, it is a bit hard to prove, but there are many <a href='http://www-cs-students.stanford.edu/~blynn/gitmagic/ch08.html'>sources on internet</a> that can help you understand how it is true, suffice it to say, this string of number in itself can not be the same if the entire history is not the same.</p>
+</pre></div>
 
-<p>In other words, git log will never show &#8220;a87b1a57640af59753273cfaf18baed16970090b&#8221; unless the history is intact, and if someone modifies the history in any smallest way, the end result would be a string that is completely different. This property lies at the core of bitcoin, ssl, https, this property is the reason internet banking can happen.</p>
 
-<h4 id='what_does_it_all_mean'>What does it all mean?</h4>
-
-<p>The content of this blog can not be modified, without leaving a trail. I can never say something on this blog, and later on deny that I did not say it. It is not just difficult, it is impossible, neither can I do it, nor the president of United States if he had a cryptoblog.</p>
-
-<p>It is a common habit of politicians to lie, to change what they said afterwards, to claim they have been misquoted. If you demand you politican to commit everything on a cryptoblog, the politician will never be able to take anything back.</p>
+<p>You see this string "a87b1a57640af59753273cfaf18baed16970090b", it is a bit
+hard to prove, but there are many <a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/ch08.html">sources on
+internet</a> that
+can help you understand how it is true, suffice it to say, this string of
+number in itself can not be the same if the entire history is not the same.</p>
+<p>In other words, git log will never show
+"a87b1a57640af59753273cfaf18baed16970090b" unless the history is intact, and if
+someone modifies the history in any smallest way, the end result would be a
+string that is completely different. This property lies at the core of bitcoin,
+ssl, https, this property is the reason internet banking can happen.</p>
+<h4>What does it all mean?</h4>
+<p>The content of this blog can not be modified, without leaving a trail. I can
+never say something on this blog, and later on deny that I did not say it. It
+is not just difficult, it is impossible, neither can I do it, nor the president
+of United States if he had a cryptoblog.</p>
+<p>It is a common habit of politicians to lie, to change what they said
+afterwards, to claim they have been misquoted. If you demand you politican to
+commit everything on a cryptoblog, the politician will never be able to take
+anything back.</p>
 					<div class="meta">
                     <hr>
 						<p class="date-publish">
-							Published: 
-							<date class="date-pub" title="2013-07-22T00:00:00-07:00" datetime="2013-07-22T00:00:00-07:00" pubdate>
-							<span class="month"><abbr>July</abbr></span>
+							Published:
+							<date class="date-pub" title="July 22, 2013, midnight" datetime="July 22, 2013, midnight" pubdate>
+							<span class="month"><abbr>Jul</abbr></span>
 							<span class="day">22</span>
 							<span class="year">2013</span>
 							</date>
 						</p>
-                        
-                        
 					</div><!-- meta -->
 				</div><!-- entry-content -->
 
@@ -160,31 +182,25 @@ Date:   Thu Jul 18 22:49:43 2013 -0700
                     </p>
 					<!-- div class="social">
 						<ul class="list-linear">
-							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="amitu" data-lang="en">Tweet</a></div></li>
-							<li><div class="twitter-follow"><a href="https://twitter.com/amitu" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
 						</ul>
 					</div -->
 					<div class="comment">
-					
-
-
-  <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
-    
+    var disqus_shortname = 'amitu';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
 
 					</div>
 				</div><!-- misc-content -->
@@ -194,13 +210,7 @@ Date:   Thu Jul 18 22:49:43 2013 -0700
 					<nav class="pagination">
 						<ul>
 							
-							<li class="prev"><a class="internal" rel="prev"  href="/2013/07/schneier-snowden-and-deadmen" title="View Schneier, Snowden and Deadmen">&laquo; Schneier, Snowden and Deadmen</a></li>
 							
-							
-							<li class="pipe"> | </li>
-							
-							
-							<li class="next"><a class="internal" rel="next"  href="/2013/07/am-i-a-writer" title="View Am I A Writer?">Am I A Writer? &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -213,7 +223,6 @@ Date:   Thu Jul 18 22:49:43 2013 -0700
 		</div><!-- content -->
 	</div><!-- unit-inner -->
 </article>
-
 
 				</div>
 			</div><!-- unit-inner -->
@@ -256,12 +265,10 @@ Date:   Thu Jul 18 22:49:43 2013 -0700
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
   
-  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
-  <script src="/kudos/jstorage.js"></script>
-  <script src="/kudos/kudos.js"></script>
-  <script src="/kudos/parse-kudos.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 </body>
 </html>
-

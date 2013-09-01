@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
@@ -7,10 +6,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Amit Upadhyay: Style Guide</title>
+    <title>Amit Upadhyay: Style Guide</title>
 	<meta name="author" content="Amit Upadhyay">
-	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<link href="http://amitu.com/atom.xml" rel="alternate" title="Style Guide" type="application/atom+xml">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body ng-app>
@@ -43,198 +42,227 @@
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
-					
+                    
 <article class="unit-article layout-page">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">Style Guide</h1>
+                        <h1 class="h2 entry-title">Style Guide</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>Code is written for humans to read first. We are not computers. We can not match closing brackets. I hate seeing Lisp like )))). There is no need of them, new lines do not cost money.</p>
-
-<p>This page documents the style rules I follow in my python/javascript code to make things easier for humans.</p>
-
-<p>Instead of writing down everything, where most rules are obvious to people familiar with <a href='http://www.python.org/dev/peps/pep-0008/'>PEP-008</a> I will only talk about where pep008 differs my taste.</p>
-
+                    
+<p>Code is written for humans to read first. We are not computers. We can not
+match closing brackets. I hate seeing Lisp like )))). There is no need of
+them, new lines do not cost money.</p>
+<p>This page documents the style rules I follow in my python/javascript code to
+make things easier for humans.</p>
+<p>Instead of writing down everything, where most rules are obvious to people
+familiar with <a href="http://www.python.org/dev/peps/pep-0008/">PEP-008</a> I will only
+talk about where pep008 differs my taste.</p>
 <p>Their first code example is this:</p>
-<div class='highlight'><pre><code class='python'><span class='n'>foo</span> <span class='o'>=</span> <span class='n'>long_function_name</span><span class='p'>(</span><span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span>
-                         <span class='n'>var_three</span><span class='p'>,</span> <span class='n'>var_four</span><span class='p'>)</span>
+<div class="codehilite"><pre><span class="n">foo</span> <span class="o">=</span> <span class="n">long_function_name</span><span class="p">(</span><span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span>
+                         <span class="n">var_three</span><span class="p">,</span> <span class="n">var_four</span><span class="p">)</span>
 
-<span class='c'># More indentation included to distinguish this from the rest.</span>
-<span class='k'>def</span> <span class='nf'>long_function_name</span><span class='p'>(</span>
-        <span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span> <span class='n'>var_three</span><span class='p'>,</span>
-        <span class='n'>var_four</span><span class='p'>):</span>
-    <span class='k'>print</span><span class='p'>(</span><span class='n'>var_one</span><span class='p'>)</span>
-</code></pre></div>
+<span class="c"># More indentation included to distinguish this from the rest.</span>
+<span class="k">def</span> <span class="nf">long_function_name</span><span class="p">(</span>
+        <span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span> <span class="n">var_three</span><span class="p">,</span>
+        <span class="n">var_four</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">var_one</span><span class="p">)</span>
+</pre></div>
+
+
 <p>This is ugly according to me.</p>
+<h4>Rule 1: Each nesting must be exactly 4 spaces</h4>
+<p>In first line in code above you will see that we are trying to nest things
+inside the (). And for nesting an unpredictable amount of space has been
+used. This is wrong and stupid, as it makes it highly difficult to nest further
+levels.</p>
+<div class="codehilite"><pre><span class="n">foo</span> <span class="o">=</span> <span class="n">long_function_name</span><span class="p">(</span>
+    <span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span> <span class="n">var_three</span><span class="p">,</span> <span class="n">var_four</span>
+<span class="p">)</span>
 
-<h4 id='rule_1_each_nesting_must_be_exactly_4_spaces'>Rule 1: Each nesting must be exactly 4 spaces</h4>
+<span class="k">def</span> <span class="nf">long_function_name</span><span class="p">(</span>
+    <span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span> <span class="n">var_three</span><span class="p">,</span> <span class="n">var_four</span>
+<span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">var_one</span><span class="p">)</span>
+</pre></div>
 
-<p>In first line in code above you will see that we are trying to nest things inside the (). And for nesting an unpredictable amount of space has been used. This is wrong and stupid, as it makes it highly difficult to nest further levels.</p>
-<div class='highlight'><pre><code class='python'><span class='n'>foo</span> <span class='o'>=</span> <span class='n'>long_function_name</span><span class='p'>(</span>
-    <span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span> <span class='n'>var_three</span><span class='p'>,</span> <span class='n'>var_four</span>
-<span class='p'>)</span>
 
-<span class='k'>def</span> <span class='nf'>long_function_name</span><span class='p'>(</span>
-    <span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span> <span class='n'>var_three</span><span class='p'>,</span> <span class='n'>var_four</span>
-<span class='p'>):</span>
-    <span class='k'>print</span><span class='p'>(</span><span class='n'>var_one</span><span class='p'>)</span>
-</code></pre></div>
-<p>Lets see how my convention and pep008 fares when we increase nesting in the foo call.</p>
-<div class='highlight'><pre><code class='python'><span class='c'># PEP008:</span>
-<span class='n'>foo</span> <span class='o'>=</span> <span class='n'>long_function_name</span><span class='p'>(</span><span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span> <span class='n'>fun1</span><span class='p'>(</span><span class='n'>var_a</span><span class='p'>,</span> <span class='n'>var_b</span><span class='p'>,</span> <span class='n'>var_c</span><span class='p'>,</span>
-                                                <span class='n'>var_d</span><span class='p'>,</span> <span class='n'>var_e</span><span class='p'>,</span> <span class='n'>var_f</span><span class='p'>,</span> <span class='n'>var_g</span><span class='p'>,</span> 
-                                                <span class='n'>var_h</span><span class='p'>,</span> <span class='n'>var_j</span><span class='p'>),</span>
-                         <span class='n'>var_three</span><span class='p'>,</span> <span class='n'>fun2</span><span class='p'>(</span><span class='n'>var_1</span><span class='p'>,</span> <span class='n'>var_2</span><span class='p'>,</span> <span class='n'>var_3</span><span class='p'>,</span> <span class='n'>var_4</span><span class='p'>,</span> <span class='n'>var_5</span><span class='p'>,</span> 
-                                         <span class='n'>var_6</span><span class='p'>,</span> <span class='n'>var_7</span><span class='p'>),</span> <span class='n'>var_four</span><span class='p'>)</span>
+<p>Lets see how my convention and pep008 fares when we increase nesting in the foo
+call.</p>
+<div class="codehilite"><pre><span class="c"># PEP008:</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">long_function_name</span><span class="p">(</span><span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span> <span class="n">fun1</span><span class="p">(</span><span class="n">var_a</span><span class="p">,</span> <span class="n">var_b</span><span class="p">,</span> <span class="n">var_c</span><span class="p">,</span>
+                                                <span class="n">var_d</span><span class="p">,</span> <span class="n">var_e</span><span class="p">,</span> <span class="n">var_f</span><span class="p">,</span> <span class="n">var_g</span><span class="p">,</span> 
+                                                <span class="n">var_h</span><span class="p">,</span> <span class="n">var_j</span><span class="p">),</span>
+                         <span class="n">var_three</span><span class="p">,</span> <span class="n">fun2</span><span class="p">(</span><span class="n">var_1</span><span class="p">,</span> <span class="n">var_2</span><span class="p">,</span> <span class="n">var_3</span><span class="p">,</span> <span class="n">var_4</span><span class="p">,</span> <span class="n">var_5</span><span class="p">,</span> 
+                                         <span class="n">var_6</span><span class="p">,</span> <span class="n">var_7</span><span class="p">),</span> <span class="n">var_four</span><span class="p">)</span>
 
-<span class='c'># vs amitu&#39;s style</span>
+<span class="c"># vs amitu&#39;s style</span>
 
-<span class='n'>foo</span> <span class='o'>=</span> <span class='n'>long_function_name</span><span class='p'>(</span>
-    <span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span> <span class='n'>fun1</span><span class='p'>(</span>
-        <span class='n'>var_a</span><span class='p'>,</span> <span class='n'>var_b</span><span class='p'>,</span> <span class='n'>var_c</span><span class='p'>,</span> <span class='n'>var_d</span><span class='p'>,</span> <span class='n'>var_e</span><span class='p'>,</span> <span class='n'>var_f</span><span class='p'>,</span> <span class='n'>var_g</span><span class='p'>,</span> <span class='n'>var_h</span><span class='p'>,</span> <span class='n'>var_j</span>
-    <span class='p'>),</span> <span class='n'>var_three</span><span class='p'>,</span> <span class='n'>fun2</span><span class='p'>(</span><span class='n'>var_1</span><span class='p'>,</span> <span class='n'>var_2</span><span class='p'>,</span> <span class='n'>var_3</span><span class='p'>,</span> <span class='n'>var_4</span><span class='p'>,</span> <span class='n'>var_5</span><span class='p'>,</span> <span class='n'>var_6</span><span class='p'>,</span> <span class='n'>var_7</span><span class='p'>),</span>
-    <span class='n'>var_four</span>
-<span class='p'>)</span>
-</code></pre></div>
-<p>As you can see my style can cope with any amount of nesting, unlike pep008, which is just plain weird as things get more complex.</p>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">long_function_name</span><span class="p">(</span>
+    <span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span> <span class="n">fun1</span><span class="p">(</span>
+        <span class="n">var_a</span><span class="p">,</span> <span class="n">var_b</span><span class="p">,</span> <span class="n">var_c</span><span class="p">,</span> <span class="n">var_d</span><span class="p">,</span> <span class="n">var_e</span><span class="p">,</span> <span class="n">var_f</span><span class="p">,</span> <span class="n">var_g</span><span class="p">,</span> <span class="n">var_h</span><span class="p">,</span> <span class="n">var_j</span>
+    <span class="p">),</span> <span class="n">var_three</span><span class="p">,</span> <span class="n">fun2</span><span class="p">(</span><span class="n">var_1</span><span class="p">,</span> <span class="n">var_2</span><span class="p">,</span> <span class="n">var_3</span><span class="p">,</span> <span class="n">var_4</span><span class="p">,</span> <span class="n">var_5</span><span class="p">,</span> <span class="n">var_6</span><span class="p">,</span> <span class="n">var_7</span><span class="p">),</span>
+    <span class="n">var_four</span>
+<span class="p">)</span>
+</pre></div>
 
-<h4 id='rule_2_if_new_line_is_used_to_nest_opening_bracket_must_be_last_char_in_current_line_and_closing_bracket_must_match_with_beginning_of_line_with_opening_bracket'>Rule 2: If new line is used to nest, opening bracket must be last char in current line, and closing bracket must match with beginning of line with opening bracket</h4>
 
-<p>You can already see this rule at play in previous example, foo = long_function_name( increased nesting, so closing ) must be directly under f of foo. Same with fun1 call.</p>
+<p>As you can see my style can cope with any amount of nesting, unlike pep008,
+which is just plain weird as things get more complex.</p>
+<h4>Rule 2: If new line is used to nest, opening bracket must be last char in current line, and closing bracket must match with beginning of line with opening bracket</h4>
+<p>You can already see this rule at play in previous example, foo =
+long_function_name( increased nesting, so closing ) must be directly under f
+of foo. Same with fun1 call.</p>
+<p>This makes it trivial to see if all brackets close properly. Consider this
+example:</p>
+<div class="codehilite"><pre><span class="c"># pep008</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">long_function_name</span><span class="p">(</span><span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span>
+                         <span class="n">var_three</span><span class="p">,</span> <span class="n">var_four</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="n">baz</span><span class="p">())),</span>
+                         <span class="n">var_eight</span><span class="p">,</span> <span class="n">var_nine</span><span class="p">,</span> <span class="n">var_k</span><span class="p">())</span>
+<span class="c"># vs amitu</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">long_function_name</span><span class="p">(</span>
+    <span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span> <span class="n">var_three</span><span class="p">,</span> <span class="n">var_four</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="n">baz</span><span class="p">()),</span> <span class="n">var_eight</span><span class="p">,</span> <span class="n">var_nine</span><span class="p">,</span> 
+    <span class="n">var_k</span><span class="p">()</span>
+<span class="p">)</span>
+<span class="c"># style wise I try to balance line lengths if possible:</span>
+<span class="n">foo</span> <span class="o">=</span> <span class="n">long_function_name</span><span class="p">(</span>
+    <span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span> <span class="n">var_three</span><span class="p">,</span> <span class="n">var_four</span><span class="p">(</span><span class="n">bar</span><span class="p">,</span> <span class="n">baz</span><span class="p">()),</span>
+    <span class="n">var_eight</span><span class="p">,</span> <span class="n">var_nine</span><span class="p">,</span> <span class="n">var_k</span><span class="p">()</span>
+<span class="p">)</span>
+</pre></div>
 
-<p>This makes it trivial to see if all brackets close properly. Consider this example:</p>
-<div class='highlight'><pre><code class='python'><span class='c'># pep008</span>
-<span class='n'>foo</span> <span class='o'>=</span> <span class='n'>long_function_name</span><span class='p'>(</span><span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span>
-                         <span class='n'>var_three</span><span class='p'>,</span> <span class='n'>var_four</span><span class='p'>(</span><span class='n'>bar</span><span class='p'>,</span> <span class='n'>baz</span><span class='p'>())),</span>
-                         <span class='n'>var_eight</span><span class='p'>,</span> <span class='n'>var_nine</span><span class='p'>,</span> <span class='n'>var_k</span><span class='p'>())</span>
-<span class='c'># vs amitu</span>
-<span class='n'>foo</span> <span class='o'>=</span> <span class='n'>long_function_name</span><span class='p'>(</span>
-    <span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span> <span class='n'>var_three</span><span class='p'>,</span> <span class='n'>var_four</span><span class='p'>(</span><span class='n'>bar</span><span class='p'>,</span> <span class='n'>baz</span><span class='p'>()),</span> <span class='n'>var_eight</span><span class='p'>,</span> <span class='n'>var_nine</span><span class='p'>,</span> 
-    <span class='n'>var_k</span><span class='p'>()</span>
-<span class='p'>)</span>
-<span class='c'># style wise I try to balance line lengths if possible:</span>
-<span class='n'>foo</span> <span class='o'>=</span> <span class='n'>long_function_name</span><span class='p'>(</span>
-    <span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span> <span class='n'>var_three</span><span class='p'>,</span> <span class='n'>var_four</span><span class='p'>(</span><span class='n'>bar</span><span class='p'>,</span> <span class='n'>baz</span><span class='p'>()),</span>
-    <span class='n'>var_eight</span><span class='p'>,</span> <span class='n'>var_nine</span><span class='p'>,</span> <span class='n'>var_k</span><span class='p'>()</span>
-<span class='p'>)</span>
-</code></pre></div>
-<p>As you can see with my style the most you have to ever scan if brackets are closed is the current line. Either the brace is closed in the same line, or it is closed on a line on its own with same indentation as the line that opened brace.</p>
 
+<p>As you can see with my style the most you have to ever scan if brackets are
+closed is the current line. Either the brace is closed in the same line, or it
+is closed on a line on its own with same indentation as the line that opened
+brace.</p>
 <p>Another example to reinforce the same point:</p>
-<div class='highlight'><pre><code class='python'><span class='c'># pep008:</span>
-<span class='k'>class</span> <span class='nc'>Rectangle</span><span class='p'>(</span><span class='n'>Blob</span><span class='p'>):</span>
+<div class="codehilite"><pre><span class="c"># pep008:</span>
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="n">Blob</span><span class="p">):</span>
 
-    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>width</span><span class='p'>,</span> <span class='n'>height</span><span class='p'>,</span>
-                 <span class='n'>color</span><span class='o'>=</span><span class='s'>&#39;black&#39;</span><span class='p'>,</span> <span class='n'>emphasis</span><span class='o'>=</span><span class='bp'>None</span><span class='p'>,</span> <span class='n'>highlight</span><span class='o'>=</span><span class='mi'>0</span><span class='p'>):</span>
-        <span class='k'>if</span> <span class='p'>(</span><span class='n'>width</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='ow'>and</span> <span class='n'>height</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='ow'>and</span>
-            <span class='n'>color</span> <span class='o'>==</span> <span class='s'>&#39;red&#39;</span> <span class='ow'>and</span> <span class='n'>emphasis</span> <span class='o'>==</span> <span class='s'>&#39;strong&#39;</span> <span class='ow'>or</span>
-            <span class='n'>highlight</span> <span class='o'>&gt;</span> <span class='mi'>100</span><span class='p'>):</span>
-            <span class='k'>raise</span> <span class='ne'>ValueError</span><span class='p'>(</span><span class='s'>&quot;sorry, you lose&quot;</span><span class='p'>)</span>
-        <span class='k'>if</span> <span class='n'>width</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='ow'>and</span> <span class='n'>height</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='ow'>and</span> <span class='p'>(</span><span class='n'>color</span> <span class='o'>==</span> <span class='s'>&#39;red&#39;</span> <span class='ow'>or</span>
-                                           <span class='n'>emphasis</span> <span class='ow'>is</span> <span class='bp'>None</span><span class='p'>):</span>
-            <span class='k'>raise</span> <span class='ne'>ValueError</span><span class='p'>(</span><span class='s'>&quot;I don&#39;t think so -- values are </span><span class='si'>%s</span><span class='s'>, </span><span class='si'>%s</span><span class='s'>&quot;</span> <span class='o'>%</span>
-                             <span class='p'>(</span><span class='n'>width</span><span class='p'>,</span> <span class='n'>height</span><span class='p'>))</span>
-        <span class='n'>Blob</span><span class='o'>.</span><span class='n'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>width</span><span class='p'>,</span> <span class='n'>height</span><span class='p'>,</span>
-                      <span class='n'>color</span><span class='p'>,</span> <span class='n'>emphasis</span><span class='p'>,</span> <span class='n'>highlight</span><span class='p'>)</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">,</span> <span class="n">emphasis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">highlight</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">width</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span>
+            <span class="n">color</span> <span class="o">==</span> <span class="s">&#39;red&#39;</span> <span class="ow">and</span> <span class="n">emphasis</span> <span class="o">==</span> <span class="s">&#39;strong&#39;</span> <span class="ow">or</span>
+            <span class="n">highlight</span> <span class="o">&gt;</span> <span class="mi">100</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;sorry, you lose&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="s">&#39;red&#39;</span> <span class="ow">or</span>
+                                           <span class="n">emphasis</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;I don&#39;t think so -- values are </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span>
+                             <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
+        <span class="n">Blob</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span>
+                      <span class="n">color</span><span class="p">,</span> <span class="n">emphasis</span><span class="p">,</span> <span class="n">highlight</span><span class="p">)</span>
 
-<span class='c'># vs amitu</span>
-<span class='k'>class</span> <span class='nc'>Rectangle</span><span class='p'>(</span><span class='n'>Blob</span><span class='p'>):</span>
+<span class="c"># vs amitu</span>
+<span class="k">class</span> <span class="nc">Rectangle</span><span class="p">(</span><span class="n">Blob</span><span class="p">):</span>
 
-    <span class='k'>def</span> <span class='nf'>__init__</span><span class='p'>(</span>
-        <span class='bp'>self</span><span class='p'>,</span> <span class='n'>width</span><span class='p'>,</span> <span class='n'>height</span><span class='p'>,</span> <span class='n'>color</span><span class='o'>=</span><span class='s'>&#39;black&#39;</span><span class='p'>,</span> <span class='n'>emphasis</span><span class='o'>=</span><span class='bp'>None</span><span class='p'>,</span> <span class='n'>highlight</span><span class='o'>=</span><span class='mi'>0</span>
-    <span class='p'>):</span>
-        <span class='k'>if</span> <span class='p'>(</span>
-            <span class='n'>width</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='ow'>and</span> <span class='n'>height</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='ow'>and</span>
-            <span class='n'>color</span> <span class='o'>==</span> <span class='s'>&#39;red&#39;</span> <span class='ow'>and</span> <span class='n'>emphasis</span> <span class='o'>==</span> <span class='s'>&#39;strong&#39;</span> <span class='ow'>or</span>
-            <span class='n'>highlight</span> <span class='o'>&gt;</span> <span class='mi'>100</span>
-        <span class='p'>):</span>
-            <span class='k'>raise</span> <span class='ne'>ValueError</span><span class='p'>(</span><span class='s'>&quot;sorry, you lose&quot;</span><span class='p'>)</span>
-        <span class='k'>if</span> <span class='n'>width</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='ow'>and</span> <span class='n'>height</span> <span class='o'>==</span> <span class='mi'>0</span> <span class='ow'>and</span> <span class='p'>(</span>
-            <span class='n'>color</span> <span class='o'>==</span> <span class='s'>&#39;red&#39;</span> <span class='ow'>or</span> <span class='n'>emphasis</span> <span class='ow'>is</span> <span class='bp'>None</span>
-        <span class='p'>):</span>
-            <span class='k'>raise</span> <span class='ne'>ValueError</span><span class='p'>(</span>
-                <span class='s'>&quot;I don&#39;t think so -- values are </span><span class='si'>%s</span><span class='s'>, </span><span class='si'>%s</span><span class='s'>&quot;</span> <span class='o'>%</span> <span class='p'>(</span><span class='n'>width</span><span class='p'>,</span> <span class='n'>height</span><span class='p'>)</span>
-            <span class='p'>)</span>
-        <span class='n'>Blob</span><span class='o'>.</span><span class='n'>__init__</span><span class='p'>(</span><span class='bp'>self</span><span class='p'>,</span> <span class='n'>width</span><span class='p'>,</span> <span class='n'>height</span><span class='p'>,</span> <span class='n'>color</span><span class='p'>,</span> <span class='n'>emphasis</span><span class='p'>,</span> <span class='n'>highlight</span><span class='p'>)</span>
-</code></pre></div>
-<p>This rule helps write arbitrary nested generators without any loss of readability:</p>
-<div class='highlight'><pre><code class='python'><span class='n'>foo</span> <span class='o'>=</span> <span class='p'>(</span>
-    <span class='n'>x</span> <span class='k'>for</span> <span class='n'>x</span> <span class='ow'>in</span> <span class='p'>(</span>
-        <span class='p'>(</span>
-            <span class='n'>k</span><span class='o'>.</span><span class='n'>one</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>two</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>three</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>four</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>five</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>six</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>seven</span><span class='p'>,</span>
-            <span class='n'>k</span><span class='o'>.</span><span class='n'>eight</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>nine</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>ten</span><span class='p'>,</span> <span class='n'>k</span><span class='o'>.</span><span class='n'>eleven</span>
-        <span class='p'>)</span> <span class='k'>for</span> <span class='n'>k</span> <span class='ow'>in</span> <span class='n'>get_all_k</span><span class='p'>(</span><span class='n'>var_one</span><span class='p'>,</span> <span class='n'>var_two</span><span class='p'>,</span> <span class='n'>var_three</span><span class='p'>)</span>
-    <span class='p'>)</span> <span class='k'>if</span> <span class='n'>x</span><span class='p'>[</span><span class='mi'>0</span><span class='p'>]</span> <span class='o'>&gt;</span> <span class='n'>compute_something</span><span class='p'>(</span>
-        <span class='n'>x</span><span class='p'>[</span><span class='mi'>1</span><span class='p'>],</span> <span class='n'>x</span><span class='p'>[</span><span class='mi'>2</span><span class='p'>],</span> <span class='n'>x</span><span class='p'>[</span><span class='mi'>3</span><span class='p'>],</span> <span class='n'>x</span><span class='p'>[</span><span class='mi'>4</span><span class='p'>],</span> <span class='n'>var_something</span><span class='p'>,</span> <span class='n'>var_something_else</span>
-    <span class='p'>)</span>
-<span class='p'>)</span>
-</code></pre></div>
-<p>As you can see, beyond the concpetual difficulty of understanding nested generators, this code is very easy to keep track of despite nesting. You can increase the nesting and you will still not have to worry about matching opening and closing braces.</p>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&#39;black&#39;</span><span class="p">,</span> <span class="n">emphasis</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">highlight</span><span class="o">=</span><span class="mi">0</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">width</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span>
+            <span class="n">color</span> <span class="o">==</span> <span class="s">&#39;red&#39;</span> <span class="ow">and</span> <span class="n">emphasis</span> <span class="o">==</span> <span class="s">&#39;strong&#39;</span> <span class="ow">or</span>
+            <span class="n">highlight</span> <span class="o">&gt;</span> <span class="mi">100</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s">&quot;sorry, you lose&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">width</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">height</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="n">color</span> <span class="o">==</span> <span class="s">&#39;red&#39;</span> <span class="ow">or</span> <span class="n">emphasis</span> <span class="ow">is</span> <span class="bp">None</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s">&quot;I don&#39;t think so -- values are </span><span class="si">%s</span><span class="s">, </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="n">Blob</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">emphasis</span><span class="p">,</span> <span class="n">highlight</span><span class="p">)</span>
+</pre></div>
 
+
+<p>This rule helps write arbitrary nested generators without any loss of
+readability:</p>
+<div class="codehilite"><pre><span class="n">foo</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="p">(</span>
+            <span class="n">k</span><span class="o">.</span><span class="n">one</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">two</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">three</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">four</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">five</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">six</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">seven</span><span class="p">,</span>
+            <span class="n">k</span><span class="o">.</span><span class="n">eight</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">nine</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">ten</span><span class="p">,</span> <span class="n">k</span><span class="o">.</span><span class="n">eleven</span>
+        <span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">get_all_k</span><span class="p">(</span><span class="n">var_one</span><span class="p">,</span> <span class="n">var_two</span><span class="p">,</span> <span class="n">var_three</span><span class="p">)</span>
+    <span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">compute_something</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">var_something</span><span class="p">,</span> <span class="n">var_something_else</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p>As you can see, beyond the concpetual difficulty of understanding nested
+generators, this code is very easy to keep track of despite nesting. You can
+increase the nesting and you will still not have to worry about matching
+opening and closing braces.</p>
 <p>Following this rule for documentation strings:</p>
-<div class='highlight'><pre><code class='python'><span class='c'># pep008</span>
+<div class="codehilite"><pre><span class="c"># pep008</span>
 
-<span class='sd'>&quot;&quot;&quot;Return a foobang</span>
+<span class="sd">&quot;&quot;&quot;Return a foobang</span>
 
-<span class='sd'>Optional plotz says to frobnicate the bizbaz first.</span>
+<span class="sd">Optional plotz says to frobnicate the bizbaz first.</span>
 
-<span class='sd'>&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
-<span class='c'># amitu style</span>
+<span class="c"># amitu style</span>
 
-<span class='sd'>&quot;&quot;&quot;</span>
-<span class='sd'>    Return a foobang</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a foobang</span>
 
-<span class='sd'>    Optional plotz says to frobnicate the bizbaz first.</span>
-<span class='sd'>&quot;&quot;&quot;</span>
+<span class="sd">    Optional plotz says to frobnicate the bizbaz first.</span>
+<span class="sd">&quot;&quot;&quot;</span>
 
-<span class='c'># exception allowed as per my style:</span>
+<span class="c"># exception allowed as per my style:</span>
 
-<span class='sd'>&quot;&quot;&quot;</span>
-<span class='sd'>Return a foobang</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Return a foobang</span>
 
-<span class='sd'>Optional plotz says to frobnicate the bizbaz first.</span>
-<span class='sd'>&quot;&quot;&quot;</span>
-</code></pre></div>
-<h4 id='exception_to_rule_2_in_javascript_only_call_to_function_with_dictionary_as_parameter'>Exception to rule 2: In javascript only, call to function with dictionary as parameter</h4>
-<div class='highlight'><pre><code class='javascript'><span class='c1'>// strictly following rule 2</span>
-<span class='kd'>var</span> <span class='nx'>foo</span> <span class='o'>=</span> <span class='nx'>long_function_name</span><span class='p'>(</span>
-    <span class='p'>{</span>
-        <span class='s2'>&quot;var_one&quot;</span><span class='o'>:</span> <span class='nx'>var_one</span><span class='p'>,</span> <span class='s2'>&quot;var_two&quot;</span><span class='o'>:</span> <span class='nx'>var_two</span><span class='p'>,</span> <span class='s2'>&quot;var_three&quot;</span><span class='o'>:</span> <span class='nx'>var_three</span><span class='p'>,</span>
-        <span class='s2'>&quot;var_four&quot;</span><span class='o'>:</span> <span class='nx'>var_four</span>
-    <span class='p'>}</span>
-<span class='p'>)</span>
-<span class='c1'>// using exception</span>
-<span class='kd'>var</span> <span class='nx'>foo</span> <span class='o'>=</span> <span class='nx'>long_function_name</span><span class='p'>({</span>
-    <span class='s2'>&quot;var_one&quot;</span><span class='o'>:</span> <span class='nx'>var_one</span><span class='p'>,</span> <span class='s2'>&quot;var_two&quot;</span><span class='o'>:</span> <span class='nx'>var_two</span><span class='p'>,</span> <span class='s2'>&quot;var_three&quot;</span><span class='o'>:</span> <span class='nx'>var_three</span><span class='p'>,</span> 
-    <span class='s2'>&quot;var_four&quot;</span><span class='o'>:</span> <span class='nx'>var_four</span>
-<span class='p'>})</span>
-</code></pre></div>
+<span class="sd">Optional plotz says to frobnicate the bizbaz first.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+</pre></div>
+
+
+<h4>Exception to rule 2: In javascript only, call to function with dictionary as parameter</h4>
+<div class="codehilite"><pre><span class="c1">// strictly following rule 2</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">long_function_name</span><span class="p">(</span>
+    <span class="p">{</span>
+        <span class="s2">&quot;var_one&quot;</span><span class="o">:</span> <span class="nx">var_one</span><span class="p">,</span> <span class="s2">&quot;var_two&quot;</span><span class="o">:</span> <span class="nx">var_two</span><span class="p">,</span> <span class="s2">&quot;var_three&quot;</span><span class="o">:</span> <span class="nx">var_three</span><span class="p">,</span>
+        <span class="s2">&quot;var_four&quot;</span><span class="o">:</span> <span class="nx">var_four</span>
+    <span class="p">}</span>
+<span class="p">)</span>
+<span class="c1">// using exception</span>
+<span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="nx">long_function_name</span><span class="p">({</span>
+    <span class="s2">&quot;var_one&quot;</span><span class="o">:</span> <span class="nx">var_one</span><span class="p">,</span> <span class="s2">&quot;var_two&quot;</span><span class="o">:</span> <span class="nx">var_two</span><span class="p">,</span> <span class="s2">&quot;var_three&quot;</span><span class="o">:</span> <span class="nx">var_three</span><span class="p">,</span> 
+    <span class="s2">&quot;var_four&quot;</span><span class="o">:</span> <span class="nx">var_four</span>
+<span class="p">})</span>
+</pre></div>
+
+
 <p>Other than this exception, only in javascript, rule 2 must never be broken.</p>
-
-<h4 id='rule_3_imports'>Rule 3: Imports</h4>
-
+<h4>Rule 3: Imports</h4>
 <p>PEP008 says:</p>
-<div class='highlight'><pre><code class='python'><span class='c'># YES</span>
-<span class='kn'>import</span> <span class='nn'>os</span>
-<span class='kn'>import</span> <span class='nn'>sys</span>
+<div class="codehilite"><pre><span class="c"># YES</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
 
-<span class='c'># NO</span>
-<span class='kn'>import</span> <span class='nn'>sys</span><span class='o'>,</span> <span class='nn'>os</span>
-</code></pre></div>
-<p>I say opposite of this. There is no resaon the second type is inferior to first, and second is more concise.</p>
+<span class="c"># NO</span>
+<span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">os</span>
+</pre></div>
 
-<p>Just never use bracket to stuff multiple import in one line, split imports if all can not fit in 80 char limit.</p>
 
-<p>PS: I am breaking rule 2 in my <a href='/lab/lipy/'>lisp like code</a>, I have not yet formulated them yet.</p>
+<p>I say opposite of this. There is no resaon the second type is inferior to first, 
+and second is more concise.</p>
+<p>Just never use bracket to stuff multiple import in one line, split imports if
+all can not fit in 80 char limit.</p>
+<p>PS: I am breaking rule 2 in my <a href="/lab/lipy/">lisp like code</a>, I have not yet
+formulated them yet.</p>
+
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
@@ -257,18 +285,16 @@
 
                     </p>
 
+          
 					<div class="comment">
-                        
-
-
-  <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
-    
+    var disqus_shortname = 'amitu';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
@@ -276,11 +302,8 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
-
-
-
 					</div>
+          
 
 			<footer class="unit-foot">
 				<div class="unit-inner unit-foot-inner">
@@ -293,7 +316,6 @@
 		</div><!-- content -->
 	</div><!-- unit-inner -->
 </article>
-
 
 				</div>
 			</div><!-- unit-inner -->
@@ -336,12 +358,10 @@
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
   
-  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
-  <script src="/kudos/jstorage.js"></script>
-  <script src="/kudos/kudos.js"></script>
-  <script src="/kudos/parse-kudos.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 </body>
 </html>
-

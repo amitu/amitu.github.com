@@ -4,7 +4,7 @@ HTML5 display definitions from [HTML5 Boilerplate](http://j.mp/rP0wmY)
 No styleguide reference.
 */
 
-@import url(/kudos/kudos.css);
+@import url(/static/kudos/kudos.css);
 
 article,
 aside,
@@ -509,8 +509,8 @@ No styleguide reference.
 */
 @font-face {
   font-family: 'UbuntuMono-B';
-  src: url('/assets/themes/the-program/font/UbuntuMono-B-webfont.eot');
-  src: url('/assets/themes/the-program/font/UbuntuMono-B-webfont.eot?#iefix') format('embedded-opentype'), url('/assets/themes/the-program/font/UbuntuMono-B-webfont.woff') format('woff'), url('/assets/themes/the-program/font/UbuntuMono-B-webfont.ttf') format('truetype'), url('/assets/themes/the-program/font/UbuntuMono-B-webfont.svg#UbuntuMono-B') format('svg');
+  src: url('/theme/font/UbuntuMono-B-webfont.eot');
+  src: url('/theme/font/UbuntuMono-B-webfont.eot?#iefix') format('embedded-opentype'), url('/theme/font/UbuntuMono-B-webfont.woff') format('woff'), url('/theme/font/UbuntuMono-B-webfont.ttf') format('truetype'), url('/theme/font/UbuntuMono-B-webfont.svg#UbuntuMono-B') format('svg');
   font-weight: normal !important;
   font-style: normal;
 }
@@ -551,7 +551,7 @@ html {
   color: #2d2d2d;
 }
 #page {
-  background: url('/assets/themes/the-program/skin/100-90-5-monochrome.png');
+  background: url('/theme/skin/100-90-5-monochrome.png');
   background-repeat: repeat;
   background-position: 0 0;
   background-color: #e2e2de;
@@ -796,7 +796,7 @@ pre {
 }
 /* post & page */
 .layout-page .tag_box {
-  background: url('/assets/themes/the-program/skin/100-90-5-monochrome.png') repeat 0 0 #999999;
+  background: url('/theme/skin/100-90-5-monochrome.png') repeat 0 0 #999999;
   padding: 0.8125em;
   list-style: none;
   -webkit-border-radius: 3px;

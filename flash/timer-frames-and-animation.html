@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
@@ -7,10 +6,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Amit Upadhyay: Flash: Timer, Frames and Animation?</title>
+    <title>Amit Upadhyay: Flash: Timer, Frames and Animation</title>
 	<meta name="author" content="Amit Upadhyay">
-	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<link href="http://amitu.com/atom.xml" rel="alternate" title="Flash: Timer, Frames and Animation?" type="application/atom+xml">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body ng-app>
@@ -43,104 +42,129 @@
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
-					
+                    
 <article class="unit-article layout-page">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">Flash: Timer, Frames and Animation?</h1>
+                        <h1 class="h2 entry-title">Flash: Timer, Frames and Animation</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>Flash has javascript like setTimeout() and setInterval() functions, but they are deprecated now in favor of &#8220;flash.utils.Timer&#8221; class.</p>
-
-<p>Recap: setTimeout(callback, time_in_milliseconds) calls the callback after time_in_milliseconds milliseconds from now. setInterval(callback, time_in_milliseconds) calls callback repeatedly at time_in_milliseconds milliseconds interval. setInterval() returns a handle that can be passed to clearInterval() to stop the timer from firing. All these methods are accessible globally without importing anything.</p>
-
-<h4 id='flashutilstimer'>flash.utils.Timer</h4>
-
-<p>Timer class constructor takes time_in_milliseconds as delay and repeat_count as the number of times the timer is to be fired.</p>
-
-<p>Instead of callback based mechanism used by setTimeout() setInterval(), Timer class relies on <a href='/flash/events.html'>flash&#8217;s event handling</a> feature. Timer class has an related class TimerEvent in the same package, it needs to be imported too.</p>
-
-<p>Event handling in done in flash via subclassing flash.events.EventDispatcher, and flash.utils.Timer class is a subclass of EventDispatcher too. This means we have access to .addEventListener() method on Timer instances, that can be used to bind event handler with timer event.</p>
-
-<p>Instances of Timer class has .start() and .stop() methods that can be used to start and stop the timers.</p>
-
+                    
+<p>Flash has javascript like setTimeout() and setInterval() functions, but they
+are deprecated now in favor of "flash.utils.Timer" class.</p>
+<p>Recap: setTimeout(callback, time_in_milliseconds) calls the callback after
+time_in_milliseconds milliseconds from now. setInterval(callback,
+time_in_milliseconds) calls callback repeatedly at time_in_milliseconds
+milliseconds interval. setInterval() returns a handle that can be passed to
+clearInterval() to stop the timer from firing. All these methods are accessible
+globally without importing anything.</p>
+<h4>flash.utils.Timer</h4>
+<p>Timer class constructor takes time_in_milliseconds as delay and repeat_count as
+the number of times the timer is to be fired.</p>
+<p>Instead of callback based mechanism used by setTimeout() setInterval(), Timer
+class relies on <a href="/flash/events.html">flash's event handling</a> feature. Timer
+class has an related class TimerEvent in the same package, it needs to be
+imported too.</p>
+<p>Event handling in done in flash via subclassing flash.events.EventDispatcher,
+and flash.utils.Timer class is a subclass of EventDispatcher too. This means we
+have access to .addEventListener() method on Timer instances, that can be used
+to bind event handler with timer event.</p>
+<p>Instances of Timer class has .start() and .stop() methods that can be used to
+start and stop the timers.</p>
 <p>Here is an example usage:</p>
-<div class='highlight'><pre><code class='actionscript'><span class='kd'>package</span>
-<span class='p'>{</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>display</span><span class='p'>.</span><span class='nb'>Sprite</span><span class='o'>;</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>utils</span><span class='p'>.</span><span class='nb'>Timer</span><span class='o'>;</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>utils</span><span class='p'>.</span><span class='nb'>TimerEvent</span><span class='o'>;</span>
+<div class="codehilite"><pre><span class="kd">package</span>
+<span class="p">{</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nb">Timer</span><span class="o">;</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nb">TimerEvent</span><span class="o">;</span>
 
-    <span class='kd'>public</span> <span class='kd'>class</span> <span class='nx'>TimerExample</span> <span class='kd'>extends</span> <span class='nb'>Sprite</span>
-    <span class='p'>{</span>
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='nx'>TimerExample</span><span class='p'>()</span>
-        <span class='p'>{</span>
-            <span class='k'>var</span> <span class='nx'>time_in_milliseconds</span><span class='o'>:</span><span class='nb'>Number</span> <span class='o'>=</span> <span class='mi'>1000</span><span class='o'>;</span>
-            <span class='k'>var</span> <span class='nx'>repeat_count</span><span class='o'>:</span><span class='nb'>Number</span> <span class='o'>=</span> <span class='mi'>10</span><span class='o'>;</span>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nx">TimerExample</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+    <span class="p">{</span>
+        <span class="kd">public</span> <span class="kd">function</span> <span class="nx">TimerExample</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">var</span> <span class="nx">time_in_milliseconds</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+            <span class="k">var</span> <span class="nx">repeat_count</span><span class="o">:</span><span class="nb">Number</span> <span class="o">=</span> <span class="mi">10</span><span class="o">;</span>
 
-            <span class='k'>var</span> <span class='nx'>timer</span><span class='o'>:</span><span class='nb'>Timer</span> <span class='o'>=</span> <span class='k'>new</span> <span class='nb'>Timer</span><span class='p'>(</span><span class='nx'>time_in_milliseconds</span><span class='o'>,</span> <span class='nx'>repeat_count</span><span class='p'>);</span>
-            <span class='nx'>timer</span><span class='p'>.</span><span class='nx'>addEventListener</span><span class='p'>(</span><span class='nb'>TimerEvent</span><span class='p'>.</span><span class='nx'>TIMER</span><span class='o'>,</span> <span class='nx'>onTimer</span><span class='p'>);</span>
-            <span class='nx'>timer</span><span class='p'>.</span><span class='nx'>start</span><span class='p'>();</span>
-        <span class='p'>}</span>
+            <span class="k">var</span> <span class="nx">timer</span><span class="o">:</span><span class="nb">Timer</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Timer</span><span class="p">(</span><span class="nx">time_in_milliseconds</span><span class="o">,</span> <span class="nx">repeat_count</span><span class="p">);</span>
+            <span class="nx">timer</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">TimerEvent</span><span class="p">.</span><span class="nx">TIMER</span><span class="o">,</span> <span class="nx">onTimer</span><span class="p">);</span>
+            <span class="nx">timer</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
+        <span class="p">}</span>
 
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='nx'>onTimer</span><span class='p'>(</span><span class='nx'>event</span><span class='o'>:</span><span class='nb'>TimerEvent</span><span class='p'>)</span><span class='o'>:</span><span class='nx'>void</span>
-        <span class='p'>{</span>
-            <span class='nf'>trace</span><span class='p'>(</span><span class='s2'>&quot;Timer called&quot;</span><span class='p'>);</span>
-        <span class='p'>}</span>
-    <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
-<h4 id='flasheventsevententer_frame'>flash.events.Event.ENTER_FRAME</h4>
+        <span class="kd">public</span> <span class="kd">function</span> <span class="nx">onTimer</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">TimerEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+        <span class="p">{</span>
+            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;Timer called&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-<p>It so happens that flash has another mechanism for doing things periodically, and that is by using &#8220;frame event&#8221;.</p>
 
-<p>Flash application has a configuration option, FPS, frames per second, typically 60, but can be almost anything, of course it can not be very high. Flash updates the display at this frequency. This is when the frames of a playing video are updated, or when things move during an animation. Setting it low lowers the CPU requirements where as setting it high makes animation and playback smoother.</p>
+<h4>flash.events.Event.ENTER_FRAME</h4>
+<p>It so happens that flash has another mechanism for doing things periodically,
+and that is by using "frame event".</p>
+<p>Flash application has a configuration option, FPS, frames per second, typically
+60, but can be almost anything, of course it can not be very high. Flash
+updates the display at this frequency. This is when the frames of a playing
+video are updated, or when things move during an animation. Setting it low
+lowers the CPU requirements where as setting it high makes animation and
+playback smoother.</p>
+<p>Throughout the application, an event "flash.events.Event.ENTER_FRAME" is
+available, this event is fired at the beginning of each frame. As you can see
+we do not have much control over the frequency of this event, but this event is
+synchronizes with everything else, so there are pros and cons of using this
+event vs the Timer discussed above.</p>
+<p>It so happens that Sprite class also is a subsclass of EventDispatcher, so it
+.addEventListener() method. Here is a sample application using this method and
+ENTER_FRAME:</p>
+<div class="codehilite"><pre><span class="kd">package</span>
+<span class="p">{</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">display</span><span class="p">.</span><span class="nb">Sprite</span><span class="o">;</span>
+    <span class="kd">import</span> <span class="nx">flash</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nb">Event</span><span class="o">;</span>
 
-<p>Throughout the application, an event &#8220;flash.events.Event.ENTER_FRAME&#8221; is available, this event is fired at the beginning of each frame. As you can see we do not have much control over the frequency of this event, but this event is synchronizes with everything else, so there are pros and cons of using this event vs the Timer discussed above.</p>
+    <span class="p">[</span><span class="nx">SWF</span><span class="p">(</span><span class="nx">width</span><span class="o">=</span><span class="s2">&quot;760&quot;</span><span class="o">,</span> <span class="nx">height</span><span class="o">=</span><span class="s2">&quot;570&quot;</span><span class="o">,</span> <span class="nx">frameRate</span><span class="o">=</span><span class="s2">&quot;60&quot;</span><span class="p">)]</span>
+    <span class="kd">public</span> <span class="kd">class</span> <span class="nx">EnterFrameExample</span> <span class="kd">extends</span> <span class="nb">Sprite</span>
+    <span class="p">{</span>
+        <span class="kd">public</span> <span class="kd">function</span> <span class="nx">TimerExample</span><span class="p">()</span>
+        <span class="p">{</span>
+            <span class="k">this</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="nb">Event</span><span class="p">.</span><span class="nx">ENTER_FRAME</span><span class="o">,</span> <span class="nx">onEnterFrame</span><span class="p">);</span>
+        <span class="p">}</span>
 
-<p>It so happens that Sprite class also is a subsclass of EventDispatcher, so it .addEventListener() method. Here is a sample application using this method and ENTER_FRAME:</p>
-<div class='highlight'><pre><code class='actionscript'><span class='kd'>package</span>
-<span class='p'>{</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>display</span><span class='p'>.</span><span class='nb'>Sprite</span><span class='o'>;</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>events</span><span class='p'>.</span><span class='nb'>Event</span><span class='o'>;</span>
+        <span class="kd">public</span> <span class="kd">function</span> <span class="nx">onEnterFrame</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">Event</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span>
+        <span class="p">{</span>
+            <span class="nf">trace</span><span class="p">(</span><span class="s2">&quot;new frame&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
 
-    <span class='p'>[</span><span class='nx'>SWF</span><span class='p'>(</span><span class='nx'>width</span><span class='o'>=</span><span class='s2'>&quot;760&quot;</span><span class='o'>,</span> <span class='nx'>height</span><span class='o'>=</span><span class='s2'>&quot;570&quot;</span><span class='o'>,</span> <span class='nx'>frameRate</span><span class='o'>=</span><span class='s2'>&quot;60&quot;</span><span class='p'>)]</span>
-    <span class='kd'>public</span> <span class='kd'>class</span> <span class='nx'>EnterFrameExample</span> <span class='kd'>extends</span> <span class='nb'>Sprite</span>
-    <span class='p'>{</span>
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='nx'>TimerExample</span><span class='p'>()</span>
-        <span class='p'>{</span>
-            <span class='k'>this</span><span class='p'>.</span><span class='nx'>addEventListener</span><span class='p'>(</span><span class='nb'>Event</span><span class='p'>.</span><span class='nx'>ENTER_FRAME</span><span class='o'>,</span> <span class='nx'>onEnterFrame</span><span class='p'>);</span>
-        <span class='p'>}</span>
 
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='nx'>onEnterFrame</span><span class='p'>(</span><span class='nx'>event</span><span class='o'>:</span><span class='nb'>Event</span><span class='p'>)</span><span class='o'>:</span><span class='nx'>void</span>
-        <span class='p'>{</span>
-            <span class='nf'>trace</span><span class='p'>(</span><span class='s2'>&quot;new frame&quot;</span><span class='p'>);</span>
-        <span class='p'>}</span>
-    <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
-<p>Here we have explicitly set the frameRate to 60, so our onEnterFrame is called 60 times per second.</p>
+<p>Here we have explicitly set the frameRate to 60, so our onEnterFrame is called
+60 times per second.</p>
+<p>One of the main advantage of using Event.ENTER_FRAME over TimerEvent.TIMER is
+in animations, if we update the display at a higher frequency than it is being
+displayed it is wasted work, and it might cause unexpected drops in animation
+frames. If we are trying to be as smooth as possible, ENTER_FRAME event is
+preferable.</p>
+<h4>flash.utils.getTimer()</h4>
+<p>flash.utils.getTimer() is function that returns number of milliseconds since
+application started.</p>
+<h4>Timers and Frame Rates Are Approximate</h4>
+<p>A final note of warning, the frame rate and the time_in_milliseconds we pass to
+Timer are approximate values, flash does not give a gaurantee that the event
+handlers are called at exactly the specified times.</p>
+<p>Various factors like CPU load, number of objects in
+<a href="/flash/displaylist.html">displaylist</a>, amount of work done in individual event
+handlers and so on control the actual rate at which our timers and frames are
+called.</p>
+<p>Back to <a href="/flash/">Flash For Python Developers</a>.</p>
 
-<p>One of the main advantage of using Event.ENTER_FRAME over TimerEvent.TIMER is in animations, if we update the display at a higher frequency than it is being displayed it is wasted work, and it might cause unexpected drops in animation frames. If we are trying to be as smooth as possible, ENTER_FRAME event is preferable.</p>
-
-<h4 id='flashutilsgettimer'>flash.utils.getTimer()</h4>
-
-<p>flash.utils.getTimer() is function that returns number of milliseconds since application started.</p>
-
-<h4 id='timers_and_frame_rates_are_approximate'>Timers and Frame Rates Are Approximate</h4>
-
-<p>A final note of warning, the frame rate and the time_in_milliseconds we pass to Timer are approximate values, flash does not give a gaurantee that the event handlers are called at exactly the specified times.</p>
-
-<p>Various factors like CPU load, number of objects in <a href='/flash/displaylist.html'>displaylist</a>, amount of work done in individual event handlers and so on control the actual rate at which our timers and frames are called.</p>
-
-<p>Back to <a href='/flash/'>Flash For Python Developers</a>.</p>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
@@ -163,18 +187,16 @@
 
                     </p>
 
+          
 					<div class="comment">
-                        
-
-
-  <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
-    
+    var disqus_shortname = 'amitu';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
@@ -182,11 +204,8 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
-
-
-
 					</div>
+          
 
 			<footer class="unit-foot">
 				<div class="unit-inner unit-foot-inner">
@@ -199,7 +218,6 @@
 		</div><!-- content -->
 	</div><!-- unit-inner -->
 </article>
-
 
 				</div>
 			</div><!-- unit-inner -->
@@ -242,12 +260,10 @@
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
   
-  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
-  <script src="/kudos/jstorage.js"></script>
-  <script src="/kudos/kudos.js"></script>
-  <script src="/kudos/parse-kudos.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 </body>
 </html>
-

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
@@ -7,10 +6,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Amit Upadhyay: GitHub Pull-Request Basics For New Forker</title>
+    <title>Amit Upadhyay: GitHub Pull-Request Basics For New Forker</title>
 	<meta name="author" content="Amit Upadhyay">
-	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<link href="http://amitu.com/atom.xml" rel="alternate" title="GitHub Pull-Request Basics For New Forker" type="application/atom+xml">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body ng-app>
@@ -43,7 +42,7 @@
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
-					
+                    
 <article class="unit-article layout-post">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
@@ -57,51 +56,84 @@
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>So you found a open source project on github you like and you have many ideas on how to make it better. You know what to do, you fork it.</p>
-
-<h3 id='why_is_forking_better'>Why Is Forking Better</h3>
-
+					<p>So you found a open source project on github you like and you have many ideas
+on how to make it better. You know what to do, you fork it.</p>
+<h3>Why Is Forking Better</h3>
 <p>Actually you have a <em>few different options</em>.</p>
-
-<p><em>You can keep creating issues and attaching patches to it</em>. The advantage of this is you have to do minimal of administrative stuff, just clone the repository, may be create a branch, and hack away, everytime you are done with a feature or a bugfix, create a complete diff from master branch which is tracking upstream.</p>
-
-<p>While this works, it has a one small problem, it is not easy for me to try your changes. First there is no gaurantee that your patch will cleanly apply as upstream may have moved since last you submitted the patch. Even if it has not, as a observer I have to do more work on my part to see you code working, I have to clone the repository, create a branch, apply your patch. If I am looking at patches submitted by many developers, then I will have to either commit your changes in my newly created branch, or do the patching part again the next time I want to come to you. And if a new patch comes along I have to revert the commit and apply patch again.</p>
-
-<p>There is no reason it can not work, linux development happens like this, many other open source project work like this.</p>
-
-<p><em>Another option is you trying to get commit access to the original project</em>, you can directly commit now. But it lacks a review process, people do not get to voice their opinion. Any good open source project will aspire to have a better review policy. This also applies to the case when you yourself own the original project, you think you can push changes willy-nilly, but going through the same process is much better. An open source project, when it gets reasonably popular should get its primary repository shifted to a project specific user from original developer, ie amitu/foo should shift to foo/foo.</p>
-
-<p><em>Pull requests, along with github hosting is the best option</em>, if you dont mind github. All contributors can fork the original project, create a feature specific branch, work on it, and when feature is ready, submit a pull request. The pull request is visible as an issue, people can comment on it.</p>
-
-<p>Based on comments and feedbacks further changes can be made in that branch in your repo, and those changes will automatically be visible in the pull request, and be part of merge when original developer choses to merge your pull request.</p>
-
-<h4 id='how_to_do_pull_requests_right'>How To Do Pull Requests Right?</h4>
-
-<p>Lets say somedeveloper/someproject rocks. I, amitu, want to contribute a few features/bugfixes to it. So first thing I do is I clone somedeveloper/someproject as amitu/someproject.</p>
-
-<p>Now the original somedeveloper may have many branches in someproject, and all those will come to me, but I should ignore all as his private stuff. My concern is master branch.</p>
-
-<p>It is highly recommended to use <a href='http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/'>git flow</a>, it helps create branches based on feature. If you use git-flow, use it only to create feature branches, and not to merge things back to master.</p>
-
-<p><em>Never make any changes to master branch</em>. All your changes must be in feature specific branches. <em>Also never have changes that you intend to go as separate pull request/issues, go in the same feature branch</em>. This is very important.</p>
-
-<p>Now lets say you want to fix issue # 12, in somedeveloper/someproject/issues/12. It would be a good idea to turn off issues in your fork, and confine all issues in original repository somedeveloper/someproject. Create branch feature/12, when you are satisfied that the issue is fixed, send a pull request. Github currently lacks easy way to associate pull request to existing issue, may be it is a good thing, it gives different developers to propose different solutions to same issue. Once you file a pull request, a new issue would be created, put a comment about it in issue # 12.</p>
-
-<p>You can be working on any number of issues and feature requests in different branches, create pull request for each of them, rest of the developers/watchers can track your changes, offer feedback. If they want to try you changes they can simply clone your fork and switch to right branch, and keep pulling your changes as it happens, and testing your work. If someone wants to build on your unaccepted changes, they can fork your fork, or pull your branch by adding you as a repository, get access to your feature/12 branch, add more commits, and create their own pull requests.</p>
-
-<p>PS: You will have to do &#8220;git push &#8211;all&#8221; to push your newly created branches, as by default they don&#8217;t go.</p>
+<p><em>You can keep creating issues and attaching patches to it</em>. The advantage of
+this is you have to do minimal of administrative stuff, just clone the
+repository, may be create a branch, and hack away, everytime you are done with
+a feature or a bugfix, create a complete diff from master branch which is
+tracking upstream.</p>
+<p>While this works, it has a one small problem, it is not easy for me to try your
+changes. First there is no gaurantee that your patch will cleanly apply as
+upstream may have moved since last you submitted the patch. Even if it has not,
+as a observer I have to do more work on my part to see you code working, I have
+to clone the repository, create a branch, apply your patch. If I am looking at
+patches submitted by many developers, then I will have to either commit your
+changes in my newly created branch, or do the patching part again the next time
+I want to come to you. And if a new patch comes along I have to revert the
+commit and apply patch again.</p>
+<p>There is no reason it can not work, linux development happens like this, many
+other open source project work like this.</p>
+<p><em>Another option is you trying to get commit access to the original project</em>,
+you can directly commit now. But it lacks a review process, people do not get
+to voice their opinion. Any good open source project will aspire to have a
+better review policy. This also applies to the case when you yourself own the
+original project, you think you can push changes willy-nilly, but going through
+the same process is much better. An open source project, when it gets
+reasonably popular should get its primary repository shifted to a project
+specific user from original developer, ie amitu/foo should shift to foo/foo.</p>
+<p><em>Pull requests, along with github hosting is the best option</em>, if you dont mind
+github. All contributors can fork the original project, create a feature
+specific branch, work on it, and when feature is ready, submit a pull request.
+The pull request is visible as an issue, people can comment on it.</p>
+<p>Based on comments and feedbacks further changes can be made in that branch in
+your repo, and those changes will automatically be visible in the pull request,
+and be part of merge when original developer choses to merge your pull request.</p>
+<h4>How To Do Pull Requests Right?</h4>
+<p>Lets say somedeveloper/someproject rocks. I, amitu, want to contribute a few
+features/bugfixes to it. So first thing I do is I clone
+somedeveloper/someproject as amitu/someproject.</p>
+<p>Now the original somedeveloper may have many branches in someproject, and all
+those will come to me, but I should ignore all as his private stuff. My concern
+is master branch.</p>
+<p>It is highly recommended to use <a href="http://jeffkreeftmeijer.com/2010/why-arent-you-using-git-flow/">git
+flow</a>, it helps
+create branches based on feature. If you use git-flow, use it only to create
+feature branches, and not to merge things back to master.</p>
+<p><em>Never make any changes to master branch</em>. All your changes must be in feature
+specific branches. <em>Also never have changes that you intend to go as separate
+pull request/issues, go in the same feature branch</em>. This is very important.</p>
+<p>Now lets say you want to fix issue # 12, in
+somedeveloper/someproject/issues/12. It would be a good idea to turn off issues
+in your fork, and confine all issues in original repository
+somedeveloper/someproject. Create branch feature/12, when you are satisfied
+that the issue is fixed, send a pull request. Github currently lacks easy way
+to associate pull request to existing issue, may be it is a good thing, it
+gives different developers to propose different solutions to same issue. Once
+you file a pull request, a new issue would be created, put a comment about it
+in issue # 12.</p>
+<p>You can be working on any number of issues and feature requests in different
+branches, create pull request for each of them, rest of the developers/watchers
+can track your changes, offer feedback. If they want to try you changes they
+can simply clone your fork and switch to right branch, and keep pulling your
+changes as it happens, and testing your work. If someone wants to build on your
+unaccepted changes, they can fork your fork, or pull your branch by adding you
+as a repository, get access to your feature/12 branch, add more commits, and
+create their own pull requests.</p>
+<p>PS: You will have to do "git push --all" to push your newly created branches,
+as by default they don't go.</p>
 					<div class="meta">
                     <hr>
 						<p class="date-publish">
-							Published: 
-							<date class="date-pub" title="2012-12-07T00:00:00-08:00" datetime="2012-12-07T00:00:00-08:00" pubdate>
-							<span class="month"><abbr>December</abbr></span>
+							Published:
+							<date class="date-pub" title="Dec. 7, 2012, midnight" datetime="Dec. 7, 2012, midnight" pubdate>
+							<span class="month"><abbr>Dec</abbr></span>
 							<span class="day">07</span>
 							<span class="year">2012</span>
 							</date>
 						</p>
-                        
-                        
 					</div><!-- meta -->
 				</div><!-- entry-content -->
 
@@ -126,31 +158,25 @@
                     </p>
 					<!-- div class="social">
 						<ul class="list-linear">
-							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="amitu" data-lang="en">Tweet</a></div></li>
-							<li><div class="twitter-follow"><a href="https://twitter.com/amitu" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
 						</ul>
 					</div -->
 					<div class="comment">
-					
-
-
-  <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
-    
+    var disqus_shortname = 'amitu';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
-
-
-
 
 					</div>
 				</div><!-- misc-content -->
@@ -160,13 +186,7 @@
 					<nav class="pagination">
 						<ul>
 							
-							<li class="prev"><a class="internal" rel="prev"  href="/2012/11/google-vs-bing" title="View Google vs Bing">&laquo; Google vs Bing</a></li>
 							
-							
-							<li class="pipe"> | </li>
-							
-							
-							<li class="next"><a class="internal" rel="next"  href="/2012/12/reddit-for-aaam-aadmi-party" title="View Reddit For Aaam Aadmi Party">Reddit For Aaam Aadmi Party &raquo;</a></li>
 							
 						</ul>
 					</nav>
@@ -179,7 +199,6 @@
 		</div><!-- content -->
 	</div><!-- unit-inner -->
 </article>
-
 
 				</div>
 			</div><!-- unit-inner -->
@@ -222,12 +241,10 @@
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
   
-  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
-  <script src="/kudos/jstorage.js"></script>
-  <script src="/kudos/kudos.js"></script>
-  <script src="/kudos/parse-kudos.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 </body>
 </html>
-

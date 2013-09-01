@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
@@ -7,10 +6,10 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-	<title>Amit Upadhyay: Flash: Event System</title>
+    <title>Amit Upadhyay: Flash: Event System</title>
 	<meta name="author" content="Amit Upadhyay">
-	<link href='/assets/themes/the-program/css/style.css' rel="stylesheet" media="all">
-	<link href="http://amitu.com/atom.xml" rel="alternate" title="Flash: Event System" type="application/atom+xml">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body ng-app>
@@ -43,125 +42,151 @@
 		<div class="unit-body">
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
-					
+                    
 <article class="unit-article layout-page">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">Flash: Event System</h1>
+                        <h1 class="h2 entry-title">Flash: Event System</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<p>Flash has a unified event system, implemented in flash.events.EventDispatcher class. Any class that intends to emit events has to subclass EventDispatcher.</p>
-
-<p>EventDispatcher has a protected dispatchEvent() method that can be used by the subclass to fire events.</p>
-
-<p>EventDispatcher subclasses have a public addEventListener() that can be used to bind event handlers to events fired. Events in flash are identifier by a name that is a unique string representing that event. This identifier is passed to addEventListener(identifier, handler) along with a handler method. If handler is a method on any class, that method must be public, otherwise it can be an anonymous function. There is also a corresponding removeEventListener() that takes the same parameters as addEventListener(). If you intend to use removeEventListener() you can not use anonymous function as event handler.</p>
-
-<p>The event handler that is passed to addEventListener() is called with an event object that may contain event specific data.</p>
-
-<p>It is a common pattern to create a public Event subclass for every event emitting class, and store the event identifier string as a public static const attribute on this class. This facilitates in compile time code validation, as using string identifier directly is error prone to typos.</p>
-
-<p>Lets create a class that emits events, lets say we store some data in a data container, DataContainer, and this data container does validation on the data, and if data is found to be invalid it fires an InvalidData event.</p>
-
+                    
+<p>Flash has a unified event system, implemented in flash.events.EventDispatcher
+class. Any class that intends to emit events has to subclass EventDispatcher.</p>
+<p>EventDispatcher has a protected dispatchEvent() method that can be used by the
+subclass to fire events.</p>
+<p>EventDispatcher subclasses have a public addEventListener() that can be used to
+bind event handlers to events fired. Events in flash are identifier by a name
+that is a unique string representing that event. This identifier is passed to
+addEventListener(identifier, handler) along with a handler method. If handler
+is a method on any class, that method must be public, otherwise it can be an
+anonymous function. There is also a corresponding removeEventListener() that
+takes the same parameters as addEventListener(). If you intend to use
+removeEventListener() you can not use anonymous function as event handler.</p>
+<p>The event handler that is passed to addEventListener() is called with an event
+object that may contain event specific data.</p>
+<p>It is a common pattern to create a public Event subclass for every event
+emitting class, and store the event identifier string as a public static const
+attribute on this class. This facilitates in compile time code validation, as
+using string identifier directly is error prone to typos.</p>
+<p>Lets create a class that emits events, lets say we store some data in a data
+container, DataContainer, and this data container does validation on the data,
+and if data is found to be invalid it fires an InvalidData event.</p>
 <p>First lets look at our custom event:</p>
-<div class='highlight'><pre><code class='actionscript'><span class='kd'>package</span> <span class='nx'>com</span><span class='p'>.</span><span class='nx'>amitu</span><span class='p'>.</span><span class='nx'>datacontainer</span>
-<span class='p'>{</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>events</span><span class='p'>.</span><span class='nb'>Event</span><span class='o'>;</span>
+<p>:::actionscript
+  package com.amitu.datacontainer
+  {
+      import flash.events.Event;</p>
+<div class="codehilite"><pre>  <span class="n">public</span> <span class="n">class</span> <span class="n">DataContainerEvent</span> <span class="n">extends</span> <span class="n">Event</span>
+  <span class="p">{</span>
+      <span class="n">public</span> <span class="n">static</span> <span class="n">const</span> <span class="n">InvalidData</span><span class="p">:</span><span class="n">String</span> <span class="p">=</span> <span class="p">(</span>
+          &quot;<span class="n">com</span><span class="p">.</span><span class="n">amitu</span><span class="p">.</span><span class="n">datacontainer</span><span class="p">.</span><span class="n">InvalidData</span>&quot;<span class="p">;</span>
+      <span class="p">)</span>
+      <span class="n">public</span> <span class="n">DataContainerEvent</span><span class="p">()</span>
+      <span class="p">{</span>
+          <span class="n">super</span><span class="p">(</span><span class="n">InvalidData</span><span class="p">);</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
 
-    <span class='kd'>public</span> <span class='kd'>class</span> <span class='nx'>DataContainerEvent</span> <span class='kd'>extends</span> <span class='nb'>Event</span>
-    <span class='p'>{</span>
-        <span class='kd'>public</span> <span class='kd'>static</span> <span class='kd'>const</span> <span class='nx'>InvalidData</span><span class='o'>:</span><span class='nb'>String</span> <span class='o'>=</span> <span class='p'>(</span>
-            <span class='s2'>&quot;com.amitu.datacontainer.InvalidData&quot;</span><span class='o'>;</span>
-        <span class='p'>)</span>
-        <span class='kd'>public</span> <span class='nx'>DataContainerEvent</span><span class='p'>()</span>
-        <span class='p'>{</span>
-            <span class='kd'>super</span><span class='p'>(</span><span class='nx'>InvalidData</span><span class='p'>);</span>
-        <span class='p'>}</span>
-    <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
-<p>As you can see we have created a unique string identifier &#8220;com.amitu.datacontainer.InvalidData&#8221; and made it available via a public static const varaible. Rest of the code should refer to this string via this constant to avoid errors.</p>
 
+<p>}</p>
+<p>As you can see we have created a unique string identifier
+"com.amitu.datacontainer.InvalidData" and made it available via a public static
+const varaible. Rest of the code should refer to this string via this constant
+to avoid errors.</p>
 <p>Here is our DataContainer:</p>
-<div class='highlight'><pre><code class='actionscript'><span class='kd'>package</span> <span class='nx'>com</span><span class='p'>.</span><span class='nx'>amitu</span><span class='p'>.</span><span class='nx'>datacontainer</span>
-<span class='p'>{</span>
-    <span class='kd'>import</span> <span class='nx'>flash</span><span class='p'>.</span><span class='nx'>events</span><span class='p'>.</span><span class='nb'>EventDispatcher</span>
+<p>:::actionscript
+  package com.amitu.datacontainer
+  {
+      import flash.events.EventDispatcher</p>
+<div class="codehilite"><pre>  <span class="n">public</span> <span class="n">class</span> <span class="n">DataContainer</span> <span class="n">extends</span> <span class="n">EventDispatcher</span>
+  <span class="p">{</span>
+      <span class="n">private</span> <span class="n">obj</span><span class="p">:</span><span class="n">Object</span><span class="p">;</span>
 
-    <span class='kd'>public</span> <span class='kd'>class</span> <span class='nx'>DataContainer</span> <span class='kd'>extends</span> <span class='nb'>EventDispatcher</span>
-    <span class='p'>{</span>
-        <span class='kd'>private</span> <span class='nx'>obj</span><span class='o'>:</span><span class='nb'>Object</span><span class='o'>;</span>
+      <span class="n">public</span> <span class="n">DataContainer</span><span class="p">(</span><span class="n">initial</span><span class="p">:</span><span class="n">Object</span><span class="p">)</span>
+      <span class="p">{</span>
+          <span class="n">set</span><span class="p">(</span><span class="n">initial</span><span class="p">);</span>
+      <span class="p">}</span>
 
-        <span class='kd'>public</span> <span class='nx'>DataContainer</span><span class='p'>(</span><span class='nx'>initial</span><span class='o'>:</span><span class='nb'>Object</span><span class='p'>)</span>
-        <span class='p'>{</span>
-            <span class='kd'>set</span><span class='p'>(</span><span class='nx'>initial</span><span class='p'>);</span>
-        <span class='p'>}</span>
+      <span class="n">public</span> <span class="k">function</span> <span class="n">set</span><span class="p">(</span><span class="n">o</span><span class="p">:</span><span class="n">Object</span><span class="p">):</span><span class="n">void</span>
+      <span class="p">{</span>
+          <span class="n">this</span><span class="p">.</span><span class="n">obj</span> <span class="p">=</span> <span class="n">o</span><span class="p">;</span>
+          <span class="n">this</span><span class="p">.</span><span class="n">validate</span><span class="p">();</span>
+      <span class="p">}</span>
 
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='kd'>set</span><span class='p'>(</span><span class='nx'>o</span><span class='o'>:</span><span class='nb'>Object</span><span class='p'>)</span><span class='o'>:</span><span class='nx'>void</span>
-        <span class='p'>{</span>
-            <span class='k'>this</span><span class='p'>.</span><span class='nx'>obj</span> <span class='o'>=</span> <span class='nx'>o</span><span class='o'>;</span>
-            <span class='k'>this</span><span class='p'>.</span><span class='nx'>validate</span><span class='p'>();</span>
-        <span class='p'>}</span>
+      <span class="n">public</span> <span class="k">function</span> <span class="n">get</span><span class="p">():</span><span class="n">Object</span>
+      <span class="p">{</span>
+          <span class="k">return</span> <span class="n">this</span><span class="p">.</span><span class="n">obj</span><span class="p">;</span>
+      <span class="p">}</span>
 
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='kd'>get</span><span class='p'>()</span><span class='o'>:</span><span class='nb'>Object</span>
-        <span class='p'>{</span>
-            <span class='k'>return</span> <span class='k'>this</span><span class='p'>.</span><span class='nx'>obj</span><span class='o'>;</span>
-        <span class='p'>}</span>
+      <span class="n">protected</span> <span class="k">function</span> <span class="n">fireError</span><span class="p">():</span><span class="n">void</span>
+      <span class="p">{</span>
+          <span class="n">dispatchEvent</span><span class="p">(</span><span class="n">new</span> <span class="n">DataContainerEvent</span><span class="p">());</span>
+      <span class="p">}</span>
 
-        <span class='kd'>protected</span> <span class='kd'>function</span> <span class='nx'>fireError</span><span class='p'>()</span><span class='o'>:</span><span class='nx'>void</span>
-        <span class='p'>{</span>
-            <span class='nx'>dispatchEvent</span><span class='p'>(</span><span class='k'>new</span> <span class='nx'>DataContainerEvent</span><span class='p'>());</span>
-        <span class='p'>}</span>
+      <span class="n">private</span> <span class="k">function</span> <span class="n">validate</span><span class="p">():</span><span class="n">void</span>
+      <span class="p">{</span>
+          <span class="o">//</span> <span class="n">other</span> <span class="n">classes</span> <span class="n">may</span> <span class="n">subclass</span> <span class="n">this</span> <span class="n">to</span>
+          <span class="o">//</span> <span class="n">implement</span> <span class="n">custom</span> <span class="n">validation</span>
+          <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">obj</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span>
+          <span class="p">{</span>
+              <span class="n">this</span><span class="p">.</span><span class="n">fireError</span><span class="p">();</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
 
-        <span class='kd'>private</span> <span class='kd'>function</span> <span class='nx'>validate</span><span class='p'>()</span><span class='o'>:</span><span class='nx'>void</span>
-        <span class='p'>{</span>
-            <span class='c1'>// other classes may subclass this to</span>
-            <span class='c1'>// implement custom validation</span>
-            <span class='k'>if</span> <span class='p'>(</span><span class='k'>this</span><span class='p'>.</span><span class='nx'>obj</span> <span class='o'>==</span> <span class='kc'>null</span><span class='p'>)</span>
-            <span class='p'>{</span>
-                <span class='k'>this</span><span class='p'>.</span><span class='nx'>fireError</span><span class='p'>();</span>
-            <span class='p'>}</span>
-        <span class='p'>}</span>
-    <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
-<p>The crux of this class is .validate() method that does validation and fires our DataContainerEvent on validation failure. Other classes may subclass DataContainer and provide custom .validate() methods for data type specific validation.</p>
 
-<p>We can also implement a new event DataChanged that is fired everytime we change the data.</p>
-
+<p>}</p>
+<p>The crux of this class is .validate() method that does validation and fires our
+DataContainerEvent on validation failure. Other classes may subclass
+DataContainer and provide custom .validate() methods for data type specific
+validation.</p>
+<p>We can also implement a new event DataChanged that is fired everytime we change
+the data.</p>
 <p>Now lets see how to use this class and event handler:</p>
-<div class='highlight'><pre><code class='actionscript'><span class='kd'>package</span> <span class='nx'>com</span><span class='p'>.</span><span class='nx'>amitu</span><span class='p'>.</span><span class='nx'>example</span>
-<span class='p'>{</span>
-    <span class='kd'>import</span> <span class='nx'>com</span><span class='p'>.</span><span class='nx'>amitu</span><span class='p'>.</span><span class='nx'>datacontainer</span><span class='p'>.</span><span class='nx'>DataContainer</span><span class='o'>;</span>
-    <span class='kd'>import</span> <span class='nx'>com</span><span class='p'>.</span><span class='nx'>amitu</span><span class='p'>.</span><span class='nx'>datacontainer</span><span class='p'>.</span><span class='nx'>DataContainerEvent</span><span class='o'>;</span>
+<p>:::actionscript
+  package com.amitu.example
+  {
+      import com.amitu.datacontainer.DataContainer;
+      import com.amitu.datacontainer.DataContainerEvent;</p>
+<div class="codehilite"><pre>  <span class="n">public</span> <span class="n">class</span> <span class="n">DataContainerExample</span>
+  <span class="p">{</span>
+      <span class="n">public</span> <span class="n">var</span> <span class="n">data</span><span class="p">:</span><span class="n">DataContainer</span><span class="p">;</span>
+      <span class="n">public</span> <span class="k">function</span> <span class="n">DataContainerExample</span><span class="p">()</span>
+      <span class="p">{</span>
+          <span class="n">data</span> <span class="p">=</span> <span class="n">new</span> <span class="n">DataContainer</span><span class="p">(</span><span class="n">null</span><span class="p">);</span>
+          <span class="n">data</span><span class="p">.</span><span class="n">addEventListener</span><span class="p">(</span>
+              <span class="n">DataContainerEvent</span><span class="p">.</span><span class="n">InvalidData</span><span class="p">,</span> <span class="n">onInvalidData</span>
+          <span class="p">);</span>
+      <span class="p">}</span>
+      <span class="n">public</span> <span class="k">function</span> <span class="n">onInvalidData</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="n">DataContainerEvent</span><span class="p">):</span><span class="n">void</span>
+      <span class="p">{</span>
+          <span class="n">trace</span><span class="p">(</span>&quot;<span class="n">invalid</span> <span class="n">data</span>&quot;<span class="p">);</span>
+      <span class="p">}</span>
+  <span class="p">}</span>
+</pre></div>
 
-    <span class='kd'>public</span> <span class='kd'>class</span> <span class='nx'>DataContainerExample</span>
-    <span class='p'>{</span>
-        <span class='kd'>public</span> <span class='k'>var</span> <span class='nx'>data</span><span class='o'>:</span><span class='nx'>DataContainer</span><span class='o'>;</span>
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='nx'>DataContainerExample</span><span class='p'>()</span>
-        <span class='p'>{</span>
-            <span class='nx'>data</span> <span class='o'>=</span> <span class='k'>new</span> <span class='nx'>DataContainer</span><span class='p'>(</span><span class='kc'>null</span><span class='p'>);</span>
-            <span class='nx'>data</span><span class='p'>.</span><span class='nx'>addEventListener</span><span class='p'>(</span>
-                <span class='nx'>DataContainerEvent</span><span class='p'>.</span><span class='nx'>InvalidData</span><span class='o'>,</span> <span class='nx'>onInvalidData</span>
-            <span class='p'>);</span>
-        <span class='p'>}</span>
-        <span class='kd'>public</span> <span class='kd'>function</span> <span class='nx'>onInvalidData</span><span class='p'>(</span><span class='nx'>event</span><span class='o'>:</span><span class='nx'>DataContainerEvent</span><span class='p'>)</span><span class='o'>:</span><span class='nx'>void</span>
-        <span class='p'>{</span>
-            <span class='nf'>trace</span><span class='p'>(</span><span class='s2'>&quot;invalid data&quot;</span><span class='p'>);</span>
-        <span class='p'>}</span>
-    <span class='p'>}</span>
-<span class='p'>}</span>
-</code></pre></div>
-<p>An astute reader will immediate identify a race condition problem with this example and our DataContainer, we are passing the initial value to DataContainer as constructor parameter, and DataContainer constructor is calling .set() which calls .validate(), which in tern fires the event. All this happens before we get to call data.addEventListener().</p>
 
-<p>Flash event system will not buffer events, and the way to fix this is by either ignoring the event fired in constructor and calling data.set() after the call to data.addEventListener() in our DataContainerExample. Because of this drawback we may modify our DataContainer class to not accept initial value.</p>
+<p>}</p>
+<p>An astute reader will immediate identify a race condition problem with this
+example and our DataContainer, we are passing the initial value to
+DataContainer as constructor parameter, and DataContainer constructor is
+calling .set() which calls .validate(), which in tern fires the event. All this
+happens before we get to call data.addEventListener().</p>
+<p>Flash event system will not buffer events, and the way to fix this is by either
+ignoring the event fired in constructor and calling data.set() after the call
+to data.addEventListener() in our DataContainerExample. Because of this
+drawback we may modify our DataContainer class to not accept initial value.</p>
+<p>Back to <a href="/flash/">Flash For Python Developers</a>.</p>
 
-<p>Back to <a href='/flash/'>Flash For Python Developers</a>.</p>
 				</div><!-- entry-content -->
 			</div><!-- bd -->
 					<hr>
@@ -184,18 +209,16 @@
 
                     </p>
 
+          
 					<div class="comment">
-                        
-
-
-  <div id="disqus_thread"></div>
+            <div id="disqus_thread"></div>
 <script type="text/javascript">
-    var disqus_developer = 1;
-    var disqus_shortname = 'amitu'; // required: replace example with your forum shortname
-    
+    var disqus_shortname = 'amitu';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
-        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
         dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
@@ -203,11 +226,8 @@
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
-
-
-
-
 					</div>
+          
 
 			<footer class="unit-foot">
 				<div class="unit-inner unit-foot-inner">
@@ -220,7 +240,6 @@
 		</div><!-- content -->
 	</div><!-- unit-inner -->
 </article>
-
 
 				</div>
 			</div><!-- unit-inner -->
@@ -263,12 +282,10 @@
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
   
-  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
-  <script src="/kudos/jstorage.js"></script>
-  <script src="/kudos/kudos.js"></script>
-  <script src="/kudos/parse-kudos.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 </body>
 </html>
-
