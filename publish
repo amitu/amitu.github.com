@@ -8,4 +8,5 @@ set -e
 
 rm -rf build
 mv localhost:8000 build
+cp CNAME build
 ghp-import -b master -m "syncing" build
