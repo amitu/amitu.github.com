@@ -11,7 +11,7 @@ site:
 TEMPLATE_CONTEXT_PROCESSORS:
     - django.core.context_processors.request
     - django.contrib.auth.context_processors.auth
-    - views.context_processor
+    - _theme.views.context_processor
 
 DISCUSS_SHORTNAME: amitu
 

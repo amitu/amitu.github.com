@@ -1,7 +1,8 @@
 from importd import d
 from path import path
-from djangothis.app import dotslash, read_yaml
 from datetime import datetime
+
+from djangothis.app import dotslash, read_yaml, watchfile
 
 posts = None
 
@@ -11,6 +12,7 @@ def get_posts():
     posts = []
     for post in path(dotslash("_posts")).walkfiles():
         if post.endswith(".swp"): continue
+        watchfile(post)
         content = post.open().read()
         _, header, body = content.split("---", 2)
         body = body.replace("{% include JB/setup %}", "")
