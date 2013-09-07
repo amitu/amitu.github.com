@@ -86,7 +86,7 @@ Setup a working directory:
 Instead of starting from scratch, you may want to start from HTML5
 boilerplate:
   
-    $ git clone git@github.com:amitu/djangothis-html5-boilerplate.git site
+    $ git clone https://github.com/amitu/djangothis-html5-boilerplate.git site
     $ cd site
     $ djangothis
     Validating models...
@@ -139,7 +139,7 @@ Here is how to do it:
     :::shell
     $ mkdir blog
     $ cd blog
-    $ git clone git@github.com:amitu/djangothis-jekyll.git _theme
+    $ git clone https://github.com/amitu/djangothis-jekyll.git _theme
     $ djangothis jekyll_init
     All Done.
     Run "djangothis jekyll_post" or "djangothis jekyll_page".
