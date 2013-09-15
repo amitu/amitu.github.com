@@ -1,2 +1,242 @@
-0
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Amit Upadhyay: GitHub Usability Sucks</title>
+	<meta name="author" content="Amit Upadhyay">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body ng-app>
 
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<nav class="nav-global">
+					<ul>
+						<li class="logo"><a href="/">Amit Upadhyay</a></li>
+						<!-- li class="archive"><a href="/archive.html">archive</a></li -->
+						<li class="page"><a href="/">blog</a></li>
+						<li class="page"><a href="/open-source.html">open source</a></li>
+						<li class="page"><a href="/quotes.html">quotes</a></li>
+						<li class="page"><a href="/lab/">experiments</a></li>
+						<li class="page"><a href="/india/">India</a></li>
+						<!-- li class="page"><a href="/faq.html">faq</a></li -->
+						<!-- li class="page"><a href="/pages.html">pages</a></li -->
+						<!-- li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><div><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
+									allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></div></li -->
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+                    
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title">GitHub Usability Sucks</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<p>At <a href="http://crispygam.es">crispygam.es</a> we love <a href="http://github.com">GitHub</a>. Or
+at least we use it a lot. Our code is in github, and so are our milestones and
+issues.</p>
+<h4>No Way To See All Issues On One Page</h4>
+<p>We have 5-6 different repositories in github, each repository specific to
+individual project. In the beginning of the day I have to see what are the
+urgent issues waiting my attention. <strong>GitHub makes it very difficult to
+view issues if you have multiple repositories</strong>.</p>
+<p>GitHub provides no way to see all issues in one go, so I have to visit each
+project individually. And to make matters worse it <strong>takes me three clicks
+(Home -&gt; Project Name -&gt; Issues) and subsequent page load to see issues for a
+project</strong>.</p>
+<p>GitHub has a command bar, and if I remember the name of each project I can
+enter like 20 well crafted key strokes to visit issues page for each project.
+If they removed this crap and instead put a simple nested navigation tree, it
+would take me 3 click without reloads to go to issues page of another project,
+but without page reload. A navigation element invented in 1998 would be a huge
+improvement compared to current state of affairs in GitHub.</p>
+<p>Update: While writing this post I came across
+<a href="https://github.com/dashboard/issues/assigned?sort=created&amp;state=open">issues</a>
+page that is exactly what I wanted.</p>
+<p>I still find the situation quite bad from usability point of view. The link is
+only visible from home page. Once someone clicked on any issue, clicking on the
+most prominent "issues" link takes you to project specific issues page and not
+to issues across projects.</p>
+<p>The issues link should be in top bar as the current cycle is: Home -&gt; All
+Issues -&gt; Individual Issue -&gt; Issues (wrong link) -&gt; Home -&gt; All Issues. Where
+as the cycle should be Home -&gt; All Issues -&gt; Individual Issue -&gt; All Issues. I
+know one can use back button, but relying on user remembering to use the back
+button, instead of clicking a conflicting wrong link is very bad usablity.</p>
+<h4>GitHub Stars Are Worse</h4>
+<p>Here is another example of GitHub usability nightmare, you starred a repository
+yesterday, and you want to visit it now, how many clicks do you think it will
+take? One from GitHub homepage? After all there is a Tab named "Stars" on the
+home page! WRONG. That page shows items starred in God only knows what order.
+There are six items to better refine this view, but none of them order them in
+reverse chronological order as you would expect.</p>
+<p>What you have to do is click on your name in the top navigation, there again
+you see a link marked stars on left side bar, don't click on it, it does
+something completely different compared to Stars on home page. Click on "Public
+Activity" tab. There you will see all your activities, and hopefully the
+repository that you starred yesterday.</p>
+<h4>What do you do if you went to a gist page?</h4>
+<p>And you want to come back to github main page? GitHub for some reason thinks
+that a person clicking on the big bold logo on left top bar which is the usual
+place to click when lost on site, is trying to create a new gist!</p>
+<p>In order to go to homepage you have to instead click on the link marked
+"Dashboard". No where else in github.com site is the word Dashboard used!</p>
+<p>Compare this to the help page link, that takes you to
+<a href="http://help.github.com">help.github.com</a>, where they label the link taking you
+back to github.com as "Back to GitHub". Which is excellent label compared to
+Dashboard!</p>
+<p><a href="http://gist.github.com">gist.github.com</a> as a separate site, with its own
+header/navigation etc is not a good decision. I, as a user, see gist related
+updates next to github related ones on github. If you show me a list of items,
+clicking on them should not take me to completely different sites.
+gist.github.com appears to have been separated from github.com but not
+completely. Github should make up their mind whether they think they are two
+different sites or not.</p>
+					<div class="meta">
+                    <hr>
+						<p class="date-publish">
+							Published:
+							<date class="date-pub" title="Nov. 5, 2012, midnight" datetime="Nov. 5, 2012, midnight" pubdate>
+							<span class="month"><abbr>Nov</abbr></span>
+							<span class="day">05</span>
+							<span class="year">2012</span>
+							</date>
+						</p>
+					</div><!-- meta -->
+				</div><!-- entry-content -->
+
+<figure class="kudo kudoable" data-id="1"> 
+    <a class="kudobject">
+        <div class="opening">
+            <div class="circle">&nbsp;</div>
+        </div>
+    </a>
+    <a href="#kudo" class="count">
+        <span class="num">0</span>
+        <span class="txt">Kudos</span>
+    </a>
+</figure>
+
+				<div class="misc-content" style="padding-top: 30px">
+                    <p clas="subscribe" style="background: #fcf7ab; padding-left: 10px">
+
+                        <a href="http://twitter.com/amitu">Follow me on twitter: 
+                        @amitu</a>.
+
+                    </p>
+					<!-- div class="social">
+						<ul class="list-linear">
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+						</ul>
+					</div -->
+					<div class="comment">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'amitu';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+					</div>
+				</div><!-- misc-content -->
+			</div><!-- bd -->
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							
+							
+							
+						</ul>
+					</nav>
+					<!-- p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p -->
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
+				<div class="misc vcard">
+					<h4>about</h4>
+					<ul>
+						<li class="contact"><address><span class="author fn n">Amit Upadhyay</span> - <span class="fn email">blog@amitu.com</span></address></li>
+						<li class="github"><a href="http://github.com/amitu/" rel="me">github.com/amitu</a></li>
+						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
+                        <!-- li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li -->
+                        <!-- li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li -->
+            <li>Blog powered by <a href="https://github.com/amitu/djangothis">djangothis</a>.</li>
+					</ul>
+				</div><!-- misc -->
+        <a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @</a>
+				<p class="licence">
+					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
+</body>
+</html>

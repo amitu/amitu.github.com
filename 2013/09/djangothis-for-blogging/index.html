@@ -1,2 +1,338 @@
-0
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Amit Upadhyay: Djangothis For Blogging</title>
+	<meta name="author" content="Amit Upadhyay">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body ng-app>
 
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<nav class="nav-global">
+					<ul>
+						<li class="logo"><a href="/">Amit Upadhyay</a></li>
+						<!-- li class="archive"><a href="/archive.html">archive</a></li -->
+						<li class="page"><a href="/">blog</a></li>
+						<li class="page"><a href="/open-source.html">open source</a></li>
+						<li class="page"><a href="/quotes.html">quotes</a></li>
+						<li class="page"><a href="/lab/">experiments</a></li>
+						<li class="page"><a href="/india/">India</a></li>
+						<!-- li class="page"><a href="/faq.html">faq</a></li -->
+						<!-- li class="page"><a href="/pages.html">pages</a></li -->
+						<!-- li class="category"><a href="/categories.html">categories</a></li>
+						<li class="tag"><a href="/tags.html">tags</a></li>
+						<li class="forkme"><div><iframe src="http://markdotto.github.com/github-buttons/github-btn.html?user=plusjade&repo=jekyll-bootstrap&type=fork&count=true"
+									allowtransparency="true" frameborder="0" scrolling="0" width="95px" height="20px"></iframe></div></li -->
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+                    
+<article class="unit-article layout-post">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+						<h1 class="h2 entry-title">Djangothis For Blogging</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
+
+			<div class="bd">
+				<div class="entry-content">
+					<p>tldr: This weekend I moved this blog over to
+<a href="https://github.com/amitu/djangothis">djangothis</a> from jekyll, this is
+how you can do it and why you should give djangothis a chance.</p>
+<h4>What is djangothis?</h4>
+<p><a href="https://github.com/amitu/djangothis">Djangothis</a> is fundamentally a
+prototyping tool.</p>
+<p>For example you think of a new web product, before you build it, you can
+prototype it in HTML, so you can show it to others for feedback. The
+problem with using static files is that you can not have a common base
+template from where all your HTML will be derived from, and you copy
+over the whole HTML. This means making modification to common portions
+has to be done multiple times. </p>
+<p>With djangothis you can create a folder containing index.html,
+pricing.html, signup.html, and run djangothis from this folder, and
+djangothis will expose these files on http://localhost:8000/,
+http://localhost:8000/pricing.html etc. If you know <a href="https://docs.djangoproject.com/en/dev/topics/templates/">djanog template
+language</a>, you
+can then inherit from common base.html, and have a common look and feel
+across pages.</p>
+<p>Djangothis has a few other niceness to help you in prototyping. It
+automatically maps static folder to be served on /static/. It looks for
+a views.py and if it is present imports it, which means you can use
+<a href="http://pythonhosted.org/importd/#d-decorator">importd's view decorator</a>
+to map views to URLs directly from views.py and have some rudimentary
+views for your prototype. djangothis also sets up django by looking at a
+file named config.yaml, so you can have custom settings, context
+processors, middlewares etc. Djangothis also looks for templatetags
+named folder, and any <a href="https://docs.djangoproject.com/en/dev/howto/custom-template-tags/">template
+tag</a>
+defined there becomes available to your templates for maximum
+awesomeness.</p>
+<p>And finally djangothis is "themable", what it means is you can have a
+folder named _theme in the current folder, and djangothis will use it
+to overwrite templates, and the theme folder can also contain views.py
+etc. To help theme writers there is also a cmds folder that can be
+present in theme folder that can allow themes to bundle custom commands,
+for example jekyll has two commands start-post and start-page, that take
+post title etc and create a blank document at right location, right name
+etc.</p>
+<p>Here is the
+<a href="https://github.com/amitu/djangothis-jekyll/tree/amitu.com">_theme</a>
+that powers this site. You can see all the features of djangothis used
+in this folder. This theme is quite compatible with jekyll, so if you
+have a jekyll powered blog, moving over to djangothis should be quite
+easy.</p>
+<h4>Playing with djangothis</h4>
+<p>So you want to give djangothis a try. Install it using:</p>
+<div class="codehilite"><pre>$ <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">djangothis</span>
+</pre></div>
+
+
+<p>Make sure you have version number 0.6 or above.</p>
+<p>Setup a working directory:</p>
+<div class="codehilite"><pre>$ <span class="n">mkdir</span> <span class="n">site</span>
+$ <span class="n">cd</span> <span class="n">site</span>
+$ <span class="n">vim</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span>
+$ <span class="n">djangothis</span>
+<span class="n">Validating</span> <span class="n">models</span><span class="p">...</span>
+
+0 <span class="n">errors</span> <span class="n">found</span>
+<span class="n">Django</span> <span class="n">version</span> 1<span class="p">.</span>4<span class="p">.</span>1<span class="p">,</span> <span class="n">using</span> <span class="n">settings</span> <span class="n">None</span>
+<span class="n">Development</span> <span class="n">server</span> <span class="n">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span>127<span class="p">.</span>0<span class="p">.</span>0<span class="p">.</span>1<span class="p">:</span>8000<span class="o">/</span>
+<span class="n">Quit</span> <span class="n">the</span> <span class="n">server</span> <span class="n">with</span> <span class="n">CONTROL</span><span class="o">-</span><span class="n">C</span><span class="p">.</span>
+</pre></div>
+
+
+<p>Instead of starting from scratch, you may want to start from HTML5
+boilerplate:</p>
+<div class="codehilite"><pre>$ <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">amitu</span><span class="o">/</span><span class="n">djangothis</span><span class="o">-</span><span class="n">html5</span><span class="o">-</span><span class="n">boilerplate</span><span class="p">.</span><span class="n">git</span> <span class="n">site</span>
+$ <span class="n">cd</span> <span class="n">site</span>
+$ <span class="n">djangothis</span>
+<span class="n">Validating</span> <span class="n">models</span><span class="p">...</span>
+
+0 <span class="n">errors</span> <span class="n">found</span>
+<span class="n">Django</span> <span class="n">version</span> 1<span class="p">.</span>4<span class="p">.</span>1<span class="p">,</span> <span class="n">using</span> <span class="n">settings</span> <span class="n">None</span>
+<span class="n">Development</span> <span class="n">server</span> <span class="n">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span>127<span class="p">.</span>0<span class="p">.</span>0<span class="p">.</span>1<span class="p">:</span>8000<span class="o">/</span>
+</pre></div>
+
+
+<p>If you peek into index.html, you will see:</p>
+<div class="codehilite"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">title</span> <span class="cp">%}</span>Home<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">main</span> <span class="cp">%}</span>
+<span class="nt">&lt;h1&gt;</span>Welcome to your site!<span class="nt">&lt;/h1&gt;</span>
+
+<span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/about.html&quot;</span><span class="nt">&gt;</span>About this site<span class="nt">&lt;/a&gt;</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<p>As you can see bulk of "base html" is in a file aptly named
+<a href="https://github.com/amitu/djangothis-html5-boilerplate/blob/master/base.html">base.html</a>,
+which defines a few "blocks" to be filled by templates like index.html
+above. This is django template system in play.</p>
+<p>As you can see "about.html" file is available via "/about.html". If you
+wanted cleaner URL, eg "/about/", you can just create a file
+"about/index.html" and you will be done.</p>
+<p>You are not limited just to templates, you can create custom django
+templatetags, request context processors, and even map views to URLs.</p>
+<p>Go ahead, prototype away your next web project :-)</p>
+<h4>djangothis For Blog</h4>
+<p>How to use djangothis for a blog?</p>
+<p>The differene between a site full of pages and a blog is that blog has
+"posts" and we want to show a list of post on the main page, or on
+atom.xml page, so we need the list of posts. We also have to worry about
+how to generate the list of posts, and then figure out what URL we want
+the post to be served on.</p>
+<p>There are many ways to accomplish this, the easiest probably is to reuse
+what I did for my blog, which had most of the posts generated for
+jekyll.</p>
+<p>Here is how to do it:</p>
+<div class="codehilite"><pre>$ <span class="n">mkdir</span> <span class="n">blog</span>
+$ <span class="n">cd</span> <span class="n">blog</span>
+$ <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">amitu</span><span class="o">/</span><span class="n">djangothis</span><span class="o">-</span><span class="n">jekyll</span><span class="p">.</span><span class="n">git</span> <span class="n">_theme</span>
+$ <span class="n">djangothis</span> <span class="n">jekyll_init</span>
+<span class="n">All</span> <span class="n">Done</span><span class="p">.</span>
+<span class="n">Run</span> &quot;<span class="n">djangothis</span> <span class="n">jekyll_post</span>&quot; <span class="n">or</span> &quot;<span class="n">djangothis</span> <span class="n">jekyll_page</span>&quot;<span class="p">.</span>
+$ <span class="n">djangothis</span> 
+<span class="n">Validating</span> <span class="n">models</span><span class="p">...</span>
+
+0 <span class="n">errors</span> <span class="n">found</span>
+<span class="n">Django</span> <span class="n">version</span> 1<span class="p">.</span>4<span class="p">.</span>1<span class="p">,</span> <span class="n">using</span> <span class="n">settings</span> <span class="n">None</span>
+<span class="n">Development</span> <span class="n">server</span> <span class="n">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span>127<span class="p">.</span>0<span class="p">.</span>0<span class="p">.</span>1<span class="p">:</span>8000<span class="o">/</span>
+<span class="n">Quit</span> <span class="n">the</span> <span class="n">server</span> <span class="n">with</span> <span class="n">CONTROL</span><span class="o">-</span><span class="n">C</span><span class="p">.</span>
+</pre></div>
+
+
+<p>And there is your blog. Modify config.yaml file that was created by
+jekyll_init to your liking. Update the template HTMLs in _theme
+folder.</p>
+<p>You can create a new page by:</p>
+<div class="codehilite"><pre>$ <span class="n">djangothis</span> <span class="n">jekyll_page</span> <span class="o">--</span><span class="n">url</span> <span class="o">/</span><span class="n">about</span><span class="o">/</span> &quot;<span class="n">About</span> <span class="n">Us</span>&quot;
+<span class="n">about</span><span class="o">/</span><span class="n">index</span><span class="p">.</span><span class="n">html</span> <span class="n">created</span><span class="p">.</span>
+</pre></div>
+
+
+<p>Or a new post by:</p>
+<div class="codehilite"><pre>$ <span class="n">djangothis</span> <span class="n">jekyll_post</span> <span class="n">This</span> <span class="n">is</span> <span class="n">my</span> <span class="n">awesome</span> <span class="n">post</span>!
+<span class="n">_posts</span><span class="o">/</span>2013<span class="o">-</span>09<span class="o">-</span>05<span class="o">-</span><span class="n">this</span><span class="o">-</span><span class="n">is</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">awesome</span><span class="o">-</span><span class="n">post</span><span class="p">.</span><span class="n">md</span> <span class="n">created</span><span class="p">.</span>
+</pre></div>
+
+
+<p>Once you are ready to push your blog to <a href="https://help.github.com/articles/what-are-github-pages">github
+pages</a> for
+example, or any static site host, use wget to mirror the localhost:8000
+site in a folder, and upload that folder.</p>
+<div class="codehilite"><pre>$ <span class="n">wget</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">localhost</span><span class="p">:</span>8000
+</pre></div>
+
+
+<p>Take a look at my <a href="https://github.com/amitu/amitu.github.com/blob/djangothis/publish">publish
+script</a>
+that I use for this site.</p>
+<p>Do <a href="mailto:upadhyay@gmail.com?subject=djangothis%20rocks!">let me know</a> if
+you end up using this, or have any questions. :-)</p>
+					<div class="meta">
+                    <hr>
+						<p class="date-publish">
+							Published:
+							<date class="date-pub" title="Sept. 5, 2013, midnight" datetime="Sept. 5, 2013, midnight" pubdate>
+							<span class="month"><abbr>Sep</abbr></span>
+							<span class="day">05</span>
+							<span class="year">2013</span>
+							</date>
+						</p>
+					</div><!-- meta -->
+				</div><!-- entry-content -->
+
+<figure class="kudo kudoable" data-id="1"> 
+    <a class="kudobject">
+        <div class="opening">
+            <div class="circle">&nbsp;</div>
+        </div>
+    </a>
+    <a href="#kudo" class="count">
+        <span class="num">0</span>
+        <span class="txt">Kudos</span>
+    </a>
+</figure>
+
+				<div class="misc-content" style="padding-top: 30px">
+                    <p clas="subscribe" style="background: #fcf7ab; padding-left: 10px">
+
+                        <a href="http://twitter.com/amitu">Follow me on twitter: 
+                        @amitu</a>.
+
+                    </p>
+					<!-- div class="social">
+						<ul class="list-linear">
+							<li><div class="twitter-tweet"><a href="https://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="" data-lang="en">Tweet</a></div></li>
+							<li><div class="twitter-follow"><a href="https://twitter.com/" class="twitter-follow-button" data-show-count="false" data-lang="en"></a></div></li>
+						</ul>
+					</div -->
+					<div class="comment">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'amitu';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+					</div>
+				</div><!-- misc-content -->
+			</div><!-- bd -->
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<nav class="pagination">
+						<ul>
+							
+							
+							
+						</ul>
+					</nav>
+					<!-- p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p -->
+				</div>
+			</footer>
+
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
+
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
+				<div class="misc vcard">
+					<h4>about</h4>
+					<ul>
+						<li class="contact"><address><span class="author fn n">Amit Upadhyay</span> - <span class="fn email">blog@amitu.com</span></address></li>
+						<li class="github"><a href="http://github.com/amitu/" rel="me">github.com/amitu</a></li>
+						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
+                        <!-- li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li -->
+                        <!-- li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li -->
+            <li>Blog powered by <a href="https://github.com/amitu/djangothis">djangothis</a>.</li>
+					</ul>
+				</div><!-- misc -->
+        <a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @</a>
+				<p class="licence">
+					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+	(function(d, s) {
+		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.src = url; js.id = id;
+		fjs.parentNode.insertBefore(js, fjs);
+		};
+	load('//platform.twitter.com/widgets.js', 'tweetjs');
+	}(document, 'script'));
+</script>
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
+</body>
+</html>
