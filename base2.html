@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Amit Upadhyay: {% block title %}TITLE{% endblock %}</title>
+	<meta name="author" content="{{ settings.author.name }}">
+	<link href='/static/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="{{ page.title }}" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
+</head>
+<body>
+    {% block content %}
+    {% endblock %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js">
+    </script>
+    <script src="/static/js/main.js"></script>
+</body>
+</html>

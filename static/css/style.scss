@@ -1,0 +1,77 @@
+@import "pygments-colorful.css";
+@import "foundation/scss/foundation.scss";
+
+h4 {
+    font-size: 1.4375em;
+    text-transform: lowercase;
+}
+
+h1.entry-title {
+    font-size: 18pt;
+    margin-top: 0pt;
+    padding-top: 10pt;
+    text-transform: lowercase;
+    margin-bottom: 25pt;
+}
+
+ul, ol {
+    list-style-position:inside;
+}
+
+li {
+    text-indent: -1em;
+    margin-left: 1em;
+    font-size: 16pt;
+}
+
+p {
+    font-size: 16pt;
+    line-height: 21pt;
+}
+
+div.codehilite {
+    font-size: 14pt;
+    line-height: 18pt;
+    margin-bottom: 1em;
+    padding: 1em;
+    background: #eee;
+    overflow: scroll;
+}
+
+div.subscribe {
+    display: none;
+    background: #eee;
+
+    h1 {
+        font-size: 18pt;
+        margin-top: 1em;
+        line-height: 23pt;
+    }
+
+    form {
+        border-top: 1px solid #ccc;
+        padding-top: 1em;
+
+        p {
+            margin-bottom: 0.5em;
+        }
+    }
+}
+
+@media all and (min-width: 768px) {
+    div.post {
+        margin-top: 45pt;
+    }
+
+    h1.entry-title {
+        border-top: 2pt solid black;
+        text-align: right;
+    }
+
+    div.subscribe {
+        form {
+            padding-top: 88pt;
+            border: 0px none;
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{% extends "base2.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block content %}
+<div class="subscribe">
+    {% include post.subscribe|default:"blog-subscribe.html" %}
+</div>
+<div class="post row">
+    <div class="small-12 large-1 columns">&nbsp;</div>
+    <div class="small-12 large-2 columns">
+        <h1 class="entry-title">{{ post.title }}</h1>
+    </div>
+    <div class="small-12 large-9 columns">
+        {{ post.body|md:"codehilite" }}
+        <div class="meta">
+            <p class="date-publish">
+                Published:
+                <date class="date-pub" 
+                    title="{{ post.date }}" 
+                    datetime="{{ post.date  }}" pubdate>
+                <span class="month"><abbr>{{ post.date|date:'M' }}</abbr></span>
+                <span class="day">{{ post.date|date:'d' }}</span>
+                <span class="year">{{ post.date|date:'Y' }}</span>
+                </date>
+            </p>
+        </div><!-- meta -->
+        <div class="tweet">
+        </div>
+    </div><!-- entry-content -->
+</div><!-- row -->
+{% endblock %}

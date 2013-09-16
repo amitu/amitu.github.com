@@ -15,6 +15,8 @@ Thumbs.db
 amitu.lipy.egg-info
 dist
 
+.sass-cache
+
 amitu.com.sublime-project
 amitu.com.sublime-workspace
 build
