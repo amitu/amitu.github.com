@@ -42,6 +42,13 @@ I will never succumb (or at least I try not to) to popular culture of
 rejecting ideas one does not like, as more important than our likes is
 our duty to correctness. 
 
+If you believe in something it is your responsibility to argue against
+it. Like it is the responsibility of a doctor to find every way you can
+fall sick. Like it is the responsibility of a lawyer to find every way
+you can lose in court. Like it is the responsibility of a security
+professional to find every way a criminal may defeat the security of the
+system.
+
 And what is more fun than trying to argue in favor of some absurdity in
 most serious fashion to an unsuspecting person? [May be I am going to be
 fooling you in all future discussions, or may be I am fooling you right
