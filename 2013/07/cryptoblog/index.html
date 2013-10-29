@@ -13,7 +13,7 @@
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
 <body ng-app>
-
+<div id="fb-root"></div>
 <div id="page" class="hentry">
 	<header class="the-header">
 		<div class="unit-head">
@@ -191,6 +191,7 @@ hack?</a></p>
 	<footer class="the-footer">
 		<div class="unit-foot">
 			<div class="unit-inner unit-foot-inner">
+                
 				<div class="misc vcard">
 					<h4>about</h4>
 					<ul>
@@ -199,14 +200,15 @@ hack?</a></p>
 						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
                         <!-- li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li -->
                         <!-- li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li -->
-            <li>Blog powered by <a href="https://github.com/amitu/djangothis">djangothis</a>.</li>
+                        <li>Blog powered by <a href="https://github.com/amitu/djangothis">djangothis</a>.</li>
 					</ul>
 				</div><!-- misc -->
-        <a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @</a>
+                <a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @</a>
 				<p class="licence">
 					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
 					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
 				</p>
+                
 			</div><!-- unit-foot-inner -->
 		</div><!-- unit-foot -->
 	</footer>
@@ -225,11 +227,33 @@ hack?</a></p>
 /*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
 (function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
 </script>
-  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
   <script src="/static/kudos/jstorage.js"></script>
   <script src="/static/kudos/kudos.js"></script>
   <script src="/static/kudos/parse-kudos.js"></script>
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=551961608154183";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-68097-4']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
 </body>
 </html>
