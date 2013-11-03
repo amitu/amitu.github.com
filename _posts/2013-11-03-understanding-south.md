@@ -4,26 +4,11 @@ title: "Understanding South"
 ---
 {% include JB/setup %}
 
-Since long I have been trying to "understand" south, and since long I
-have failed. South, the django based database migration system.
+First, django is composed of applications. South manages things at this
+application level. Each application can be "migration enabled" or not.
 
-Finally today I spent last few hours playing with it, I think I have
-understood it.
-
-I used to get stuck at the first step. I can just not use something I do
-not fully understand, and since south completely manages database,
-arguably the most important part of a web application, I kind of avoided
-it as much as I can.
-
-So here is my understanding. First of all django is composed of
-applications. South manages things at this application level. Each
-application can be "migration enabled" or not. Getting this concept
-helped me the most.
-
-The other concept was that south does not overtake syncdb, but
-"enhances" it, syncdb is still required. I had a notion otherwise, that
-syncdb is no longer needed once south is used, which confused me for
-quite long.
+Next: south does not overtake syncdb, but "enhances" it, syncdb is still
+required.
 
 If we want to start using south, the first thing after installing it, is
 adding south to INSTALLED\_APPS. Once this is done, south enhances 
