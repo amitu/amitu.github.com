@@ -3,6 +3,7 @@ _theme_packages/*
 *.swp
 *.pyc
 *~
+dump.rdb
 
 Thumbs.db
 .DS_Store
