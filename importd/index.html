@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>importd</title>
+    <title>importd &bull; d is for django</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <style type="text/css">
     textarea {
@@ -238,7 +238,7 @@ It is "basically" django.
 ---
 class: middle
 
-## Review of Hello World
+## review "Hello World"
 
 ```python
 # hello.py
@@ -255,7 +255,7 @@ if __name__ == "__main__":
 ---
 class: middle
 
-## What is this kolaveri d?
+## what is this kolaveri d?
 
 - configures django
 - a docorator to add a view to urls.py
@@ -266,7 +266,7 @@ class: middle
 ---
 class: middle
 
-## Configuring Django
+## configuring django
 
 ```python
 from importd import d
@@ -284,7 +284,7 @@ If not called explicitly, automatically configures django with "sane" defaults.
 ---
 class: middle
 
-## "Sane" Defaults - Templates
+## "sane" defaults - templates
 
 importd sets up templates folder next to hello.py.
 
@@ -293,7 +293,7 @@ importd sets up templates folder next to hello.py.
 ---
 class: middle
 
-## "Sane" Defaults - static
+## "sane" defaults - static
 
 importd sets up static file serving, serves content of "static" folder next to
 hello.py, and sets up MEDIA_URL/STATIC_URL etc variables.
@@ -303,7 +303,7 @@ hello.py, and sets up MEDIA_URL/STATIC_URL etc variables.
 ---
 class: middle
 
-## "Sane" Defaults - admin
+## "sane" defaults - admin
 
 importd automatically installs basic apps like "django.contrib.auth",
 "django.contrib.session" etc, and sets up admin on /admin/.
@@ -313,7 +313,7 @@ importd automatically installs basic apps like "django.contrib.auth",
 ---
 class: middle
 
-## "Sane" Defaults - sqlite
+## "sane" defaults - sqlite
 
 importd automatically setups up django for sqlite with "db.sqlite" file next to
 hello.py.
@@ -328,7 +328,7 @@ configuration instead of verbose DATABASES.
 ---
 class: middle
 
-## "Sane" Defaults - "relocatable"
+## "sane" defaults - "relocatable"
 
 "python hello.py" from current directory is same as "python
 /full/path/hello.py" from any directory.
@@ -342,14 +342,14 @@ are set.
 ---
 class: middle, center
 
-## Because doing them manually is not "fun"
+## because doing them manually is not "fun"
 
 We want to focus on our app not settings.py.
 
 ---
 class:  middle
 
-## Views And URLs
+## views and urls
 
 They belong together not in two separate files.
 
@@ -481,9 +481,46 @@ $ gunicorn -w 2 hello:d
 ```
 
 The d in hello:d is the d from importd. The d is awesome.
-
 ---
-## Sample Folder Structure
+class: middle
+## importd and apps
+
+ - bigger projects need structure
+ - models need apps
+ - there are truckload of existing apps
+
+importd supports and encourages django apps.
+---
+class: middle
+## reusable apps and urls
+
+Use cases:
+
+ - app is installed in default url, eg /blog/ or /admin/
+ - app is installed in custom url, eg /my-blog/
+ - individual views of app used, in urls.py or from other views
+
+Wouldn't "harcoded" urls in views.py hamper reusability?
+---
+class: middle
+## importd "mount points"
+```python
+from importd import d
+d(
+    INSTALLED_APPS=["my_reusable_blog"]
+    mounts={
+        "my_reusable_blog": "/blog/", # or /myblog/
+    }
+)
+```
+- Apps can be "mounted" to any URL, default="/". .red[*]
+- Apps can be mounted to None, meaning dont make urls visible
+- The decorated views are still normal views [dependency=importd.SmartReturnMiddleware]
+- ROOT_URLCONF can be passed to d()
+
+.footnote[.red[*] App must be written assuming they are on "/".]
+---
+## sample folder structure
 
 ```shell
 example.com
@@ -512,8 +549,9 @@ example.com
 ---
 class: middle
 
-## Thats all folks
+## thats all folks
 
+ - Thanks for listening
  - Give importd a try
  - [github.com/amitu/importd](https://github.com/amitu/importd): fork, report issues
  - Follow [@amitu](http://twitter.com/amitu) on twitter
