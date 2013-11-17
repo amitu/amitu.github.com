@@ -1,188 +1,528 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Amit Upadhyay: importd</title>
-	<meta name="author" content="Amit Upadhyay">
-	<link href='/theme/css/style.css' rel="stylesheet" media="all">
-	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
-</head>
-<body ng-app>
-<div id="fb-root"></div>
-<div id="page" class="hentry">
-	<header class="the-header">
-		<div class="unit-head">
-			<div class="unit-inner unit-head-inner">
-				<nav class="nav-global">
-					<ul>
-                        
-                            <li class="logo"><a href="/">Amit Upadhyay</a></li>
-                            <li class="page"><a href="/">blog</a></li>
-                            <li class="page"><a href="/open-source.html">open source</a></li>
-                            <li class="page"><a href="/quotes.html">quotes</a></li>
-                            <li class="page"><a href="/lab/">experiments</a></li>
-                            <li class="page"><a href="/india/">India</a></li>
-                        
-					</ul>
-				</nav>
-			</div><!-- unit-inner -->
-		</div><!-- unit-head -->
-	</header>
-	<div class="body" role="main">
-		<div class="unit-body">
-			<div class="unit-inner unit-body-inner">
-				<div class="entry-content">
-                    
-<article class="unit-article layout-page">
-	<div class="unit-inner unit-article-inner">
-		<div class="content">
-			<header>
-				<div class="unit-head">
-					<div class="unit-inner unit-head-inner">
-                        <h1 class="h2 entry-title">importd</h1>
-					</div><!-- unit-inner -->
-				</div><!-- unit-head -->
-			</header>
+<html>
+  <head>
+    <title>importd</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+    textarea {
+        display: none;
+    }
+      /* Slideshow styles */
+      @import url(http://fonts.googleapis.com/css?family=Droid+Serif);
+      @import url(http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
 
-			<div class="bd">
-				<div class="entry-content">
-                    
-<p>Please visit
-<a href="https://github.com/amitu/importd">github.com/amitu/importd</a> for
-details. This page may not be updated for now.</p>
+      body {
+        font-family: 'Droid Serif';
+        font-size: 20px;
+      }
+      h1, h2, h3 {
+        font-family: 'Yanone Kaffeesatz';
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      h1 { font-size: 4em; }
+      h2 { font-size: 2em; }
+      h3 { font-size: 1.6em; }
+      .footnote {
+        position: absolute;
+        bottom: 3em;
+      }
+      li p { line-height: 1.25em; }
+      .red { color: #fa0000; }
+      .large { font-size: 2em; }
+      a, a > code {
+        color: rgb(249, 38, 114);
+        text-decoration: none;
+      }
+      code {
+        -moz-border-radius: 5px;
+        -web-border-radius: 5px;
+        background: #e7e8e2;
+        border-radius: 5px;
+        font-size: 16px;
+      }
+      .pull-left {
+        float: left;
+        width: 47%;
+      }
+      .pull-right {
+        float: right;
+        width: 47%;
+      }
+      .pull-right ~ p {
+        clear: both;
+      }
+      #slideshow .slide .content code {
+        font-size: 0.8em;
+      }
+      #slideshow .slide .content pre code {
+        font-size: 0.9em;
+        padding: 15px;
+      }
+      .inverse {
+        background: #272822;
+        color: #777872;
+        text-shadow: 0 0 20px #333;
+      }
+      .inverse h1, .inverse h2 {
+        color: #f3f3f3;
+        line-height: 0.8em;
+      }
 
-				</div><!-- entry-content -->
-			</div><!-- bd -->
-					<hr>
+      /* Slide-specific styling */
+      #slide-inverse .footnote {
+        bottom: 12px;
+        left: 20px;
+      }
+      #slide-how .slides {
+        font-size: 0.9em;
+        position: absolute;
+        top:  151px;
+        right: 140px;
+      }
+      #slide-how .slides h3 {
+        margin-top: 0.2em;
+      }
+      #slide-how .slides .first, #slide-how .slides .second {
+        padding: 1px 20px;
+        height: 90px;
+        width: 120px;
+        -moz-box-shadow: 0 0 10px #777;
+        -webkit-box-shadow: 0 0 10px #777;
+        box-shadow: 0 0 10px #777;
+      }
+      #slide-how .slides .first {
+        background: #fff;
+        position: absolute;
+        top: 20%;
+        left: 20%;
+        z-index: 1;
+      }
+      #slide-how .slides .second {
+        position: relative;
+        background: #fff;
+        z-index: 0;
+      }
 
-                
-                    <figure class="kudo kudoable" data-id="1">
-                        <a class="kudobject">
-                            <div class="opening">
-                                <div class="circle">&nbsp;</div>
-                            </div>
-                        </a>
-                        <a href="#kudo" class="count">
-                            <span class="num">0</span>
-                            <span class="txt">Kudos</span>
-                        </a>
-                    </figure>
-					
-                    <!-- p clas="subscribe" style="background: #fcf7ab; padding-left: 10px">
+      /* Two-column layout */
+      .left-column {
+        color: #777;
+        width: 20%;
+        height: 92%;
+        float: left;
+      }
+        .left-column h2:last-of-type, .left-column h3:last-child {
+          color: #000;
+        }
+      .right-column {
+        width: 75%;
+        float: right;
+        padding-top: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
 
-                    <a href="http://twitter.com/amitu">Follow me on twitter: 
-                          @amitu</a>.
+class: center, middle, inverse
 
-                    </p -->
-                
+# importd
 
-          
-					<div class="comment">
-            <div id="disqus_thread"></div>
-<script type="text/javascript">
-    var disqus_shortname = 'amitu';
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function() {
-        var dsq = document.createElement('script'); 
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+Amit Upadhyay
 
-					</div>
-          
+.footnote[
+[@amitu](http://twitter.com/amitu), [amitu.com](http://amitu.com)
+]
 
-			<footer class="unit-foot">
-				<div class="unit-inner unit-foot-inner">
-					<!-- p class="gotop">
-						<a href="#page">Back to Top</a>
-					</p -->
-				</div>
-			</footer>
+---
+class: inverse, middle, center
+## What is it and why should *I* be using it?
+---
+class: middle
 
-		</div><!-- content -->
-	</div><!-- unit-inner -->
-</article>
+## Hello World
 
-				</div>
-			</div><!-- unit-inner -->
-		</div><!-- unit-body -->
-	</div><!-- body -->
-	<footer class="the-footer">
-		<div class="unit-foot">
-			<div class="unit-inner unit-foot-inner">
-                
-				<div class="misc vcard">
-					<h4>about</h4>
-					<ul>
-						<li class="contact"><address><span class="author fn n">Amit Upadhyay</span> - <span class="fn email">blog@amitu.com</span></address></li>
-						<li class="github"><a href="http://github.com/amitu/" rel="me">github.com/amitu</a></li>
-						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
-                        <!-- li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li -->
-                        <!-- li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li -->
-                        <li>Blog powered by <a href="https://github.com/amitu/djangothis">djangothis</a>.</li>
-					</ul>
-				</div><!-- misc -->
-                <a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @</a>
-				<p class="licence">
-					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
-					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
-				</p>
-                
-			</div><!-- unit-foot-inner -->
-		</div><!-- unit-foot -->
-	</footer>
-</div><!-- page -->
-<script>
-	(function(d, s) {
-		var js, fjs = d.getElementsByTagName(s)[0], load = function(url, id) {
-		if (d.getElementById(id)) {return;}
-		js = d.createElement(s); js.src = url; js.id = id;
-		fjs.parentNode.insertBefore(js, fjs);
-		};
-	load('//platform.twitter.com/widgets.js', 'tweetjs');
-	}(document, 'script'));
-</script>
-<script>
-/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
-(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
-</script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
-  <script src="/static/kudos/jstorage.js"></script>
-  <script src="/static/kudos/kudos.js"></script>
-  <script src="/static/kudos/parse-kudos.js"></script>
+```shell
+$ pip install importd
+```
 
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=551961608154183";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
+```python
+# 6 lines of hello.py
+from importd import d
 
-<script type="text/javascript">
+@d("/")
+def index(request):
+    return d.HttpResponse("Hello World")
 
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-68097-4']);
-  _gaq.push(['_trackPageview']);
+if __name__ == "__main__":
+    d.main()
+```
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+```shell
+$ python hello.py
+Validating models...
 
-</script>
+0 errors found
+November 17, 2013 - 02:52:23
+Django version 1.6, using settings None
+Starting development server at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
+```
+---
+class: middle, center
 
-</body>
+## Why?
+
+---
+class: middle
+
+## "Simpler"
+
+No "project", no "urls/regexes", no "settings/manage.py files", no "environment
+variables".
+
+One py file is enough. Untill *you* decide to split it.
+
+---
+class: middle
+
+## No need for bottle/flask/web.py
+
+They exist because django is not considered "microframework", "fun" or
+"easy to setup".
+
+importd puts the "fun" back in django.
+
+---
+class: middle
+
+## What is wrong with them?
+
+They are not django.
+
+What starts with "fun project" sometimes becomes big.
+
+Django is big because it has things you *need*.
+
+---
+class: middle
+
+## Is importd "proper" django?
+
+Yes. Full compatibility with django is the most important goal of importd.
+
+???
+
+If you find any bugs please file an issue!
+
+---
+class: middle
+
+## Isn't this too much "magic"?
+
+wc -l importd/\_\_init\_\_.py -> 335
+
+Code is easy to follow. No meta-programming.
+
+Think "clever", not "magic".
+
+---
+class: middle
+
+## Is it "battle tested"?
+
+importd powers [mailverine.com](http://mailverine.com).
+
+It is "basically" django.
+
+---
+class: middle
+
+## Review of Hello World
+
+```python
+# hello.py
+from importd import d
+
+@d("/")
+def index(request):
+    return d.HttpResponse("Hello World")
+
+if __name__ == "__main__":
+    d.main()
+```
+
+---
+class: middle
+
+## What is this kolaveri d?
+
+- configures django
+- a docorator to add a view to urls.py
+- d.HttpReponse, d.get_object_or_404 etc
+- sets up smarturls and fhurl
+- acts as main() and gunicorn wsgi app
+
+---
+class: middle
+
+## Configuring Django
+
+```python
+from importd import d
+
+d(
+    DEBUG=True,
+    INSTALLED_APPS=["myapp", "django.contrib.auth"]
+    ...
+)
+
+```
+
+If not called explicitly, automatically configures django with "sane" defaults.
+
+---
+class: middle
+
+## "Sane" Defaults - Templates
+
+importd sets up templates folder next to hello.py.
+
+.footnote[.red[*] Of course you can specify your own location of templates folder.]
+
+---
+class: middle
+
+## "Sane" Defaults - static
+
+importd sets up static file serving, serves content of "static" folder next to
+hello.py, and sets up MEDIA_URL/STATIC_URL etc variables.
+
+.footnote[.red[*] Of course you can do them all by calling d() explicitly.]
+
+---
+class: middle
+
+## "Sane" Defaults - admin
+
+importd automatically installs basic apps like "django.contrib.auth",
+"django.contrib.session" etc, and sets up admin on /admin/.
+
+.footnote[.red[*] Of course it can be turned off, or url customised.]
+
+---
+class: middle
+
+## "Sane" Defaults - sqlite
+
+importd automatically setups up django for sqlite with "db.sqlite" file next to
+hello.py.
+
+.footnote[
+.red[*] Of course any database can be configured by passing DATABASES={...} to d().
+
+.red[**] importd.d() also supports db="mysql://root:pass@localhost/database" style
+configuration instead of verbose DATABASES.
+]
+
+---
+class: middle
+
+## "Sane" Defaults - "relocatable"
+
+"python hello.py" from current directory is same as "python
+/full/path/hello.py" from any directory.
+
+Want to refer to some file or folder relative to hello.py? Use d.dotslash().
+
+If script scr.py depends on "django project" hello.py, set things up such that
+"import hello" from scr.py works, import hello before anything else, and you
+are set.
+
+---
+class: middle, center
+
+## Because doing them manually is not "fun"
+
+We want to focus on our app not settings.py.
+
+---
+class:  middle
+
+## Views And URLs
+
+They belong together not in two separate files.
+
+```python
+
+from importd import d
+
+@d("/")
+def index(request):
+    return d.HttpReponse("hello world")
+
+@d
+def home(request):  # /home/
+    return "home.html"
+
+@d
+def mypage(request):  # /mypage/
+    return "mypage.html", { "data": 42 }  # template, context
+
+@d("/some-url/", name="some-url")
+def some_view(request):
+    ...
+```
+---
+class: middle
+
+## importd uses [smarturls](http://amitu.com/smarturls/)
+
+```python
+@d("/user/<userid:int>/", name="user")
+def user(request, userid):
+    return "user.html", {"userid": userid}
+
+@d("/book/<book_name:slug>")
+def show_book(request, book_name):
+    ...
+```
+
+smarturls supports:
+
+ - :int, :int2, :int4, :digit
+ - :slug, :word
+ - :username
+
+These can be overwritten or new  patterns can be defined by using SURL_REGEXERS
+setting.
+
+.footnote[.red[*] More on [amitu.com/smarturls/](http://amitu.com/smarturls/)]
+---
+class: middle
+
+## importd supports [fhurl](http://pythonhosted.org/fhurl/)
+
+```python
+from importd import d
+
+@d("^fhurl/$") # you can still use regexes if you like to
+class MyForm(d.RequestForm):
+    x = d.forms.IntegerField(help_text="x in hrs")
+    y = d.forms.IntegerField(help_text="y in dollars per hr")
+
+    def save(self):
+        return self.cleaned_data["x"] * self.cleaned_data["y"]
+
+if __name__ == "__main__":
+    d.main()
+```
+gives us ->
+
+---
+## ... fhurl continued
+
+```shell
+$ curl http://localhost:8000/fhurl/?x=asd
+{
+    "errors": {
+        "y": ["This field is required."],
+        "x": ["Enter a whole number."]
+    },
+    "success": false
+}
+
+$ curl "http://localhost:8000/fhurl/?x=10&y=10"
+{"response": 100, "success": true}
+
+$ curl "http://localhost:8000/fhurl/?x=10&y=10&validate_only=true"
+{"valid": true, "errors": {}}
+
+$ curl "http://localhost:8000/fhurl/?json=true"
+{
+    "y": {"help_text": "y in dollars per hr", "required": true},
+    "x": {"help_text": "x in hrs", "required": true}
+}
+```
+
+fhurl is so awesome it will take an entire talk to do it justice.
+
+.footnote[.red[*] More info on [pythonhosted.org/fhurl/](http://pythonhosted.org/fhurl/).]
+
+---
+class: middle
+
+## importd acts as manage.py
+
+```shell
+$ python hello.py dbshell
+Usage: hello.py dbshell [options] 
+
+Runs the command-line client for specified database, or the default database if
+none is provided.
+
+...
+```
+"python hello.py" is an alias to "python hello.py runserver".
+
+.footnote[.red[*] I personally like the "python -m hello" form over the above.]
+---
+class: middle
+
+## importd and gunicorn
+
+```shell
+$ gunicorn -w 2 hello:d
+2013-02-18 21:20:06 [50844] [INFO] Starting gunicorn 0.17.2
+2013-02-18 21:20:06 [50844] [INFO] Listening at: http://127.0.0.1:8000 (50844)
+2013-02-18 21:20:06 [50844] [INFO] Using worker: sync
+2013-02-18 21:20:06 [50847] [INFO] Booting worker with pid: 50847
+2013-02-18 21:20:06 [50848] [INFO] Booting worker with pid: 50848
+```
+
+The d in hello:d is the d from importd. The d is awesome.
+
+---
+## Sample Folder Structure
+
+```shell
+example.com
+├── etc
+│   ├── nginx.conf
+│   └── supervisord.conf
+├── example
+│   ├── __init__.py
+│   ├── app.py    <- contains a call to d() to configure
+│   ├── myapp
+│   │   ├── __init__.py
+│   │   ├── admin.py
+│   │   ├── models.py
+│   │   └── views.py
+│   ├── static
+│   │   └── style.css
+│   └── templates
+│       ├── base.html
+│       └── index.html
+├── fabfile.py
+├── gunicorn.sh
+├── requirements.txt
+├── setup.py   <- is a proper python package, "python setup.py develop"
+└── venv
+```
+---
+class: middle
+
+## Thats all folks
+
+ - Give importd a try
+ - [github.com/amitu/importd](https://github.com/amitu/importd): fork, report issues
+ - Follow [@amitu](http://twitter.com/amitu) on twitter
+
+    </textarea>
+    <script src="http://gnab.github.io/remark/downloads/remark-0.5.9.min.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      var slideshow = remark.create();
+    </script>
+  </body>
 </html>
