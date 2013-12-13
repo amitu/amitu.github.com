@@ -237,7 +237,7 @@ incest, drug abuse etc etc.
 
 Your first impulse if you are pro homosexual equality right would be to
 feel outraged about putting homosexuals in the same statement as
-murerers, pedophones and so on, claiming, well they are "innocent".
+murerers, pedophiles and so on, claiming, well they are "innocent".
 
 You see you will be invoking a definition of "innocence" based not on
 law, as 377 clearly makes them criminals, but based on other factors.
@@ -272,7 +272,7 @@ or even worse than murderers.
 Please see that entire case lies on assumption. There is nothing in
 terms of legal framework to come at this conclusion that homosexuality
 is good, we have to assume either they are good or bad based on our
-personal judgement. The same way we assume incest, pedoholia etc are
+personal judgement. The same way we assume incest, pedophilia etc are
 bad.
 
 **Constitution, Democracy and Morlity**
