@@ -6,7 +6,7 @@ title: "On SC Verdict on IPC377"
 
 Let me start with a story.
 
-Once a nice judge was presiding over a case in which a innocent person
+Once a nice judge was presiding over a case in which an innocent person
 was accused of a crime.
 
 Now the defending lawyer the accused hire was kind of a dumbass. Judge
@@ -41,9 +41,9 @@ is "this must be", and various arguments are presented for that.
 
 But that is not the case. A case is "this must be BECAUSE X". The
 argument is the part of the case. When a judge says no to "this must be
-BECAUSE X", and someone else brings "this must be BECAUSE Y", and the
-judgement is ok, fine, then it must be be seen as a reversal of the
-case.
+BECAUSE X" he is not saying no to "this must be", and if someone else
+brings "this must be BECAUSE Y", and the judgement is ok, fine, then it
+must not be seen as a reversal of the case.
 
 What I am trying to say is that laymen try to summarize complicated
 cases by simple slogan like lines, but the judge is not looking at that
@@ -54,9 +54,9 @@ reversed, but nothing like that is actually happening.
 
 **The two stories of IPC 377**
 
-In first story, a mostly orthodox government decided to use their
-morals to disctate rules for others decided certain acts were wrong and
-should be criminal.
+In first story, a mostly orthodox government decided to use their morals
+to dictate rules for others decided certain acts were wrong and should
+be criminal.
 
 Indians did not really believe that.
 
@@ -78,7 +78,7 @@ it to be broadly interpreted as they always found a really bad man who
 is being punished by 377, nobody likes rapists.
 
 So we have a law, designed due to moral reasons(homosexuality is bad),
-but perpetuated due to another sent of moral justification(anything to
+but perpetuated due to another kind of moral justification(anything to
 get rapist in jail).
 
 In case you do not belive me that 377 is only invoked in such cases in
@@ -138,8 +138,8 @@ animals, and lets say "no backdoor entry".
 
 Now half educated people of this country, who do not care about that
 fact that the law is mostly being used in defence of victims of sexual
-abuse, and based one their "citizems must know whats criminal" ideology,
-are trying to remove this law.
+abuse, and based on their "citizems must know whats criminal above all"
+ideology, are trying to remove this law.
 
 Now I do not sympathize with them, not the homosexuals, but these
 crusaders who pretend to be helping them, they are two different class
@@ -147,7 +147,7 @@ of people, with different agendas, one is looking to be Kejriwal and
 famous, and one wants to live his life without problems.
 
 People who want live their life without problems are already living
-their life without problems due to this law, only people who want to
+their life without problems despite this law, only people who want to
 raise the roof are shouting here.
 
 Rants aside, so they want the law revoked, and they want it done by
@@ -167,10 +167,6 @@ lawyer. I do want homosexuals to have better life, but that doesnt mean
 you can say any stupid thing as long as it favors homosexuals and
 pretend you are right.
 
-The claim that homosexuals is discriminated due to 377 is laughable.
-Here is why. If we assume that 377 can be summarised as "no backside
-entry", this law clearly leaves lesbians alone.
-
 **The vagueness argument**
 
 Now one can argue that law is vague, invoke the vagueness argument.
@@ -186,12 +182,25 @@ fooling ourselves. The SC judges are clear they have one very specific
 act, "entry from behind" in mind. Those who claim vaguness as the
 central issue are being dishonest.
 
+Vague laws are judged not just based on the wording of the law, but the
+entire set of cases histories on how they were invoked, the initial
+vagueness of 377 has been more or less fixed in a precise set of rules
+in the 200 or so cases in which it was applied. Anyone saying its free
+for anyones interpretation is lying. Judges know what thos *certain
+acts* are, and so do you.
+
 **Equality before the law**
 
 This is another of their fancy legal ninja moves. They somehow assume in
 their head that *non discrimination based on sex* somehow includes *non
-discrimination based on sexual orientation*, which it does not. But lets
-say it does. As you will see it simply doesnt matter.
+discrimination based on sexual orientation*, which it does not (if the
+word "sex" is putting messing with your ability to think, replace it
+with gender). But lets say it does. As you will see it simply doesnt
+matter.
+
+The claim that homosexuals is discriminated due to 377 is laughable.
+Here is why. If we assume that 377 can be summarised as "no backside
+entry", this law clearly leaves lesbians alone.
 
 Ask your self, if a "no backdoor entry" really discriminates based on
 sexual preference? Of course it does, it discriminates between people
@@ -216,20 +225,15 @@ is about homosexuals are dishonest.
 **But it does make one group, who solely identify themselves by an act,
 criminals**
 
-See I am not trying to say homosexuals shouldnt have right, I am saying
-the argument which is being made are invalid, which is SC said.
-
-Everything boils down to this. If a group defines itself as based on
-defying one law, then does that become void, or the group becomes
-criminal.
+Everything boils down to this. If a group defines itself based on
+defying one law, then should we treat them as any other group and
+declare the law invalid, or should we treat them as criminals because of
+the law.
 
 In any other case you would agree that the group becomes criminal. If
 one group said they wanted to smuggle things, and there was a law
 against smuggling, its the same thing. Same with murder, pedophile,
 incest, drug abuse etc etc.
-
-I would like you to see it a very naunced reasoning which is required,
-which may ever hold scrutiny of court, and would always be very fragile.
 
 Your first impulse if you are pro homosexual equality right would be to
 feel outraged about putting homosexuals in the same statement as
@@ -259,9 +263,11 @@ as:
 
 Replacing homosexuals with murderers leads to utter absurdity, and the
 only reason we do not treat homosexuals as murderers is our assumption.
+So you can see if or not HC's argument is absurd it depends on what your
+assumptions are.
 
-There exists in this society numerous people who deem them same or even
-worse than murderers.
+There exists in this society numerous people who deem homosexuals same
+or even worse than murderers.
 
 Please see that entire case lies on assumption. There is nothing in
 terms of legal framework to come at this conclusion that homosexuality
@@ -276,23 +282,23 @@ Constitution is not helping us there.
 And if we ever come to a place where constitution does not shed a clear
 light on whose morality is right, morality is decided by democracy.
 
-If we would have been really luck, and our constitution included non
+If we would have been really lucky, and our constitution included non
 descrimination based on sexual orientation, along with age, sex, color
-etc. But it does not.
+etc, and if there was still 377, then it was one thing. But it does not.
 
 So all we are left is with personal judgemnents. And the sole purpose of
 constituion and democracy is that if we have to rely on personal
 judgement, we want to go with majority.
 
 Supreme Court knows that the assumption that homosexuals are equal is a
-valid assumption. But they also know that they do not have legal bases
+valid assumption. But they also know that they do not have legal basis
 to prove that the assumption is valid. Also if Supreme Court somehow did
 pull a stunt and enforced their assumption on the nation, bypassing the
 standard procedure of validating assumptions by asking people, it would
 be a coup against the democracy.
 
 Supreme Court does have power to strike down laws that are
-unconstitutional, but as you can see, there is no assumption made if
+unconstitutional, but as you can see, there is no assumption made in
 constitution about homosexuals, saying constitution is pro or anti
 homosexuals is both wrong. Constitution in their right mind left it to
 parliament to decide the fate of homosexuals, and SC knows that, and
@@ -314,26 +320,23 @@ including pro homosexuality in constitution would be harmful, so they
 respected public views at that time and era.
 
 We must be so lucky that Constitution is not actually anti homosexuals,
-and in that we must thank the writers.
+and in that we must thank the writers (in that case SC would have fought
+any attempts by govt to remove 377, even if SC believed 377 should be
+removed).
 
 **377 is not the problem**
 
 The most important point I would like to make is that 377 is not the
-problem. It has one problem, its vague and threatens every citizen as
-any vague law does. But since vague laws are judged not just based on
-the wording of the law, but the entire set of cases histories on how
-they were invoked, the initial vagueness of 377 has been more or less
-solidified in a precise set of rules in the 200 or so cases in which it
-was applied. Anyone saying its free for anyones interpretation is lying.
+problem. 
 
-Other than that, 377 has almost never been invoked against regular
-homosexuals. Homosexuals are technically criminal, but pragmatically,
-the real problem they face is social.
+377 has almost never been invoked against regular homosexuals.
+Homosexuals are technically criminal, but pragmatically, the real
+problem they face is social.
 
-The reason entire country wants court to decide on this is because they
-fear if it was left to parliament it will never happen, as they sense
-the predominant opinion of the majority of the country is very anti
-homosexuality.
+The reason educated country wants court to decide on this is because
+they fear if it was left to parliament it will never happen, as they
+sense the predominant opinion of the majority of the country is very
+anti homosexuality. This is how anti homosexuality our society is.
 
 This is the real problem, not the SC, not the law. In our country they
 are treated like criminals, not because of 377 but because this is how
@@ -366,7 +369,7 @@ The fight we have is not with SC, but with the society.
 
 I do not belive in lets lose all hope of parliament and only try to get
 whatever we can from Court, its stupid, there is very little what Court
-can do, and if we are talking about revolutionary ideas and activism,
-and revolutions dont start by accepting the status quo.
+can do, and if we are talking about revolutionary ideas and activism, we
+must remember that revolutions dont start by accepting the status quo.
 
 
