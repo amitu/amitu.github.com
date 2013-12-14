@@ -59,6 +59,17 @@ with another.
 
 Idiots are driven by S, reasonable people care about X-Y-Z and P-Q-R.
 
+The fact that you are talking agsint S means to idiot that you somehow
+dislike S. In an idiots mind that is the only reason to oppose
+something, and the only reason to support something is if you like it.
+This is personal judgement, and **to idiot personal judgement is
+supreme**.
+
+A reasonable person knows personal judgemnents are not the final post.
+**One does not check validity of proof based on personal judgement,
+instead one checks their personal judgements based on arguments and
+facts**.
+
 A reasonable person is *forced* to abandon their belief when presented
 with a counter argument they can not reconcile. An idiot feel it is up
 to their personal judgment to decide to abandon their belief or not.
