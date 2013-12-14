@@ -217,10 +217,14 @@ it hurts 50%, assuming number of homosexual men is equal to number of
 lesbians.
 
 As you can see this is not about homosexuals vs heterosexuals, it is
-about a specific act.
+about a specific act. 377 does not care if you are hetrosexual or
+homosexual, **377 is blind to your sexual orientation**, as long as you
+perform one act, you are criminal. The sheer number of Indian
+hetrosexuals affected by this law is *far* more than the number of
+homosexuals.
 
-Is is not about homosexuals, its about anal sex. People who pretend it
-is about homosexuals are dishonest.
+Is is not about homosexuals, its about anal sex. *People who pretend it
+is about homosexuals are dishonest.*
 
 **But it does make one group, who solely identify themselves by an act,
 criminals**
