@@ -80,8 +80,8 @@ and if data is found to be invalid it fires an InvalidData event.</p>
       import flash.events.Event;</p>
 <div class="codehilite"><pre>  <span class="n">public</span> <span class="n">class</span> <span class="n">DataContainerEvent</span> <span class="n">extends</span> <span class="n">Event</span>
   <span class="p">{</span>
-      <span class="n">public</span> <span class="n">static</span> <span class="n">const</span> <span class="n">InvalidData</span><span class="p">:</span><span class="n">String</span> <span class="p">=</span> <span class="p">(</span>
-          &quot;<span class="n">com</span><span class="p">.</span><span class="n">amitu</span><span class="p">.</span><span class="n">datacontainer</span><span class="p">.</span><span class="n">InvalidData</span>&quot;<span class="p">;</span>
+      <span class="n">public</span> <span class="k">static</span> <span class="k">const</span> <span class="n">InvalidData</span><span class="o">:</span><span class="n">String</span> <span class="o">=</span> <span class="p">(</span>
+          <span class="s">&quot;com.amitu.datacontainer.InvalidData&quot;</span><span class="p">;</span>
       <span class="p">)</span>
       <span class="n">public</span> <span class="n">DataContainerEvent</span><span class="p">()</span>
       <span class="p">{</span>
@@ -101,38 +101,38 @@ to avoid errors.</p>
   package com.amitu.datacontainer
   {
       import flash.events.EventDispatcher</p>
-<div class="codehilite"><pre>  <span class="n">public</span> <span class="n">class</span> <span class="n">DataContainer</span> <span class="n">extends</span> <span class="n">EventDispatcher</span>
+<div class="codehilite"><pre>  <span class="kr">public</span> <span class="kr">class</span> <span class="nx">DataContainer</span> <span class="kr">extends</span> <span class="nx">EventDispatcher</span>
   <span class="p">{</span>
-      <span class="n">private</span> <span class="n">obj</span><span class="p">:</span><span class="n">Object</span><span class="p">;</span>
+      <span class="kr">private</span> <span class="nx">obj</span><span class="o">:</span><span class="nb">Object</span><span class="p">;</span>
 
-      <span class="n">public</span> <span class="n">DataContainer</span><span class="p">(</span><span class="n">initial</span><span class="p">:</span><span class="n">Object</span><span class="p">)</span>
+      <span class="kr">public</span> <span class="nx">DataContainer</span><span class="p">(</span><span class="nx">initial</span><span class="o">:</span><span class="nb">Object</span><span class="p">)</span>
       <span class="p">{</span>
-          <span class="n">set</span><span class="p">(</span><span class="n">initial</span><span class="p">);</span>
+          <span class="nx">set</span><span class="p">(</span><span class="nx">initial</span><span class="p">);</span>
       <span class="p">}</span>
 
-      <span class="n">public</span> <span class="k">function</span> <span class="n">set</span><span class="p">(</span><span class="n">o</span><span class="p">:</span><span class="n">Object</span><span class="p">):</span><span class="n">void</span>
+      <span class="kr">public</span> <span class="kd">function</span> <span class="nx">set</span><span class="p">(</span><span class="nx">o</span><span class="o">:</span><span class="nb">Object</span><span class="p">)</span><span class="o">:</span><span class="k">void</span>
       <span class="p">{</span>
-          <span class="n">this</span><span class="p">.</span><span class="n">obj</span> <span class="p">=</span> <span class="n">o</span><span class="p">;</span>
-          <span class="n">this</span><span class="p">.</span><span class="n">validate</span><span class="p">();</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">obj</span> <span class="o">=</span> <span class="nx">o</span><span class="p">;</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">validate</span><span class="p">();</span>
       <span class="p">}</span>
 
-      <span class="n">public</span> <span class="k">function</span> <span class="n">get</span><span class="p">():</span><span class="n">Object</span>
+      <span class="kr">public</span> <span class="kd">function</span> <span class="nx">get</span><span class="p">()</span><span class="o">:</span><span class="nb">Object</span>
       <span class="p">{</span>
-          <span class="k">return</span> <span class="n">this</span><span class="p">.</span><span class="n">obj</span><span class="p">;</span>
+          <span class="k">return</span> <span class="k">this</span><span class="p">.</span><span class="nx">obj</span><span class="p">;</span>
       <span class="p">}</span>
 
-      <span class="n">protected</span> <span class="k">function</span> <span class="n">fireError</span><span class="p">():</span><span class="n">void</span>
+      <span class="kr">protected</span> <span class="kd">function</span> <span class="nx">fireError</span><span class="p">()</span><span class="o">:</span><span class="k">void</span>
       <span class="p">{</span>
-          <span class="n">dispatchEvent</span><span class="p">(</span><span class="n">new</span> <span class="n">DataContainerEvent</span><span class="p">());</span>
+          <span class="nx">dispatchEvent</span><span class="p">(</span><span class="k">new</span> <span class="nx">DataContainerEvent</span><span class="p">());</span>
       <span class="p">}</span>
 
-      <span class="n">private</span> <span class="k">function</span> <span class="n">validate</span><span class="p">():</span><span class="n">void</span>
+      <span class="kr">private</span> <span class="kd">function</span> <span class="nx">validate</span><span class="p">()</span><span class="o">:</span><span class="k">void</span>
       <span class="p">{</span>
-          <span class="o">//</span> <span class="n">other</span> <span class="n">classes</span> <span class="n">may</span> <span class="n">subclass</span> <span class="n">this</span> <span class="n">to</span>
-          <span class="o">//</span> <span class="n">implement</span> <span class="n">custom</span> <span class="n">validation</span>
-          <span class="k">if</span> <span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">obj</span> <span class="o">==</span> <span class="n">null</span><span class="p">)</span>
+          <span class="c1">// other classes may subclass this to</span>
+          <span class="c1">// implement custom validation</span>
+          <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">obj</span> <span class="o">==</span> <span class="kc">null</span><span class="p">)</span>
           <span class="p">{</span>
-              <span class="n">this</span><span class="p">.</span><span class="n">fireError</span><span class="p">();</span>
+              <span class="k">this</span><span class="p">.</span><span class="nx">fireError</span><span class="p">();</span>
           <span class="p">}</span>
       <span class="p">}</span>
   <span class="p">}</span>
@@ -152,19 +152,19 @@ the data.</p>
   {
       import com.amitu.datacontainer.DataContainer;
       import com.amitu.datacontainer.DataContainerEvent;</p>
-<div class="codehilite"><pre>  <span class="n">public</span> <span class="n">class</span> <span class="n">DataContainerExample</span>
+<div class="codehilite"><pre>  <span class="kr">public</span> <span class="kr">class</span> <span class="nx">DataContainerExample</span>
   <span class="p">{</span>
-      <span class="n">public</span> <span class="n">var</span> <span class="n">data</span><span class="p">:</span><span class="n">DataContainer</span><span class="p">;</span>
-      <span class="n">public</span> <span class="k">function</span> <span class="n">DataContainerExample</span><span class="p">()</span>
+      <span class="kr">public</span> <span class="kd">var</span> <span class="nx">data</span><span class="o">:</span><span class="nx">DataContainer</span><span class="p">;</span>
+      <span class="kr">public</span> <span class="kd">function</span> <span class="nx">DataContainerExample</span><span class="p">()</span>
       <span class="p">{</span>
-          <span class="n">data</span> <span class="p">=</span> <span class="n">new</span> <span class="n">DataContainer</span><span class="p">(</span><span class="n">null</span><span class="p">);</span>
-          <span class="n">data</span><span class="p">.</span><span class="n">addEventListener</span><span class="p">(</span>
-              <span class="n">DataContainerEvent</span><span class="p">.</span><span class="n">InvalidData</span><span class="p">,</span> <span class="n">onInvalidData</span>
+          <span class="nx">data</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">DataContainer</span><span class="p">(</span><span class="kc">null</span><span class="p">);</span>
+          <span class="nx">data</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span>
+              <span class="nx">DataContainerEvent</span><span class="p">.</span><span class="nx">InvalidData</span><span class="p">,</span> <span class="nx">onInvalidData</span>
           <span class="p">);</span>
       <span class="p">}</span>
-      <span class="n">public</span> <span class="k">function</span> <span class="n">onInvalidData</span><span class="p">(</span><span class="n">event</span><span class="p">:</span><span class="n">DataContainerEvent</span><span class="p">):</span><span class="n">void</span>
+      <span class="kr">public</span> <span class="kd">function</span> <span class="nx">onInvalidData</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nx">DataContainerEvent</span><span class="p">)</span><span class="o">:</span><span class="k">void</span>
       <span class="p">{</span>
-          <span class="n">trace</span><span class="p">(</span>&quot;<span class="n">invalid</span> <span class="n">data</span>&quot;<span class="p">);</span>
+          <span class="nx">trace</span><span class="p">(</span><span class="s2">&quot;invalid data&quot;</span><span class="p">);</span>
       <span class="p">}</span>
   <span class="p">}</span>
 </pre></div>
