@@ -1,0 +1,13 @@
+Django==1.7.6
+Markdown==2.6.1
+PyYAML==3.11
+Pygments==2.0.2
+dj-database-url==0.3.0
+-e git+git@github.com:amitu/djangothis.git@c16fec947ce01288e2431fcc1d081b539a1bcdc6#egg=djangothis-master
+fhurl==0.1.7
+ghp-import==0.4.1
+importd==0.3.3
+mercurial==3.1.2
+six==1.9.0
+smarturls==0.1.4
+wsgiref==0.1.2
