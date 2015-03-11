@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Guns Vs Mobs"
-description: ""
-category: 
-tags: []
+section: india
 ---
 {% include JB/setup %}
 
@@ -37,15 +35,15 @@ all the shops down. No citizen dared to step out, because 4 guys will come and
 beat him up. The citizens of this city stayed home. They surrendered to the
 mob. Mob knew they had no guns, they are helpless.
 
-If even few had guns, the bikers would have required to travel with guns. And
-if bikers travelled with guns, police would not have allowed them to roam
-freely.  Police allowed bikers to roam freely because they were unarmed,
-"peaceful", "harmless".
+If even few had guns, the bikers would have required to travel with guns. And if
+bikers travelled with guns, police would not have allowed them to roam freely.
+Police allowed bikers to roam freely because they were unarmed, "peaceful",
+"harmless".
 
 If we had guns, police would be dealing with lot more brutal crime.
 
-Mumbai police took 45 minutes to come out of the police station at Regal
-theatre when those gunmen were roaming on our streets.
+Mumbai police took 45 minutes to come out of the police station at Regal theatre
+when those gunmen were roaming on our streets.
 
 Mumbai police has not faced armed gunmen since D company left town. Mumbai
 police was "defeated by its own success" as Bane would say. Mumbai police is
@@ -61,8 +59,8 @@ terrorists.
 A friend of mine had a gunda running his building internet connection. When he
 tried to switch ISP, the gunda came with a few men, unarmed men, and forcefully
 removed his network cables. Would the gunda risk his life for the meagre Rs 500
-per month had we been living in a country without gun control, had he had a
-risk that my friend could have owned a gun?
+per month had we been living in a country without gun control, had he had a risk
+that my friend could have owned a gun?
 
 Gun control only prevents law abiding citizens from owning guns to defend
 themselves. Criminals are fine with knives, with their numbers, and they are
@@ -75,26 +73,26 @@ those 3 days.
 
 I guess if we do not see numbers in headline we assume the number is zero.
 
-I guess too that if gun manufacturers are given free rein, like in US, they
-will want to sell not just handguns, but automatic assult rifles and so forth.
-Unless we are invading a neighbourhood army, assult rifle is not a requisite
-for self defence. They are sold because men love toys and they are very
-profitable for gun manufacturers.
+I guess too that if gun manufacturers are given free rein, like in US, they will
+want to sell not just handguns, but automatic assult rifles and so forth. Unless
+we are invading a neighbourhood army, assult rifle is not a requisite for self
+defence. They are sold because men love toys and they are very profitable for
+gun manufacturers.
 
 I think everyone will agree that unless a government provides reasonable
 gaurantees about access to police protection in a timely fashion, if I report a
-crime, if police comes within a few minutes, unless that happens, government
-has no right to take away our ability to protect ourselves from criminals using
+crime, if police comes within a few minutes, unless that happens, government has
+no right to take away our ability to protect ourselves from criminals using
 whatever means we can muster, including guns.
 
 Sure easier access to guns means more criminals will have them, and they will
 use them against us when committing crime, but the equation will completely
-change for us. Today criminals know we are utterly helpless and they know
-police will take forever to come, for criminals attacking us has no risk. They
-can escape police by moving states. They have no risk of getting hurt during
-crime. One can argue that if lets say 10% of population had guns, then
-criminals will have to take this factor into consideration. This will reduce
-the instances of crime.
+change for us. Today criminals know we are utterly helpless and they know police
+will take forever to come, for criminals attacking us has no risk. They can
+escape police by moving states. They have no risk of getting hurt during crime.
+One can argue that if lets say 10% of population had guns, then criminals will
+have to take this factor into consideration. This will reduce the instances of
+crime.
 
 So we can see that easier access to guns will both increase some kind of crime
 and decrease some other kind of crime. Whether or not guns should be allowed is
@@ -103,12 +101,12 @@ factors.
 
 This becomes even more important for a third world country like India where
 police is no where adequate to provide even any semblance of protection. Police
-in India comes only after a crime has been comitted, the response time of
-Indian police, from filing a complaint on phone to police reaching the crime
-scene is measured in hours if not days. No politician has even promised that
-this delay will come to minutes ever. It will require massive beefing up of
-police forces, improvement in their infrastructure, much larger footprint of
-petrol cars on the ground, bigger budget and so on. We have no money for that.
+in India comes only after a crime has been comitted, the response time of Indian
+police, from filing a complaint on phone to police reaching the crime scene is
+measured in hours if not days. No politician has even promised that this delay
+will come to minutes ever. It will require massive beefing up of police forces,
+improvement in their infrastructure, much larger footprint of petrol cars on the
+ground, bigger budget and so on. We have no money for that.
 
 ----
 

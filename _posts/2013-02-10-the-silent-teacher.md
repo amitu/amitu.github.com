@@ -2,8 +2,7 @@
 layout: post
 title: "The Silent Teacher"
 description: ""
-category: 
-tags: []
+section: hinduism
 ---
 {% include JB/setup %}
 

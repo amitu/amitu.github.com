@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "I Am A Contrarian, You Should Be Too"
+section: hinduism
 ---
 {% include JB/setup %}
 
@@ -40,7 +41,7 @@ and think fast, and therefore think clearly, so its win win for me.
 
 I will never succumb (or at least I try not to) to popular culture of
 rejecting ideas one does not like, as more important than our likes is
-our duty to correctness. 
+our duty to correctness.
 
 If you believe in something it is your responsibility to argue against
 it. Like it is the responsibility of a doctor to find every way you can

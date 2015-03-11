@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Kejriwal Should Know This About Media"
-description: ""
-category: 
-tags: []
+section: india
 ---
 {% include JB/setup %}
 

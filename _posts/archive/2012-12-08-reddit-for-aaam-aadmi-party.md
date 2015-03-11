@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Reddit For Aaam Aadmi Party"
-description: ""
-category: 
-tags: []
+section: india
 ---
 {% include JB/setup %}
 

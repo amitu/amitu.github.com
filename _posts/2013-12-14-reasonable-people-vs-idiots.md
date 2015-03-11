@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Reasonable People vs Idiots"
+section: hinduism
 ---
 {% include JB/setup %}
 

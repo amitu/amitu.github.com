@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Kejriwal Clueless About Economics? Or Fooling His Supporters?"
-description: ""
-category: 
-tags: []
+section: india
 ---
 {% include JB/setup %}
 

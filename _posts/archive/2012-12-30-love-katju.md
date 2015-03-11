@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Love Katju"
-description: ""
-category: 
-tags: []
+section: india
 ---
 {% include JB/setup %}
 

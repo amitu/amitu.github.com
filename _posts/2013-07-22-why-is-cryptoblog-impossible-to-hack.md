@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Why is CryptoBlog impossible to hack?"
-description: ""
-category: 
-tags: []
+section: blog
 ---
 {% include JB/setup %}
 
@@ -15,12 +13,12 @@ Lets start with the definition of "hack". For the purpose of this post,
 "hacking" a blog can mean either of two things:
 
 1. Some individual defaced the site, changed any of the content, without the
-author knowing about it. Used the site to misrepresent the views of the author,
-or used the website to phish, or distribute malware etc.
+   author knowing about it. Used the site to misrepresent the views of the
+   author, or used the website to phish, or distribute malware etc.
 
-2. The second possibility, and the possibility I am more concerned about is,
-the author himself tries to pull a fast one, triesto change the content of the
-website without the readers being aware of it.
+2. The second possibility, and the possibility I am more concerned about is, the
+   author himself tries to pull a fast one, triesto change the content of the
+   website without the readers being aware of it.
 
 #### Setup of this blog
 
@@ -49,8 +47,8 @@ With this you can verify that my site is going to github pages.
 Now to the second question: how can one be sure that github itself is not
 hacked, may be github employees are involved.
 
-This is quite interesting, and you should never trust any corporation, no
-matter how trustworthy they appear on face. So how do bring in trust in this
+This is quite interesting, and you should never trust any corporation, no matter
+how trustworthy they appear on face. So how do bring in trust in this
 environment where trust is to difficult.
 
 #### Cryptoblog on your machine
@@ -60,8 +58,8 @@ access this blog. The moment you suspect something is fishy, please forgo the
 convenience, and do a little bit of work to recreate this blog on a machine you
 trust.
 
-This blog is powered by something called [jekyll](http://jekyllrb.com/), so
-here is what you will have to do:
+This blog is powered by something called [jekyll](http://jekyllrb.com/), so here
+is what you will have to do:
 
 {% highlight bash %}
 $ gem install jekyll
@@ -70,9 +68,9 @@ $ cd amitu.github.com
 $ jekyll serve
 {% endhighlight %}
 
-With these four commands you have installed the software powering my blog,
-*and* downloaded the entire history of this blog, all the posts, images etc.
-And a local copy of this blog will not be available to you, just open
+With these four commands you have installed the software powering my blog, *and*
+downloaded the entire history of this blog, all the posts, images etc. And a
+local copy of this blog will not be available to you, just open
 http://localhost:4000 in browser.
 
 With this you can verify that the content of amitu.com is same as what you see
@@ -112,11 +110,11 @@ ssl, https, this property is the reason internet banking can happen.
 #### What does it all mean?
 
 The content of this blog can not be modified, without leaving a trail. I can
-never say something on this blog, and later on deny that I did not say it. It
-is not just difficult, it is impossible, neither can I do it, nor the president
-of United States if he had a cryptoblog.
+never say something on this blog, and later on deny that I did not say it. It is
+not just difficult, it is impossible, neither can I do it, nor the president of
+United States if he had a cryptoblog.
 
-It is a common habit of politicians to lie, to change what they said
-afterwards, to claim they have been misquoted. If you demand you politican to
-commit everything on a cryptoblog, the politician will never be able to take
-anything back.
+It is a common habit of politicians to lie, to change what they said afterwards,
+to claim they have been misquoted. If you demand you politican to commit
+everything on a cryptoblog, the politician will never be able to take anything
+back.

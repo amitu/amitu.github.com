@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "About This Blog"
-description: ""
-category:
-tags: []
+section: blog
 ---
 {% include JB/setup %}
 

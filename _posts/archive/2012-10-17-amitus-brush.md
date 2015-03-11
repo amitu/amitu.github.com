@@ -2,8 +2,9 @@
 layout: post
 title: "AmitU's Brush"
 description: ""
-category: 
+category:
 tags: []
+section: hinduism
 ---
 {% include JB/setup %}
 
@@ -28,11 +29,11 @@ But a strong case can be made that movie allowed for only one timeline.
 Alternate realities are possible in future, but only one timeline exists, even
 tho it may loop back in time. The movie showed things disappearing and
 appearing, memories getting lost or formed based on what is the current
-timeline. And when old bruce was killed, when young bruce took the kid, not
-only old bruce's body disappered, but all memory of him being there, all
-physical evidence, everything about existance of looper organization,
-everything disappeared and the only remaining timeline is the one in which
-everyone lives happily lives everafter.
+timeline. And when old bruce was killed, when young bruce took the kid, not only
+old bruce's body disappered, but all memory of him being there, all physical
+evidence, everything about existance of looper organization, everything
+disappeared and the only remaining timeline is the one in which everyone lives
+happily lives everafter.
 
 There is nothing in the movie that contradicts with this. \[Other then one plot
 hole, but arguably not introduced by this interpretation\]. This interpretation

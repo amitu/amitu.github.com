@@ -12,3 +12,4 @@ cp CNAME build
 
 ghp-import -b master -m "syncing" build
 
+echo "done. next: git push --all"

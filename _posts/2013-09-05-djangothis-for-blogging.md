@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Djangothis For Blogging"
-description: ""
-category: 
-tags: []
+section: blog
 ---
 {% include JB/setup %}
 
@@ -21,7 +19,7 @@ prototype it in HTML, so you can show it to others for feedback. The
 problem with using static files is that you can not have a common base
 template from where all your HTML will be derived from, and you copy
 over the whole HTML. This means making modification to common portions
-has to be done multiple times. 
+has to be done multiple times.
 
 With djangothis you can create a folder containing index.html,
 pricing.html, signup.html, and run djangothis from this folder, and
@@ -85,7 +83,7 @@ Setup a working directory:
 
 Instead of starting from scratch, you may want to start from HTML5
 boilerplate:
-  
+
     $ git clone https://github.com/amitu/djangothis-html5-boilerplate.git site
     $ cd site
     $ djangothis
@@ -143,7 +141,7 @@ Here is how to do it:
     $ djangothis jekyll_init
     All Done.
     Run "djangothis jekyll_post" or "djangothis jekyll_page".
-    $ djangothis 
+    $ djangothis
     Validating models...
 
     0 errors found

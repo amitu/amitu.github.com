@@ -2,28 +2,27 @@
 layout: post
 title: "Stupid Mistake Jekyll and GitHub Made (And Solution)"
 description: ""
-category: 
-tags: []
+section: blog
 ---
 {% include JB/setup %}
 #### Background
 
 [Github](http://github.com) has an excellent feature called
 [pages](http://http://pages.github.com/), that allows one to host and publish
-static websites from any git repository on github. This is great for projects
-to host a free project page. Github also allows and encourages github users to
-host their personal static sites on github pages. They go to the extent of
-allowing you to host your custom domains (making it almost completely
-alturistic exercise on their part).
+static websites from any git repository on github. This is great for projects to
+host a free project page. Github also allows and encourages github users to host
+their personal static sites on github pages. They go to the extent of allowing
+you to host your custom domains (making it almost completely alturistic exercise
+on their part).
 
 Managing static sites is a pain, and we meet
 [Jekyll](https://github.com/mojombo/jekyll/), a static site generator designed
 with blogs in mind. What jekyll does is it expects some special files and
 folders with names starting with an underscore, and uses them to convert all
-files in the current folder with .md (etc) extension into .html files. In
-folder named \_posts, specially named .md files are used to create blog, with
-categories and tags. Post meta data is stored in the .md files themselves at
-the top. jekyll creates archive page, a list of all pages on the site, rss and
+files in the current folder with .md (etc) extension into .html files. In folder
+named \_posts, specially named .md files are used to create blog, with
+categories and tags. Post meta data is stored in the .md files themselves at the
+top. jekyll creates archive page, a list of all pages on the site, rss and
 sitemap file and all.
 
 Jekyll takes all the content, applies jekyll rules and plugins and generate a
@@ -72,19 +71,19 @@ same repo, which is a real pain point [faced by
 people](http://stackoverflow.com/questions/6201339/a-clean-system-for-github-pages-with-local-plugins).
 
 Here is my proposed github contract for pages: *if a github pages repository
-contains a folder named \_site, the http request to /any-url goes to file
-/_site/any-url instead of the file /any-url*.
+contains a folder named \_site, the http request to /any-url goes to file /_site
+/any-url instead of the file /any-url*.
 
 If github does that then they can claim they have equal support for not just
 jekyll but any static site generation system. I can use jekyll with my custom
 plugins as easily as without them, or as easily as
-[hyde](http://ringce.com/hyde) or even my own make files that takes index.md
-and compiles it into \_site/index.html.
+[hyde](http://ringce.com/hyde) or even my own make files that takes index.md and
+compiles it into \_site/index.html.
 
 The solution is completely backward compatible. Github already supports a
-protocol to indicate that a given repository does not require jekyll
-processing. Any repository that requires \_site feature but still use jekyll
-can disable github jekyll, and still use local jekyll to create \_site folder.
+protocol to indicate that a given repository does not require jekyll processing.
+Any repository that requires \_site feature but still use jekyll can disable
+github jekyll, and still use local jekyll to create \_site folder.
 
 This drastically reduces github jekyll processing and makes life easier for
 nearly every github pages user, as we do not have to manage two

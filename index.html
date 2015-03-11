@@ -6,7 +6,7 @@
 
 Hey!
 
-I work with the wonderful folks at [BrowserStack](http://www.browserstack.com). 
+I work with the wonderful folks at [BrowserStack](http://www.browserstack.com).
 
 [Golang Talk - 19th July 2014](/gotalk/).
 
@@ -28,6 +28,52 @@ do about it](/india/rape/).
 <header>
     <div class="unit-head">
         <div class="unit-inner unit-head-inner">
+            <h1 class="h2 entry-title">India</h1>
+        </div><!-- unit-inner -->
+    </div><!-- unit-head -->
+</header>
+
+Things that are relevant for India. I am quite politically opinionated, and you
+will find some of my view here.
+
+<ul class="posts">
+    {% for post in posts %}
+        {% if post.section == "india" %}
+            <li>
+                <span>{{ post.date|date:"d M Y"}}</span> &raquo;
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+<header>
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <h1 class="h2 entry-title">Hinduism</h1>
+        </div><!-- unit-inner -->
+    </div><!-- unit-head -->
+</header>
+
+I am kind of proud Hindu. I think the basics tenets of hinduism are all but lost
+in India. Here you will find my views on what our philosophy really says and its
+relevance today. I would love it if you disagreed and said this is not hinduism,
+in which case do call this amitu-ism :-p.
+
+<ul class="posts">
+    {% for post in posts %}
+        {% if post.section == "hinduism" %}
+            <li>
+                <span>{{ post.date|date:"d M Y"}}</span> &raquo;
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
+<header>
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
             <h1 class="h2 entry-title">Blog</h1>
         </div><!-- unit-inner -->
     </div><!-- unit-head -->
@@ -35,12 +81,36 @@ do about it](/india/rape/).
 
 <ul class="posts">
     {% for post in posts %}
-        <li>
-            <span>{{ post.date|date:"d M Y"}}</span> &raquo; 
-            <a href="{{ post.url }}">{{ post.title }}</a>
-        </li>
+        {% if not post.section %}
+            <li>
+                <span>{{ post.date|date:"d M Y"}}</span> &raquo;
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+        {% endif %}
     {% endfor %}
 </ul>
+
+<header>
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <h1 class="h2 entry-title">About This Blog</h1>
+        </div><!-- unit-inner -->
+    </div><!-- unit-head -->
+</header>
+
+Meta! About technology behind this blog, my motivation etc.
+
+<ul class="posts">
+    {% for post in posts %}
+        {% if post.section == "blog" %}
+            <li>
+                <span>{{ post.date|date:"d M Y"}}</span> &raquo;
+                <a href="{{ post.url }}">{{ post.title }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul>
+
 
 {% endfilter %}
 {% endblock %}

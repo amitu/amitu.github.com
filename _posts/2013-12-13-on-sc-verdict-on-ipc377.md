@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "On SC Verdict on IPC377"
+section: india
 ---
 {% include JB/setup %}
 
@@ -68,7 +69,7 @@ with difficulty, a ingenious lawyer will try to invoke other laws to get
 a conviction, and they usually resorted to 377. Some times they resorted
 to 377 to increase the severity of punishment. "May be it was not
 intercourse and hence rape, but it was definitely an unnatural act"
-argument. 
+argument.
 
 Now when a judge sees 377 invoked in a rape case and sees those to
 motives at play, he plays along. Judge allows liberal interpretation of
@@ -174,7 +175,7 @@ Now one can argue that law is vague, invoke the vagueness argument.
 > It is relevant to mention here that the Section 377 IPC does not
 > criminalize a particular people or identity or orientation. It merely
 > identifies *certain acts* which if committed would constitute an
-> offense. 
+> offense.
 
 Emphasis mine. If we want to pretend that the vagueness is the problem
 and we assume the judge is lying that it is not *certain acts*, we are
@@ -331,7 +332,7 @@ removed).
 **377 is not the problem**
 
 The most important point I would like to make is that 377 is not the
-problem. 
+problem.
 
 377 has almost never been invoked against regular homosexuals.
 Homosexuals are technically criminal, but pragmatically, the real

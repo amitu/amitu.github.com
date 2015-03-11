@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "Yo AmitU, Aren't you facebook dead?"
-description: ""
-category: 
-tags: []
+section: blog
 ---
 {% include JB/setup %}
 

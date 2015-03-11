@@ -1,9 +1,7 @@
 ---
 layout: post
 title: "I Am Leaving Facebook, Why And How You Should Too"
-description: ""
-category: 
-tags: []
+section: blog
 ---
 {% include JB/setup %}
 
@@ -30,7 +28,7 @@ enthusiasts, they are all lost to the world.
 #### So I am moving from facebook, and here is how
 
 I am going to stop writing status updates on facebook. Or may be I will limit
-it to purely personal, very close friends and family targeted updates. 
+it to purely personal, very close friends and family targeted updates.
 
 I am not going to move to twitter, or some next social network.  I am going to
 blog.

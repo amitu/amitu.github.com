@@ -2,8 +2,7 @@
 layout: post
 title: "Risk vs Personal Risk"
 description: ""
-category: 
-tags: []
+section: hinduism
 ---
 {% include JB/setup %}
 

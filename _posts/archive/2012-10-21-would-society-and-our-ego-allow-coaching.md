@@ -2,8 +2,8 @@
 layout: post
 title: "Would Society And Our Ego Allow Coaching?"
 description: ""
-category: 
-tags: []
+category:
+section: hinduism
 ---
 {% include JB/setup %}
 

@@ -2,6 +2,7 @@
 layout: post
 title: "Veda and Truth"
 url: "/hinduism/veda-and-truth/"
+section: hinduism
 ---
 {% include JB/setup %}
 

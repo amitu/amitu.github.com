@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "ToI Article About Ceiling Suspeciously Close To Mine"
+section: india
 ---
 {% include JB/setup %}
 
@@ -45,7 +46,7 @@ election comission, but they did not argue that this is "crippling the
 clean politicians".
 
 In fact the common debate on this topic is in the [lines
-of](http://www.deccanchronicle.com/130704/commentary-op-ed/commentary/dc-debate-false-ceiling): 
+of](http://www.deccanchronicle.com/130704/commentary-op-ed/commentary/dc-debate-false-ceiling):
 
 > Electoral purists argue that hiking the cap on election expenses would
 > shut the door on the not-so-rich people to enter electoral politics.
@@ -76,7 +77,7 @@ one. And the systematic defect is EC spending ceiling.
 
 Then is the next key idea that EC is playing a losing battle:
 
-My article: 
+My article:
 
 > Election comission is completely toothless to limit the money, and any
 > effort to do so is a wasted effort, its a cat and mouse game, that
@@ -98,9 +99,9 @@ results", where as I did:
 Then again, me:
 
 > The real problem is, nobody honest today has any hope of competing
-> against the corrupt. 
+> against the corrupt.
 
-Professor: 
+Professor:
 
 >  Thereby, clean politicians are crippled by the system.
 
@@ -143,7 +144,7 @@ We both think fund raising will help honest candidates, me:
 > and there is a very good possibility that the amount of money we can
 > raise with proper fund raising far outweigh the pocket of corrupts.
 
-Professor: 
+Professor:
 
 > One way to bring this about is by allowing open contributions to
 > individual candidates.
