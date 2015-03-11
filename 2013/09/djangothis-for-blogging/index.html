@@ -98,35 +98,35 @@ have a jekyll powered blog, moving over to djangothis should be quite
 easy.</p>
 <h4>Playing with djangothis</h4>
 <p>So you want to give djangothis a try. Install it using:</p>
-<div class="codehilite"><pre><span class="err">$</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">U</span> <span class="n">djangothis</span>
+<div class="codehilite"><pre><span class="nv">$ </span>pip install -U djangothis
 </pre></div>
 
 
 <p>Make sure you have version number 0.6 or above.</p>
 <p>Setup a working directory:</p>
-<div class="codehilite"><pre><span class="err">$</span> <span class="n">mkdir</span> <span class="n">site</span>
-<span class="err">$</span> <span class="n">cd</span> <span class="n">site</span>
-<span class="err">$</span> <span class="n">vim</span> <span class="n">index</span><span class="p">.</span><span class="n">html</span>
-<span class="err">$</span> <span class="n">djangothis</span>
-<span class="n">Validating</span> <span class="n">models</span><span class="p">...</span>
+<div class="codehilite"><pre><span class="nv">$ </span>mkdir site
+<span class="nv">$ </span><span class="nb">cd </span>site
+<span class="nv">$ </span>vim index.html
+<span class="nv">$ </span>djangothis
+Validating models...
 
-<span class="mi">0</span> <span class="n">errors</span> <span class="n">found</span>
-<span class="n">Django</span> <span class="n">version</span> <span class="mf">1.4.1</span><span class="p">,</span> <span class="n">using</span> <span class="n">settings</span> <span class="n">None</span>
-<span class="n">Development</span> <span class="n">server</span> <span class="n">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">http</span><span class="o">:</span><span class="c1">//127.0.0.1:8000/</span>
-<span class="n">Quit</span> <span class="n">the</span> <span class="n">server</span> <span class="n">with</span> <span class="n">CONTROL</span><span class="o">-</span><span class="n">C</span><span class="p">.</span>
+<span class="m">0</span> errors found
+Django version 1.4.1, using settings None
+Development server is running at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
 </pre></div>
 
 
 <p>Instead of starting from scratch, you may want to start from HTML5
 boilerplate:</p>
-<div class="codehilite"><pre><span class="err">$</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/amitu/djangothis-html5-boilerplate.git site</span>
-<span class="err">$</span> <span class="n">cd</span> <span class="n">site</span>
-<span class="err">$</span> <span class="n">djangothis</span>
-<span class="n">Validating</span> <span class="n">models</span><span class="p">...</span>
+<div class="codehilite"><pre><span class="nv">$ </span>git clone https://github.com/amitu/djangothis-html5-boilerplate.git site
+<span class="nv">$ </span><span class="nb">cd </span>site
+<span class="nv">$ </span>djangothis
+Validating models...
 
-<span class="mi">0</span> <span class="n">errors</span> <span class="n">found</span>
-<span class="n">Django</span> <span class="n">version</span> <span class="mf">1.4.1</span><span class="p">,</span> <span class="n">using</span> <span class="n">settings</span> <span class="n">None</span>
-<span class="n">Development</span> <span class="n">server</span> <span class="n">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">http</span><span class="o">:</span><span class="c1">//127.0.0.1:8000/</span>
+<span class="m">0</span> errors found
+Django version 1.4.1, using settings None
+Development server is running at http://127.0.0.1:8000/
 </pre></div>
 
 
@@ -162,19 +162,19 @@ the post to be served on.</p>
 what I did for my blog, which had most of the posts generated for
 jekyll.</p>
 <p>Here is how to do it:</p>
-<div class="codehilite"><pre><span class="err">$</span> <span class="n">mkdir</span> <span class="n">blog</span>
-<span class="err">$</span> <span class="n">cd</span> <span class="n">blog</span>
-<span class="err">$</span> <span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="o">:</span><span class="c1">//github.com/amitu/djangothis-jekyll.git _theme</span>
-<span class="err">$</span> <span class="n">djangothis</span> <span class="n">jekyll_init</span>
-<span class="n">All</span> <span class="n">Done</span><span class="p">.</span>
-<span class="n">Run</span> <span class="s">&quot;djangothis jekyll_post&quot;</span> <span class="n">or</span> <span class="s">&quot;djangothis jekyll_page&quot;</span><span class="p">.</span>
-<span class="err">$</span> <span class="n">djangothis</span> 
-<span class="n">Validating</span> <span class="n">models</span><span class="p">...</span>
+<div class="codehilite"><pre><span class="nv">$ </span>mkdir blog
+<span class="nv">$ </span><span class="nb">cd </span>blog
+<span class="nv">$ </span>git clone https://github.com/amitu/djangothis-jekyll.git _theme
+<span class="nv">$ </span>djangothis jekyll_init
+All Done.
+Run <span class="s2">&quot;djangothis jekyll_post&quot;</span> or <span class="s2">&quot;djangothis jekyll_page&quot;</span>.
+<span class="nv">$ </span>djangothis 
+Validating models...
 
-<span class="mi">0</span> <span class="n">errors</span> <span class="n">found</span>
-<span class="n">Django</span> <span class="n">version</span> <span class="mf">1.4.1</span><span class="p">,</span> <span class="n">using</span> <span class="n">settings</span> <span class="n">None</span>
-<span class="n">Development</span> <span class="n">server</span> <span class="n">is</span> <span class="n">running</span> <span class="n">at</span> <span class="n">http</span><span class="o">:</span><span class="c1">//127.0.0.1:8000/</span>
-<span class="n">Quit</span> <span class="n">the</span> <span class="n">server</span> <span class="n">with</span> <span class="n">CONTROL</span><span class="o">-</span><span class="n">C</span><span class="p">.</span>
+<span class="m">0</span> errors found
+Django version 1.4.1, using settings None
+Development server is running at http://127.0.0.1:8000/
+Quit the server with CONTROL-C.
 </pre></div>
 
 
@@ -182,14 +182,14 @@ jekyll.</p>
 jekyll_init to your liking. Update the template HTMLs in _theme
 folder.</p>
 <p>You can create a new page by:</p>
-<div class="codehilite"><pre><span class="err">$</span> <span class="n">djangothis</span> <span class="n">jekyll_page</span> <span class="o">--</span><span class="n">url</span> <span class="o">/</span><span class="n">about</span><span class="o">/</span> <span class="s">&quot;About Us&quot;</span>
-<span class="n">about</span><span class="o">/</span><span class="n">index</span><span class="p">.</span><span class="n">html</span> <span class="n">created</span><span class="p">.</span>
+<div class="codehilite"><pre><span class="nv">$ </span>djangothis jekyll_page --url /about/ <span class="s2">&quot;About Us&quot;</span>
+about/index.html created.
 </pre></div>
 
 
 <p>Or a new post by:</p>
-<div class="codehilite"><pre><span class="err">$</span> <span class="n">djangothis</span> <span class="n">jekyll_post</span> <span class="n">This</span> <span class="n">is</span> <span class="n">my</span> <span class="n">awesome</span> <span class="n">post</span><span class="o">!</span>
-<span class="n">_posts</span><span class="o">/</span><span class="mi">2013</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mo">05</span><span class="o">-</span><span class="n">this</span><span class="o">-</span><span class="n">is</span><span class="o">-</span><span class="n">my</span><span class="o">-</span><span class="n">awesome</span><span class="o">-</span><span class="n">post</span><span class="p">.</span><span class="n">md</span> <span class="n">created</span><span class="p">.</span>
+<div class="codehilite"><pre><span class="nv">$ </span>djangothis jekyll_post This is my awesome post!
+_posts/2013-09-05-this-is-my-awesome-post.md created.
 </pre></div>
 
 
@@ -197,7 +197,7 @@ folder.</p>
 pages</a> for
 example, or any static site host, use wget to mirror the localhost:8000
 site in a folder, and upload that folder.</p>
-<div class="codehilite"><pre><span class="err">$</span> <span class="n">wget</span> <span class="o">-</span><span class="n">m</span> <span class="n">http</span><span class="o">:</span><span class="c1">//localhost:8000</span>
+<div class="codehilite"><pre><span class="nv">$ </span>wget -m http://localhost:8000
 </pre></div>
 
 

@@ -78,16 +78,16 @@ and if data is found to be invalid it fires an InvalidData event.</p>
   package com.amitu.datacontainer
   {
       import flash.events.Event;</p>
-<div class="codehilite"><pre>  <span class="n">public</span> <span class="n">class</span> <span class="n">DataContainerEvent</span> <span class="n">extends</span> <span class="n">Event</span>
-  <span class="p">{</span>
-      <span class="n">public</span> <span class="k">static</span> <span class="k">const</span> <span class="n">InvalidData</span><span class="o">:</span><span class="n">String</span> <span class="o">=</span> <span class="p">(</span>
-          <span class="s">&quot;com.amitu.datacontainer.InvalidData&quot;</span><span class="p">;</span>
-      <span class="p">)</span>
-      <span class="n">public</span> <span class="n">DataContainerEvent</span><span class="p">()</span>
-      <span class="p">{</span>
-          <span class="n">super</span><span class="p">(</span><span class="n">InvalidData</span><span class="p">);</span>
-      <span class="p">}</span>
-  <span class="p">}</span>
+<div class="codehilite"><pre>  public class DataContainerEvent extends Event
+  {
+      public static const InvalidData:String = (
+          &quot;com.amitu.datacontainer.InvalidData&quot;;
+      )
+      public DataContainerEvent()
+      {
+          super(InvalidData);
+      }
+  }
 </pre></div>
 
 

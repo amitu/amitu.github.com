@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Amit Upadhyay: Stupid Mistake Jekyll and GitHub Made (And Solution)</title>
+    <title>Amit Upadhyay: Veda and Truth</title>
 	<meta name="author" content="Amit Upadhyay">
 	<link href='/theme/css/style.css' rel="stylesheet" media="all">
 	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
@@ -44,85 +44,88 @@
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">Stupid Mistake Jekyll and GitHub Made (And Solution)</h1>
+						<h1 class="h2 entry-title">Veda and Truth</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<h4>Background</h4>
-<p><a href="http://github.com">Github</a> has an excellent feature called
-<a href="http://http://pages.github.com/">pages</a>, that allows one to host and publish
-static websites from any git repository on github. This is great for projects
-to host a free project page. Github also allows and encourages github users to
-host their personal static sites on github pages. They go to the extent of
-allowing you to host your custom domains (making it almost completely
-alturistic exercise on their part).</p>
-<p>Managing static sites is a pain, and we meet
-<a href="https://github.com/mojombo/jekyll/">Jekyll</a>, a static site generator designed
-with blogs in mind. What jekyll does is it expects some special files and
-folders with names starting with an underscore, and uses them to convert all
-files in the current folder with .md (etc) extension into .html files. In
-folder named _posts, specially named .md files are used to create blog, with
-categories and tags. Post meta data is stored in the .md files themselves at
-the top. jekyll creates archive page, a list of all pages on the site, rss and
-sitemap file and all.</p>
-<p>Jekyll takes all the content, applies jekyll rules and plugins and generate a
-static site and stores it in a folder named _site.</p>
-<h4>The Mistake</h4>
-<p>Github ignores the _site folder.</p>
-<p>Github has jekyll of its own, and it insists on using its copy of jekyll to
-generate _site, or where-ever they store static files.</p>
-<p>Github does it so you do not have to have jekyll installed on your machine, and
-still be able to publish jekyll sites, so it assumes _site may be out of date.</p>
-<h4>The Consequence Of The Mistake</h4>
-<p>The first problem with this decision is: jekyll plugins. Jekyll comes with a
-wide range of <a href="https://github.com/mojombo/jekyll/wiki/Plugins">plugins</a>, but
-jekyll copy of github wont load most of them.</p>
-<p>There are ways to overcome this, instead of storing jekyll in the repository,
-store the static compiled _site in the repository and tell github that it is
-not a jekyll repo.</p>
-<p>This introduces complexities for developers. I have to now maintain two
-different repositories or branches, I have to write <a href="http://charliepark.org/jekyll-with-plugins/">scripts to sync
-them</a> etc.  And it completely
-defeats the point of supporting jekyll at github level.</p>
-<p>If we look at a normal software build, we have Makefile, we have src/*.c etc,
-and compiled output is stored in some special folder named "build" etc. What we
-have with jekyll is very close to this, but not there.</p>
-<h4>Solution: Github Contract</h4>
-<p>This design decision to incorporate jekyll is bad compromise. I posit that
-almost no jekyll based repository is maintained by someone without access to
-jekyll on their local system.</p>
-<p>Instead of github trying to take care of that use case (and the use case of
-cases where a repository can be modified from web), github takes care of a much
-better use case: site original files and built static sites being stored in the
-same repo, which is a real pain point <a href="http://stackoverflow.com/questions/6201339/a-clean-system-for-github-pages-with-local-plugins">faced by
-people</a>.</p>
-<p>Here is my proposed github contract for pages: <em>if a github pages repository
-contains a folder named _site, the http request to /any-url goes to file
-/_site/any-url instead of the file /any-url</em>.</p>
-<p>If github does that then they can claim they have equal support for not just
-jekyll but any static site generation system. I can use jekyll with my custom
-plugins as easily as without them, or as easily as
-<a href="http://ringce.com/hyde">hyde</a> or even my own make files that takes index.md
-and compiles it into _site/index.html.</p>
-<p>The solution is completely backward compatible. Github already supports a
-protocol to indicate that a given repository does not require jekyll
-processing. Any repository that requires _site feature but still use jekyll
-can disable github jekyll, and still use local jekyll to create _site folder.</p>
-<p>This drastically reduces github jekyll processing and makes life easier for
-nearly every github pages user, as we do not have to manage two
-repositories/branches.</p>
-<p>Anybody at Github listening? :-)</p>
+					<p>Veda is about: truth is hard.</p>
+<p>Veda says: if you have found the truth, you have achieved nirvana. Veda says the
+purpose of life is to find the truth, achieve nirvana.</p>
+<p>We take truth for granted. We confuse our conceptions and notions as truth. And
+we are constantly unhappy because reality pokes at false reality we have built
+around us.</p>
+<p>There are so many issues that has the world divided. Freedom of speech.
+Abortion. Global warming. This book or that book. Capitalism vs Socialism. West
+is good vs West is evil. Muslims are terrorists or peace loving.</p>
+<p>Nothing we know, we should assume is 100% true. Everything must have a level of
+truthiness attached.</p>
+<p>The core theory is this, there is this reality, the reality can be seen as as
+series of true false questions with answers.</p>
+<p>Then there is our view of reality. This is our answers to those questions.</p>
+<p>Our answers are maya. The reality if truth, or god, or universe. Everything we
+know, it is maya, it is our answer to those true false questions. What we know
+is not true. Some questions we get it right, some questions we get it wrong.</p>
+<p>Our job is to find the truth. The correct answers to all those true false
+answers. The moment we have them, we will not have any more doubts.</p>
+<p>Our job is to then not assume any answer we have is final. One new answer often
+invalidates other answers. Sometimes one answer we have, we have obtained it
+with much efforts, and some other answer we have is barely a notion. We have
+probabilities. For each question, our answer has a certain probability of being
+right. With experience, with learning, with time, some of our answers change.
+With experience, learning, time, the confidence we have on few questions change.</p>
+<p>If we are on right track, we will get all answers correct someday. But this will
+mean we should be able to give up on our existing answers from time to time. If
+we insist that answers we know are correct, and fight the new experience,
+knowledge, if we have fear of accepting that what we may know could be wrong, if
+we wrongly put the confidence level to any answer we have for those questions
+too high, we start departing from reality.</p>
+<p>We stop answering some questions. We start building a subset of questions, where
+our answers seem to feel consistent.</p>
+<p>The good thing about the universe of true false questions, is that there is only
+one correct answer that is internally consistent. Every wrong answer, can lead
+to a subset of questions, where that subset is consistent, but every new
+observation would be an assault on this subset, every new knowledge will
+challenge these subset and want to be included.</p>
+<p>Sometimes we accept such disconnected set of questions, for morality/religion we
+will have separate thing, and for science, medicine we will have another, we
+think we can bracket all questions about reality into possibly conflicting, but
+internally consistent separate groups.</p>
+<p>We can not. We can only do so by hide questions, limit observations etc.</p>
+<p>If we seek the <em>right answer</em>, the correct true false answer for the all
+questions, we have to give up on our ego of “having the answer already”, and be
+open to changing our answers in light of new knowledge.</p>
+<p>This leads to complications, how to take quick decisions? How to function in
+life if things we know may be not true. Analysis paralysis?</p>
+<p>Yet when we are shopping, when we are hiring, when we are marrying, we do not
+really pretend that we have the truth. People may claim they know the product
+they are buying, the person they are hiring/marrying may be ok, but few really
+have to believe in their heart that that choice is the best choice in the world.</p>
+<p>Its an acceptable choice. And this lack of 100% confidence does not really
+hinder us from making decisions. We have a sense of things, and we get by.</p>
+<p>In marriage we tend to be "married" to our choice, though in modern times,
+increasingly less so, but in products/employees, we are not so much married to
+our choice, and would be willing to change if a better alternative comes along.
+This happens all the time. We switch our phones. We change our jobs. All the
+time.</p>
+<p>We are more vedic in those things. We do not believe this phone is the best
+phone in the world, just that it appears better than what i have right now. And
+when a better phone comes along, we switch.</p>
+<p>This is veda way of thinking. We have this truth, but we do not have to believe
+this is the truest truth, and when a truer truth comes along, we discard the old
+truth and acquire the new one.</p>
+<p>This is how science works too. Veda is about application of this "scientific
+thinking" at personal level too.</p>
 					<div class="meta">
                     <hr>
 						<p class="date-publish">
 							Published:
-							<date class="date-pub" title="Aug. 6, 2012, midnight" datetime="Aug. 6, 2012, midnight" pubdate>
-							<span class="month"><abbr>Aug</abbr></span>
-							<span class="day">06</span>
-							<span class="year">2012</span>
+							<date class="date-pub" title="March 10, 2015, midnight" datetime="March 10, 2015, midnight" pubdate>
+							<span class="month"><abbr>Mar</abbr></span>
+							<span class="day">10</span>
+							<span class="year">2015</span>
 							</date>
 						</p>
 					</div><!-- meta -->
