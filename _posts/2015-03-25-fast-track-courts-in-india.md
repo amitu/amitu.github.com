@@ -60,9 +60,9 @@ Please note:
   stopped operations, was 6 months for murder and 6 months for rape cases. This
   is a *major win for our country*, way bigger than any world cup championship.
 - Not all Fast Track Courts were stopped after Centre stopped giving funding.
-  There were some trickle of funding coming from here and there, some state
-  governments, or even central government for specific cases. Also Judiciary
-  internally decided to let the Fast Track courts keep running by cutting funds
+  There were some trickle of funding coming from here and there, some State
+  governments, or even Central government for specific cases. Also Judiciary
+  internally decided to let few Fast Track courts keep running by cutting funds
   from other places.
 - According to latest data, there is a 22% vacancies (a court is there, but
   there is no judge to sit in it) at District levels, and 29% at High Court
