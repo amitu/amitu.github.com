@@ -6,8 +6,8 @@ section: india
 ---
 {% include JB/setup %}
 
-11th Finance Commission of India, [sanctioned budget for Fast Track Courts in
-India](http://doj.gov.in/?q=node/108).
+11th Finance Commission of India, [sanctioned budget for Fast Track Courts in In
+dia](http://doj.gov.in/?q=node/108)<sup>[1]</sup>.
 
 > The Eleventh Finance Commission recommended a scheme for creation of 1734 Fast
 > Track Courts (FTCs) in the country for disposal of long pending Sessions and
@@ -87,3 +87,5 @@ to village panchayats. People are scared of going to courts fearing delays.
 
 Courts are backbone of a country. Lets help strengthen them.
 
+[1]: [archive.org copy](https://web.archive.org/web/20141102043618/http://doj.go
+v.in/?q=node/108).
