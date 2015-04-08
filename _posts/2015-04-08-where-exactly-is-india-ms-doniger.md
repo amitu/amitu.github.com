@@ -349,3 +349,11 @@ people who can refute the speech would not be able to prepare a proper response.
 
 Hate speeches must be responded, articulately, with research. They are not to be
 banned.
+
+Just to clarify, this is not just about Hindus. Muslims too take huge pride in
+banning, burning books and worse, and Muslims too have huge number of books
+written that Muslims must read and respond to instead of closing their eyes
+about them.
+
+Christians tend to be the only ones who do what should be done in such scenario,
+reply to whats being said, instead of banning books in general.
