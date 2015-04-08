@@ -67,7 +67,8 @@ tools like go.
 
 You want to logging or event to statsd? Why not add some headers to response and
 let a go proxy ship it to the right place, never having to worry about adding
-another gem or writing any custom code.
+another gem or writing any custom code. Or may be you want to intelligent
+caching like varnish.
 
 ## 4. API Apps
 
