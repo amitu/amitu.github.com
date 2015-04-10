@@ -996,7 +996,7 @@ pre {
   }
 }
 /*
-	Not that old computer layout 
+	Not that old computer layout
 */
 @media only screen and (min-width: 1280px) {
   .twitter-timeline { display: block; } /* amitu */
@@ -1033,7 +1033,7 @@ pre {
   }
 }
 /*
-	Huge-screen layout 
+	Huge-screen layout
 */
 @media only screen and (min-width: 141000px) {
   .the-header {
@@ -1513,4 +1513,16 @@ blockquote {
 img.hcenter {
   margin-left: auto;
   margin-right: auto;
+}
+
+div.meta {
+  margin-top: 5em;
+}
+
+p.subscribe {
+  display: none;
+}
+
+.unit-foot {
+  border-top: 0 ! important;
 }
