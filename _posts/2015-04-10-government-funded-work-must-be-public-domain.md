@@ -17,7 +17,9 @@ these works. But we can not use these works whose production we funded.
 Government has no clear guideline on copyright of the works produced by various
 Government agencies. Most of the time there would be no Copyright mentioned. In
 some cases you will see strict NO COMMERCIAL USE OF THIS WORK ALLOWED like
-warnings (I am looking at you CDAC).
+warnings (I am looking at you CDAC). NCERT straight away has copyright notices
+and you can not spread the excellent books written by our tax money for
+educational purpose in India or abroad.
 
 This is completely unacceptable to me. I can understand the legacy of the past.
 We inherited a lot of our laws from Britishers, and probably no one gave this
