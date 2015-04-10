@@ -71,9 +71,9 @@ seeing a proper Hindu response.
 Lets take this example:
 
 There is a book "The Hindus: An Alternative History" by Ms. Wendy Doniger, this
-book was banned in India. Which does not stop people from reading the book, it
-only means Hindus sitting in India are blind about book and are not writing in
-defence of Hinduism against the points made in India.
+book was banned in India[1]. Which does not stop people from reading the book,
+it only means Hindus sitting in India are blind about book and are not writing
+in defence of Hinduism against the points made in India.
 
 Since Hindus in India have been made blind by Indian government, a Muslim in
 Bangladesh, Ali Sheikh, [helped us out](http://www.amazon.in/review/R1XA7KWW
@@ -357,3 +357,22 @@ about them.
 
 Christians tend to be the only ones who do what should be done in such scenario,
 reply to whats being said, instead of banning books in general.
+
+## Notes
+
+1.  Technically the book was not banned in India. There was a court case filed
+    by someone to ban the book, and the publisher settled in the court to stop
+    selling the book. A technical person can say book was never banned, the
+    publisher decided to stop selling on their own, so we should not dirty the
+    Indian name by claiming book was banned by Indian government.
+
+    In fact I would have been happy if the book was banned instead of what
+    happened. You see you can harass people into shutting down business. This is
+    what happened. This is not something to feel proud of. The publisher was not
+    allowed to sell in India. The Indian system failed to protect the publisher.
+
+    Anyways, the point of this post is not on discussing what constitutes a ban
+    and what should be the term used to describe what happened here. The post is
+    about how it is not in Hindus interest to suppress a book that is critical
+    to Hindus and Hindus must come forward and make sure that the book is read
+    by enough people, and adequate reply if formulated. Hindus must demand that.
