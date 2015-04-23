@@ -14,9 +14,10 @@ Hindi itself must be correct.
 
 As a young individual you probably take pride on how fast you can type using all
 that dis s so kool, the SMS lingo. Lose it. User proper English. Which means
-first letter of sentence is capitalised. There is *EXACTLY ONE* space after a
+first letter of sentence is capitalised. There is \*EXACTLY ONE\* space after a
 comma or a full-stop and ZERO before them. And all the sentences are full. There
-is proper tense. The spellings are correct.
+is proper tense. The spellings are correct. Read [Elements of
+Style](http://www.crockford.com/wrrrld/style.html), and follow it.
 
 Never be seen using that kind of crap. You can switch to that if you are talking
 to some person who uses that, may be to show understanding etc, but do not start
@@ -78,7 +79,8 @@ plans?", may be consider adding a word to make it obvious which answer is to
 which question, eg "subjects: math+bio, exam on 24th apr and plans ==
 engineering i guess", avoid the temptation to say "math+bio, 24th apr,
 engineering", which is still clear, but many unclear answers are possible, which
-you can justify.
+you can justify. Do not justify. Make sure that you do not have to give
+excuses/justifications afterwards.
 
 Get an acknowledgement and give acknowledgements. It is very easy to live in
 your own head. When you are talking to someone, communicating with someone, you
