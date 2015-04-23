@@ -1,1805 +1,222 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8 ie" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9 ie" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="robots" content="NONE,NOARCHIVE">
-  <title>Http404 at /theme/skin/100-90-5-monochrome.png</title>
-  <style type="text/css">
-    html * { padding:0; margin:0; }
-    body * { padding:10px 20px; }
-    body * * { padding:0; }
-    body { font:small sans-serif; }
-    body>div { border-bottom:1px solid #ddd; }
-    h1 { font-weight:normal; }
-    h2 { margin-bottom:.8em; }
-    h2 span { font-size:80%; color:#666; font-weight:normal; }
-    h3 { margin:1em 0 .5em 0; }
-    h4 { margin:0 0 .5em 0; font-weight: normal; }
-    code, pre { font-size: 100%; white-space: pre-wrap; }
-    table { border:1px solid #ccc; border-collapse: collapse; width:100%; background:white; }
-    tbody td, tbody th { vertical-align:top; padding:2px 3px; }
-    thead th { padding:1px 6px 1px 3px; background:#fefefe; text-align:left; font-weight:normal; font-size:11px; border:1px solid #ddd; }
-    tbody th { width:12em; text-align:right; color:#666; padding-right:.5em; }
-    table.vars { margin:5px 0 2px 40px; }
-    table.vars td, table.req td { font-family:monospace; }
-    table td.code { width:100%; }
-    table td.code pre { overflow:hidden; }
-    table.source th { color:#666; }
-    table.source td { font-family:monospace; white-space:pre; border-bottom:1px solid #eee; }
-    ul.traceback { list-style-type:none; color: #222; }
-    ul.traceback li.frame { padding-bottom:1em; color:#666; }
-    ul.traceback li.user { background-color:#e0e0e0; color:#000 }
-    div.context { padding:10px 0; overflow:hidden; }
-    div.context ol { padding-left:30px; margin:0 10px; list-style-position: inside; }
-    div.context ol li { font-family:monospace; white-space:pre; color:#777; cursor:pointer; }
-    div.context ol li pre { display:inline; }
-    div.context ol.context-line li { color:#505050; background-color:#dfdfdf; }
-    div.context ol.context-line li span { position:absolute; right:32px; }
-    .user div.context ol.context-line li { background-color:#bbb; color:#000; }
-    .user div.context ol li { color:#666; }
-    div.commands { margin-left: 40px; }
-    div.commands a { color:#555; text-decoration:none; }
-    .user div.commands a { color: black; }
-    #summary { background: #ffc; }
-    #summary h2 { font-weight: normal; color: #666; }
-    #explanation { background:#eee; }
-    #template, #template-not-exist { background:#f6f6f6; }
-    #template-not-exist ul { margin: 0 0 0 20px; }
-    #unicode-hint { background:#eee; }
-    #traceback { background:#eee; }
-    #requestinfo { background:#f6f6f6; padding-left:120px; }
-    #summary table { border:none; background:transparent; }
-    #requestinfo h2, #requestinfo h3 { position:relative; margin-left:-100px; }
-    #requestinfo h3 { margin-bottom:-1em; }
-    .error { background: #ffc; }
-    .specific { color:#cc3300; font-weight:bold; }
-    h2 span.commands { font-size:.7em;}
-    span.commands a:link {color:#5E5694;}
-    pre.exception_value { font-family: sans-serif; color: #666; font-size: 1.5em; margin: 10px 0 10px 0; }
-  </style>
-  
-  <script type="text/javascript">
-  //<!--
-    function getElementsByClassName(oElm, strTagName, strClassName){
-        // Written by Jonathan Snook, http://www.snook.ca/jon; Add-ons by Robert Nyman, http://www.robertnyman.com
-        var arrElements = (strTagName == "*" && document.all)? document.all :
-        oElm.getElementsByTagName(strTagName);
-        var arrReturnElements = new Array();
-        strClassName = strClassName.replace(/\-/g, "\-");
-        var oRegExp = new RegExp("(^|\s)" + strClassName + "(\s|$)");
-        var oElement;
-        for(var i=0; i<arrElements.length; i++){
-            oElement = arrElements[i];
-            if(oRegExp.test(oElement.className)){
-                arrReturnElements.push(oElement);
-            }
-        }
-        return (arrReturnElements)
-    }
-    function hideAll(elems) {
-      for (var e = 0; e < elems.length; e++) {
-        elems[e].style.display = 'none';
-      }
-    }
-    window.onload = function() {
-      hideAll(getElementsByClassName(document, 'table', 'vars'));
-      hideAll(getElementsByClassName(document, 'ol', 'pre-context'));
-      hideAll(getElementsByClassName(document, 'ol', 'post-context'));
-      hideAll(getElementsByClassName(document, 'div', 'pastebin'));
-    }
-    function toggle() {
-      for (var i = 0; i < arguments.length; i++) {
-        var e = document.getElementById(arguments[i]);
-        if (e) {
-          e.style.display = e.style.display == 'none' ? 'block': 'none';
-        }
-      }
-      return false;
-    }
-    function varToggle(link, id) {
-      toggle('v' + id);
-      var s = link.getElementsByTagName('span')[0];
-      var uarr = String.fromCharCode(0x25b6);
-      var darr = String.fromCharCode(0x25bc);
-      s.innerHTML = s.innerHTML == uarr ? darr : uarr;
-      return false;
-    }
-    function switchPastebinFriendly(link) {
-      s1 = "Switch to copy-and-paste view";
-      s2 = "Switch back to interactive view";
-      link.innerHTML = link.innerHTML == s1 ? s2: s1;
-      toggle('browserTraceback', 'pastebinTraceback');
-      return false;
-    }
-    //-->
-  </script>
-  
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Amit Upadhyay: Golang Talk - 30th Aug 2014</title>
+	<meta name="author" content="Amit Upadhyay">
+	<link href='/theme/css/style.css' rel="stylesheet" media="all">
+	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.0.6/modernizr.min.js"></script>
 </head>
-<body>
-<div id="summary">
-  <h1>Http404 at /theme/skin/100-90-5-monochrome.png</h1>
-  <pre class="exception_value">&#39;theme/skin/100-90-5-monochrome.png&#39; could not be found</pre>
-  <table class="meta">
+<body ng-app>
+<div id="fb-root"></div>
+<div id="page" class="hentry">
+	<header class="the-header">
+		<div class="unit-head">
+			<div class="unit-inner unit-head-inner">
+				<nav class="nav-global">
+					<ul>
+                        
+                            <li class="logo"><a href="/">Amit Upadhyay</a></li>
+                            <li class="page"><a href="/">blog</a></li>
+                            <li class="page"><a href="/open-source.html">open source</a></li>
+                            <li class="page"><a href="/quotes.html">quotes</a></li>
+                            <li class="page"><a href="/lab/">experiments</a></li>
+                            <li class="page"><a href="/india/">India</a></li>
+                        
+					</ul>
+				</nav>
+			</div><!-- unit-inner -->
+		</div><!-- unit-head -->
+	</header>
+	<div class="body" role="main">
+		<div class="unit-body">
+			<div class="unit-inner unit-body-inner">
+				<div class="entry-content">
+                    
+<article class="unit-article layout-page">
+	<div class="unit-inner unit-article-inner">
+		<div class="content">
+			<header>
+				<div class="unit-head">
+					<div class="unit-inner unit-head-inner">
+                        <h1 class="h2 entry-title">Golang Talk - 30th Aug 2014</h1>
+					</div><!-- unit-inner -->
+				</div><!-- unit-head -->
+			</header>
 
-    <tr>
-      <th>Request Method:</th>
-      <td>GET</td>
-    </tr>
-    <tr>
-      <th>Request URL:</th>
-      <td>http://localhost:8000/theme/skin/100-90-5-monochrome.png</td>
-    </tr>
+			<div class="bd">
+				<div class="entry-content">
+                    
+<p><a href="http://www.meetup.com/Mumbai-GoLang-Meetup/events/201296622/">Meetup page for the event</a>,
+<a href="https://plus.google.com/events/cuo2a7b8klrh5fbkutu87abs40o">Google Hangout link</a>, do join.</p>
+<dl>
+    <dt>Why?</dt>
+    <dd>
+        <p>
+            I been getting quite excited about golang these days, and was 
+            hoping to connect with similar minded people around mumbai. Have not
+            found any local groups, so may be we can start one.
+        </p>
+    </dd>
 
-    <tr>
-      <th>Django Version:</th>
-      <td>1.7.6</td>
-    </tr>
+    <dt>What?</dt>
+    <dd>
+        <p>
+            I would like to kick start things by sharing my experiences with go 
+            in production at 
+            <a href="http://www.browserstack.com">BrowserStack</a>.
+        </p>
 
-    <tr>
-      <th>Exception Type:</th>
-      <td>Http404</td>
-    </tr>
+        <p>
+            <em>
+                "You are new to go, here is whats awesome about it, and a 
+                beginnerish tutorial."
+            </em>
+        </p>
 
+        <p>Anybody interested?</p>
+    </dd>
 
-    <tr>
-      <th>Exception Value:</th>
-      <td><pre>&#39;theme/skin/100-90-5-monochrome.png&#39; could not be found</pre></td>
-    </tr>
+    <dt>When?</dt>
+    <dd><p>11AM, Saturday, 19th July, 2014</p></dd>
 
+    <dt>Where?</dt>
+    <dd>
+        <p>
+            <a href="http://www.opentable.com/">OpenTable</a> Office, Unit No.
+            204, 2nd floor, B wing, Supreme business park, Hiranandani, Powai, Mumbai
+        </p>
+    </dd>
 
-    <tr>
-      <th>Exception Location:</th>
-      <td>/Users/amitu/.virtualenvs/amitucom/lib/python2.7/site-packages/django/contrib/staticfiles/views.py in serve, line 37</td>
-    </tr>
+    <dt>Who?</dt>
+    <dd>
+        <p>
+            Some cool folks from BrowserStack, OpenTable, 
+            <a href="http://www.coverfox.com">CoverFox</a> so far.
+        </p>
+        <p>
+            You?
+        </p>
 
-    <tr>
-      <th>Python Executable:</th>
-      <td>/Users/amitu/.virtualenvs/amitucom/bin/python</td>
-    </tr>
-    <tr>
-      <th>Python Version:</th>
-      <td>2.7.6</td>
-    </tr>
-    <tr>
-      <th>Python Path:</th>
-      <td><pre>[&#39;/Users/amitu/.virtualenvs/amitucom/bin&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/src/djangothis-master&#39;,
- &#39;/usr/local/lib/python2.7/site-packages&#39;,
- &#39;/Users/amitu/projects/amitu.com&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python27.zip&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python2.7&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python2.7/plat-darwin&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python2.7/plat-mac&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python2.7/plat-mac/lib-scriptpackages&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/Extras/lib/python&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python2.7/lib-tk&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python2.7/lib-old&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python2.7/lib-dynload&#39;,
- &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7&#39;,
- &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-darwin&#39;,
- &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/lib-tk&#39;,
- &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac&#39;,
- &#39;/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/plat-mac/lib-scriptpackages&#39;,
- &#39;/Users/amitu/.virtualenvs/amitucom/lib/python2.7/site-packages&#39;,
- &#39;/Users/amitu/projects/amitu.com&#39;]</pre></td>
-    </tr>
-    <tr>
-      <th>Server time:</th>
-      <td>Mon, 20 Apr 2015 19:17:07 +0530</td>
-    </tr>
-  </table>
-</div>
+        <p>
+            Just walk in. Exact address will be posted soon. Drop me a mail in 
+            case of any doubts.
+        <p>
+    </dd>
 
 
+</dl>
 
+				</div><!-- entry-content -->
+			</div><!-- bd -->
 
-<div id="traceback">
-  <h2>Traceback <span class="commands"><a href="#" onclick="return switchPastebinFriendly(this);">Switch to copy-and-paste view</a></span></h2>
-  
-  <div id="browserTraceback">
-    <ul class="traceback">
-      
-        <li class="frame django">
-          <code>/Users/amitu/.virtualenvs/amitucom/lib/python2.7/site-packages/django/core/handlers/base.py</code> in <code>get_response</code>
+                
+                    <figure class="kudo kudoable" data-id="1">
+                        <a class="kudobject">
+                            <div class="opening">
+                                <div class="circle">&nbsp;</div>
+                            </div>
+                        </a>
+                        <a href="#kudo" class="count">
+                            <span class="num">0</span>
+                            <span class="txt">Kudos</span>
+                        </a>
+                    </figure>
+
+                    <!-- p clas="subscribe" style="background: #fcf7ab; padding-left: 10px">
+
+                    <a href="http://twitter.com/amitu">Follow me on twitter:
+                          @amitu</a>.
+
+                    </p -->
+                
 
           
-            <div class="context" id="c4497729296">
-              
-                <ol start="197" class="pre-context" id="pre4497729296"><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>            # Get the exception info now, in case another exception is thrown later.</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>            signals.got_request_exception.send(sender=self.__class__, request=request)</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>            response = self.handle_uncaught_exception(request, resolver, sys.exc_info())</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre></pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>        try:</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>            # Apply response middleware, regardless of the response</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>            for middleware_method in self._response_middleware:</pre></li></ol>
-              
-              <ol start="204" class="context-line"><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>                response = middleware_method(request, response)</pre> <span>...</span></li></ol>
-              
-                <ol start='205' class="post-context" id="post4497729296"><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>            response = self.apply_response_fixes(request, response)</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>        except:  # Any exception should be gathered and handled</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>            signals.got_request_exception.send(sender=self.__class__, request=request)</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>            response = self.handle_uncaught_exception(request, resolver, sys.exc_info())</pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre></pre></li><li onclick="toggle('pre4497729296', 'post4497729296')"><pre>        response._closable_objects.append(request)</pre></li></ol>
-              
-            </div>
+					<div class="comment">
+            <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'amitu';
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); 
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+					</div>
           
 
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '4497729296')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v4497729296">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>e</td>
-                    <td class="code"><pre>Http404()</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>callback_args</td>
-                    <td class="code"><pre>()</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>resolver_match</td>
-                    <td class="code"><pre>ResolverMatch(func=&lt;function post_page at 0x10a804e60&gt;, args=(), kwargs={}, url_name=&#39;_theme.views.post_page&#39;, app_name=&#39;None&#39;, namespace=&#39;&#39;)</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>middleware_method</td>
-                    <td class="code"><pre>&lt;bound method Middleware.process_response of &lt;djangothis.app.Middleware object at 0x10ad1a6d0&gt;&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;django.core.handlers.wsgi.WSGIHandler object at 0x10a8692d0&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/theme/skin/100-90-5-monochrome.png,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{\&#39;Apple_PubSub_Socket_Render\&#39;: \&#39;/private/tmp/com.apple.launchd.HDm0O8lXpT/Render\&#39;,\n \&#39;CDPATH\&#39;: \&#39;:/Users/amitu:/Users/amitu/projects:/Users/amitu/Dropbox:/Users/amitu/browserstack\&#39;,\n \&#39;CD_VIRTUAL_ENV\&#39;: \&#39;amitucom\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;text/plain\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;/private/tmp/com.apple.launchd.ZeQqQk27Qr/org.macosforge.xquartz:0\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GEM_HOME\&#39;: \&#39;/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global\&#39;,\n \&#39;GEM_PATH\&#39;: \&#39;/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global\&#39;,\n \&#39;GOPATH\&#39;: \&#39;/Users/amitu/projects/learngo\&#39;,\n \&#39;HOME\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;HTTP_ACCEPT\&#39;: \&#39;*/*\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;Keep-Alive\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;localhost:8000\&#39;,\n \&#39;HTTP_REFERER\&#39;: \&#39;http://localhost:8000/theme/css/style.css\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Wget/1.15 (darwin14.0.0)\&#39;,\n \&#39;IRBRC\&#39;: \&#39;/Users/amitu/.rvm/rubies/ruby-1.8.7-p374/.irbrc\&#39;,\n \&#39;ITERM_PROFILE\&#39;: \&#39;Default\&#39;,\n \&#39;ITERM_SESSION_ID\&#39;: \&#39;w0t0p0\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LC_CTYPE\&#39;: \&#39;UTF-8\&#39;,\n \&#39;LESS\&#39;: \&#39;-R\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;amitu\&#39;,\n \&#39;LSCOLORS\&#39;: \&#39;Gxfxcxdxbxegedabagacad\&#39;,\n \&#39;MARKPATH\&#39;: \&#39;/Users/amitu/.marks\&#39;,\n \&#39;OLDPWD\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;PAGER\&#39;: \&#39;less\&#39;,\n \&#39;PATH\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom/bin:/Users/amitu/.rvm/gems/ruby-1.8.7-p374/bin:/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global/bin:/Users/amitu/.rvm/rubies/ruby-1.8.7-p374/bin:/Users/amitu/Dropbox/assets/depot_tools:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/usr/texbin:/Users/amitu/projects/learngo/bin:/Users/amitu/bin:/Users/amitu/Dropbox/assets/android-sdk-macosx/platform-tools:/Users/amitu/.rvm/bin\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/theme/skin/100-90-5-monochrome.png\&#39;,\n \&#39;PERL_MB_OPT\&#39;: \&#39;--install_base &quot;/Users/amitu/perl5&quot;\&#39;,\n \&#39;PERL_MM_OPT\&#39;: \&#39;INSTALL_BASE=/Users/amitu/perl5\&#39;,\n \&#39;PWD\&#39;: \&#39;/Users/amitu/projects/amitu.com\&#39;,\n \&#39;PYTHONPATH\&#39;: \&#39;/usr/local/lib/python2.7/site-packages:\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;GET\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SAVEHIST\&#39;: \&#39;10000\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;1.0.0.127.in-addr.arpa\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.6\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/zsh\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/private/tmp/com.apple.launchd.18hKjNSS8i/Listeners\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm-256color\&#39;,\n \&#39;TERM_PROGRAM\&#39;: \&#39;iTerm.app\&#39;,\n \&#39;THEOS\&#39;: \&#39;/Users/amitu/browserstack/theos\&#39;,\n \&#39;TMPDIR\&#39;: \&#39;/var/folders/7l/fj3tz0bx4_l6q26fdnh5_rnw0000gn/T/\&#39;,\n \&#39;USER\&#39;: \&#39;amitu\&#39;,\n \&#39;VERSIONER_PYTHON_PREFER_32_BIT\&#39;: \&#39;no\&#39;,\n \&#39;VERSIONER_PYTHON_VERSION\&#39;: \&#39;2.7\&#39;,\n \&#39;VIRTUALENVWRAPPER_HOOK_DIR\&#39;: \&#39;/Users/amitu/.virtualenvs\&#39;,\n \&#39;VIRTUALENVWRAPPER_PROJECT_FILENAME\&#39;: \&#39;.project\&#39;,\n \&#39;VIRTUALENVWRAPPER_SCRIPT\&#39;: \&#39;/usr/local/bin/virtualenvwrapper.sh\&#39;,\n \&#39;VIRTUAL_ENV\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom\&#39;,\n \&#39;VIRTUAL_ENV_DISABLE_PROMPT\&#39;: \&#39;1\&#39;,\n \&#39;WORKON_HOME\&#39;: \&#39;/Users/amitu/.virtualenvs\&#39;,\n \&#39;XPC_FLAGS\&#39;: \&#39;0x0\&#39;,\n \&#39;XPC_SERVICE_NAME\&#39;: \&#39;0\&#39;,\n \&#39;_\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom/bin/djangothis\&#39;,\n \&#39;__CF_USER_TEXT_ENCODING\&#39;: \&#39;0x1F5:0x0:0x0\&#39;,\n \&#39;_system_arch\&#39;: \&#39;x86_64\&#39;,\n \&#39;_system_name\&#39;: \&#39;OSX\&#39;,\n \&#39;_system_type\&#39;: \&#39;Darwin\&#39;,\n \&#39;_system_version\&#39;: \&#39;10.10\&#39;,\n \&#39;rvm_alias_expanded\&#39;: \&#39;\&#39;,\n \&#39;rvm_bin_path\&#39;: \&#39;/Users/amitu/.rvm/bin\&#39;,\n \&#39;rvm_docs_type\&#39;: \&#39;\&#39;,\n \&#39;rvm_gemstone_package_file\&#39;: \&#39;\&#39;,\n \&#39;rvm_gemstone_url\&#39;: \&#39;\&#39;,\n \&#39;rvm_niceness\&#39;: \&#39;\&#39;,\n \&#39;rvm_nightly_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_path\&#39;: \&#39;/Users/amitu/.rvm\&#39;,\n \&#39;rvm_prefix\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;rvm_proxy\&#39;: \&#39;\&#39;,\n \&#39;rvm_quiet_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_file\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_make\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_make_install\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_mode\&#39;: \&#39;\&#39;,\n \&#39;rvm_script_name\&#39;: \&#39;\&#39;,\n \&#39;rvm_sdk\&#39;: \&#39;\&#39;,\n \&#39;rvm_silent_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_version\&#39;: \&#39;1.25.0 (stable)\&#39;,\n \&#39;rvm_wrapper_name\&#39;: \&#39;\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x1099ad1e0&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x10a7067a0&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x10c17dcd0&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>callback</td>
-                    <td class="code"><pre>&lt;function post_page at 0x10a804e60&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>resolver</td>
-                    <td class="code"><pre>&lt;RegexURLResolver &#39;importd.urlconf&#39; (None:None) ^/&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>callback_kwargs</td>
-                    <td class="code"><pre>{}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>response</td>
-                    <td class="code"><pre>&lt;django.http.response.HttpResponseNotFound object at 0x10cda6450&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>urlconf</td>
-                    <td class="code"><pre>&#39;importd.urlconf&#39;</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame user">
-          <code>/Users/amitu/.virtualenvs/amitucom/src/djangothis-master/djangothis/app.py</code> in <code>process_response</code>
+			<footer class="unit-foot">
+				<div class="unit-inner unit-foot-inner">
+					<!-- p class="gotop">
+						<a href="#page">Back to Top</a>
+					</p -->
+				</div>
+			</footer>
 
-          
-            <div class="context" id="c4497729152">
-              
-                <ol start="167" class="pre-context" id="pre4497729152"><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>    def process_response(self, request, response):</pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>        if response is d.Http404:</pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>            return response</pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre></pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>        path = request.path[1:]</pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre></pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>        if path == &quot;favicon.ico&quot; or path.endswith(&quot;.png&quot;):</pre></li></ol>
-              
-              <ol start="174" class="context-line"><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>            return serve(request, path)</pre> <span>...</span></li></ol>
-              
-                <ol start='175' class="post-context" id="post4497729152"><li onclick="toggle('pre4497729152', 'post4497729152')"><pre></pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>        if path.startswith(&quot;theme&quot;):</pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>            return serve(request, request.path[len(&quot;/theme/&quot;):])</pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre></pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>        if path == &quot;&quot; or path.endswith(&quot;/&quot;):</pre></li><li onclick="toggle('pre4497729152', 'post4497729152')"><pre>            path = path + &quot;index.html&quot;</pre></li></ol>
-              
-            </div>
-          
+		</div><!-- content -->
+	</div><!-- unit-inner -->
+</article>
 
-          
-            <div class="commands">
+				</div>
+			</div><!-- unit-inner -->
+		</div><!-- unit-body -->
+	</div><!-- body -->
+	<footer class="the-footer">
+		<div class="unit-foot">
+			<div class="unit-inner unit-foot-inner">
                 
-                    <a href="#" onclick="return varToggle(this, '4497729152')"><span>&#x25b6;</span> Local vars</a>
+				<div class="misc vcard">
+					<h4>about</h4>
+					<ul>
+						<li class="contact"><address><span class="author fn n">Amit Upadhyay</span> - <span class="fn email">blog@amitu.com</span></address></li>
+						<li class="github"><a href="http://github.com/amitu/" rel="me">github.com/amitu</a></li>
+						<li class="twitter"><a href="http://twitter.com/amitu/" rel="me">twitter.com/amitu</a></li>
+                        <!-- li class="linkedin"><a href="http://www.linkedin.com/in/amitu" rel="me">linkedin.com/in/amitu</a></li -->
+                        <!-- li class="rss"><a href="http://eepurl.com/pRhOD">subscribe</a> (<a href="/2012/09/i-am-leaving-facebook-why-and-how-you-should-too/">why?</a>)</li -->
+                        <li>Blog powered by <a href="https://github.com/amitu/djangothis">djangothis</a>.</li>
+					</ul>
+				</div><!-- misc -->
+                <a class="twitter-timeline" data-border-color="#FFFFFF" data-related="amitu" data-chrome="transparent" href="https://twitter.com/amitu" data-widget-id="357710046458691584">Tweets by @</a>
+				<p class="licence">
+					Theme: <a href="http://themes.jekyllbootstrap.com/preview/the-program/">the_minimum</a> based on <a href="http://jekyllbootstrap.com/">Jekyll-bootstrap</a>.<br>
+					Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a>.
+				</p>
                 
-            </div>
-            <table class="vars" id="v4497729152">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>path</td>
-                    <td class="code"><pre>u&#39;theme/skin/100-90-5-monochrome.png&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>self</td>
-                    <td class="code"><pre>&lt;djangothis.app.Middleware object at 0x10ad1a6d0&gt;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/theme/skin/100-90-5-monochrome.png,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{\&#39;Apple_PubSub_Socket_Render\&#39;: \&#39;/private/tmp/com.apple.launchd.HDm0O8lXpT/Render\&#39;,\n \&#39;CDPATH\&#39;: \&#39;:/Users/amitu:/Users/amitu/projects:/Users/amitu/Dropbox:/Users/amitu/browserstack\&#39;,\n \&#39;CD_VIRTUAL_ENV\&#39;: \&#39;amitucom\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;text/plain\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;/private/tmp/com.apple.launchd.ZeQqQk27Qr/org.macosforge.xquartz:0\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GEM_HOME\&#39;: \&#39;/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global\&#39;,\n \&#39;GEM_PATH\&#39;: \&#39;/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global\&#39;,\n \&#39;GOPATH\&#39;: \&#39;/Users/amitu/projects/learngo\&#39;,\n \&#39;HOME\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;HTTP_ACCEPT\&#39;: \&#39;*/*\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;Keep-Alive\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;localhost:8000\&#39;,\n \&#39;HTTP_REFERER\&#39;: \&#39;http://localhost:8000/theme/css/style.css\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Wget/1.15 (darwin14.0.0)\&#39;,\n \&#39;IRBRC\&#39;: \&#39;/Users/amitu/.rvm/rubies/ruby-1.8.7-p374/.irbrc\&#39;,\n \&#39;ITERM_PROFILE\&#39;: \&#39;Default\&#39;,\n \&#39;ITERM_SESSION_ID\&#39;: \&#39;w0t0p0\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LC_CTYPE\&#39;: \&#39;UTF-8\&#39;,\n \&#39;LESS\&#39;: \&#39;-R\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;amitu\&#39;,\n \&#39;LSCOLORS\&#39;: \&#39;Gxfxcxdxbxegedabagacad\&#39;,\n \&#39;MARKPATH\&#39;: \&#39;/Users/amitu/.marks\&#39;,\n \&#39;OLDPWD\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;PAGER\&#39;: \&#39;less\&#39;,\n \&#39;PATH\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom/bin:/Users/amitu/.rvm/gems/ruby-1.8.7-p374/bin:/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global/bin:/Users/amitu/.rvm/rubies/ruby-1.8.7-p374/bin:/Users/amitu/Dropbox/assets/depot_tools:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/usr/texbin:/Users/amitu/projects/learngo/bin:/Users/amitu/bin:/Users/amitu/Dropbox/assets/android-sdk-macosx/platform-tools:/Users/amitu/.rvm/bin\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/theme/skin/100-90-5-monochrome.png\&#39;,\n \&#39;PERL_MB_OPT\&#39;: \&#39;--install_base &quot;/Users/amitu/perl5&quot;\&#39;,\n \&#39;PERL_MM_OPT\&#39;: \&#39;INSTALL_BASE=/Users/amitu/perl5\&#39;,\n \&#39;PWD\&#39;: \&#39;/Users/amitu/projects/amitu.com\&#39;,\n \&#39;PYTHONPATH\&#39;: \&#39;/usr/local/lib/python2.7/site-packages:\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;GET\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SAVEHIST\&#39;: \&#39;10000\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;1.0.0.127.in-addr.arpa\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.6\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/zsh\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/private/tmp/com.apple.launchd.18hKjNSS8i/Listeners\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm-256color\&#39;,\n \&#39;TERM_PROGRAM\&#39;: \&#39;iTerm.app\&#39;,\n \&#39;THEOS\&#39;: \&#39;/Users/amitu/browserstack/theos\&#39;,\n \&#39;TMPDIR\&#39;: \&#39;/var/folders/7l/fj3tz0bx4_l6q26fdnh5_rnw0000gn/T/\&#39;,\n \&#39;USER\&#39;: \&#39;amitu\&#39;,\n \&#39;VERSIONER_PYTHON_PREFER_32_BIT\&#39;: \&#39;no\&#39;,\n \&#39;VERSIONER_PYTHON_VERSION\&#39;: \&#39;2.7\&#39;,\n \&#39;VIRTUALENVWRAPPER_HOOK_DIR\&#39;: \&#39;/Users/amitu/.virtualenvs\&#39;,\n \&#39;VIRTUALENVWRAPPER_PROJECT_FILENAME\&#39;: \&#39;.project\&#39;,\n \&#39;VIRTUALENVWRAPPER_SCRIPT\&#39;: \&#39;/usr/local/bin/virtualenvwrapper.sh\&#39;,\n \&#39;VIRTUAL_ENV\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom\&#39;,\n \&#39;VIRTUAL_ENV_DISABLE_PROMPT\&#39;: \&#39;1\&#39;,\n \&#39;WORKON_HOME\&#39;: \&#39;/Users/amitu/.virtualenvs\&#39;,\n \&#39;XPC_FLAGS\&#39;: \&#39;0x0\&#39;,\n \&#39;XPC_SERVICE_NAME\&#39;: \&#39;0\&#39;,\n \&#39;_\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom/bin/djangothis\&#39;,\n \&#39;__CF_USER_TEXT_ENCODING\&#39;: \&#39;0x1F5:0x0:0x0\&#39;,\n \&#39;_system_arch\&#39;: \&#39;x86_64\&#39;,\n \&#39;_system_name\&#39;: \&#39;OSX\&#39;,\n \&#39;_system_type\&#39;: \&#39;Darwin\&#39;,\n \&#39;_system_version\&#39;: \&#39;10.10\&#39;,\n \&#39;rvm_alias_expanded\&#39;: \&#39;\&#39;,\n \&#39;rvm_bin_path\&#39;: \&#39;/Users/amitu/.rvm/bin\&#39;,\n \&#39;rvm_docs_type\&#39;: \&#39;\&#39;,\n \&#39;rvm_gemstone_package_file\&#39;: \&#39;\&#39;,\n \&#39;rvm_gemstone_url\&#39;: \&#39;\&#39;,\n \&#39;rvm_niceness\&#39;: \&#39;\&#39;,\n \&#39;rvm_nightly_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_path\&#39;: \&#39;/Users/amitu/.rvm\&#39;,\n \&#39;rvm_prefix\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;rvm_proxy\&#39;: \&#39;\&#39;,\n \&#39;rvm_quiet_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_file\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_make\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_make_install\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_mode\&#39;: \&#39;\&#39;,\n \&#39;rvm_script_name\&#39;: \&#39;\&#39;,\n \&#39;rvm_sdk\&#39;: \&#39;\&#39;,\n \&#39;rvm_silent_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_version\&#39;: \&#39;1.25.0 (stable)\&#39;,\n \&#39;rvm_wrapper_name\&#39;: \&#39;\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x1099ad1e0&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x10a7067a0&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x10c17dcd0&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>response</td>
-                    <td class="code"><pre>&lt;django.http.response.HttpResponseNotFound object at 0x10cda6450&gt;</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-        <li class="frame django">
-          <code>/Users/amitu/.virtualenvs/amitucom/lib/python2.7/site-packages/django/contrib/staticfiles/views.py</code> in <code>serve</code>
-
-          
-            <div class="context" id="c4497733824">
-              
-                <ol start="30" class="pre-context" id="pre4497733824"><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>    if not settings.DEBUG and not insecure:</pre></li><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>        raise Http404</pre></li><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>    normalized_path = posixpath.normpath(unquote(path)).lstrip(&#39;/&#39;)</pre></li><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>    absolute_path = finders.find(normalized_path)</pre></li><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>    if not absolute_path:</pre></li><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>        if path.endswith(&#39;/&#39;) or path == &#39;&#39;:</pre></li><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>            raise Http404(&quot;Directory indexes are not allowed here.&quot;)</pre></li></ol>
-              
-              <ol start="37" class="context-line"><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>        raise Http404(&quot;&#39;%s&#39; could not be found&quot; % path)</pre> <span>...</span></li></ol>
-              
-                <ol start='38' class="post-context" id="post4497733824"><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>    document_root, path = os.path.split(absolute_path)</pre></li><li onclick="toggle('pre4497733824', 'post4497733824')"><pre>    return static.serve(request, path, document_root=document_root, **kwargs)</pre></li></ol>
-              
-            </div>
-          
-
-          
-            <div class="commands">
-                
-                    <a href="#" onclick="return varToggle(this, '4497733824')"><span>&#x25b6;</span> Local vars</a>
-                
-            </div>
-            <table class="vars" id="v4497733824">
-              <thead>
-                <tr>
-                  <th>Variable</th>
-                  <th>Value</th>
-                </tr>
-              </thead>
-              <tbody>
-                
-                  <tr>
-                    <td>absolute_path</td>
-                    <td class="code"><pre>None</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>request</td>
-                    <td class="code"><pre>&#39;&lt;WSGIRequest\npath:/theme/skin/100-90-5-monochrome.png,\nGET:&lt;QueryDict: {}&gt;,\nPOST:&lt;QueryDict: {}&gt;,\nCOOKIES:{},\nMETA:{\&#39;Apple_PubSub_Socket_Render\&#39;: \&#39;/private/tmp/com.apple.launchd.HDm0O8lXpT/Render\&#39;,\n \&#39;CDPATH\&#39;: \&#39;:/Users/amitu:/Users/amitu/projects:/Users/amitu/Dropbox:/Users/amitu/browserstack\&#39;,\n \&#39;CD_VIRTUAL_ENV\&#39;: \&#39;amitucom\&#39;,\n \&#39;CONTENT_LENGTH\&#39;: \&#39;\&#39;,\n \&#39;CONTENT_TYPE\&#39;: \&#39;text/plain\&#39;,\n \&#39;DISPLAY\&#39;: \&#39;/private/tmp/com.apple.launchd.ZeQqQk27Qr/org.macosforge.xquartz:0\&#39;,\n \&#39;GATEWAY_INTERFACE\&#39;: \&#39;CGI/1.1\&#39;,\n \&#39;GEM_HOME\&#39;: \&#39;/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global\&#39;,\n \&#39;GEM_PATH\&#39;: \&#39;/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global\&#39;,\n \&#39;GOPATH\&#39;: \&#39;/Users/amitu/projects/learngo\&#39;,\n \&#39;HOME\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;HTTP_ACCEPT\&#39;: \&#39;*/*\&#39;,\n \&#39;HTTP_CONNECTION\&#39;: \&#39;Keep-Alive\&#39;,\n \&#39;HTTP_HOST\&#39;: \&#39;localhost:8000\&#39;,\n \&#39;HTTP_REFERER\&#39;: \&#39;http://localhost:8000/theme/css/style.css\&#39;,\n \&#39;HTTP_USER_AGENT\&#39;: \&#39;Wget/1.15 (darwin14.0.0)\&#39;,\n \&#39;IRBRC\&#39;: \&#39;/Users/amitu/.rvm/rubies/ruby-1.8.7-p374/.irbrc\&#39;,\n \&#39;ITERM_PROFILE\&#39;: \&#39;Default\&#39;,\n \&#39;ITERM_SESSION_ID\&#39;: \&#39;w0t0p0\&#39;,\n \&#39;LANG\&#39;: \&#39;en_US.UTF-8\&#39;,\n \&#39;LC_CTYPE\&#39;: \&#39;UTF-8\&#39;,\n \&#39;LESS\&#39;: \&#39;-R\&#39;,\n \&#39;LOGNAME\&#39;: \&#39;amitu\&#39;,\n \&#39;LSCOLORS\&#39;: \&#39;Gxfxcxdxbxegedabagacad\&#39;,\n \&#39;MARKPATH\&#39;: \&#39;/Users/amitu/.marks\&#39;,\n \&#39;OLDPWD\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;PAGER\&#39;: \&#39;less\&#39;,\n \&#39;PATH\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom/bin:/Users/amitu/.rvm/gems/ruby-1.8.7-p374/bin:/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global/bin:/Users/amitu/.rvm/rubies/ruby-1.8.7-p374/bin:/Users/amitu/Dropbox/assets/depot_tools:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/usr/texbin:/Users/amitu/projects/learngo/bin:/Users/amitu/bin:/Users/amitu/Dropbox/assets/android-sdk-macosx/platform-tools:/Users/amitu/.rvm/bin\&#39;,\n \&#39;PATH_INFO\&#39;: u\&#39;/theme/skin/100-90-5-monochrome.png\&#39;,\n \&#39;PERL_MB_OPT\&#39;: \&#39;--install_base &quot;/Users/amitu/perl5&quot;\&#39;,\n \&#39;PERL_MM_OPT\&#39;: \&#39;INSTALL_BASE=/Users/amitu/perl5\&#39;,\n \&#39;PWD\&#39;: \&#39;/Users/amitu/projects/amitu.com\&#39;,\n \&#39;PYTHONPATH\&#39;: \&#39;/usr/local/lib/python2.7/site-packages:\&#39;,\n \&#39;QUERY_STRING\&#39;: \&#39;\&#39;,\n \&#39;REMOTE_ADDR\&#39;: \&#39;127.0.0.1\&#39;,\n \&#39;REMOTE_HOST\&#39;: \&#39;\&#39;,\n \&#39;REQUEST_METHOD\&#39;: \&#39;GET\&#39;,\n \&#39;RUN_MAIN\&#39;: \&#39;true\&#39;,\n \&#39;SAVEHIST\&#39;: \&#39;10000\&#39;,\n \&#39;SCRIPT_NAME\&#39;: u\&#39;\&#39;,\n \&#39;SERVER_NAME\&#39;: \&#39;1.0.0.127.in-addr.arpa\&#39;,\n \&#39;SERVER_PORT\&#39;: \&#39;8000\&#39;,\n \&#39;SERVER_PROTOCOL\&#39;: \&#39;HTTP/1.1\&#39;,\n \&#39;SERVER_SOFTWARE\&#39;: \&#39;WSGIServer/0.1 Python/2.7.6\&#39;,\n \&#39;SHELL\&#39;: \&#39;/bin/zsh\&#39;,\n \&#39;SHLVL\&#39;: \&#39;1\&#39;,\n \&#39;SSH_AUTH_SOCK\&#39;: \&#39;/private/tmp/com.apple.launchd.18hKjNSS8i/Listeners\&#39;,\n \&#39;TERM\&#39;: \&#39;xterm-256color\&#39;,\n \&#39;TERM_PROGRAM\&#39;: \&#39;iTerm.app\&#39;,\n \&#39;THEOS\&#39;: \&#39;/Users/amitu/browserstack/theos\&#39;,\n \&#39;TMPDIR\&#39;: \&#39;/var/folders/7l/fj3tz0bx4_l6q26fdnh5_rnw0000gn/T/\&#39;,\n \&#39;USER\&#39;: \&#39;amitu\&#39;,\n \&#39;VERSIONER_PYTHON_PREFER_32_BIT\&#39;: \&#39;no\&#39;,\n \&#39;VERSIONER_PYTHON_VERSION\&#39;: \&#39;2.7\&#39;,\n \&#39;VIRTUALENVWRAPPER_HOOK_DIR\&#39;: \&#39;/Users/amitu/.virtualenvs\&#39;,\n \&#39;VIRTUALENVWRAPPER_PROJECT_FILENAME\&#39;: \&#39;.project\&#39;,\n \&#39;VIRTUALENVWRAPPER_SCRIPT\&#39;: \&#39;/usr/local/bin/virtualenvwrapper.sh\&#39;,\n \&#39;VIRTUAL_ENV\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom\&#39;,\n \&#39;VIRTUAL_ENV_DISABLE_PROMPT\&#39;: \&#39;1\&#39;,\n \&#39;WORKON_HOME\&#39;: \&#39;/Users/amitu/.virtualenvs\&#39;,\n \&#39;XPC_FLAGS\&#39;: \&#39;0x0\&#39;,\n \&#39;XPC_SERVICE_NAME\&#39;: \&#39;0\&#39;,\n \&#39;_\&#39;: \&#39;/Users/amitu/.virtualenvs/amitucom/bin/djangothis\&#39;,\n \&#39;__CF_USER_TEXT_ENCODING\&#39;: \&#39;0x1F5:0x0:0x0\&#39;,\n \&#39;_system_arch\&#39;: \&#39;x86_64\&#39;,\n \&#39;_system_name\&#39;: \&#39;OSX\&#39;,\n \&#39;_system_type\&#39;: \&#39;Darwin\&#39;,\n \&#39;_system_version\&#39;: \&#39;10.10\&#39;,\n \&#39;rvm_alias_expanded\&#39;: \&#39;\&#39;,\n \&#39;rvm_bin_path\&#39;: \&#39;/Users/amitu/.rvm/bin\&#39;,\n \&#39;rvm_docs_type\&#39;: \&#39;\&#39;,\n \&#39;rvm_gemstone_package_file\&#39;: \&#39;\&#39;,\n \&#39;rvm_gemstone_url\&#39;: \&#39;\&#39;,\n \&#39;rvm_niceness\&#39;: \&#39;\&#39;,\n \&#39;rvm_nightly_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_path\&#39;: \&#39;/Users/amitu/.rvm\&#39;,\n \&#39;rvm_prefix\&#39;: \&#39;/Users/amitu\&#39;,\n \&#39;rvm_proxy\&#39;: \&#39;\&#39;,\n \&#39;rvm_quiet_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_file\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_make\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_make_install\&#39;: \&#39;\&#39;,\n \&#39;rvm_ruby_mode\&#39;: \&#39;\&#39;,\n \&#39;rvm_script_name\&#39;: \&#39;\&#39;,\n \&#39;rvm_sdk\&#39;: \&#39;\&#39;,\n \&#39;rvm_silent_flag\&#39;: \&#39;\&#39;,\n \&#39;rvm_version\&#39;: \&#39;1.25.0 (stable)\&#39;,\n \&#39;rvm_wrapper_name\&#39;: \&#39;\&#39;,\n \&#39;wsgi.errors\&#39;: &lt;open file \&#39;&lt;stderr&gt;\&#39;, mode \&#39;w\&#39; at 0x1099ad1e0&gt;,\n \&#39;wsgi.file_wrapper\&#39;: &lt;class wsgiref.util.FileWrapper at 0x10a7067a0&gt;,\n \&#39;wsgi.input\&#39;: &lt;socket._fileobject object at 0x10c17dcd0&gt;,\n \&#39;wsgi.multiprocess\&#39;: False,\n \&#39;wsgi.multithread\&#39;: True,\n \&#39;wsgi.run_once\&#39;: False,\n \&#39;wsgi.url_scheme\&#39;: \&#39;http\&#39;,\n \&#39;wsgi.version\&#39;: (1, 0)}&gt;&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>normalized_path</td>
-                    <td class="code"><pre>u&#39;theme/skin/100-90-5-monochrome.png&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>kwargs</td>
-                    <td class="code"><pre>{}</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>path</td>
-                    <td class="code"><pre>u&#39;theme/skin/100-90-5-monochrome.png&#39;</pre></td>
-                  </tr>
-                
-                  <tr>
-                    <td>insecure</td>
-                    <td class="code"><pre>False</pre></td>
-                  </tr>
-                
-              </tbody>
-            </table>
-          
-        </li>
-      
-    </ul>
-  </div>
-  
-  <form action="http://dpaste.com/" name="pasteform" id="pasteform" method="post">
-
-  <div id="pastebinTraceback" class="pastebin">
-    <input type="hidden" name="language" value="PythonConsole">
-    <input type="hidden" name="title" value="Http404 at /theme/skin/100-90-5-monochrome.png">
-    <input type="hidden" name="source" value="Django Dpaste Agent">
-    <input type="hidden" name="poster" value="Django">
-    <textarea name="content" id="traceback_area" cols="140" rows="25">
-Environment:
+			</div><!-- unit-foot-inner -->
+		</div><!-- unit-foot -->
+	</footer>
+</div><!-- page -->
+<script>
+/*! A fix for the iOS orientationchange zoom bug.Script by @scottjehl, rebound by @wilto. MIT License.*/
+(function(j){var i=j.document;if(!i.querySelectorAll){return}var l=i.querySelectorAll("meta[name=viewport]")[0],a=l&&l.getAttribute("content"),h=a+", maximum-scale=1.0",d=a+", maximum-scale=10.0",g=true,c=j.orientation,k=0;if(!l){return}function f(){l.setAttribute("content",d);g=true}function b(){l.setAttribute("content",h);g=false}function e(m){c=Math.abs(j.orientation);k=Math.abs(m.gamma);if(k>8&&c===0){if(g){b()}}else{if(!g){f()}}}j.addEventListener("orientationchange",f,false);j.addEventListener("deviceorientation",e,false)})(this);
+</script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="http://www.parsecdn.com/js/parse-1.2.3.min.js"></script>
+  <script src="/static/kudos/jstorage.js"></script>
+  <script src="/static/kudos/kudos.js"></script>
+  <script src="/static/kudos/parse-kudos.js"></script>
 
 
-Request Method: GET
-Request URL: http://localhost:8000/theme/skin/100-90-5-monochrome.png
-
-Django Version: 1.7.6
-Python Version: 2.7.6
-Installed Applications:
-[&#39;djangothis&#39;,
- &#39;django.contrib.auth&#39;,
- &#39;django.contrib.contenttypes&#39;,
- &#39;django.contrib.messages&#39;,
- &#39;django.contrib.sessions&#39;,
- &#39;django.contrib.admin&#39;,
- &#39;django.contrib.humanize&#39;,
- &#39;django.contrib.staticfiles&#39;]
-Installed Middleware:
-[&#39;importd.SmartReturnMiddleware&#39;, &#39;djangothis.app.Middleware&#39;]
-
-
-Traceback:
-File "/Users/amitu/.virtualenvs/amitucom/lib/python2.7/site-packages/django/core/handlers/base.py" in get_response
-  204.                 response = middleware_method(request, response)
-File "/Users/amitu/.virtualenvs/amitucom/src/djangothis-master/djangothis/app.py" in process_response
-  174.             return serve(request, path)
-File "/Users/amitu/.virtualenvs/amitucom/lib/python2.7/site-packages/django/contrib/staticfiles/views.py" in serve
-  37.         raise Http404(&quot;&#39;%s&#39; could not be found&quot; % path)
-
-Exception Type: Http404 at /theme/skin/100-90-5-monochrome.png
-Exception Value: &#39;theme/skin/100-90-5-monochrome.png&#39; could not be found
-</textarea>
-  <br><br>
-  <input type="submit" value="Share this traceback on a public Web site">
-  </div>
-</form>
-</div>
-
-
-
-<div id="requestinfo">
-  <h2>Request information</h2>
-
-
-  <h3 id="get-info">GET</h3>
-  
-    <p>No GET data</p>
-  
-
-  <h3 id="post-info">POST</h3>
-  
-    <p>No POST data</p>
-  
-  <h3 id="files-info">FILES</h3>
-  
-    <p>No FILES data</p>
-  
-
-
-  <h3 id="cookie-info">COOKIES</h3>
-  
-    <p>No cookie data</p>
-  
-
-  <h3 id="meta-info">META</h3>
-  <table class="req">
-    <thead>
-      <tr>
-        <th>Variable</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-        <tr>
-          <td>RUN_MAIN</td>
-          <td class="code"><pre>&#39;true&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_niceness</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LESS</td>
-          <td class="code"><pre>&#39;-R&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_SOFTWARE</td>
-          <td class="code"><pre>&#39;WSGIServer/0.1 Python/2.7.6&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LC_CTYPE</td>
-          <td class="code"><pre>&#39;UTF-8&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SCRIPT_NAME</td>
-          <td class="code"><pre>u&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ITERM_PROFILE</td>
-          <td class="code"><pre>&#39;Default&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>REQUEST_METHOD</td>
-          <td class="code"><pre>&#39;GET&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_gemstone_url</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_PROTOCOL</td>
-          <td class="code"><pre>&#39;HTTP/1.1&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HOME</td>
-          <td class="code"><pre>&#39;/Users/amitu&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>VIRTUALENVWRAPPER_SCRIPT</td>
-          <td class="code"><pre>&#39;/usr/local/bin/virtualenvwrapper.sh&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DISPLAY</td>
-          <td class="code"><pre>&#39;/private/tmp/com.apple.launchd.ZeQqQk27Qr/org.macosforge.xquartz:0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TERM_PROGRAM</td>
-          <td class="code"><pre>&#39;iTerm.app&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANG</td>
-          <td class="code"><pre>&#39;en_US.UTF-8&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>VIRTUAL_ENV</td>
-          <td class="code"><pre>&#39;/Users/amitu/.virtualenvs/amitucom&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>Apple_PubSub_Socket_Render</td>
-          <td class="code"><pre>&#39;/private/tmp/com.apple.launchd.HDm0O8lXpT/Render&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_REFERER</td>
-          <td class="code"><pre>&#39;http://localhost:8000/theme/css/style.css&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CDPATH</td>
-          <td class="code"><pre>&#39;:/Users/amitu:/Users/amitu/projects:/Users/amitu/Dropbox:/Users/amitu/browserstack&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_quiet_flag</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>XPC_FLAGS</td>
-          <td class="code"><pre>&#39;0x0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_sdk</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>_</td>
-          <td class="code"><pre>&#39;/Users/amitu/.virtualenvs/amitucom/bin/djangothis&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_PORT</td>
-          <td class="code"><pre>&#39;8000&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>_system_arch</td>
-          <td class="code"><pre>&#39;x86_64&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CD_VIRTUAL_ENV</td>
-          <td class="code"><pre>&#39;amitucom&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>WORKON_HOME</td>
-          <td class="code"><pre>&#39;/Users/amitu/.virtualenvs&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>VERSIONER_PYTHON_PREFER_32_BIT</td>
-          <td class="code"><pre>&#39;no&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MARKPATH</td>
-          <td class="code"><pre>&#39;/Users/amitu/.marks&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PYTHONPATH</td>
-          <td class="code"><pre>&#39;/usr/local/lib/python2.7/site-packages:&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>IRBRC</td>
-          <td class="code"><pre>&#39;/Users/amitu/.rvm/rubies/ruby-1.8.7-p374/.irbrc&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>_system_type</td>
-          <td class="code"><pre>&#39;Darwin&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_HOST</td>
-          <td class="code"><pre>&#39;localhost:8000&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>THEOS</td>
-          <td class="code"><pre>&#39;/Users/amitu/browserstack/theos&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_ACCEPT</td>
-          <td class="code"><pre>&#39;*/*&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_ruby_mode</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.version</td>
-          <td class="code"><pre>(1, 0)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>VIRTUALENVWRAPPER_HOOK_DIR</td>
-          <td class="code"><pre>&#39;/Users/amitu/.virtualenvs&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_proxy</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.errors</td>
-          <td class="code"><pre>&lt;open file &#39;&lt;stderr&gt;&#39;, mode &#39;w&#39; at 0x1099ad1e0&gt;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.multiprocess</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SAVEHIST</td>
-          <td class="code"><pre>&#39;10000&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>__CF_USER_TEXT_ENCODING</td>
-          <td class="code"><pre>&#39;0x1F5:0x0:0x0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.run_once</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_docs_type</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PERL_MB_OPT</td>
-          <td class="code"><pre>&#39;--install_base &quot;/Users/amitu/perl5&quot;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>GEM_HOME</td>
-          <td class="code"><pre>&#39;/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PATH_INFO</td>
-          <td class="code"><pre>u&#39;/theme/skin/100-90-5-monochrome.png&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>GOPATH</td>
-          <td class="code"><pre>&#39;/Users/amitu/projects/learngo&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>VIRTUAL_ENV_DISABLE_PROMPT</td>
-          <td class="code"><pre>&#39;1&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PERL_MM_OPT</td>
-          <td class="code"><pre>&#39;INSTALL_BASE=/Users/amitu/perl5&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_gemstone_package_file</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_path</td>
-          <td class="code"><pre>&#39;/Users/amitu/.rvm&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGNAME</td>
-          <td class="code"><pre>&#39;amitu&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USER</td>
-          <td class="code"><pre>&#39;amitu&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>QUERY_STRING</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PATH</td>
-          <td class="code"><pre>&#39;/Users/amitu/.virtualenvs/amitucom/bin:/Users/amitu/.rvm/gems/ruby-1.8.7-p374/bin:/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global/bin:/Users/amitu/.rvm/rubies/ruby-1.8.7-p374/bin:/Users/amitu/Dropbox/assets/depot_tools:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/CrossPack-AVR/bin:/usr/local/go/bin:/usr/local/MacGPG2/bin:/usr/texbin:/Users/amitu/projects/learngo/bin:/Users/amitu/bin:/Users/amitu/Dropbox/assets/android-sdk-macosx/platform-tools:/Users/amitu/.rvm/bin&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TERM</td>
-          <td class="code"><pre>&#39;xterm-256color&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_USER_AGENT</td>
-          <td class="code"><pre>&#39;Wget/1.15 (darwin14.0.0)&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>HTTP_CONNECTION</td>
-          <td class="code"><pre>&#39;Keep-Alive&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_prefix</td>
-          <td class="code"><pre>&#39;/Users/amitu&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_NAME</td>
-          <td class="code"><pre>&#39;1.0.0.127.in-addr.arpa&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>VERSIONER_PYTHON_VERSION</td>
-          <td class="code"><pre>&#39;2.7&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SHLVL</td>
-          <td class="code"><pre>&#39;1&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>_system_name</td>
-          <td class="code"><pre>&#39;OSX&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.url_scheme</td>
-          <td class="code"><pre>&#39;http&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ITERM_SESSION_ID</td>
-          <td class="code"><pre>&#39;w0t0p0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>GEM_PATH</td>
-          <td class="code"><pre>&#39;/Users/amitu/.rvm/gems/ruby-1.8.7-p374@global&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_bin_path</td>
-          <td class="code"><pre>&#39;/Users/amitu/.rvm/bin&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_ruby_make</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CONTENT_LENGTH</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_script_name</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>XPC_SERVICE_NAME</td>
-          <td class="code"><pre>&#39;0&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_ruby_file</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>_system_version</td>
-          <td class="code"><pre>&#39;10.10&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SSH_AUTH_SOCK</td>
-          <td class="code"><pre>&#39;/private/tmp/com.apple.launchd.18hKjNSS8i/Listeners&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_ruby_make_install</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.input</td>
-          <td class="code"><pre>&lt;socket._fileobject object at 0x10c17dcd0&gt;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SHELL</td>
-          <td class="code"><pre>&#39;/bin/zsh&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.multithread</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_version</td>
-          <td class="code"><pre>&#39;1.25.0 (stable)&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TMPDIR</td>
-          <td class="code"><pre>&#39;/var/folders/7l/fj3tz0bx4_l6q26fdnh5_rnw0000gn/T/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>VIRTUALENVWRAPPER_PROJECT_FILENAME</td>
-          <td class="code"><pre>&#39;.project&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LSCOLORS</td>
-          <td class="code"><pre>&#39;Gxfxcxdxbxegedabagacad&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_wrapper_name</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_alias_expanded</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>GATEWAY_INTERFACE</td>
-          <td class="code"><pre>&#39;CGI/1.1&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>REMOTE_HOST</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>OLDPWD</td>
-          <td class="code"><pre>&#39;/Users/amitu&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>REMOTE_ADDR</td>
-          <td class="code"><pre>&#39;127.0.0.1&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_nightly_flag</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PWD</td>
-          <td class="code"><pre>&#39;/Users/amitu/projects/amitu.com&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>rvm_silent_flag</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CONTENT_TYPE</td>
-          <td class="code"><pre>&#39;text/plain&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>wsgi.file_wrapper</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PAGER</td>
-          <td class="code"><pre>&#39;less&#39;</pre></td>
-        </tr>
-      
-    </tbody>
-  </table>
-
-
-  <h3 id="settings-info">Settings</h3>
-  <h4>Using settings module <code>importd</code></h4>
-  <table class="req">
-    <thead>
-      <tr>
-        <th>Setting</th>
-        <th>Value</th>
-      </tr>
-    </thead>
-    <tbody>
-      
-        <tr>
-          <td>USE_L10N</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_THOUSAND_SEPARATOR</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_SECURE</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_CODE</td>
-          <td class="code"><pre>&#39;en-us&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ROOT_URLCONF</td>
-          <td class="code"><pre>&#39;importd.urlconf&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MANAGERS</td>
-          <td class="code"><pre>((&#39;amitu&#39;, &#39;&#39;),)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEST_NON_SERIALIZED_APPS</td>
-          <td class="code"><pre>[]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_CHARSET</td>
-          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_SERIALIZER</td>
-          <td class="code"><pre>&#39;django.contrib.sessions.serializers.JSONSerializer&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATIC_ROOT</td>
-          <td class="code"><pre>&#39;/Users/amitu/.virtualenvs/amitucom/src/djangothis-master/djangothis/staticfiles&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ALLOWED_HOSTS</td>
-          <td class="code"><pre>[]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MESSAGE_STORAGE</td>
-          <td class="code"><pre>&#39;django.contrib.messages.storage.fallback.FallbackStorage&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_SUBJECT_PREFIX</td>
-          <td class="code"><pre>&#39;[Django] &#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SEND_BROKEN_LINK_EMAILS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATICFILES_FINDERS</td>
-          <td class="code"><pre>(&#39;django.contrib.staticfiles.finders.FileSystemFinder&#39;,
- &#39;django.contrib.staticfiles.finders.AppDirectoriesFinder&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_CACHE_ALIAS</td>
-          <td class="code"><pre>&#39;default&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_DOMAIN</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;sessionid&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ADMIN_FOR</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TIME_INPUT_FORMATS</td>
-          <td class="code"><pre>(&#39;%H:%M:%S&#39;, &#39;%H:%M:%S.%f&#39;, &#39;%H:%M&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATABASES</td>
-          <td class="code"><pre>{&#39;default&#39;: {&#39;ATOMIC_REQUESTS&#39;: False,
-             &#39;AUTOCOMMIT&#39;: True,
-             &#39;CONN_MAX_AGE&#39;: 0,
-             &#39;ENGINE&#39;: &#39;django.db.backends.sqlite3&#39;,
-             &#39;HOST&#39;: &#39;&#39;,
-             &#39;NAME&#39;: &#39;/Users/amitu/.virtualenvs/amitucom/src/djangothis-master/djangothis/db.sqlite&#39;,
-             &#39;OPTIONS&#39;: {},
-             &#39;PASSWORD&#39;: u&#39;********************&#39;,
-             &#39;PORT&#39;: &#39;&#39;,
-             &#39;TEST&#39;: {&#39;CHARSET&#39;: None,
-                      &#39;COLLATION&#39;: None,
-                      &#39;MIRROR&#39;: None,
-                      &#39;NAME&#39;: None},
-             &#39;TIME_ZONE&#39;: &#39;America/Chicago&#39;,
-             &#39;USER&#39;: &#39;&#39;}}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_DIRECTORY_PERMISSIONS</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_PERMISSIONS</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_HANDLERS</td>
-          <td class="code"><pre>(&#39;django.core.files.uploadhandler.MemoryFileUploadHandler&#39;,
- &#39;django.core.files.uploadhandler.TemporaryFileUploadHandler&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_CONTENT_TYPE</td>
-          <td class="code"><pre>&#39;text/html&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>APPEND_SLASH</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOCALE_PATHS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATABASE_ROUTERS</td>
-          <td class="code"><pre>[]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_TABLESPACE</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>YEAR_MONTH_FORMAT</td>
-          <td class="code"><pre>&#39;F Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATICFILES_STORAGE</td>
-          <td class="code"><pre>&#39;django.contrib.staticfiles.storage.StaticFilesStorage&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CACHES</td>
-          <td class="code"><pre>{&#39;default&#39;: {&#39;BACKEND&#39;: &#39;django.core.cache.backends.locmem.LocMemCache&#39;}}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>APP_DIR</td>
-          <td class="code"><pre>&#39;/Users/amitu/.virtualenvs/amitucom/src/djangothis-master/djangothis&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SERVER_EMAIL</td>
-          <td class="code"><pre>&#39;root@localhost&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_PATH</td>
-          <td class="code"><pre>&#39;/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SILENCED_SYSTEM_CHECKS</td>
-          <td class="code"><pre>[]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MIDDLEWARE_CLASSES</td>
-          <td class="code"><pre>[&#39;importd.SmartReturnMiddleware&#39;, &#39;djangothis.app.Middleware&#39;]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_I18N</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>THOUSAND_SEPARATOR</td>
-          <td class="code"><pre>&#39;,&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SECRET_KEY</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;django_language&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_INDEX_TABLESPACE</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TRANSACTIONS_MANAGED</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGGING_CONFIG</td>
-          <td class="code"><pre>&#39;logging.config.dictConfig&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_LOADERS</td>
-          <td class="code"><pre>(&#39;django.template.loaders.filesystem.Loader&#39;,
- &#39;django.template.loaders.app_directories.Loader&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FIRST_DAY_OF_WEEK</td>
-          <td class="code"><pre>0</pre></td>
-        </tr>
-      
-        <tr>
-          <td>WSGI_APPLICATION</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_DEBUG</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>X_FRAME_OPTIONS</td>
-          <td class="code"><pre>&#39;SAMEORIGIN&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>AUTHENTICATION_BACKENDS</td>
-          <td class="code"><pre>(&#39;django.contrib.auth.backends.ModelBackend&#39;,)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FORCE_SCRIPT_NAME</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_X_FORWARDED_HOST</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SIGNING_BACKEND</td>
-          <td class="code"><pre>&#39;django.core.signing.TimestampSigner&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_SECURE</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_DOMAIN</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_CHARSET</td>
-          <td class="code"><pre>&#39;utf-8&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEBUG</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_COOKIE_DOMAIN</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_FILE_STORAGE</td>
-          <td class="code"><pre>&#39;django.core.files.storage.FileSystemStorage&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>INSTALLED_APPS</td>
-          <td class="code"><pre>[&#39;djangothis&#39;,
- &#39;django.contrib.auth&#39;,
- &#39;django.contrib.contenttypes&#39;,
- &#39;django.contrib.messages&#39;,
- &#39;django.contrib.sessions&#39;,
- &#39;django.contrib.admin&#39;,
- &#39;django.contrib.humanize&#39;,
- &#39;django.contrib.staticfiles&#39;]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGES</td>
-          <td class="code"><pre>((&#39;af&#39;, &#39;Afrikaans&#39;),
- (&#39;ar&#39;, &#39;Arabic&#39;),
- (&#39;ast&#39;, &#39;Asturian&#39;),
- (&#39;az&#39;, &#39;Azerbaijani&#39;),
- (&#39;bg&#39;, &#39;Bulgarian&#39;),
- (&#39;be&#39;, &#39;Belarusian&#39;),
- (&#39;bn&#39;, &#39;Bengali&#39;),
- (&#39;br&#39;, &#39;Breton&#39;),
- (&#39;bs&#39;, &#39;Bosnian&#39;),
- (&#39;ca&#39;, &#39;Catalan&#39;),
- (&#39;cs&#39;, &#39;Czech&#39;),
- (&#39;cy&#39;, &#39;Welsh&#39;),
- (&#39;da&#39;, &#39;Danish&#39;),
- (&#39;de&#39;, &#39;German&#39;),
- (&#39;el&#39;, &#39;Greek&#39;),
- (&#39;en&#39;, &#39;English&#39;),
- (&#39;en-au&#39;, &#39;Australian English&#39;),
- (&#39;en-gb&#39;, &#39;British English&#39;),
- (&#39;eo&#39;, &#39;Esperanto&#39;),
- (&#39;es&#39;, &#39;Spanish&#39;),
- (&#39;es-ar&#39;, &#39;Argentinian Spanish&#39;),
- (&#39;es-mx&#39;, &#39;Mexican Spanish&#39;),
- (&#39;es-ni&#39;, &#39;Nicaraguan Spanish&#39;),
- (&#39;es-ve&#39;, &#39;Venezuelan Spanish&#39;),
- (&#39;et&#39;, &#39;Estonian&#39;),
- (&#39;eu&#39;, &#39;Basque&#39;),
- (&#39;fa&#39;, &#39;Persian&#39;),
- (&#39;fi&#39;, &#39;Finnish&#39;),
- (&#39;fr&#39;, &#39;French&#39;),
- (&#39;fy&#39;, &#39;Frisian&#39;),
- (&#39;ga&#39;, &#39;Irish&#39;),
- (&#39;gl&#39;, &#39;Galician&#39;),
- (&#39;he&#39;, &#39;Hebrew&#39;),
- (&#39;hi&#39;, &#39;Hindi&#39;),
- (&#39;hr&#39;, &#39;Croatian&#39;),
- (&#39;hu&#39;, &#39;Hungarian&#39;),
- (&#39;ia&#39;, &#39;Interlingua&#39;),
- (&#39;id&#39;, &#39;Indonesian&#39;),
- (&#39;io&#39;, &#39;Ido&#39;),
- (&#39;is&#39;, &#39;Icelandic&#39;),
- (&#39;it&#39;, &#39;Italian&#39;),
- (&#39;ja&#39;, &#39;Japanese&#39;),
- (&#39;ka&#39;, &#39;Georgian&#39;),
- (&#39;kk&#39;, &#39;Kazakh&#39;),
- (&#39;km&#39;, &#39;Khmer&#39;),
- (&#39;kn&#39;, &#39;Kannada&#39;),
- (&#39;ko&#39;, &#39;Korean&#39;),
- (&#39;lb&#39;, &#39;Luxembourgish&#39;),
- (&#39;lt&#39;, &#39;Lithuanian&#39;),
- (&#39;lv&#39;, &#39;Latvian&#39;),
- (&#39;mk&#39;, &#39;Macedonian&#39;),
- (&#39;ml&#39;, &#39;Malayalam&#39;),
- (&#39;mn&#39;, &#39;Mongolian&#39;),
- (&#39;mr&#39;, &#39;Marathi&#39;),
- (&#39;my&#39;, &#39;Burmese&#39;),
- (&#39;nb&#39;, &#39;Norwegian Bokmal&#39;),
- (&#39;ne&#39;, &#39;Nepali&#39;),
- (&#39;nl&#39;, &#39;Dutch&#39;),
- (&#39;nn&#39;, &#39;Norwegian Nynorsk&#39;),
- (&#39;os&#39;, &#39;Ossetic&#39;),
- (&#39;pa&#39;, &#39;Punjabi&#39;),
- (&#39;pl&#39;, &#39;Polish&#39;),
- (&#39;pt&#39;, &#39;Portuguese&#39;),
- (&#39;pt-br&#39;, &#39;Brazilian Portuguese&#39;),
- (&#39;ro&#39;, &#39;Romanian&#39;),
- (&#39;ru&#39;, &#39;Russian&#39;),
- (&#39;sk&#39;, &#39;Slovak&#39;),
- (&#39;sl&#39;, &#39;Slovenian&#39;),
- (&#39;sq&#39;, &#39;Albanian&#39;),
- (&#39;sr&#39;, &#39;Serbian&#39;),
- (&#39;sr-latn&#39;, &#39;Serbian Latin&#39;),
- (&#39;sv&#39;, &#39;Swedish&#39;),
- (&#39;sw&#39;, &#39;Swahili&#39;),
- (&#39;ta&#39;, &#39;Tamil&#39;),
- (&#39;te&#39;, &#39;Telugu&#39;),
- (&#39;th&#39;, &#39;Thai&#39;),
- (&#39;tr&#39;, &#39;Turkish&#39;),
- (&#39;tt&#39;, &#39;Tatar&#39;),
- (&#39;udm&#39;, &#39;Udmurt&#39;),
- (&#39;uk&#39;, &#39;Ukrainian&#39;),
- (&#39;ur&#39;, &#39;Urdu&#39;),
- (&#39;vi&#39;, &#39;Vietnamese&#39;),
- (&#39;zh-cn&#39;, &#39;Simplified Chinese&#39;),
- (&#39;zh-hans&#39;, &#39;Simplified Chinese&#39;),
- (&#39;zh-hant&#39;, &#39;Traditional Chinese&#39;),
- (&#39;zh-tw&#39;, &#39;Traditional Chinese&#39;))</pre></td>
-        </tr>
-      
-        <tr>
-          <td>COMMENTS_ALLOW_PROFANITIES</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATICFILES_DIRS</td>
-          <td class="code"><pre>[&#39;/Users/amitu/projects/amitu.com/static&#39;,
- &#39;/Users/amitu/projects/amitu.com/_theme&#39;]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PREPEND_WWW</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SECURE_PROXY_SSL_HEADER</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_COOKIE_AGE</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_HTTPONLY</td>
-          <td class="code"><pre>True</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEBUG_PROPAGATE_EXCEPTIONS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>INTERNAL_IPS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MONTH_DAY_FORMAT</td>
-          <td class="code"><pre>&#39;F j&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGIN_URL</td>
-          <td class="code"><pre>&#39;/accounts/login/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_EXPIRE_AT_BROWSER_CLOSE</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TIME_FORMAT</td>
-          <td class="code"><pre>&#39;P&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>AUTH_USER_MODEL</td>
-          <td class="code"><pre>&#39;auth.User&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATE_INPUT_FORMATS</td>
-          <td class="code"><pre>(&#39;%Y-%m-%d&#39;,
- &#39;%m/%d/%Y&#39;,
- &#39;%m/%d/%y&#39;,
- &#39;%b %d %Y&#39;,
- &#39;%b %d, %Y&#39;,
- &#39;%d %b %Y&#39;,
- &#39;%d %b, %Y&#39;,
- &#39;%B %d %Y&#39;,
- &#39;%B %d, %Y&#39;,
- &#39;%d %B %Y&#39;,
- &#39;%d %B, %Y&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_NAME</td>
-          <td class="code"><pre>&#39;csrftoken&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_HOST_PASSWORD</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PASSWORD_RESET_TIMEOUT_DAYS</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_FILE_PATH</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CACHE_MIDDLEWARE_ALIAS</td>
-          <td class="code"><pre>&#39;default&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_SAVE_EVERY_REQUEST</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>NUMBER_GROUPING</td>
-          <td class="code"><pre>0</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_ENGINE</td>
-          <td class="code"><pre>&#39;django.contrib.sessions.backends.db&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_FAILURE_VIEW</td>
-          <td class="code"><pre>&#39;django.views.csrf.csrf_failure&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_PATH</td>
-          <td class="code"><pre>&#39;/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGIN_REDIRECT_URL</td>
-          <td class="code"><pre>&#39;/accounts/profile/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DECIMAL_SEPARATOR</td>
-          <td class="code"><pre>&#39;.&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>IGNORABLE_404_URLS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MIGRATION_MODULES</td>
-          <td class="code"><pre>{}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_STRING_IF_INVALID</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGOUT_URL</td>
-          <td class="code"><pre>&#39;/accounts/logout/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_USE_TLS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FIXTURE_DIRS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_HOST</td>
-          <td class="code"><pre>&#39;localhost&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATE_FORMAT</td>
-          <td class="code"><pre>&#39;N j, Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MEDIA_ROOT</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_EXCEPTION_REPORTER_FILTER</td>
-          <td class="code"><pre>&#39;django.views.debug.SafeExceptionReporterFilter&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ADMINS</td>
-          <td class="code"><pre>((&#39;amitu&#39;, &#39;&#39;),)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FORMAT_MODULE_PATH</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DEFAULT_FROM_EMAIL</td>
-          <td class="code"><pre>&#39;webmaster@localhost&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>MEDIA_URL</td>
-          <td class="code"><pre>&#39;/static/media/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATETIME_FORMAT</td>
-          <td class="code"><pre>&#39;N j, Y, P&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_DIRS</td>
-          <td class="code"><pre>[&#39;/Users/amitu/projects/amitu.com/_theme&#39;, &#39;/Users/amitu/projects/amitu.com/.&#39;]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DISALLOWED_USER_AGENTS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ALLOWED_INCLUDE_ROOTS</td>
-          <td class="code"><pre>()</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LOGGING</td>
-          <td class="code"><pre>{}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SHORT_DATE_FORMAT</td>
-          <td class="code"><pre>&#39;m/d/Y&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEST_RUNNER</td>
-          <td class="code"><pre>&#39;django.test.runner.DiscoverRunner&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CACHE_MIDDLEWARE_KEY_PREFIX</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TIME_ZONE</td>
-          <td class="code"><pre>&#39;America/Chicago&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_MAX_MEMORY_SIZE</td>
-          <td class="code"><pre>2621440</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_BACKEND</td>
-          <td class="code"><pre>&#39;django.core.mail.backends.smtp.EmailBackend&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_USE_SSL</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>TEMPLATE_CONTEXT_PROCESSORS</td>
-          <td class="code"><pre>[&#39;django.core.context_processors.request&#39;,
- &#39;django.contrib.auth.context_processors.auth&#39;,
- &#39;_theme.views.context_processor&#39;]</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SESSION_COOKIE_AGE</td>
-          <td class="code"><pre>1209600</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SETTINGS_MODULE</td>
-          <td class="code"><pre>&#39;importd&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_ETAGS</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGES_BIDI</td>
-          <td class="code"><pre>(&#39;he&#39;, &#39;ar&#39;, &#39;fa&#39;, &#39;ur&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>FILE_UPLOAD_TEMP_DIR</td>
-          <td class="code"><pre>None</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_AGE</td>
-          <td class="code"><pre>31449600</pre></td>
-        </tr>
-      
-        <tr>
-          <td>STATIC_URL</td>
-          <td class="code"><pre>&#39;/static/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_PORT</td>
-          <td class="code"><pre>25</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DISCUSS_SHORTNAME</td>
-          <td class="code"><pre>&#39;amitu&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>USE_TZ</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>SHORT_DATETIME_FORMAT</td>
-          <td class="code"><pre>&#39;m/d/Y P&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PASSWORD_HASHERS</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>ABSOLUTE_URL_OVERRIDES</td>
-          <td class="code"><pre>{}</pre></td>
-        </tr>
-      
-        <tr>
-          <td>LANGUAGE_COOKIE_PATH</td>
-          <td class="code"><pre>&#39;/&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CACHE_MIDDLEWARE_SECONDS</td>
-          <td class="code"><pre>600</pre></td>
-        </tr>
-      
-        <tr>
-          <td>CSRF_COOKIE_HTTPONLY</td>
-          <td class="code"><pre>False</pre></td>
-        </tr>
-      
-        <tr>
-          <td>DATETIME_INPUT_FORMATS</td>
-          <td class="code"><pre>(&#39;%Y-%m-%d %H:%M:%S&#39;,
- &#39;%Y-%m-%d %H:%M:%S.%f&#39;,
- &#39;%Y-%m-%d %H:%M&#39;,
- &#39;%Y-%m-%d&#39;,
- &#39;%m/%d/%Y %H:%M:%S&#39;,
- &#39;%m/%d/%Y %H:%M:%S.%f&#39;,
- &#39;%m/%d/%Y %H:%M&#39;,
- &#39;%m/%d/%Y&#39;,
- &#39;%m/%d/%y %H:%M:%S&#39;,
- &#39;%m/%d/%y %H:%M:%S.%f&#39;,
- &#39;%m/%d/%y %H:%M&#39;,
- &#39;%m/%d/%y&#39;)</pre></td>
-        </tr>
-      
-        <tr>
-          <td>EMAIL_HOST_USER</td>
-          <td class="code"><pre>&#39;&#39;</pre></td>
-        </tr>
-      
-        <tr>
-          <td>PROFANITIES_LIST</td>
-          <td class="code"><pre>u&#39;********************&#39;</pre></td>
-        </tr>
-      
-    </tbody>
-  </table>
-
-</div>
-
-  <div id="explanation">
-    <p>
-      You're seeing this error because you have <code>DEBUG = True</code> in your
-      Django settings file. Change that to <code>False</code>, and Django will
-      display a standard 500 page.
-    </p>
-  </div>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-WWPLKV"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WWPLKV');</script>
+<!-- End Google Tag Manager -->
 
 </body>
 </html>
