@@ -148,7 +148,7 @@ distance it travels. And a photon does not have infinite energy, so at some
 distance the light will get completely redshifted. The wavelength will keep on
 increasing and at some point it will be undetectable weak.
 
-## So We Really Are In An Infinite Universe Since Infinite Time
+## So We Really Are In An Infinite Universe Since Infinite Time?
 
 I find that hard to imagine. Further some evidences kind of cause problem with
 this theory, like the abundance of hydrogen in the Universe. An Universe that
