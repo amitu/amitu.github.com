@@ -5,8 +5,8 @@ url: /blackholes/
 ---
 {% include JB/setup %}
 
-Black holes are the most fascinating objects in the Universe. Or may be the
-rotating ones. Or may be a super massive rotating black hole which itself is
+Blackholes are the most fascinating objects in the Universe. Or may be the
+rotating ones. Or may be a super massive rotating blackhole which itself is
 orbiting around even bigger blackholes. But blackholes are somehow there in
 whatever is the most awesome phenomena is there.
 
@@ -25,7 +25,7 @@ star was heavy enough that this repulsion also can not hold it back, then well
 we have blackhole.
 
 The star keeps shrinking and there is no more physical law to stand against
-gravities crushing force. Black hole.
+gravities crushing force. Blackhole.
 
 This is all fine, nothing wrong with this view. This will happen. Or this will
 happen “eventually”.
@@ -37,7 +37,7 @@ on that planet, not for an hr, but for a year, what do you think that person
 will see when they look outside? One hr was like a decade for them. 4 days would
 be century. A year would be about 10 thousand years outside.
 
-What if the planet was further closer to black hole? That one year could be a
+What if the planet was further closer to blackhole? That one year could be a
 million year, or a billion year. Close enough and an hour would be a trillion
 year. All of this is normal, just put any time dilation number, and Eisntiens
 equation tells you how close to blackhole you have to be. This is still out of
@@ -47,14 +47,14 @@ time the rest of the Universe has.
 Are you getting my drift now? Yes there is nothing stopping a neutron star to
 collapse such that its boundary is within event horizon. But how long would it
 take from an outsiders perspective is the question. It will take infinite time,
-from outsiders perspective for any black hole to be formed. So even if black
+from outsiders perspective for any blackhole to be formed. So even if black
 hole can be formed, given that there hasn’t been infinite time since the
 formation of universe itself, no neutron star would have crossed the event
-horizon boundary so far. You can not see a black hole. Universe will end before
-one is formed. There is no black hole is a safe statement to make.
+horizon boundary so far. You can not see a blackhole. Universe will end before
+one is formed. There is no blackhole is a safe statement to make.
 
 And you know what happens before any neutron star collapses in a blackhole? It
-will evaporate. The Hawking radiation does not happen only in black holes. Even
+will evaporate. The Hawking radiation does not happen only in blackholes. Even
 near Sun pairs of particle-anti particles are getting formed, even Sun is
 sucking one of them due to gravity, and other is escaping with positive energy.
 Even Sun is radiating with Hawking radiation. We just don’t think about it
