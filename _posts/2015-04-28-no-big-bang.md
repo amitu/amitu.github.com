@@ -186,3 +186,29 @@ us (we know how many stars are at any given radius away from us, what is the
 typical radiation coming out from them, and the redshit due to gravity in that
 sphere, integrate it, we get a constant frequency, which only depends on density
 of universe, and speed of light and other fundamental constants).
+
+
+## Biggest Black Hole In Universe Supports This Theory
+
+There [exists a black hole](http://www.washingtonpost.com/news/speaking-of-
+science/wp/2015/02/25/astronomers-find-a-shockingly-ancient-black-hole-the-size-
+of-12-billion-suns/), quasar SDSS J0100+2802:
+
+> Some 12.8 billion light years away, astronomers have spotted an object of
+> almost impossible brightness — the most luminous object ever seen in such
+> ancient space. It's from just 900 million years after the big bang, and the
+> old quasar — a shining object produced by a massive black hole — is 420
+> trillion times more luminous than our sun.
+
+But there is a problem with this blackhole.
+
+> For the black hole to grow to such a staggering size in less than a billion
+> years, the astronomers posit, it must have been pulling in interstellar mass
+> from its surroundings at the maximum rate the whole time. Even so, the
+> radiation of the quasar formed by the black hole should have started to limit
+> that mass accumulation before such a size was reached.
+
+> So there are puzzles left to be solved.
+
+If we assume that the bigbang did not happen, then this blackhole poses no
+problem. Its not doing anything special, universe is older than we think.

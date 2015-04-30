@@ -77,3 +77,31 @@ which is same as saying it never is formed.
 
 What is the number of blackholes today in the entire universe even if universe
 is almost infinitely old? Zero.
+
+## What About The Accretion Disks That We Observe?
+
+We have already "seen" many blackholes. But lets look at that statement more
+carefully. We can't really see a blackhole, or even a neutron star for that
+matter. What we see is either: 1. an evidence of a mass. Say we see a star
+revolving around a point, we can calculate that stars mass and trajectory, so we
+know the mass of invisible stuff which star is revolving around. And since we
+have our models, Chandrashekhar limit etc, we know if that invisible stuff is
+1.x times as heavy as our Sun, it must be Neutron star, or if its 4.x then its
+blackhole and so on.
+
+This is fine, as I am not saying that mass does not exist. The mass that people
+say is singularity already, exists, just the assumption that it is singularity
+already is wrong. So there is some mass, which is shrinking under gravity, and
+if there was infinite time, it would become blackhole. Its not there yet (or
+ever will be, universe will end way before that ever happens).
+
+Second way to see a blackhole is the accretion disk, basically blackhole sucking
+up gas. Now, the equations we have of predicting how much xray should be emitted
+by a gas falling in blackhole, does not tell things about gas that has gone
+beyond event horizon, see we have no equation to tell us what is in that
+neverland. The equation tells us what happens when gas atoms come arbitrary
+close to event horizon, even away from eventhorizon there is enough gravity to
+cause the gas to burn up in the spectacular fashion it does, and it does. None
+of the light we see in such fashion is for gas below eventhorizon. That gas,
+from our point of view, will never cross the event horizon anyways, we dont need
+any such equations.
