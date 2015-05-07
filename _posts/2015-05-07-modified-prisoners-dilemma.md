@@ -19,3 +19,5 @@ Say a law is being proposed:
 > If less than 50% vote YE, the law would not be passed.
 
 How will you vote and why?
+
+What if no YEs are sent to jail and only absentees and NEs are sent to jail?
