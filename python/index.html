@@ -6,7 +6,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Amit Upadhyay: Stupid Mistake Jekyll and GitHub Made (And Solution)</title>
+    <title>Amit Upadhyay: Python</title>
 	<meta name="author" content="Amit Upadhyay">
 	<link href='/theme/css/style.css' rel="stylesheet" media="all">
 	<link href="http://amitu.com/atom.xml" rel="alternate" title="" type="application/atom+xml">
@@ -38,109 +38,200 @@
 			<div class="unit-inner unit-body-inner">
 				<div class="entry-content">
                     
-<article class="unit-article layout-post">
+<article class="unit-article layout-page">
 	<div class="unit-inner unit-article-inner">
 		<div class="content">
 			<header>
 				<div class="unit-head">
 					<div class="unit-inner unit-head-inner">
-						<h1 class="h2 entry-title">Stupid Mistake Jekyll and GitHub Made (And Solution)</h1>
+                        <h1 class="h2 entry-title">Python</h1>
 					</div><!-- unit-inner -->
 				</div><!-- unit-head -->
 			</header>
 
 			<div class="bd">
 				<div class="entry-content">
-					<h4>Background</h4>
-<p><a href="http://github.com">Github</a> has an excellent feature called
-<a href="http://http://pages.github.com/">pages</a>, that allows one to host and publish
-static websites from any git repository on github. This is great for projects to
-host a free project page. Github also allows and encourages github users to host
-their personal static sites on github pages. They go to the extent of allowing
-you to host your custom domains (making it almost completely alturistic exercise
-on their part).</p>
-<p>Managing static sites is a pain, and we meet
-<a href="https://github.com/mojombo/jekyll/">Jekyll</a>, a static site generator designed
-with blogs in mind. What jekyll does is it expects some special files and
-folders with names starting with an underscore, and uses them to convert all
-files in the current folder with .md (etc) extension into .html files. In folder
-named _posts, specially named .md files are used to create blog, with
-categories and tags. Post meta data is stored in the .md files themselves at the
-top. jekyll creates archive page, a list of all pages on the site, rss and
-sitemap file and all.</p>
-<p>Jekyll takes all the content, applies jekyll rules and plugins and generate a
-static site and stores it in a folder named _site.</p>
-<h4>The Mistake</h4>
-<p>Github ignores the _site folder.</p>
-<p>Github has jekyll of its own, and it insists on using its copy of jekyll to
-generate _site, or where-ever they store static files.</p>
-<p>Github does it so you do not have to have jekyll installed on your machine, and
-still be able to publish jekyll sites, so it assumes _site may be out of date.</p>
-<h4>The Consequence Of The Mistake</h4>
-<p>The first problem with this decision is: jekyll plugins. Jekyll comes with a
-wide range of <a href="https://github.com/mojombo/jekyll/wiki/Plugins">plugins</a>, but
-jekyll copy of github wont load most of them.</p>
-<p>There are ways to overcome this, instead of storing jekyll in the repository,
-store the static compiled _site in the repository and tell github that it is
-not a jekyll repo.</p>
-<p>This introduces complexities for developers. I have to now maintain two
-different repositories or branches, I have to write <a href="http://charliepark.org/jekyll-with-plugins/">scripts to sync
-them</a> etc.  And it completely
-defeats the point of supporting jekyll at github level.</p>
-<p>If we look at a normal software build, we have Makefile, we have src/*.c etc,
-and compiled output is stored in some special folder named "build" etc. What we
-have with jekyll is very close to this, but not there.</p>
-<h4>Solution: Github Contract</h4>
-<p>This design decision to incorporate jekyll is bad compromise. I posit that
-almost no jekyll based repository is maintained by someone without access to
-jekyll on their local system.</p>
-<p>Instead of github trying to take care of that use case (and the use case of
-cases where a repository can be modified from web), github takes care of a much
-better use case: site original files and built static sites being stored in the
-same repo, which is a real pain point <a href="http://stackoverflow.com/questions/6201339/a-clean-system-for-github-pages-with-local-plugins">faced by
-people</a>.</p>
-<p>Here is my proposed github contract for pages: <em>if a github pages repository
-contains a folder named _site, the http request to /any-url goes to file /_site
-/any-url instead of the file /any-url</em>.</p>
-<p>If github does that then they can claim they have equal support for not just
-jekyll but any static site generation system. I can use jekyll with my custom
-plugins as easily as without them, or as easily as
-<a href="http://ringce.com/hyde">hyde</a> or even my own make files that takes index.md and
-compiles it into _site/index.html.</p>
-<p>The solution is completely backward compatible. Github already supports a
-protocol to indicate that a given repository does not require jekyll processing.
-Any repository that requires _site feature but still use jekyll can disable
-github jekyll, and still use local jekyll to create _site folder.</p>
-<p>This drastically reduces github jekyll processing and makes life easier for
-nearly every github pages user, as we do not have to manage two
-repositories/branches.</p>
-<p>Anybody at Github listening? :-)</p>
-					<div class="meta">
-                    <hr>
-						<p class="date-publish">
-							Published:
-							<date class="date-pub" title="Aug. 6, 2012, midnight" datetime="Aug. 6, 2012, midnight" pubdate>
-							<span class="month"><abbr>Aug</abbr></span>
-							<span class="day">06</span>
-							<span class="year">2012</span>
-							</date>
-						</p>
-					</div><!-- meta -->
+                    
+<p>Hey!</p>
+<p>This page features my thoughts about Python. Here is what I have so far.</p>
+<p>The <a href="/style.html">style
+guide</a> I follow.</p>
+<p><a href="https://www.reddit.com/r/Pyth
+on/comments/3bqt1h/writing_book_on_python_python_for_developers_1st/">The Python Book I Am Writing</a>.</p>
+<p>-- Amit Upadhyay</p>
+<p>PS: <a href="https://app.convertkit.com/landing_pages/2556/?ref=p1">Subscribe to my python list
+here</a>.</p>
+<header>
+    <div class="unit-head">
+        <div class="unit-inner unit-head-inner">
+            <h1 class="h2 entry-title">Python Blog</h1>
+        </div><!-- unit-inner -->
+    </div><!-- unit-head -->
+</header>
+
+<ul class="posts">
+
+            <li>
+                <span>04 Aug 2015</span> &raquo;
+                <a href="/python/basic-project-setup/">Basic Project Setup</a>
+            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</ul>
+
 				</div><!-- entry-content -->
+			</div><!-- bd -->
 
-<figure class="kudo kudoable" data-id="1">
-    <a class="kudobject">
-        <div class="opening">
-            <div class="circle">&nbsp;</div>
-        </div>
-    </a>
-    <a href="#kudo" class="count">
-        <span class="num">0</span>
-        <span class="txt">Kudos</span>
-    </a>
-</figure>
+                
+                    <figure class="kudo kudoable" data-id="1">
+                        <a class="kudobject">
+                            <div class="opening">
+                                <div class="circle">&nbsp;</div>
+                            </div>
+                        </a>
+                        <a href="#kudo" class="count">
+                            <span class="num">0</span>
+                            <span class="txt">Kudos</span>
+                        </a>
+                    </figure>
 
-				<div class="misc-content" style="padding-top: 30px">
+                    <!-- p clas="subscribe" style="background: #fcf7ab; padding-left: 10px">
+
+                    <a href="http://twitter.com/amitu">Follow me on twitter:
+                          @amitu</a>.
+
+                    </p -->
+                
+
+          
 					<div class="comment">
             <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -158,17 +249,10 @@ repositories/branches.</p>
 <a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
 
 					</div>
-				</div><!-- misc-content -->
-			</div><!-- bd -->
+          
+
 			<footer class="unit-foot">
 				<div class="unit-inner unit-foot-inner">
-					<nav class="pagination">
-						<ul>
-							
-							
-							
-						</ul>
-					</nav>
 					<!-- p class="gotop">
 						<a href="#page">Back to Top</a>
 					</p -->
