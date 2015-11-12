@@ -2,14 +2,18 @@
 
 set -x
 
-wget -m http://localhost:8000/do/
+wget -m http://localhost:9999/do/
 
 set -e
 
 rm -rf build
-mv localhost:8000 build
+mv localhost:9999 build
 cp CNAME build
 
 ghp-import -b master -m "syncing" build
 
-echo "done. next: git push --all"
+if [ "$1" == "push" ]
+    git push --all
+else
+    echo "done. next: git push --all"
+fi

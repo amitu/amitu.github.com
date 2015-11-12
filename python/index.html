@@ -1,5 +1,6 @@
 {% extends "page.html" %}
 {% block title %}Python{% endblock %}
+{% block comments %}{% endblock %}
 {% block page_content %}
 {% filter md %}
 
@@ -13,19 +14,7 @@ guide](/style.html) I follow.
 [The Python Book I Am Writing](https://www.reddit.com/r/Pyth
 on/comments/3bqt1h/writing_book_on_python_python_for_developers_1st/).
 
--- Amit Upadhyay
-
-PS: [Subscribe to my python list
-here](https://app.convertkit.com/landing_pages/2556/?ref=p1).
-
-
-<header>
-    <div class="unit-head">
-        <div class="unit-inner unit-head-inner">
-            <h1 class="h2 entry-title">Python Blog</h1>
-        </div><!-- unit-inner -->
-    </div><!-- unit-head -->
-</header>
+<h3>Blog</h3>
 
 <ul class="posts">
     {% for post in posts %}
@@ -37,5 +26,11 @@ here](https://app.convertkit.com/landing_pages/2556/?ref=p1).
         {% endif %}
     {% endfor %}
 </ul>
+
+-- Amit Upadhyay
+
+PS: [Subscribe to my python list
+here](https://app.convertkit.com/landing_pages/2556/?ref=p1).
+
 {% endfilter %}
 {% endblock %}
