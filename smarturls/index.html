@@ -56,7 +56,7 @@
 easy regex creation for django urls. The library can be extended by using
 django setting system.</p>
 <h4>Install smarturls</h4>
-<div class="codehilite"><pre><span class="nv">$ </span>easy_install smarturls
+<div class="codehilite"><pre><span class="nv">$ </span>pip smarturls
 </pre></div>
 
 
@@ -105,6 +105,9 @@ the django setting SURL_REGEXERS.</p>
 <li>slug: [\w-]+</li>
 <li>digit: \d{1,1}</li>
 <li>username: [\w.@+-]+</li>
+<li>base64: [0-9a-zA-Z-_]+={0,2}</li>
+<li>uuid: "[A-Fa-f0-9]{8}-?[A-Fa-f0-9]{4}-?4[A-Fa-f0-9]{3}-?[89abAB][a-fA-F0-9]{3}-?[a-fA-F0-9]{12}"</li>
+<li><a href="http://github.com/amitu/django-encrypted-id">ekey</a>: "[0-9a-zA-Z-_]+.{0,2}"</li>
 </ul>
 <h4>Contribute</h4>
 <p>Do you repeatedly use some URL pattern that everyone may want to use? Please
