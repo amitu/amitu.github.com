@@ -11,7 +11,7 @@ django setting system.
 #### Install smarturls
 
     :::bash
-    $ easy_install smarturls
+    $ pip smarturls
 
 #### Example usage
 
@@ -63,6 +63,9 @@ By default smarturls comes with the following patterns:
  * slug: \[\w-\]+
  * digit: \d{1,1}
  * username: \[\w.@+-\]+
+ * base64: [0-9a-zA-Z\-_]+={0,2}
+ * uuid: "[A-Fa-f0-9]{8}-?[A-Fa-f0-9]{4}-?4[A-Fa-f0-9]{3}-?[89abAB][a-fA-F0-9]{3}-?[a-fA-F0-9]{12}"
+ * [ekey](http://github.com/amitu/django-encrypted-id): "[0-9a-zA-Z\-_]+\.{0,2}"
 
 #### Contribute
 
