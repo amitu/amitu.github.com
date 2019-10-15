@@ -1,6 +1,6 @@
 Django==1.11.23
 Markdown==2.6.1
-PyYAML==3.11
+PyYAML==5.1
 Pygments==2.0.2
 dj-database-url==0.3.0
 -e git+git@github.com:amitu/djangothis.git@c16fec947ce01288e2431fcc1d081b539a1bcdc6#egg=djangothis-master
